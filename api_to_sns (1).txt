@@ -1,0 +1,5 @@
+{
+"APNS": "{\"aps\":{\"alert\": \"TEST\"} }", 
+"APNS_SANDBOX":"{\"aps\":{\"alert\":\"TEST\"}}", 
+"GCM": "{ \"data\": { \"message\": \"TEST\" } }", 
+}
