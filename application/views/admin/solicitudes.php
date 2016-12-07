@@ -1,4 +1,3 @@
-<?=var_dump('hola')?>
 			</div>
 			<script src="<?=base_url()?>js/departamentos.js"></script>
 
