@@ -1,2 +1,0 @@
-# digesis
-Sistema de encuentas
