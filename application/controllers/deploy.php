@@ -8,6 +8,7 @@ class Deploy extends CI_Controller {
 
 	}
 
+
 	public function index() {
 
 $LOCAL_ROOT='/var/www/html';
