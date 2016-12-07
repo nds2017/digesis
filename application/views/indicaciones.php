@@ -34,7 +34,7 @@ las cuales se calificaran en el rango del 0 a 9 donde 0 indica completa insatisf
 					<li class="l9"><a href="">9</a></li>
 				</ul>
 				<div class="cont-btn">
-					<input type="button" value="ACEPTAR" onclick="window.location='<?=base_url()?>index.php/encuestas/preguntas/1';">
+					<input type="button" value="ACEPTAR" onclick="window.location='<?=base_url()?>index.php/encuestas/preguntas/t75r65';">
 				</div>
 			</div>
 		</div>

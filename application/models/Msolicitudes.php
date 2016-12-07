@@ -29,6 +29,7 @@ class Msolicitudes extends CI_Model
 	}
 
 	public function solicitudes_encuestas($tid = false, $estado = false) {
+		$rows = array();
 		$this->db->select('s.*, ts.nombre AS tsnombre, e.nombre AS enombre');
 		$this->db->from('solicitudes s');
 		$this->db->join('tiposervicios ts', 'ts.id = s.tiposervicioid', 'left');
@@ -36,12 +37,17 @@ class Msolicitudes extends CI_Model
 		$this->db->join('estados e', 'e.id = s.estadoid', 'left');
 		if ( is_numeric($estado) && ( $estado != 0 ) )
 			$this->db->where('s.estadoid', $estado);
-		$where = "(st.t1id = $tid OR st.t2id = $tid)";
-		$this->db->where($where);
+		if ( is_numeric($tid) && ( $tid != 0 ) ) {
+			$where = "(st.t1id = $tid OR st.t2id = $tid)";
+			$this->db->where($where);
+		}
 		$query = $this->db->get();
 		if ( $query->num_rows() > 0 ) {
-			return $query->result();
+			foreach ( $query->result() as $key => $row ) {
+				$rows[$row->id] = $row;
+			}
 		}
+		return $rows;
 	}
 
 	public function solicitudes_cantidades() {
@@ -158,16 +164,18 @@ class Msolicitudes extends CI_Model
 		}
 	}
 
-	public function solicitudesrf_encuestas($tid = false, $estadorf = false) {
+	public function solicitudesrf_encuestas($tid = false) {
 		$this->db->select('s.*, ts.nombre AS tsnombre, rf.nombre AS rfnombre');
 		$this->db->from('solicitudes s');
 		$this->db->join('tiposervicios ts', 'ts.id = s.tiposervicioid', 'left');
 		$this->db->join('solicitudestecnicos st', 'st.sid = s.id', 'left');
 		$this->db->join('estadosrf rf', 'rf.id = s.rf', 'left');
-		if ( is_numeric($estadorf) && ( $estadorf != 0 ) )
-			$this->db->where('s.rf', $estadorf);
-		$where = "(st.t1id = $tid OR st.t2id = $tid)";
-		$this->db->where($where);
+		$this->db->where('s.estadoid', 2);
+		$this->db->where_in('s.rf', array(1, 2));
+		if ( is_numeric($tid) && ( $tid != 0 ) ) {
+			$where = "(st.t1id = $tid OR st.t2id = $tid)";
+			$this->db->where($where);
+		}
 		$query = $this->db->get();
 		if ( $query->num_rows() > 0 ) {
 			return $query->result();

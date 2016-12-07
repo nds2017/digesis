@@ -7,11 +7,13 @@ class Mencuestas extends CI_Model
 		parent::__construct();
 	}
 
-	public function encuestas_getPregunta($preguntaid = false) {
-		$query = $this->db->query("SELECT dptoid FROM provincias WHERE id = $preguntaid");
+	public function encuestas_preguntas() {
+		$rows = array();
+		$query = $this->db->query("SELECT * FROM preguntas");
 		foreach ( $query->result() as $row ) {
-			return $row->dptoid;
+			$rows[$row->id] = $row->pregunta;
 		}
+		return $rows;
 	}
 
 }

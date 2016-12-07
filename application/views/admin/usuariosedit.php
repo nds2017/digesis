@@ -1,7 +1,7 @@
 			</div>
 
 			<div class="list-mod-panel">
-				<h1 style="float: left;"> Crear Usuario &nbsp;&nbsp;</h1>
+				<h1 style="float: left;"> <?=(@$disabled?'Tu Usuario':'Crear Usuario')?>&nbsp;&nbsp;</h1>
 				<h2><a href="<?=base_url()?>index.php/usuarios/lista">Regresar a Lista de Usuarios</a></h2>
 			</div>
 			<br>

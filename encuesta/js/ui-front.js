@@ -3,6 +3,18 @@
 
 $( document ).ready(function() {
    
+   
+     var ID = function () {
+	  var postfix="sid";
+      return Math.random().toString(36).substr(2, 9)+'-'+postfix ;
+    };  
+   
+     $( ".container-list .cont-solicitud" ).each(function( index ) {
+		 var nkey=ID();
+		 var n_item=$(this);
+		 n_item.attr("id", nkey);
+     });  
+   
 $( "#datepicker1" ).datepicker({
 	onSelect: function(dateText, inst) {
 		//$(".schedule .calendar").hide();
@@ -48,7 +60,11 @@ $( "#datepicker2" ).datepicker({
 
 
 $(".cont-solicitud .combo-ui" ).each(function() {
+	
+ 
   var t=$( this );
+  var sid=t.parent().attr("id");
+  //alert(sid);
   //console.log(t);
   var sel=t.find("select");
   	//sel.val("Pendiente");
@@ -85,6 +101,8 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".reject").show();
 		$(".schedule .datetime").show();
 		$(".schedule .calendar").show();
+		$(".reject").find("#reject-sid").val(sid);
+		
 	  }else if(rule2){
 		//a.addClass("display-none");
 		//b.addClass("display-none");
@@ -100,6 +118,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".reject").hide();
 		$(".schedule .datetime").show();
 		$(".schedule .calendar").show();
+		$(".test").find("#test-sid").val(sid);
 		//console.log("validado");
 		
 	  }else if(rule3){
@@ -118,6 +137,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".schedule .datetime").show();
 		$(".schedule .calendar").show();	
 		$("#datepicker").trigger( "focus" );
+		$(".schedule").find("#schedule-sid").val(sid);
 		//console.log("reprogramado")
 	  }else if(rule4){
 		//a.addClass("display-none");
@@ -135,6 +155,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".schedule .datetime").show();
 		$(".schedule .calendar").show();
 		//console.log("pendiente");
+		$(".test").find("#test-sid").val(sid);
 		$( "#datepicker" ).datepicker('setDate', null);	
 		  
 	  }else{
@@ -201,6 +222,8 @@ if($(".cont-login.thanks").length!==0){
 
 }
 
+
+
 //
 
 
@@ -224,17 +247,27 @@ if($(".cont-login.thanks").length!==0){
 								
 								$(".ui-tabs-links li a").click(function (event) {
 										event.preventDefault();
+
 										$(".ui-tabs-links li").removeClass("active");
 										$(this).parent().addClass("active");
+										
+
+
+
 										var i = $(this).parent().index();
-										//console.log("i:"+i);
+										$(".ui-tab-item").removeClass("active");
+										$(".ui-tab-item").eq(i).addClass("active");
+										var nH = $(".ui-tab-item.active").height();
+										$(".ui-container-tab").height(nH);
+										$(".wrap-ui-container-tab").height(nH);	
+																			//console.log("i:"+i);
 										var cpos=$(".ui-container-tab").css("left").replace("px","");
 										//console.log("cpos:"+cpos);
 										
 										var npos=-(wrapW*i);
 
 										//console.log("npos:"+npos);
-										$(".ui-container-tab").attr("style","width:"+fwrap+"px;position:absolute;left:"+npos+"px;");
+										$(".ui-container-tab").attr("style","width:"+fwrap+"px; height:"+nH+"px;position:absolute;left:"+npos+"px;");
 								});
 
 		}
@@ -257,6 +290,16 @@ if($(".cont-login.thanks").length!==0){
 	function hidepop(){
 		$(".ui-popup-options").fadeOut("fast");
 	};
+
+	//CANCEL
+	if($(".cancel").length!==0){
+			$(".cancel").click(function(event) {
+				event.preventDefault();
+				hidepop();
+			});
+	}
+
+
 	if($(".ui-popup-options").length!==0){	
 		$(".ui-popup-options-contenido .icon-cerrar").click(function(event) {
 			//$(this).parent().parent().parent().parent().hide();
@@ -285,8 +328,7 @@ if($(".cont-login.thanks").length!==0){
 				var s=$(this);
 				if (s.hasClass('icon-encuestar')) {
 					//linking poll
-					//alert($(this).attr('href'));
-					location.href="../index.php/encuestas/indicaciones";
+					location.href = "../index.php/encuestas/indicaciones/t75r65";
 				}
 				s.addClass("active");
 			});
