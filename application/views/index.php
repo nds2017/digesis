@@ -22,7 +22,6 @@
 						<input class="input_f" name="dni" type="text" value="DNI">
 						<input class="btn-active" type="submit" value="INGRESAR">
 						<?=(@$error)?'DNI INCORRECTO':''?>
-												<?=var_dump('hola')?>
 					</form>
 				</div>
 			</div>
