@@ -8,12 +8,19 @@
 		<script src="<?=base_url()?>encuesta/js/jquery-1.9.1.min.js"></script>
 		<script src="<?=base_url()?>encuesta/js/jquery-ui.js"></script>
 		<script src="<?=base_url()?>encuesta/js/ui-front.js" type="text/javascript"></script>
-
 		<script>
 			function selectrow(value) {
 				$("#respuesta").val(value);
 				$("#siguiente").prop('disabled', false);
 			}
+			$(document).ready(function() {
+				$( "#form" ).submit(function( event ) {
+					if ( $("#respuesta").val() != "" )
+						return;
+					$("#aviso").show('slow');
+					event.preventDefault();
+				});
+			});
 		</script>
 	</head>
 
@@ -23,7 +30,7 @@
 				 <img src="<?=base_url()?>encuesta/img/logo.png"/>
 			</header>
 			<div class="body_w">
-				<form method="post">
+				<form id="form" method="post">
 					<div class="indications questions">
 						<p><span><?=$npregunta->n?></span><?=$npregunta->pregunta?></p>
 						<ul>
@@ -38,11 +45,11 @@
 							<li onclick="selectrow(8);" class="l8"><a href="">8</a></li>
 							<li onclick="selectrow(9);" class="l9"><a href="">9</a></li>
 						</ul>
+						<p style="display:none;" id="aviso"> Debe seleccionar puntaje </p>
 						<div class="cont-btn">
-							<input type="hidden" name="respuesta" value="0" id="respuesta" />
+							<input type="hidden" name="respuesta" value="" id="respuesta" />
 							<input type="hidden" name="npregunta" value="<?=$npregunta->n?>" />
-							<!--<input type="button" value="SIGUIENTE" onclick="window.location='<?=base_url()?>index.php/encuestas/preguntafinal';">-->
-							<input disabled id="siguiente" type="submit" value="SIGUIENTE" />
+							<input id="siguiente" type="submit" value="SIGUIENTE" />
 						</div>
 					</div>
 				</form>

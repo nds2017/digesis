@@ -767,6 +767,16 @@ table {
 	margin-bottom: 20px;
 }
 
+.divseg {
+	padding-left: 50px;
+	float: left;
+	width: 45%;
+}
+
+.tableseg {
+	margin: 0px;
+}
+
 .tablep {
 	max-width: 90%;
 } 

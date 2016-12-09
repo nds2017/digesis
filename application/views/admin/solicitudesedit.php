@@ -45,6 +45,18 @@
 				<tr>
 					<td>Plano : </td><td><input type="text" name="plano" value="<?=@$data->plano?>"></td>
 				</tr>
+				<?php if ( @$data->id ) { ?>
+				<tr>
+					<td>Estado : </td>
+					<td>
+						<select name="estadoid">
+							<?php foreach ( $estados as $key => $estado ) { ?>
+								<option <?=(@$data->estadoid==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$estado?></option>
+							<?php } ?>
+						</select>
+					</td>
+				</tr>
+				<?php } ?>
 				</table>
 				<fieldset class="fieldform">
 					<legend><b>Cliente</b></legend>
@@ -145,7 +157,7 @@
 				<br><br>
 				<div class="divbuttons">
 					<input class="btnsearch" type="button" value="Regresar a Lista" onclick="window.location='<?=base_url()?>index.php/solicitudes/lista';">
-					<input class="btnsearch" type="submit" value="<?=(@$data? 'Guardar' : 'Crear')?>">
+					<input <?=(@$admin)?'':'disabled'?> class="btnsearch" type="submit" value="<?=(@$data? 'Guardar' : 'Crear')?>">
 				</div>
 		</div>
 	</div>

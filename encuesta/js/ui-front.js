@@ -9,11 +9,11 @@ $( document ).ready(function() {
       return Math.random().toString(36).substr(2, 9)+'-'+postfix ;
     };  
    
-     $( ".container-list .cont-solicitud" ).each(function( index ) {
+     /*$( ".container-list .cont-solicitud" ).each(function( index ) {
 		 var nkey=ID();
 		 var n_item=$(this);
 		 n_item.attr("id", nkey);
-     });  
+     });  */
    
 $( "#datepicker1" ).datepicker({
 	onSelect: function(dateText, inst) {
@@ -63,9 +63,9 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 	
  
   var t=$( this );
-  var sid=t.parent().attr("id");
-  //alert(sid);
-  //console.log(t);
+  //var sid=t.parent().attr("id");
+  var sid=t.parent().attr("data-codigo");
+  //console.log(sid);
   var sel=t.find("select");
   	//sel.val("Pendiente");
 	//sel.find("option[value='Pendiente']").attr('selected','selected');
@@ -319,16 +319,13 @@ if($(".cont-login.thanks").length!==0){
 	});
 	
 	$(".ui-popup-options-list" ).each(function() {
-
 			var t=$(this);
 			t.find("li a").click(function(event) {
 				event.preventDefault();
-
 				t.find("li a").removeClass("active");
 				var s=$(this);
 				if (s.hasClass('icon-encuestar')) {
-					//linking poll
-					location.href = "../index.php/encuestas/indicaciones/t75r65";
+					location.href = "../index.php/encuestas/indicaciones/" + $("#test-sid").val();
 				}
 				s.addClass("active");
 			});

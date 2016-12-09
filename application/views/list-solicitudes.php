@@ -72,33 +72,34 @@
 			</div>
 			<div class="ui-popup-options-wrapper client">
 				<div class="ui-popup-options-contenido">
-				<input type="hidden" id="client-sid" name="client-sid" value="empty-sid">
-				<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">SELECCIONAR</span></div>
-				<ul class="ui-popup-options-list">
-					<li>
-						<a class="icon-cerrar" href="#"> PLANTA EXTERNA</a>
-					</li>
-					<li>
-						<a class="icon-cerrar" href="#"> POR SISTEMAS</a>
-					</li>
-					 <li>
-						<a class="icon-cerrar" href="#">VALIDACION REMOTA</a>
-					</li>
-					<li>
-						<a class="icon-cerrar" href="#">FACILIDADES DEL CLIENTE</a>
-					</li>
-					<li>
-						<a class="icon-cerrar" href="#"> CONTRATISTA</a>
-					</li>
-					<li>
-						<a class="icon-cerrar" href="#"> FACILIDADES INTERNAS2</a>
-					</li>
-				</ul>
-				<div class="client-box display-none">
-					<input type="text"><input type="button" class="icon-cerrar" value="GUARDAR"> 
+					<input type="hidden" id="client-sid" name="client-sid" value="empty-sid">
+					<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">SELECCIONAR</span></div>
+					<ul class="ui-popup-options-list">
+						<li>
+							<a class="icon-cerrar" href="#"> PLANTA EXTERNA</a>
+						</li>
+						<li>
+							<a class="icon-cerrar" href="#"> POR SISTEMAS</a>
+						</li>
+						 <li>
+							<a class="icon-cerrar" href="#">VALIDACION REMOTA</a>
+						</li>
+						<li>
+							<a class="icon-cerrar" href="#">FACILIDADES DEL CLIENTE</a>
+						</li>
+						<li>
+							<a class="icon-cerrar" href="#"> CONTRATISTA</a>
+						</li>
+						<li>
+							<a class="icon-cerrar" href="#"> FACILIDADES INTERNAS2</a>
+						</li>
+					</ul>
+					<div class="cont-btn final-p">
+						<input type="button" value="GUARDAR">
+						<input class="cancel" type="button" value="CANCELAR">
+					</div>
 				</div>
 			</div>
-		</div>
 		<div class="ui-popup-options-wrapper test">
 			<input type="hidden" id="test-sid" name="test-sid" value="empty-sid">
 			<div class="ui-popup-options-contenido">
@@ -111,6 +112,10 @@
 						<a class="icon-cerrar" href="#">Denegar Encuesta</a>
 					</li>
 				</ul>
+				<div class="cont-btn final-p">
+					<input type="button" value="GUARDAR">
+					<input class="cancel" type="button" value="CANCELAR">
+				</div>
 			</div>
 		</div>
 		<div class="ui-popup-options-wrapper reject">
@@ -231,7 +236,7 @@
 								<div class="tab-title">BANDEJA DE ENTRADA</div>
 								<?php if ( count($reprogramados) ) { ?>
 								<?php foreach ( $reprogramados as $key => $reprogramado ) { ?>
-								<div class="cont-solicitud active tservicio">
+								<div class="cont-solicitud active tservicio" data-codigo="<?=$reprogramado->id?>">
 									<div class="data1 t1">TIPO DE SERVICIO</div>
 									<div class="data2"><?=$reprogramado->tsnombre?></div>
 									<div class="data1">CÓDIGO SOT</div>
@@ -243,7 +248,7 @@
 										<select name="">
 											<option value="Seleccionar">Seleccionar</option>
 											<option value="Validado">Validado</option>
-											<option value="Pendiente">Pendiente de Validar</option>
+											<option value="Pendiente">Pendiente</option>
 											<option selected value="Reprogramado">Reprogramado</option>
 											<option value="Rechazado">Rechazado</option>
 										</select>
@@ -272,7 +277,7 @@
 
 								<?php if ( count($nuevos) ) { ?>
 								<?php foreach ( $nuevos as $key => $nuevo ) { ?>
-								<div class="cont-solicitud">
+								<div class="cont-solicitud" data-codigo="<?=$nuevo->id?>">
 									<div class="data1">TIPO DE SERVICIO</div>
 									<div class="data2"><?=$nuevo->tsnombre?></div>
 									<div class="data1">CÓDIGO SOT</div>
@@ -315,7 +320,7 @@
 								<div class="tab-title">PENDIENTE VALIDAR</div>
 								<?php if ( count($pendientes) ) { ?>
 								<?php foreach ( $pendientes as $key => $pendiente ) { ?>
-								<div class="cont-solicitud">
+								<div class="cont-solicitud" data-codigo="<?=$pendiente->id?>">
 									<div class="data1">CÓDIGO SOT</div>
 									<div class="data2"><?=$pendiente->id?></div>
 									<div class="data1">MOTIVO</div>

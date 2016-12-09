@@ -16,4 +16,8 @@ class Mencuestas extends CI_Model
 		return $rows;
 	}
 
+	public function encuestas_setresultados($data) {
+		$this->db->replace('encuestas', $data);
+	}
+
 }

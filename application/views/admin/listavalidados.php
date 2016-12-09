@@ -8,7 +8,7 @@
 					<nav class="top_menu">
 						<ul>
 							<li><a href="<?=base_url()?>index.php/solicitudes/listatecnicos">Pendiente de Asignar&nbsp;&nbsp;|</a></li>
-							<li><a href="#">Seguimiento&nbsp;&nbsp;|</a></li>
+							<li><a href="<?=base_url()?>index.php/solicitudes/seguimiento">Seguimiento&nbsp;&nbsp;|</a></li>
 							<li class="active"><a href="<?=base_url()?>index.php/solicitudes/listavalidados">Incidencias(<?=count(@$data)?>)&nbsp;&nbsp;|</a></li>
 						</ul>
 					</nav>
@@ -52,7 +52,6 @@
 						<th scope="col"><span>TÉCNICO 1</span></th>
 						<th scope="col"><span>TÉCNICO 2</span></th>
 						<th scope="col"><span>N° INCIDENCIA</span></th>
-						<th scope="col"><span>ESTADO</span></th>
 						<th scope="col"><span>AGREGAR</span></th>
 					</tr>
 				</thead>
@@ -67,7 +66,6 @@
 					<td><strong><?=isset($tecnicos1[$row->t1id])?$tecnicos1[$row->t1id]:'-'?></strong></td>
 					<td><strong><?=isset($tecnicos2[$row->t2id])?$tecnicos2[$row->t2id]:'-'?></strong></td>
 					<td><strong><?=isset($row->incidencias)?$row->incidencias:'-'?></strong></td>
-					<td><strong><?=$row->enombre?></strong></td>
 					<td><a title="Agregar Incidencia"  href="<?=base_url()?>index.php/solicitudes/formincidencia/<?=$row->id?>"><img src="<?=base_url()?>img/agregar.png"></a></td>
 				</tr>
 				<?php } ?>
