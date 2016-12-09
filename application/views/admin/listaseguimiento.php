@@ -53,6 +53,7 @@
 				<?php } ?>
 				</table>
 				</div>
+				<br>
 			<?php } ?>
 			<?php } ?>
 		</div>

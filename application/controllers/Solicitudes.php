@@ -136,7 +136,7 @@ class Solicitudes extends CI_Controller {
 		$data['distritos'] = $this->mdepartamentos->distritos_entrys(@$data['provinciaid']);
 		$data['provincias'] = $this->mdepartamentos->provincias_entrys(@$data['departamentoid']);
 		$data['departamentos'] = $this->mdepartamentos->departamentos_entrys();
-		$today = isset($_POST) ? FALSE : TRUE;
+		$today = count($_POST) ? FALSE : TRUE;
 		$data['data'] = $this->msolicitudes->solicitudesvalidadas_entrys($data['distritoid'], $data['solicitudid'], $today);
 		$data['tecnicos1'] = $this->mtecnicos->tecnicos_byCargo(1);
 		$data['tecnicos2'] = $this->mtecnicos->tecnicos_byCargo(2);

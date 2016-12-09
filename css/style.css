@@ -768,9 +768,9 @@ table {
 }
 
 .divseg {
-	padding-left: 50px;
 	float: left;
-	width: 45%;
+	max-width: 80%;
+	width: 40%;
 }
 
 .tableseg {

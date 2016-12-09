@@ -103,10 +103,9 @@ class Msolicitudes extends CI_Model
 
 	public function solicitudesvalidadas_entrys($distritoid = false, $solicitudid = '', $today = false) {
 		$rows = array();
-		$this->db->select('s.*, st.*, ts.nombre AS tsnombre, dist.nombre AS distrito, dpto.nombre AS dpto');
+		$this->db->select('s.*, ts.nombre AS tsnombre, dist.nombre AS distrito, dpto.nombre AS dpto');
 		$this->db->from('solicitudes s');
 		$this->db->join('tiposervicios ts', 'ts.id = s.tiposervicioid', 'left');
-		$this->db->join('solicitudestecnicos st', 'st.sid = s.id', 'left');
 		$this->db->join('distritos dist', 'dist.id = s.distritoid', 'left');
 		$this->db->join('provincias prov', 'prov.id = dist.provinciaid', 'left');
 		$this->db->join('departamentos dpto', 'dpto.id = prov.dptoid', 'left');
@@ -117,7 +116,7 @@ class Msolicitudes extends CI_Model
 				$this->db->where('s.id LIKE "%' . $solicitudid . '%"', NULL, FALSE);
 		}
 		else {
-			$this->db->join('incidencias i', 'i.sid = s.id', 'left');
+			$this->db->join('incidencias i', 'i.sid = s.id', 'inner');
 			$this->db->where('i.fecha_incidencia', strtotime(date('d-m-Y')));
 		}
 		$this->db->where('s.estadoid', 2);
