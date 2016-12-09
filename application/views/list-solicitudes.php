@@ -169,7 +169,7 @@
 			<div class="list-solicitud">
 				<div class="cont_time-s">
 					<h4>Fecha: <?=date('d/m/Y')?></h4>
-					<!--<h4>SOT Asignadas: <span>3</span></h4>-->
+					<h4><a href="<?=base_url()?>">Cerrar Sesión</a></h4>
 				</div>
 				<div class="estados">
 					<div class="total_e">

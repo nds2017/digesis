@@ -13,13 +13,17 @@ class Encuestas extends CI_Controller {
 		if ( isset($_GET['dni']) && (!empty($_GET['dni'])) ) {
 			$this->load->model('mtecnicos');
 			$tid = $this->mtecnicos->tecnicobyDNI($_GET['dni']);
-			$data['nuevos'] = $this->msolicitudes->solicitudes_encuestas($tid, 1);
-			$data['atendidos'] = $this->msolicitudes->solicitudes_encuestas($tid, 2);
-			$data['pendientes'] = $this->msolicitudes->solicitudes_encuestas($tid, 3);
-			$data['reprogramados'] = $this->msolicitudes->solicitudes_encuestas($tid, 4);
-			$data['rechazados'] = $this->msolicitudes->solicitudes_encuestas($tid, 5);
-			$data['sinfotos'] = $this->msolicitudes->solicitudesrf_encuestas($tid);
-			$this->load->view('list-solicitudes', $data);
+			if ( $tid ) {
+				$data['nuevos'] = $this->msolicitudes->solicitudes_encuestas($tid, 1);
+				$data['atendidos'] = $this->msolicitudes->solicitudes_encuestas($tid, 2);
+				$data['pendientes'] = $this->msolicitudes->solicitudes_encuestas($tid, 3);
+				$data['reprogramados'] = $this->msolicitudes->solicitudes_encuestas($tid, 4);
+				$data['rechazados'] = $this->msolicitudes->solicitudes_encuestas($tid, 5);
+				$data['sinfotos'] = $this->msolicitudes->solicitudesrf_encuestas($tid);
+				$this->load->view('list-solicitudes', $data);
+			}
+			else
+				redirect('welcome');
 		}
 		else
 			redirect('welcome');

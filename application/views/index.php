@@ -15,7 +15,7 @@
 
 	<body>
 		<div class="wrapper">
-			<header><img src="<?=base_url()?>encuesta/img/logo.png"/></header>
+			<header><a href="<?=base_url()?>"><img src="<?=base_url()?>encuesta/img/logo.png"/></a></header>
 			<div class="body_w">
 				<div class="cont-login">
 					<form action="<?=base_url()?>index.php/welcome" method="get">
