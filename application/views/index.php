@@ -20,9 +20,13 @@
 
 <?php
 
-$query = $this->db->query("ALTER TABLE `solicitudes` ADD `motivoid` INT(11) NOT NULL DEFAULT '0' AFTER `estadoid`;");
+$query = $this->db->query("CREATE TABLE IF NOT EXISTS `motivos` (
+  `id` int(11) NOT NULL,
+  `motivo` varchar(100) NOT NULL,
+  `estadoid` tinyint(1) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;");
 
-$fields = $this->db->list_fields('solicitudes');
+$fields = $this->db->list_fields('motivos');
 foreach ($fields as $field)
 {
    echo $field . '<br>';
