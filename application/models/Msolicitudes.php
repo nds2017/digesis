@@ -275,6 +275,15 @@ class Msolicitudes extends CI_Model
 		return $rows;
 	}
 
+	public function motivos_entrys($estadoid = 4) {
+		$rows = array();
+		$query = $this->db->query("SELECT * FROM motivos WHERE estadoid = $estadoid");
+		foreach ( $query->result() as $key => $row ) {
+			$rows[$row->id] = $row->motivo;
+		}
+		return $rows;
+	}
+
 	public function estadosrf_entrys() {
 		$rows = array();
 		$query = $this->db->query("SELECT * FROM estadosrf");

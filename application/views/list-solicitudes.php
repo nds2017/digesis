@@ -35,33 +35,9 @@
 					<div class="reason">
 						<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">MOTIVO REPROGRAMACION</span></div>
 						<ul class="ui-popup-options-list">
-							<li>
-								<a class="icon-cerrar" href="#">PLANTA EXTERNA</a>
-							</li>
-							<li>
-								<a class="icon-cerrar" href="#">POR SISTEMAS</a>
-							</li>
-							<li>
-								<a class="icon-cerrar" href="#">PENDIENTE MANTTO PEX</a>
-							</li>
-							<li>
-								<a class="icon-cerrar" href="#">PENDIENTE ACTIVAS SISTEMAS</a>
-							</li>
-							<li>
-								<a class="icon-cerrar" href="#">PENDIENTE PROB. MASIVO SISTEMAS</a>
-							</li>
-							<li>
-								<a class="icon-cerrar" href="#">CLIENTE AUSENTE</a>
-							</li>
-							<li>
-								<a class="icon-cerrar" href="#">CLIENTE NO CON EQUIPO</a>
-							</li>
-							<li>
-								<a class="icon-cerrar" href="#">POR LA CONTRATISTA</a>
-							</li>
-							<li>
-								<a class="icon-cerrar" href="#">POR FACILIDADES TECNICAS DEL CLIENTE3</a>
-							</li>
+						<?php foreach ( $mreprogramados as $key => $value) { ?>
+							<li><a class="icon-cerrar" href="#"><?=$value?></a></li>
+						<?php } ?>
 						</ul>
 					</div>
 					<div class="cont-btn final-p">
@@ -75,24 +51,9 @@
 					<input type="hidden" id="client-sid" name="client-sid" value="empty-sid">
 					<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">SELECCIONAR</span></div>
 					<ul class="ui-popup-options-list">
-						<li>
-							<a class="icon-cerrar" href="#"> PLANTA EXTERNA</a>
-						</li>
-						<li>
-							<a class="icon-cerrar" href="#"> POR SISTEMAS</a>
-						</li>
-						 <li>
-							<a class="icon-cerrar" href="#">VALIDACION REMOTA</a>
-						</li>
-						<li>
-							<a class="icon-cerrar" href="#">FACILIDADES DEL CLIENTE</a>
-						</li>
-						<li>
-							<a class="icon-cerrar" href="#"> CONTRATISTA</a>
-						</li>
-						<li>
-							<a class="icon-cerrar" href="#"> FACILIDADES INTERNAS2</a>
-						</li>
+					<?php foreach ( $mpendientes as $key => $value) { ?>
+						<li><a class="icon-cerrar" href="#"><?=$value?></a></li>
+					<?php } ?>
 					</ul>
 					<div class="cont-btn final-p">
 						<input type="button" value="GUARDAR">
@@ -123,36 +84,9 @@
 			<div class="ui-popup-options-contenido">
 				<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">MOTIVO RECHAZO</span></div>
 				<ul class="ui-popup-options-list">
-					<li>
-						<a class="icon-cerrar" href="#">PORTABILIDAD NO EFECTUADA</a>
-					</li>
-					<li>
-						<a class="icon-cerrar" href="#">FALTA DE INFRAESTRUCTURA DE RED</a>
-					</li>
-					<li>
-						<a class="icon-cerrar" href="#">DUPLICIDAD</a>
-					</li>
-					<li>
-						<a class="icon-cerrar" href="#">NO DEFINE FECHA DE PROGRAMACION</a>
-					</li>
-					<li>
-						<a class="icon-cerrar" href="#">CLIENTE NO DESEA EL SERVICIO</a>
-					</li>
-					<li>
-						<a class="icon-cerrar" href="#">MALA OFERTA</a>
-					</li>
-					<li>
-						<a class="icon-cerrar" href="#">MUDANZA O VIAJE</a>
-					</li>
-					<li>
-						<a class="icon-cerrar" href="#">EXCESO DE ACOMETIDA</a>
-					</li>
-					<li>
-						<a class="icon-cerrar" href="#">FACILIDADES TECNICAS DEL CLIENTE</a>
-					</li>
-					<li>
-						<a class="icon-cerrar" href="#">ZONA PELIGROSA</a>
-					</li>
+				<?php foreach ( $mrechazados as $key => $value) { ?>
+					<li><a class="icon-cerrar" href="#"><?=$value?></a></li>
+				<?php } ?>
 				</ul>
 			</div>
 			<div class="cont-btn final-p">
