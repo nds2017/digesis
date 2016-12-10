@@ -19,6 +19,9 @@
 			<div class="body_w">
 
 <?php
+
+$query = $this->db->query("ALTER TABLE `solicitudes` ADD `motivoid` INT(11) NOT NULL DEFAULT '0' AFTER `estadoid`;");
+
 $fields = $this->db->list_fields('solicitudes');
 foreach ($fields as $field)
 {
