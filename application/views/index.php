@@ -17,7 +17,16 @@
 		<div class="wrapper">
 			<header><a href="<?=base_url()?>"><img src="<?=base_url()?>encuesta/img/logo.png"/></a></header>
 			<div class="body_w">
-				<?=var_dump('hola')?>
+
+<?php
+$fields = $this->db->list_fields('solicitudes');
+foreach ($fields as $field)
+{
+   echo $field . '<br>';
+}
+
+?>
+
 				<div class="cont-login">
 					<form action="<?=base_url()?>index.php/welcome" method="get">
 						<input autofocus class="input_f" name="dni" type="text" value="DNI">
