@@ -13,8 +13,7 @@
 
 	</head>
 
-	<body>
-	<h1>Clona el repo</h1>
+	<body>	
 		<div class="wrapper">
 			<header><a href="<?=base_url()?>"><img src="<?=base_url()?>encuesta/img/logo.png"/></a></header>
 			<div class="body_w">
