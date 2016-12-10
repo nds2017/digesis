@@ -15,7 +15,7 @@ class Mjefes extends CI_Model
 			if ( !empty($bnombres) )
 				$this->db->where('CONCAT(c.nombres, " ", c.apellidos) LIKE "%' . $bnombres . '%"', NULL, FALSE);
 			if ( $publish )
-				$this->db->where('s.publish', $publish);
+				$this->db->where('c.publish', $publish);
 			$this->db->order_by("c.id", "desc");
 		}
 		else {

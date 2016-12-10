@@ -1,4 +1,22 @@
 $(document).ready(function() {
+
+	$( "#form" ).submit(function( event ) {
+		if ( $("#dptoid").val() != 0 ) {
+			if ( $("#provinciaid").val() != 0 ) {
+				if ( $("#distritoid").val() != 0 )
+					return;
+				else
+					alert('Seleccione Distrito');
+			}
+			else
+				alert('Seleccione Provincia');
+			event.preventDefault();
+		}
+		else
+			return;
+	});
+
+
 	if ( !$("#distritoid").val() ) {
 		$("#distritoid").prop('disabled', true);
 		$("#provinciaid").prop('disabled', true);

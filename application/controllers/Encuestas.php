@@ -20,6 +20,7 @@ class Encuestas extends CI_Controller {
 				$data['reprogramados'] = $this->msolicitudes->solicitudes_encuestas($tid, 4);
 				$data['rechazados'] = $this->msolicitudes->solicitudes_encuestas($tid, 5);
 				$data['sinfotos'] = $this->msolicitudes->solicitudesrf_encuestas($tid);
+				$data['estados'] = $this->msolicitudes->estados_entrys();
 				$this->load->view('list-solicitudes', $data);
 			}
 			else

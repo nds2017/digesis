@@ -8,7 +8,7 @@
 			<br>
 			<fieldset class="search">
 				<legend></legend>
-				<form id="perfiles" method="post" action="<?=base_url()?>index.php/solicitudes/lista/<?=@$estadoid?>">
+				<form id="form" method="post" action="<?=base_url()?>index.php/solicitudes/lista/<?=@$estadoid?>">
 					<nav class="top_menu">
 						<ul>
 							<li <?=(@$estadoid==0)?'class="active"':''?>><a href="<?=base_url()?>index.php/solicitudes/lista/0">Todos (<?=$cantidades[0]?>) &nbsp;&nbsp;|</a></li>

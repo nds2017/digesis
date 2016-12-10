@@ -4,7 +4,7 @@
 			<h1> Registro Fotográfico </h1><br>
 			<fieldset class="search">
 				<legend></legend>
-				<form id="perfiles" method="post" action="<?=base_url()?>index.php/solicitudes/listarf/<?=@$estadorf?>">
+				<form id="form" method="post" action="<?=base_url()?>index.php/solicitudes/listarf/<?=@$estadorf?>">
 					<nav class="top_menu">
 						<ul>
 							<li <?=(@$estadorf==0)?'class="active"':''?>><a href="<?=base_url()?>index.php/solicitudes/listarf/0">Todos (<?=$cantidades[0]?>)&nbsp;&nbsp;|</a></li>

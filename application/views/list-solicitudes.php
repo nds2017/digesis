@@ -246,11 +246,9 @@
 									<div class="data1">ESTADO</div>
 									<div class="data2 combo step1 combo-ui">
 										<select name="">
-											<option value="Seleccionar">Seleccionar</option>
-											<option value="Validado">Validado</option>
-											<option value="Pendiente">Pendiente</option>
-											<option selected value="Reprogramado">Reprogramado</option>
-											<option value="Rechazado">Rechazado</option>
+										<?php foreach ( $estados as $estadoid => $estado ) { ?>
+											<option <?=($estadoid==4)?'selected':''?> value="<?=$estadoid?>"><?=$estado?></option>
+										<?php } ?>
 										</select>
 									</div>
 									<div class="data1 label display-none combo-ui-lnk">
@@ -287,11 +285,9 @@
 									<div class="data1">ESTADO</div>
 									<div class="data2 combo step1 combo-ui">
 										<select name="">
-											<option value="Seleccionar">Seleccionar</option>
-											<option value="Validado">Validado</option>
-											<option value="Pendiente">Pendiente</option>
-											<option value="Reprogramado">Reprogramado</option>
-											<option value="Rechazado">Rechazado</option>
+										<?php foreach ( $estados as $estadoid => $estado ) { ?>
+											<option <?=($estadoid==1)?'selected':''?> value="<?=$estadoid?>"><?=$estado?></option>
+										<?php } ?>
 										</select>
 									</div>
 									<div class="data1 label display-none combo-ui-lnk">
@@ -319,6 +315,7 @@
 							<div class="ui-tab-item tab-content">
 								<div class="tab-title">PENDIENTE VALIDAR</div>
 								<?php if ( count($pendientes) ) { ?>
+								<?php unset($estados[1], $estados[4]); ?>
 								<?php foreach ( $pendientes as $key => $pendiente ) { ?>
 								<div class="cont-solicitud" data-codigo="<?=$pendiente->id?>">
 									<div class="data1">CÓDIGO SOT</div>
@@ -332,9 +329,9 @@
 									<div class="data1">ESTADO</div>
 									<div class="data2 combo step1 combo-ui">
 										<select name="">
-											<option value="Pendiente">Pendiente</option>
-											<option value="Validado">Validado</option>
-											<option value="Rechazado">Rechazado</option>
+										<?php foreach ( $estados as $estadoid => $estado ) { ?>
+											<option <?=($estadoid==3)?'selected':''?> value="<?=$estadoid?>"><?=$estado?></option>
+										<?php } ?>
 										</select>
 									</div>
 									<div class="data1 label display-none combo-ui-lnk">

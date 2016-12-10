@@ -4,7 +4,7 @@
 			<h1> Soporte de Servicio </h1><br>
 			<fieldset class="search">
 				<legend></legend>
-				<form id="perfiles" method="post" action="<?=base_url()?>index.php/solicitudes/listavalidados">
+				<form id="form" method="post" action="<?=base_url()?>index.php/solicitudes/listavalidados">
 					<nav class="top_menu">
 						<ul>
 							<li><a href="<?=base_url()?>index.php/solicitudes/listatecnicos">Pendiente de Asignar&nbsp;&nbsp;|</a></li>
