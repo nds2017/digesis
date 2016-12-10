@@ -17,6 +17,8 @@ class Msupervisores extends CI_Model
 			$this->db->join('bases b', 'b.id = s.baseid', 'left');
 			if ( !empty($bnombres) )
 				$this->db->where('CONCAT(s.nombres, " ", s.apellidos) LIKE "%' . $bnombres . '%"', NULL, FALSE);
+			if ( $publish )
+				$this->db->where('s.publish', $publish);
 			$this->db->order_by("s.id", "desc");
 		}
 		else {

@@ -232,8 +232,9 @@ background:url(../img/tab-icon.png) no-repeat top center;
 .tab-links li a{width:100%;display:block;float:left;/* text-indent:-9999px; */overflow:hidden;min-height:70px;}
 .tab-links li a span{
     position: absolute;
-    right: -73%;
-    width: 100%;
+    /*right: -73%;*/
+    right: 7%;
+    /*width: 100%;*/
     bottom: 22px; color: #999;
 }
 .tab-links li.active a span{ color: #333}

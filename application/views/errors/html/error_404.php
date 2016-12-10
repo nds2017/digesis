@@ -59,7 +59,6 @@ p {
 	<div id="container">
 		<h1>ACCESO PROHIBIDO</h1>
 		<p> Comuniquese con su administrador </p>
-		<p><a href="<?=base_url()?>index.php/admin"> Regresar </a></p>
 	</div>
 </body>
 </html>

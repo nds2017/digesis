@@ -15,7 +15,7 @@
 
 			<table class="table table-bordered table-striped">
 				<tr>
-					<td>Nombres : </td><td><input type="text" name="nombres" value="<?=@$data->nombres?>"></td>
+					<td>Nombres : </td><td><input type="text" autofocus="autofocus" name="nombres" value="<?=@$data->nombres?>"></td>
 				</tr>
 				<tr>
 					<td>Apellidos : </td><td><input type="text" name="apellidos" value="<?=@$data->apellidos?>"></td>
@@ -43,7 +43,7 @@
 					<td>
 						<select name="supervisorid">
 							<?php foreach ( $supervisores as $key => $supervisor ) { ?>
-								<option <?=(@$data->supervisorid==$supervisor->id ? 'selected' : '')?>  value="<?=$supervisor->id?>"><?=$supervisor->nombres?></option>
+								<option <?=(@$data->supervisorid==$supervisor->id ? 'selected' : '')?>  value="<?=$supervisor->id?>"><?=$supervisor->nombres . ' ' . $supervisor->apellidos?></option>
 							<?php } ?>
 						</select>
 					</td>

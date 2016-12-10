@@ -37,6 +37,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<dd><a <?=($active=='supervisores')?'class="active"':''?>href="<?=base_url()?>index.php/supervisores/form"><i class="fa fa-ticket"></i> Crear Supervisor </a></dd>
 					<dd><a <?=($active=='tecnicos')?'class="active"':''?>href="<?=base_url()?>index.php/tecnicos/form"><i class="fa fa-ticket"></i> Crear Tecnico </a></dd>
 				<dt><a <?=($active=='reportes')?'class="active"':''?>href="#"><i class="fa fa-star"></i> Reportes </a></dt>
+					<dd><a <?=($active=='reportes')?'class="active"':''?>href="#"><i class="fa fa-ticket"></i> Eficiencia </a></dd>
+					<dd><a <?=($active=='reportes')?'class="active"':''?>href="#"><i class="fa fa-ticket"></i> Encuestas </a></dd>
 				<?php } else if ( $session->rolid == 2 ) { ?>
 				<dt><a <?=($active=='usuarios')?'class="active"':''?>href="<?=base_url()?>index.php/usuarios"><i class="fa fa-star"></i> Roles</a></dt>
 					<dd><a <?=($active=='usuarios')?'class="active"':''?> href="<?=base_url()?>index.php/usuarios"><i class="fa fa-ticket"></i> Todas Los Usuarios </a></dd>
@@ -50,18 +52,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<?php } else if ( $session->rolid == 3 ) { ?>
 				<dt><a <?=($active=='solicitudesload')?'class="active"':''?>href="<?=base_url()?>index.php/solicitudes/carga"><i class="fa fa-star"></i> Cargar Solicitudes</a></dt>
 				<dt><a <?=($active=='usuarios')?'class="active"':''?>href="<?=base_url()?>index.php/usuarios/tuusuario/<?=$session->id?>"><i class="fa fa-star"></i> Roles</a></dt>
-					<dd><a href="<?=base_url()?>index.php/usuarios/tuusuario/<?=$session->id?>"><i class="fa fa-ticket"></i> Tu Usuario </a></dd>
+					<dd><a <?=($active=='usuarioactivo')?'class="active"':''?> href="<?=base_url()?>index.php/usuarios/tuusuario/<?=$session->id?>"><i class="fa fa-ticket"></i> Tu Usuario </a></dd>
 				<?php } else if ( $session->rolid == 4 ) { ?>
 				<dt><a <?=($active=='solicitudes')?'class="active"':''?>href="<?=base_url()?>index.php/solicitudes"><i class="fa fa-star"></i> Solicitudes</a></dt>
 					<dd><a <?=($active=='solicitudes')?'class="active"':''?>href="<?=base_url()?>index.php/solicitudes"><i class="fa fa-ticket"></i> Todas Las Solicitudes </a></dd>
 					<dd><a <?=($active=='solicitudesadd')?'class="active"':''?>href="<?=base_url()?>index.php/solicitudes/form/add"><i class="fa fa-ticket"></i> Agregar Solicitud </a></dd>
 				<dt><a <?=($active=='asignartecnicos')?'class="active"':''?>href="<?=base_url()?>index.php/solicitudes/listatecnicos"><i class="fa fa-star"></i> Soporte de Servicio</a></dt>
 				<dt><a <?=($active=='usuarios')?'class="active"':''?>href="<?=base_url()?>index.php/usuarios/tuusuario/<?=$session->id?>"><i class="fa fa-star"></i> Roles</a></dt>
-					<dd><a href="<?=base_url()?>index.php/usuarios/tuusuario/<?=$session->id?>"><i class="fa fa-ticket"></i> Tu Usuario </a></dd>
+					<dd><a <?=($active=='usuarioactivo')?'class="active"':''?> href="<?=base_url()?>index.php/usuarios/tuusuario/<?=$session->id?>"><i class="fa fa-ticket"></i> Tu Usuario </a></dd>
 				<?php } else if ( $session->rolid == 6 ) { ?>
 				<dt><a <?=($active=='listarf')?'class="active"':''?>href="<?=base_url()?>index.php/solicitudes/listarf"><i class="fa fa-star"></i> Registro Fotográfico</a></dt>
 				<dt><a <?=($active=='usuarios')?'class="active"':''?>href="<?=base_url()?>index.php/usuarios/tuusuario/<?=$session->id?>"><i class="fa fa-star"></i> Roles</a></dt>
-					<dd><a href="<?=base_url()?>index.php/usuarios/tuusuario/<?=$session->id?>"><i class="fa fa-ticket"></i> Tu Usuario </a></dd>
+					<dd><a <?=($active=='usuarioactivo')?'class="active"':''?> href="<?=base_url()?>index.php/usuarios/tuusuario/<?=$session->id?>"><i class="fa fa-ticket"></i> Tu Usuario </a></dd>
 				<?php } ?>
 			</dl>
 

@@ -57,7 +57,7 @@
 						<th scope="col"><span>DISTRITO - DPTO</span></th>
 						<th scope="col"><span>PLANO</span></th>
 						<th scope="col"><span>ESTADO</span></th>
-						<th scope="col"><span>EDITAR</span></th>
+						<th scope="col"><span>DETALLE</span></th>
 					</tr>
 				</thead>
 				<?php if ( @$data ) { ?>
@@ -70,7 +70,7 @@
 					<td><strong><?=$row->distrito . ' - ' . $row->dpto?></strong></td>
 					<td><strong><?=$row->plano?></strong></td>
 					<td><strong><?=$row->enombre?></strong></td>
-					<td><a title="Editar Solicitud" href="<?=base_url()?>index.php/solicitudes/form/<?=$row->id?>"><img src="<?=base_url()?>img/editar.png"></a></td>
+					<td><a title="Ver Detalle" href="<?=base_url()?>index.php/solicitudes/form/<?=$row->id?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 				</tr>
 				<?php } ?>
 				</tbody>

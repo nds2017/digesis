@@ -29,6 +29,7 @@ class Msolicitudes extends CI_Model
 	}
 
 	public function solicitudes_encuestas($tid = false, $estado = false) {
+		$rows = array();
 		$this->db->select('s.*, ts.nombre AS tsnombre, e.nombre AS enombre');
 		$this->db->from('solicitudes s');
 		$this->db->join('tiposervicios ts', 'ts.id = s.tiposervicioid', 'left');
@@ -36,12 +37,18 @@ class Msolicitudes extends CI_Model
 		$this->db->join('estados e', 'e.id = s.estadoid', 'left');
 		if ( is_numeric($estado) && ( $estado != 0 ) )
 			$this->db->where('s.estadoid', $estado);
-		$where = "(st.t1id = $tid OR st.t2id = $tid)";
-		$this->db->where($where);
+		if ( is_numeric($tid) && ( $tid != 0 ) ) {
+			$where = "(st.t1id = $tid OR st.t2id = $tid)";
+			$this->db->where($where);
+		}
+		$this->db->order_by("s.fecha_instalacion");
 		$query = $this->db->get();
 		if ( $query->num_rows() > 0 ) {
-			return $query->result();
+			foreach ( $query->result() as $key => $row ) {
+				$rows[$row->id] = $row;
+			}
 		}
+		return $rows;
 	}
 
 	public function solicitudes_cantidades() {
@@ -69,7 +76,7 @@ class Msolicitudes extends CI_Model
 	}
 
 	public function solicitudestecnicos_entrys($distritoid = false, $solicitudid = '') {
-		$this->db->select('s.*, st.*, ts.nombre AS tsnombre, dist.nombre AS distrito, dpto.nombre AS dpto, e.nombre AS enombre');
+		$this->db->select('s.*, st.t1id, st.t2id, ts.nombre AS tsnombre, dist.nombre AS distrito, dpto.nombre AS dpto, e.nombre AS enombre');
 		$this->db->from('solicitudes s');
 		$this->db->join('tiposervicios ts', 'ts.id = s.tiposervicioid', 'left');
 		$this->db->join('solicitudestecnicos st', 'st.sid = s.id', 'left');
@@ -93,22 +100,26 @@ class Msolicitudes extends CI_Model
 		}
 	}
 
-	public function solicitudesvalidadas_entrys($distritoid = false, $solicitudid = '') {
+
+	public function solicitudesvalidadas_entrys($distritoid = false, $solicitudid = '', $today = false) {
 		$rows = array();
-		$this->db->select('s.*, st.*, ts.nombre AS tsnombre, dist.nombre AS distrito, dpto.nombre AS dpto, e.nombre AS enombre');
+		$this->db->select('s.*, ts.nombre AS tsnombre, dist.nombre AS distrito, dpto.nombre AS dpto');
 		$this->db->from('solicitudes s');
 		$this->db->join('tiposervicios ts', 'ts.id = s.tiposervicioid', 'left');
-		$this->db->join('solicitudestecnicos st', 'st.sid = s.id', 'left');
-		$this->db->join('estados e', 'e.id = s.estadoid', 'left');
 		$this->db->join('distritos dist', 'dist.id = s.distritoid', 'left');
 		$this->db->join('provincias prov', 'prov.id = dist.provinciaid', 'left');
 		$this->db->join('departamentos dpto', 'dpto.id = prov.dptoid', 'left');
+		if ( !$today ) {
+			if ( is_numeric($distritoid) && ( $distritoid != 0 ) )
+				$this->db->where('s.distritoid', $distritoid);
+			if ( !empty($solicitudid) )
+				$this->db->where('s.id LIKE "%' . $solicitudid . '%"', NULL, FALSE);
+		}
+		else {
+			$this->db->join('incidencias i', 'i.sid = s.id', 'inner');
+			$this->db->where('i.fecha_incidencia', strtotime(date('d-m-Y')));
+		}
 		$this->db->where('s.estadoid', 2);
-
-		if ( is_numeric($distritoid) && ( $distritoid != 0 ) )
-			$this->db->where('s.distritoid', $distritoid);
-		if ( !empty($solicitudid) )
-			$this->db->where('s.id LIKE "%' . $solicitudid . '%"', NULL, FALSE);
 		$query = $this->db->get();
 		if ( $query->num_rows() > 0 ) {
 
@@ -117,6 +128,51 @@ class Msolicitudes extends CI_Model
 				$rows[] = $row;
 			}
 
+		}
+		return $rows;
+	}
+
+	public function solicitudesseguimiento_entrys($t1id = false, $t2id = false, $solicitudid = '') {
+		$this->db->select('s.id, s.cliente, dist.nombre AS distrito, dpto.nombre AS dpto, ts.nombre AS tsnombre, e.nombre AS enombre');
+		$this->db->from('solicitudes s');
+		$this->db->join('tiposervicios ts', 'ts.id = s.tiposervicioid', 'left');
+		$this->db->join('solicitudestecnicos st', 'st.sid = s.id', 'left');
+		$this->db->join('estados e', 'e.id = s.estadoid', 'left');
+		$this->db->join('distritos dist', 'dist.id = s.distritoid', 'left');
+		$this->db->join('provincias prov', 'prov.id = dist.provinciaid', 'left');
+		$this->db->join('departamentos dpto', 'dpto.id = prov.dptoid', 'left');
+		$this->db->where('st.t1id', $t1id);
+		$this->db->where('st.t2id', $t2id);
+
+		if ( !empty($solicitudid) )
+			$this->db->where('s.id LIKE "%' . $solicitudid . '%"', NULL, FALSE);
+		$query = $this->db->get();
+		if ( $query->num_rows() > 0 ) {
+			return $query->result();
+		}
+		else
+			return array();
+	}
+
+	public function solicitudesgroupbytecnicos($solicitudid = '', $tecnicoid = false) {
+		$rows = array();
+		$this->db->select('t1id, t2id');
+		$this->db->from('solicitudestecnicos s');
+		$this->db->where('t1id !=', 0);
+		$this->db->where('t2id !=', 0);
+		//$this->db->where('aid =', $aid);
+
+		if ( is_numeric($tecnicoid) && ( $tecnicoid != 0 ) )
+			$this->db->where('t1id', $tecnicoid);
+
+		$this->db->group_by("t1id");
+
+		$query = $this->db->get();
+		if ( $query->num_rows() > 0 ) {
+			foreach ( $query->result() as $key => $row ) {
+				$row->solicitudes = $this->msolicitudes->solicitudesseguimiento_entrys($row->t1id, $row->t2id, $solicitudid);
+				$rows[] = $row;
+			}
 		}
 		return $rows;
 	}
@@ -158,16 +214,19 @@ class Msolicitudes extends CI_Model
 		}
 	}
 
-	public function solicitudesrf_encuestas($tid = false, $estadorf = false) {
+	public function solicitudesrf_encuestas($tid = false) {
 		$this->db->select('s.*, ts.nombre AS tsnombre, rf.nombre AS rfnombre');
 		$this->db->from('solicitudes s');
 		$this->db->join('tiposervicios ts', 'ts.id = s.tiposervicioid', 'left');
 		$this->db->join('solicitudestecnicos st', 'st.sid = s.id', 'left');
 		$this->db->join('estadosrf rf', 'rf.id = s.rf', 'left');
-		if ( is_numeric($estadorf) && ( $estadorf != 0 ) )
-			$this->db->where('s.rf', $estadorf);
-		$where = "(st.t1id = $tid OR st.t2id = $tid)";
-		$this->db->where($where);
+		$this->db->where('s.estadoid', 2);
+		$this->db->where_in('s.rf', array(1, 2));
+		if ( is_numeric($tid) && ( $tid != 0 ) ) {
+			$where = "(st.t1id = $tid OR st.t2id = $tid)";
+			$this->db->where($where);
+		}
+		$this->db->order_by("s.fecha_instalacion");
 		$query = $this->db->get();
 		if ( $query->num_rows() > 0 ) {
 			return $query->result();

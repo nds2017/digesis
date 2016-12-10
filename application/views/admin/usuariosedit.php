@@ -1,7 +1,7 @@
 			</div>
 
 			<div class="list-mod-panel">
-				<h1 style="float: left;"> Crear Usuario &nbsp;&nbsp;</h1>
+				<h1 style="float: left;"> <?=(@$disabled?'Tu Usuario':'Crear Usuario')?>&nbsp;&nbsp;</h1>
 				<h2><a href="<?=base_url()?>index.php/usuarios/lista">Regresar a Lista de Usuarios</a></h2>
 			</div>
 			<br>
@@ -19,7 +19,7 @@
 
 			<table class="table table-bordered table-striped">
 				<tr>
-					<td>Nombre de Usuario : </td><td><input <?=(@$data->id)?'disabled':''?> type="text" name="user" value="<?=@$data->user?>"></td>
+					<td>Nombre de Usuario : </td><td><input <?=(@$data->id)?'disabled':''?> autofocus="autofocus" type="text" name="user" value="<?=@$data->user?>"></td>
 				</tr>
 				<tr>
 					<td>Contraseña : </td><td><input type="password" name="password" value="<?=@$data->password?>"></td>

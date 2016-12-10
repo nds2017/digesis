@@ -43,7 +43,7 @@
 		else if ( $rolid == 3)
 			redirect('solicitudes/carga');
 		else if ( $rolid == 4)
-			redirect('solicitudes/listatecnicos');
+			redirect('solicitudes');
 		else if ( $rolid == 6)
 			redirect('solicitudes/listarf');
 		else

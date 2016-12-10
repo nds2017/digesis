@@ -55,12 +55,15 @@ class Solicitudes extends CI_Controller {
 		$data['provincias'] = $this->mdepartamentos->provincias_entrys();
 		$data['departamentos'] = $this->mdepartamentos->departamentos_entrys();
 		$data['regiones'] = $this->msolicitudes->regiones_entrys();
-		if ( $id && $id != 'add' ) {
+		$data['estados'] = $this->msolicitudes->estados_entrys();
+		$data['admin'] = true;
+		if ( is_numeric($id) && ( $id != 0 ) ) {
+			$session = get_session();
 			$data['data'] = $this->msolicitudes->solicitudes_byID($id);
 			$data['distritos'] = $this->mdepartamentos->distritos_entrys($data['data']->provinciaid);
 			$data['provincias'] = $this->mdepartamentos->provincias_entrys($data['data']->departamentoid);
+			$data['admin'] = ($session->rolid==1) ? TRUE : FALSE;
 		}
-		
 		$this->load->view('admin/solicitudesedit', $data);
 	}
 
@@ -110,6 +113,17 @@ class Solicitudes extends CI_Controller {
 		$this->load->view('admin/solicitudestecnicosedit', $data);
 	}
 
+	public function seguimiento() {
+		securityAccess(array(1, 4));
+		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'asignartecnicos' ));
+		$data['solicitudid'] = isset($_POST['solicitudid']) ? $_POST['solicitudid'] : '';
+		$data['tecnicoid'] = isset($_POST['tecnicoid']) ? $_POST['tecnicoid'] : 0;
+		$data['data'] = $this->msolicitudes->solicitudesgroupbytecnicos($data['solicitudid'], $data['tecnicoid']);
+		$data['tecnicos1'] = $this->mtecnicos->tecnicos_byCargo(1);
+		$data['tecnicos2'] = $this->mtecnicos->tecnicos_byCargo(2);
+		$this->load->view('admin/listaseguimiento', $data);
+	}
+
 	public function listavalidados() {
 		securityAccess(array(1, 4));
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'asignartecnicos' ));
@@ -122,8 +136,8 @@ class Solicitudes extends CI_Controller {
 		$data['distritos'] = $this->mdepartamentos->distritos_entrys(@$data['provinciaid']);
 		$data['provincias'] = $this->mdepartamentos->provincias_entrys(@$data['departamentoid']);
 		$data['departamentos'] = $this->mdepartamentos->departamentos_entrys();
-		if ( $_POST )
-			$data['data'] = $this->msolicitudes->solicitudesvalidadas_entrys($data['distritoid'], $data['solicitudid']);
+		$today = count($_POST) ? FALSE : TRUE;
+		$data['data'] = $this->msolicitudes->solicitudesvalidadas_entrys($data['distritoid'], $data['solicitudid'], $today);
 		$data['tecnicos1'] = $this->mtecnicos->tecnicos_byCargo(1);
 		$data['tecnicos2'] = $this->mtecnicos->tecnicos_byCargo(2);
 		$this->load->view('admin/listavalidados', $data);
@@ -190,6 +204,7 @@ class Solicitudes extends CI_Controller {
 			'regionid' => $this->input->post('regionid'),
 			'distritoid' => $this->input->post('distritoid'),
 			'usuarioid' => $session->id,
+			'estadoid' => $this->input->post('estadoid'),
 			'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($this->input->post('fecha_instalacion')) : strtotime('now')
 		);
 		$this->msolicitudes->solicitudes_update($formdata, $id);
@@ -230,6 +245,11 @@ class Solicitudes extends CI_Controller {
 			'aid' => $session->id
 		);
 		$this->msolicitudes->solicitudes_addtecnicos($formdata);
+		$formdata = array(
+			'id' => $id,
+			'fecha_instalacion' => strtotime("now")
+		);
+		$this->msolicitudes->solicitudes_update($formdata, $id);
 		redirect('solicitudes/listatecnicos');
 	}
 

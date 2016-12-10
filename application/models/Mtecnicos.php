@@ -15,6 +15,8 @@ class Mtecnicos extends CI_Model
 			$this->db->join('bases b', 'b.id = t.baseid', 'left');
 			if ( !empty($bnombres) )
 				$this->db->where('CONCAT(t.nombres, " ", t.apellidos) LIKE "%' . $bnombres . '%"', NULL, FALSE);
+			if ( $publish )
+				$this->db->where('s.publish', $publish);
 			$this->db->order_by("t.id", "desc");
 		}
 		else {
@@ -28,13 +30,13 @@ class Mtecnicos extends CI_Model
 	}
 
 	public function tecnicobyDNI($dni) {
-		$query = $this->db->query("SELECT id FROM tecnicos WHERE dni = '$dni'");
+		$query = $this->db->query("SELECT id FROM tecnicos WHERE dni = '$dni' AND publish = 1");
 		return $query->row()->id;
 	}
 
 	public function tecnicos_byCargo($cargo = 1) {
 		$rows = array();
-		$query = $this->db->query("SELECT id, CONCAT(nombres, ' ', apellidos) AS tnombres FROM tecnicos WHERE cargo = $cargo");
+		$query = $this->db->query("SELECT id, CONCAT(nombres, ' ', apellidos) AS tnombres FROM tecnicos WHERE cargo = $cargo AND publish = 1");
 		foreach ($query->result() as $key=>$row) {
 			$rows[$row->id] = @$row->tnombres;
 		}

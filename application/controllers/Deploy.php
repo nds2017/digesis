@@ -16,9 +16,9 @@ $LOCAL_REPO="{$LOCAL_ROOT}/$LOCAL_REPO_NAME";
 $REMOTE_REPO="https://github.com/digesis2017/digesis.git";
 $DESIRED_BRANCH="master";
 
-if (file_exists($LOCAL_ROOT)){
-	shell_exec("rm -rf {$LOCAL_REPO_NAME}");
-}
+#if (file_exists($LOCAL_ROOT)){
+#	shell_exec("rm -rf {$LOCAL_REPO_NAME}");
+#}
 
 if (file_exists($LOCAL_REPO)):
   echo shell_exec("cd {$LOCAL_REPO} && git pull");

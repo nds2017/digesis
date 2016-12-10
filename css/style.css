@@ -767,6 +767,15 @@ table {
 	margin-bottom: 20px;
 }
 
+.tableseg {
+	max-width: 30%;
+	margin: 0px;
+}
+
+.tableseg  thead tr th {
+	text-align: center;
+}
+
 .tablep {
 	max-width: 90%;
 } 
