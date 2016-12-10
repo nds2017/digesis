@@ -767,14 +767,13 @@ table {
 	margin-bottom: 20px;
 }
 
-.divseg {
-	float: left;
-	max-width: 80%;
-	width: 40%;
+.tableseg {
+	max-width: 30%;
+	margin: 0px;
 }
 
-.tableseg {
-	margin: 0px;
+.tableseg  thead tr th {
+	text-align: center;
 }
 
 .tablep {

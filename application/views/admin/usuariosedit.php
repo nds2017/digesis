@@ -19,7 +19,7 @@
 
 			<table class="table table-bordered table-striped">
 				<tr>
-					<td>Nombre de Usuario : </td><td><input <?=(@$data->id)?'disabled':''?> type="text" name="user" value="<?=@$data->user?>"></td>
+					<td>Nombre de Usuario : </td><td><input <?=(@$data->id)?'disabled':''?> autofocus="autofocus" type="text" name="user" value="<?=@$data->user?>"></td>
 				</tr>
 				<tr>
 					<td>Contraseña : </td><td><input type="password" name="password" value="<?=@$data->password?>"></td>

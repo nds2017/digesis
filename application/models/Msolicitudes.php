@@ -133,11 +133,14 @@ class Msolicitudes extends CI_Model
 	}
 
 	public function solicitudesseguimiento_entrys($t1id = false, $t2id = false, $solicitudid = '') {
-		$this->db->select('s.id, s.cliente, ts.nombre AS tsnombre, e.nombre AS enombre');
+		$this->db->select('s.id, s.cliente, dist.nombre AS distrito, dpto.nombre AS dpto, ts.nombre AS tsnombre, e.nombre AS enombre');
 		$this->db->from('solicitudes s');
 		$this->db->join('tiposervicios ts', 'ts.id = s.tiposervicioid', 'left');
 		$this->db->join('solicitudestecnicos st', 'st.sid = s.id', 'left');
 		$this->db->join('estados e', 'e.id = s.estadoid', 'left');
+		$this->db->join('distritos dist', 'dist.id = s.distritoid', 'left');
+		$this->db->join('provincias prov', 'prov.id = dist.provinciaid', 'left');
+		$this->db->join('departamentos dpto', 'dpto.id = prov.dptoid', 'left');
 		$this->db->where('st.t1id', $t1id);
 		$this->db->where('st.t2id', $t2id);
 

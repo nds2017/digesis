@@ -8,13 +8,14 @@ class Mjefes extends CI_Model
 	}
 
 	public function jefes_entrys($id = false, $publish = false, $bnombres = '') {
-		//$rows = array();
 		if ( $id === false ) {
 			$this->db->select('c.*, r.nombre AS znombre');
 			$this->db->from('jefes c');
 			$this->db->join('regiones r', 'r.id = c.regionid', 'left');
 			if ( !empty($bnombres) )
 				$this->db->where('CONCAT(c.nombres, " ", c.apellidos) LIKE "%' . $bnombres . '%"', NULL, FALSE);
+			if ( $publish )
+				$this->db->where('s.publish', $publish);
 			$this->db->order_by("c.id", "desc");
 		}
 		else {
@@ -36,7 +37,6 @@ class Mjefes extends CI_Model
 		$this->db->update('jefes', array('publish' => 0));
 	}
 
-	//actualizamos los datos del usuario con id = 3
 	public function jefes_update($data) {
 		$this->db->where('id', $data['id']);
 		$this->db->update('jefes', $data);

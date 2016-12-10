@@ -29,17 +29,18 @@
 				<table class="table tableseg table-bordered table-striped">
 					<thead> 	
 						<tr>
-							<th scope="col"><span><?=$tecnicos1[$row->t1id]?></span></th>
-							<th scope="col"><span><?=$tecnicos2[$row->t2id]?></span></th>
+							<th scope="col"><span>Téc 1: <?=$tecnicos1[$row->t1id]?></span></th>
+							<th scope="col"><span>Téc 2: <?=$tecnicos2[$row->t2id]?></span></th>
 						</tr>
 					</thead>
 				</table>
-				<table class="table tableseg table-bordered table-striped">
+				<table class="table table-bordered table-striped">
 				<thead>
 					<tr>
 						<th scope="col"><span>N° SOT</span></th>
 						<th scope="col"><span>TIPO DE SERVICIO</span></th>
 						<th scope="col"><span>NOMBRE DEL CLIENTE</span></th>
+						<th scope="col"><span>DISTRITO - DPTO</span></th>
 						<th scope="col"><span>ESTADO</span></th>
 					</tr>
 				</thead>
@@ -48,12 +49,13 @@
 					<td><strong><?=$sid->id?></strong></td>
 					<td><strong><?=$sid->tsnombre?></strong></td>
 					<td><strong><?=$sid->cliente?></strong></td>
+					<td><strong><?=$sid->distrito . ' - ' . $sid->dpto?></strong></td>
 					<td><strong><?=$sid->enombre?></strong></td>
 				</tr>
 				<?php } ?>
 				</table>
 				</div>
-				<br>
+				<br><br>
 			<?php } ?>
 			<?php } ?>
 		</div>
