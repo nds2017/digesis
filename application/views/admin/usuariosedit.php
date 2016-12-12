@@ -21,7 +21,7 @@
 			else
 				echo form_open_multipart('usuarios/add');
 			?>
-
+			<?=var_dump(@$post)?>
 			<?php if ( @$post ) { ?>
 				<p style="color: red"> Cambios Guardados </p>
 			<?php } ?>
