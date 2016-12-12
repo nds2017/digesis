@@ -172,10 +172,11 @@ class Msolicitudes extends CI_Model
 		$query = $this->db->get();
 		if ( $query->num_rows() > 0 ) {
 			foreach ( $query->result() as $key => $row ) {
-				$row->solicitudes = $this->msolicitudes->solicitudesseguimiento_entrys($row->t1id, $row->t2id, $analistaid, $solicitudid);
+				//$row->solicitudes = $this->msolicitudes->solicitudesseguimiento_entrys($row->t1id, $row->t2id, $analistaid, $solicitudid);
 				$rows[] = $row;
 			}
 		}
+		var_dump($rows); die();
 		return $rows;
 	}
 
