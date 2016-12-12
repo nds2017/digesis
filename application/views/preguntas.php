@@ -45,7 +45,7 @@
 							<li onclick="selectrow(8);" class="l8"><a href="">8</a></li>
 							<li onclick="selectrow(9);" class="l9"><a href="">9</a></li>
 						</ul>
-						<p style="display:none;" id="aviso"> Debe seleccionar puntaje </p>
+						<p style="display:none; color: red;" id="aviso"> Debe seleccionar puntaje </p>
 						<div class="cont-btn">
 							<input type="hidden" name="respuesta" value="" id="respuesta" />
 							<input type="hidden" name="npregunta" value="<?=$npregunta->n?>" />
