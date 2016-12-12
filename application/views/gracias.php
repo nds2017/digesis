@@ -15,8 +15,10 @@
 		<div class="body_w">
 
 			<div class="cont-login thanks">
+				<form action="" method="get">
 					<h2>GRACIAS POR PARTICIPAR EN LA ENCUESTA</h2>
-					<input class="btn-active" type="button" value="CERRAR ENCUESTA" onclick="window.location='<?=base_url()?>';">
+					<?php $url = base_url() . 'index.php/encuestas?dni="' . $dni . '"'; ?>
+					<input class="btn-active" type="button" value="CERRAR ENCUESTA" onclick="window.location='<?=$url?>';">
 				</form>
 			</div>
 			 
