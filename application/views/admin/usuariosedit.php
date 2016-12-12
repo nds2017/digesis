@@ -23,7 +23,7 @@
 				echo form_open_multipart('usuarios/add');
 			?>
 
-			<?php if ( $_POST ) { ?>
+			<?php if ( $_POST ) { var_dump($_POST); ?>
 				<p style="color: red"> Cambios Guardados </p>
 			<?php } ?>
 
