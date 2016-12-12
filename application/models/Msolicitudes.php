@@ -162,12 +162,11 @@ class Msolicitudes extends CI_Model
 		$this->db->from('solicitudestecnicos s');
 		$this->db->where('t1id !=', 0);
 		$this->db->where('t2id !=', 0);
-		//$this->db->where('aid =', $aid);
 
 		if ( is_numeric($tecnicoid) && ( $tecnicoid != 0 ) )
 			$this->db->where('t1id', $tecnicoid);
 
-		$this->db->group_by("t1id");
+		$this->db->group_by(array("t1id", "t2id"));
 
 		$query = $this->db->get();
 		if ( $query->num_rows() > 0 ) {
