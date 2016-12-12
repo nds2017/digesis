@@ -22,7 +22,7 @@
 				echo form_open_multipart('usuarios/add');
 			?>
 			<?php if ( @$post ) { ?>
-				<p style="color: red"> Cambios Guardados </p>
+				<p style="color: red"> Cambios Guardados </p><br>
 			<?php } ?>
 
 			<table class="table table-bordered table-striped">
