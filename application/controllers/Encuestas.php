@@ -53,7 +53,7 @@ class Encuestas extends CI_Controller {
 						'estadoid' => 2
 					);
 					$this->msolicitudes->solicitudes_update($form, $sid);
-					redirect('encuestas/gracias');
+					redirect('encuestas/gracias/' . $sid);
 				}
 			}
 			else
@@ -65,8 +65,12 @@ class Encuestas extends CI_Controller {
 			redirect('welcome');
 	}
 
-	public function gracias() {
-		$this->load->view('gracias');
+	public function gracias($sid = false) {
+		if ( $sid ) {
+			$this->load->view('gracias');
+		}
+		else
+			redirect('welcome');
 	}
 
 	public function listaencuestas() {

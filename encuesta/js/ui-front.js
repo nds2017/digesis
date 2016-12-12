@@ -360,7 +360,7 @@ if($(".cont-login.thanks").length!==0){
 				t.find("li a").removeClass("active");
 				var s=$(this);
 				if ( s.hasClass('icon-encuestar') ) {
-					location.href = "../index.php/encuestas/indicaciones/" + $("#test-sid").val() + '?dni=' + $_GET('dni');
+					location.href = "../index.php/encuestas/indicaciones/" + $("#test-sid").val();
 				}
 				s.addClass("active");
 			});
