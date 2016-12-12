@@ -40,10 +40,10 @@ div.upload {
 				<thead>
 					<tr>
 						<th scope="col"><span>N° SOT</span></th>
-						<th scope="col"><span>Tipo Servicio</span></th>
-						<th scope="col"><span>Nombre Cliente</span></th>
-						<th scope="col"><span>Distrito - Dpto</span></th>
-						<th scope="col"><span>Plano</span></th>
+						<th scope="col"><span>TIPO SERVICIO</span></th>
+						<th scope="col"><span>NOMBRE CLIENTE</span></th>
+						<th scope="col"><span>DISTRITO - DPTO</span></th>
+						<th scope="col"><span>PLANO</span></th>
 					</tr>
 				</thead>
 				<?php if ( @$data ) { ?>
