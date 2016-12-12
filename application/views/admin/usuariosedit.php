@@ -1,7 +1,15 @@
 			</div>
 
 			<div class="list-mod-panel">
-				<h1><?=(@$disabled?'Tu Usuario':'Crear Usuario')?>&nbsp;&nbsp;</h1>
+				<h1>
+					<?php if ( @$disabled )
+						echo 'Tu Usuario';
+						else if ( @$data->id )
+							echo 'Editar Usuario';
+						else
+							echo 'Crear Usuario';
+					?>
+				</h1>
 			</div>
 
 			<?php $data = @$data[0]; ?>
