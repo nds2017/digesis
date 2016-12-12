@@ -115,10 +115,11 @@ class Solicitudes extends CI_Controller {
 
 	public function seguimiento() {
 		securityAccess(array(1, 4));
+		$session = get_session();
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'asignartecnicos' ));
 		$data['solicitudid'] = isset($_POST['solicitudid']) ? $_POST['solicitudid'] : '';
 		$data['tecnicoid'] = isset($_POST['tecnicoid']) ? $_POST['tecnicoid'] : 0;
-		$data['data'] = $this->msolicitudes->solicitudesgroupbytecnicos($data['solicitudid'], $data['tecnicoid']);
+		$data['data'] = $this->msolicitudes->solicitudesgroupbytecnicos($data['solicitudid'], $data['tecnicoid'], $session->id);
 		$data['tecnicos1'] = $this->mtecnicos->tecnicos_byCargo(1);
 		$data['tecnicos2'] = $this->mtecnicos->tecnicos_byCargo(2);
 		$this->load->view('admin/listaseguimiento', $data);

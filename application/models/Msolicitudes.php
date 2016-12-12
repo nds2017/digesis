@@ -132,7 +132,7 @@ class Msolicitudes extends CI_Model
 		return $rows;
 	}
 
-	public function solicitudesseguimiento_entrys($t1id = false, $t2id = false, $solicitudid = '') {
+	public function solicitudesseguimiento_entrys($t1id = false, $t2id = false, $analistaid = false, $solicitudid = '') {
 		$this->db->select('s.id, s.cliente, dist.nombre AS distrito, dpto.nombre AS dpto, ts.nombre AS tsnombre, e.nombre AS enombre');
 		$this->db->from('solicitudes s');
 		$this->db->join('tiposervicios ts', 'ts.id = s.tiposervicioid', 'left');
@@ -143,6 +143,7 @@ class Msolicitudes extends CI_Model
 		$this->db->join('departamentos dpto', 'dpto.id = prov.dptoid', 'left');
 		$this->db->where('st.t1id', $t1id);
 		$this->db->where('st.t2id', $t2id);
+		$this->db->where('st.aid', $analistaid);
 
 		if ( !empty($solicitudid) )
 			$this->db->where('s.id LIKE "%' . $solicitudid . '%"', NULL, FALSE);
@@ -154,7 +155,7 @@ class Msolicitudes extends CI_Model
 			return array();
 	}
 
-	public function solicitudesgroupbytecnicos($solicitudid = '', $tecnicoid = false) {
+	public function solicitudesgroupbytecnicos($solicitudid = '', $tecnicoid = false, $analistaid = false) {
 		$rows = array();
 		$this->db->select('t1id, t2id');
 		$this->db->from('solicitudestecnicos s');
@@ -170,7 +171,7 @@ class Msolicitudes extends CI_Model
 		$query = $this->db->get();
 		if ( $query->num_rows() > 0 ) {
 			foreach ( $query->result() as $key => $row ) {
-				$row->solicitudes = $this->msolicitudes->solicitudesseguimiento_entrys($row->t1id, $row->t2id, $solicitudid);
+				$row->solicitudes = $this->msolicitudes->solicitudesseguimiento_entrys($row->t1id, $row->t2id, $analistaid, $solicitudid);
 				$rows[] = $row;
 			}
 		}
