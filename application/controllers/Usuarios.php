@@ -52,6 +52,8 @@ class Usuarios extends CI_Controller {
 		$session = get_session();
 		if ( $session->id == $id )
 			$data['disabled'] = true;
+		if ( $_POST )
+			$data['post'] = true;
 
 		$this->load->view('admin/usuariosedit', $data);
 	}	

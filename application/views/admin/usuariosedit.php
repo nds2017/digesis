@@ -1,5 +1,5 @@
 			</div>
-
+			<?php $data = @$data[0]; ?>
 			<div class="list-mod-panel">
 				<h1>
 					<?php if ( @$disabled )
@@ -12,7 +12,6 @@
 				</h1>
 			</div>
 
-			<?php $data = @$data[0]; ?>
 			<?php if ( @$data ) {
 				if ( @$disabled )
 					echo form_open_multipart('usuarios/edit/' . $data->id . '/true');
@@ -23,13 +22,13 @@
 				echo form_open_multipart('usuarios/add');
 			?>
 
-			<?php if ( $_POST ) { var_dump($_POST); ?>
+			<?php if ( @$post ) { ?>
 				<p style="color: red"> Cambios Guardados </p>
 			<?php } ?>
 
 			<table class="table table-bordered table-striped">
 				<tr>
-					<td>Nombre de Usuario. : </td><td><input <?=(@$data->id)?'disabled':''?> autofocus="autofocus" type="text" name="user" value="<?=@$data->user?>"></td>
+					<td>Nombre de Usuario : </td><td><input <?=(@$data->id)?'disabled':''?> autofocus="autofocus" type="text" name="user" value="<?=@$data->user?>"></td>
 				</tr>
 				<tr>
 					<td>Contraseña : </td><td><input type="password" name="password" value="<?=@$data->password?>"></td>
