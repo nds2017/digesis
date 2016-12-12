@@ -66,11 +66,8 @@ class Encuestas extends CI_Controller {
 	}
 
 	public function gracias($sid = null) {
-		if ( isset($sid) && !empty($sid) ) {
-			$data['dni'] = $this->db->get_where('solicitudestecnicos', array('sid' => $sid))->row();
-			var_dump($data); die();
-			$this->load->view('gracias', $data);
-		}
+		if ( isset($sid) && !empty($sid) )
+			$this->load->view('gracias');
 		else
 			redirect('welcome');
 	}

@@ -20,8 +20,4 @@ class Mencuestas extends CI_Model
 		$this->db->replace('encuestas', $data);
 	}
 
-	public function encuestas_getDNI($sid = null) {
-		
-	}
-
 }
