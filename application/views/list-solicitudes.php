@@ -300,7 +300,7 @@
 									<div class="data1">ESTADO DE FOTO</div>
 									<div class="data2"><?=$sinfoto->rfnombre?></div>
 									<div class="data1">MOTIVO</div>
-									<div class="data2"><?=$sinfoto->motivo?></div>
+									<div class="data2"><?=$sinfoto->motivorf?></div>
 									<div class="data1">TITULAR</div>
 									<div class="data2"><?=$sinfoto->cliente?></div>
 									<div class="data1"> DIRECCION</div>
