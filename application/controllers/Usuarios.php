@@ -45,14 +45,14 @@ class Usuarios extends CI_Controller {
 		$this->load->view('admin/usuariosedit', $data);
 	}
 
-	public function tuusuario($id) {
+	public function tuusuario($id, $post = false) {
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'usuarioactivo' ));
 		$data['data'] = $this->musuarios->usuarios_entrys($id);
 		$data['roles'] = $this->mroles->roles_entrys();
 		$session = get_session();
 		if ( $session->id == $id )
 			$data['disabled'] = true;
-		if ( $_POST )
+		if ( $post )
 			$data['post'] = true;
 
 		$this->load->view('admin/usuariosedit', $data);
@@ -72,7 +72,7 @@ class Usuarios extends CI_Controller {
 		);
 		$this->musuarios->usuarios_update($formdata);
 		if ( $self )
-			redirect('usuarios/	tuusuario/' . $id);
+			redirect('usuarios/	tuusuario/' . $id . '/true');
 		else
 			redirect('usuarios');
 	}
