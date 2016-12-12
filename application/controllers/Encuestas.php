@@ -53,7 +53,7 @@ class Encuestas extends CI_Controller {
 						'estadoid' => 2
 					);
 					$this->msolicitudes->solicitudes_update($form, $sid);
-					redirect('encuestas/gracias/' . $sid);
+					redirect('encuestas/gracias/' . $sid . '?dni=' . $_GET['dni']);
 				}
 			}
 			else
