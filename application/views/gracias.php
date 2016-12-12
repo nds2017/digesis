@@ -4,6 +4,8 @@
 		<meta charset="utf-8">
 		<title>Gracias - Encuesta</title>
 		<link href="<?=base_url()?>encuesta/css/style.css" rel="stylesheet" type="text/css">
+		<script src="<?=base_url()?>encuesta/js/jquery-1.9.1.min.js"></script>
+		<script src="<?=base_url()?>encuesta/js/jquery-ui.js"></script>
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	</head>
 
