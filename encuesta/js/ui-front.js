@@ -20,6 +20,21 @@ $.datepicker.regional['es'] = {
  };
  $.datepicker.setDefaults($.datepicker.regional['es']);
 
+function $_GET(param) {
+	var vars = {};
+	window.location.href.replace( location.hash, '' ).replace( 
+		/[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+		function( m, key, value ) { // callback
+			vars[key] = value !== undefined ? value : '';
+		}
+	);
+
+	if ( param ) {
+		return vars[param] ? vars[param] : null;	
+	}
+	return vars;
+}
+
 
 $( document ).ready(function() {
    
@@ -345,6 +360,7 @@ if($(".cont-login.thanks").length!==0){
 				t.find("li a").removeClass("active");
 				var s=$(this);
 				if ( s.hasClass('icon-encuestar') ) {
+					alert($_GET['dni']);
 					location.href = "../index.php/encuestas/indicaciones/" + $("#test-sid").val();
 				}
 				s.addClass("active");
