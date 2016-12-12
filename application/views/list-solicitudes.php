@@ -103,7 +103,7 @@
 			<div class="list-solicitud">
 				<div class="cont_time-s">
 					<h4>Fecha: <?=date('d/m/Y')?></h4>
-					<h4><a style="color: blue; text-decoration: underline;" href="<?=base_url()?>">Cerrar Sesión</a></h4>
+					<h4><a href="<?=base_url()?>">Cerrar Sesión</a></h4>
 				</div>
 				<div class="estados">
 					<div class="total_e">
@@ -299,6 +299,8 @@
 									<div class="data2"><?=$sinfoto->id?></div>
 									<div class="data1">ESTADO DE FOTO</div>
 									<div class="data2"><?=$sinfoto->rfnombre?></div>
+									<div class="data1">MOTIVO</div>
+									<div class="data2"><?=$sinfoto->motivo?></div>
 									<div class="data1">TITULAR</div>
 									<div class="data2"><?=$sinfoto->cliente?></div>
 									<div class="data1"> DIRECCION</div>

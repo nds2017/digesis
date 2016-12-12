@@ -21,6 +21,11 @@
 
 }
 
+.cont_time-s {
+    color: blue;
+    text-decoration: underline;
+}
+
 * { box-sizing: border-box; }
 html { font-family: 'open_sansregular';font-size: 100%; line-height: 1.2; text-rendering: optimizeLegibility; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
 body { background-color: #000; color: #fff; margin: 0; background: url(../img/bg.jpg); }
