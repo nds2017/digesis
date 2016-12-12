@@ -119,7 +119,8 @@ class Solicitudes extends CI_Controller {
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'asignartecnicos' ));
 		$data['solicitudid'] = isset($_POST['solicitudid']) ? $_POST['solicitudid'] : '';
 		$data['tecnicoid'] = isset($_POST['tecnicoid']) ? $_POST['tecnicoid'] : 0;
-		$data['data'] = $this->msolicitudes->solicitudesgroupbytecnicos($data['solicitudid'], $data['tecnicoid'], $session->id);
+		$id = ( $session->rolid==1 ) ? false : $session->id;
+		$data['data'] = $this->msolicitudes->solicitudesgroupbytecnicos($data['solicitudid'], $data['tecnicoid'], $id);
 		$data['tecnicos1'] = $this->mtecnicos->tecnicos_byCargo(1);
 		$data['tecnicos2'] = $this->mtecnicos->tecnicos_byCargo(2);
 		$this->load->view('admin/listaseguimiento', $data);

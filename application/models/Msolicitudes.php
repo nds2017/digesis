@@ -143,7 +143,8 @@ class Msolicitudes extends CI_Model
 		$this->db->join('departamentos dpto', 'dpto.id = prov.dptoid', 'left');
 		$this->db->where('st.t1id', $t1id);
 		$this->db->where('st.t2id', $t2id);
-		$this->db->where('st.aid', $analistaid);
+		if ( is_numeric($analistaid) && ( $analistaid != 0 ) )
+			$this->db->where('st.aid', $analistaid);
 
 		if ( !empty($solicitudid) )
 			$this->db->where('s.id LIKE "%' . $solicitudid . '%"', NULL, FALSE);
