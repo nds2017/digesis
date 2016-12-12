@@ -66,7 +66,7 @@ class Encuestas extends CI_Controller {
 	}
 
 	public function gracias($sid = false) {
-		if ( $sid ) {
+		if ( !empty($sid) ) {
 			$this->load->view('gracias');
 		}
 		else
