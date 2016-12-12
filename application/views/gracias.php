@@ -20,7 +20,7 @@
 				<form action="" method="get">
 					<h2>GRACIAS POR PARTICIPAR EN LA ENCUESTA</h2>
 					<?php $url = base_url() . "index.php/encuestas?dni='" . $_GET['dni'] . "'"; ?>
-					<input class="btn-active" type="button" value="CERRAR ENCUESTA" onclick="window.location='<?=$url?>';">
+					<input class="btn-active" type="button" value="CERRAR ENCUESTA" onclick="window.location=<?=$url?>;">
 				</form>
 			</div>
 			 
