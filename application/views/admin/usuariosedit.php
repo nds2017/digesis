@@ -1,13 +1,8 @@
 			</div>
 
 			<div class="list-mod-panel">
-				<h1 style="float: left;"> <?=(@$disabled?'Tu Usuario':'Crear Usuario')?>&nbsp;&nbsp;</h1>
-				<?php if ( @$disabled ) { ?>
-				<br>
-				<h2><a href="<?=base_url()?>index.php/usuarios/lista">Regresar a Lista de Usuarios</a></h2>
-				<?php } ?>
+				<h1><?=(@$disabled?'Tu Usuario':'Crear Usuario')?>&nbsp;&nbsp;</h1>
 			</div>
-			<br>
 
 			<?php $data = @$data[0]; ?>
 			<?php if ( @$data ) {
@@ -71,9 +66,6 @@
 				<?php } ?>
 			</table>
 			<div class="divbuttons">
-				<?php if ( @$disabled ) { ?>
-				<input class="btnsearch" type="button" value="Regresar a Lista" onclick="window.location='<?=base_url()?>index.php/usuarios';">
-				<?php } ?>
 				<input class="btnsearch" type="submit" value="<?=(@$data? 'Guardar' : 'Crear')?>">
 			</div>
 		</div>
