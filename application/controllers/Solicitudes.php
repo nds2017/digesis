@@ -24,7 +24,7 @@ class Solicitudes extends CI_Controller {
 	}
 
 	public function lista($estadoid = 0) {
-		securityAccess(array(1, 4));
+		securityAccess(array(1));
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'solicitudes' ));
 		$data['estadoid'] = $estadoid ? $estadoid : 0;
 		$data['distritoid'] = isset($_POST['distritoid']) ? $_POST['distritoid'] : 0;
