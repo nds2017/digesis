@@ -344,7 +344,9 @@ if($(".cont-login.thanks").length!==0){
 				event.preventDefault();
 				t.find("li a").removeClass("active");
 				var s=$(this);
-				if (s.hasClass('icon-encuestar')) {
+				if ( s.hasClass('icon-encuestar') ) {
+					var $_GET = <?php echo json_encode($_GET); ?>;
+					alert($_GET);
 					location.href = "../index.php/encuestas/indicaciones/" + $("#test-sid").val();
 				}
 				s.addClass("active");
