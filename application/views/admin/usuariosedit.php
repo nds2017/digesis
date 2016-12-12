@@ -2,7 +2,9 @@
 
 			<div class="list-mod-panel">
 				<h1 style="float: left;"> <?=(@$disabled?'Tu Usuario':'Crear Usuario')?>&nbsp;&nbsp;</h1>
+				<?php if ( @$disabled ) { ?>
 				<h2><a href="<?=base_url()?>index.php/usuarios/lista">Regresar a Lista de Usuarios</a></h2>
+				<?php } ?>
 			</div>
 			<br>
 
@@ -16,6 +18,10 @@
 			else
 				echo form_open_multipart('usuarios/add');
 			?>
+
+			<?php if ( $_POST ) { ?>
+				<p style="color: red"> Cambios Guardados </p>
+			<?php } ?>
 
 			<table class="table table-bordered table-striped">
 				<tr>
@@ -64,7 +70,9 @@
 				<?php } ?>
 			</table>
 			<div class="divbuttons">
+				<?php if ( @$disabled ) { ?>
 				<input class="btnsearch" type="button" value="Regresar a Lista" onclick="window.location='<?=base_url()?>index.php/usuarios';">
+				<?php } ?>
 				<input class="btnsearch" type="submit" value="<?=(@$data? 'Guardar' : 'Crear')?>">
 			</div>
 		</div>

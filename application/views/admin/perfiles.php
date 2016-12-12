@@ -52,7 +52,7 @@
 				</tr>
 				<?php } ?>
 				<?php foreach ( $data['supervisores'] as $key => $row ) { ?>
-				<tr style="color: red">
+				<tr style="color: blue">
 					<td><strong><?=$row->nombres . ' ' . $row->apellidos?></strong></td>
 					<td><strong><?=$row->user?></strong></td>
 					<td><strong><?=$row->email?></strong></td>

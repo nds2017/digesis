@@ -37,9 +37,10 @@
 						<?php } ?>
 						<?php } ?>
 					</select>
+					<input type="submit" class="btnsearch" value="Filtrar"/>
 					<br>
 					N° SOT: <input type="text" size="10" name="solicitudid" value="<?=@$solicitudid?>"/>
-					<input type="submit" class="btnsearch" value="Filtrar"/>
+					<input type="submit" class="btnsearch" value="Buscar"/>
 				</form>
 			</fieldset>
 			<table class="table table-bordered table-striped">
