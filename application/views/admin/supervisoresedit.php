@@ -24,7 +24,7 @@
 					<td>DNI : </td><td><input type="text" maxlength="8" name="dni" value="<?=@$data->dni?>"></td>
 				</tr>
 				<tr>
-					<td>Correo : </td><td><input type="text" name="email" value="<?=@$data->email?>"></td>
+					<td>Correo : </td><td><input type="text" size="40" name="email" value="<?=@$data->email?>"></td>
 				</tr>
 				<tr>
 					<td>Jefe : </td>

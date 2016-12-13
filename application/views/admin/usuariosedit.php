@@ -2,25 +2,15 @@
 
 <script>
 	$(document).ready(function() {
-
 		var publish = $("#publish").val();
-
 		if ( publish == 0 )
 			$(".inactivo").show('slow');
-
 		$("#publish").change(function() {
 			if ( $("#publish").val() == 0 )
 				$(".inactivo").show('slow');
 			else
 				$(".inactivo").hide('slow');
 		});
-
-		/*$('input[type=radio][name=estadosrfid]').change(function() {
-			if (this.value == '2')
-				$("#divmotivo").show('slow');
-			else
-				$("#divmotivo").hide('slow');
-		});*/
 	});
 </script>
 
