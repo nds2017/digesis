@@ -98,8 +98,8 @@ class Solicitudes extends CI_Controller {
 		$data['distritos'] = $this->mdepartamentos->distritos_entrys(@$data['provinciaid']);
 		$data['provincias'] = $this->mdepartamentos->provincias_entrys(@$data['departamentoid']);
 		$data['departamentos'] = $this->mdepartamentos->departamentos_entrys();
-		$data['data'] = $this->msolicitudes->solicitudestecnicos_entrys($data['distritoid'], $data['solicitudid']);
-		$data['programadas'] = $this->msolicitudes->solicitudes_entrys(4);
+		$data['data']['pendientes'] = $this->msolicitudes->solicitudestecnicos_entrys($data['distritoid'], $data['solicitudid']);
+		$data['data']['programadas'] = $this->msolicitudes->solicitudes_entrys(4);
 		$data['tecnicos1'] = $this->mtecnicos->tecnicos_byCargo(1);
 		$data['tecnicos2'] = $this->mtecnicos->tecnicos_byCargo(2);
 		$this->load->view('admin/solicitudestecnicos', $data);

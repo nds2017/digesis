@@ -53,10 +53,10 @@
 						<th scope="col"><span>ASIGNAR</span></th>
 					</tr>
 				</thead>
-				<?php if ( @$data ) { ?>
+				<?php if ( count($data['pendientes']) || count($data['programadas']) ) { ?>
 				<tbody>
 				<?php if ( count($programadas) ) { ?>
-				<?php foreach ( $programadas as $row ) { ?>
+				<?php foreach ( $data['programadas'] as $row ) { ?>
 				<tr style="color: green;">
 					<td><strong><?=$row->id?></strong></td>
 					<td><strong><?=$row->tsnombre?></strong></td>
@@ -67,7 +67,7 @@
 				<?php } ?>
 				<?php } ?>
 
-				<?php foreach ( $data as $row ) { ?>
+				<?php foreach ( $data['pendientes'] as $row ) { ?>
 				<tr>
 					<td><strong><?=$row->id?></strong></td>
 					<td><strong><?=$row->tsnombre?></strong></td>
