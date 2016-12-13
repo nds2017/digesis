@@ -307,7 +307,6 @@ class Solicitudes extends CI_Controller {
 					if ( $i == 1 )
 						continue;
 					if ( !empty($datos[0]) ) {
-						die($datos[0]);
 						$formdata = array(
 							'id' => $datos[0],
 							'tiposervicioid' => $this->msolicitudes->solicitudes_getTipoServicio($datos[1]),
