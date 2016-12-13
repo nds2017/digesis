@@ -30,8 +30,9 @@ class Mtecnicos extends CI_Model
 	}
 
 	public function tecnicobyDNI($dni) {
-		$query = $this->db->query("SELECT id FROM tecnicos WHERE dni = '$dni' AND publish = 1");
-		return $query->row()->id;
+		$query = $this->db->query("SELECT id, nombres FROM tecnicos WHERE dni = '$dni' AND publish = 1");
+		var_dump($query->row()); die();
+		return $query->row();
 	}
 
 	public function tecnicos_byCargo($cargo = 1) {
