@@ -66,7 +66,7 @@ class Msolicitudes extends CI_Model
 	public function solicitudesrf_cantidades() {
 		$rows = array();
 		$total = 0;
-		$query = $this->db->query("SELECT rf, COUNT(id) AS cantidad FROM solicitudes GROUP BY rf");
+		$query = $this->db->query("SELECT rf, COUNT(id) AS cantidad FROM solicitudes WHERE estado IN (2, 3) GROUP BY rf");
 		foreach ( $query->result() as $key => $row ) {
 			$total += $row->cantidad;
 			$rows[$row->rf] = $row->cantidad;
