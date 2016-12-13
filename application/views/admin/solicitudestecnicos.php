@@ -55,6 +55,18 @@
 				</thead>
 				<?php if ( @$data ) { ?>
 				<tbody>
+				<?php if ( count($programadas) ) { ?>
+				<?php foreach ( $programadas as $row ) { ?>
+				<tr style="color: green;">
+					<td><strong><?=$row->id?></strong></td>
+					<td><strong><?=$row->tsnombre?></strong></td>
+					<td><strong><?=$row->cliente?></strong></td>
+					<td><strong><?=$row->distrito . ' - ' . $row->dpto?></strong></td>
+					<td><a title="Asignar Técnico" href="<?=base_url()?>index.php/solicitudes/formtecnicos/<?=$row->id?>"><img src="<?=base_url()?>img/editar.png"></a></td>
+				</tr>
+				<?php } ?>
+				<?php } ?>
+
 				<?php foreach ( $data as $row ) { ?>
 				<tr>
 					<td><strong><?=$row->id?></strong></td>
