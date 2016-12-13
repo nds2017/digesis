@@ -61,7 +61,6 @@ class Usuarios extends CI_Controller {
 	public function edit($id, $self = false) {
 		$formdata = array (
 			'id' => $id,
-			//'user' => $this->input->post('user'),
 			'password' => $this->input->post('password'),
 			'nombres' => $this->input->post('nombres'),
 			'apellidos' => $this->input->post('apellidos'),
@@ -69,7 +68,7 @@ class Usuarios extends CI_Controller {
 			'email' => $this->input->post('email'),
 			'rolid' => $this->input->post('rolid'),
 			'publish' => $this->input->post('publish'),
-			'fecha_cese' => $this->input->post('publish') ? 0 : $this->input->post('fecha_cese'),
+			'fecha_cese' => $this->input->post('publish') ? 0 : strtotime($this->input->post('fecha_cese')),
 			'motivo_cese' => $this->input->post('publish') ? 0 : $this->input->post('motivo_cese'),
 		);
 		$this->musuarios->usuarios_update($formdata);
