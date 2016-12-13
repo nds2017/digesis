@@ -60,6 +60,7 @@
 						<th scope="col"><span>DISTRITO - DPTO</span></th>
 						<th scope="col"><span>ESTADO DE LA FOTO</span></th>
 						<th scope="col"><span>TÉCNICO 1</span></th>
+						<th scope="col"><span>N° FOTOS</span></th>
 						<th scope="col"><span>EDITAR</span></th>
 					</tr>
 				</thead>
@@ -71,8 +72,9 @@
 					<td><strong><?=$row->tsnombre?></strong></td>
 					<td><strong><?=$row->cliente?></strong></td>
 					<td><strong><?=$row->distrito . ' - ' . $row->dpto?></strong></td>
-					<td><strong><?=$row->tnombres?></strong></td>
 					<td><strong><?=$row->rfnombre?></strong></td>
+					<td><strong><?=$row->tnombres?></strong></td>
+					<td><strong>1</strong></td>
 					<td><a title="Editar Solicitud"  href="<?=base_url()?>index.php/solicitudes/formrf/<?=$row->id?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 				</tr>
 				<?php } ?>
