@@ -13,6 +13,7 @@ class Encuestas extends CI_Controller {
 		if ( isset($_GET['dni']) && (!empty($_GET['dni'])) ) {
 			$this->load->model('mtecnicos');
 			$datat = $this->mtecnicos->tecnicobyDNI($_GET['dni']);
+			var_dump($datat); die();
 			if ( is_object($datat) ) {
 				$tid = $datat->id;
 				$data['nuevos'] = $this->msolicitudes->solicitudes_encuestas($tid, 1);
