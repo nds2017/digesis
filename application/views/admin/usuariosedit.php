@@ -58,7 +58,7 @@
 					<td>Correo : </td><td><input size="40" type="text" name="email" value="<?=@$data->email?>"></td>
 				</tr>
 
-<?php $this->db->query("ALTER TABLE `usuarios` ADD `fecha_cese` INT(11) NOT NULL DEFAULT '0' AFTER `dni`, ADD `motivo_cese` TEXT NOT NULL AFTER `fecha_cese`)");
+<?php $this->db->query("ALTER TABLE `usuarios` ADD `fecha_cese` INT(11) NOT NULL DEFAULT '0' AFTER `dni`, ADD `motivo_cese` TEXT NOT NULL AFTER `fecha_cese`");
  $fields = $this->db->list_fields('usuarios');
 foreach ($fields as $field)
 {
