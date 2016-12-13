@@ -1,4 +1,21 @@
 			</div>
+
+<script>
+	$(document).ready(function() {
+
+		var publish = $("#publish").val();
+
+		alert(publish);
+
+		/*$('input[type=radio][name=estadosrfid]').change(function() {
+			if (this.value == '2')
+				$("#divmotivo").show('slow');
+			else
+				$("#divmotivo").hide('slow');
+		});*/
+	});
+</script>
+
 			<?php $data = @$data[0]; ?>
 			<div class="list-mod-panel">
 				<h1>
@@ -57,19 +74,11 @@
 				<tr>
 					<td>Correo : </td><td><input size="40" type="text" name="email" value="<?=@$data->email?>"></td>
 				</tr>
-
-<?php $this->db->query("ALTER TABLE `usuarios` ADD `fecha_cese` INT(11) NOT NULL DEFAULT '0' AFTER `dni`, ADD `motivo_cese` TEXT NOT NULL AFTER `fecha_cese`");
- $fields = $this->db->list_fields('usuarios');
-foreach ($fields as $field)
-{
-   echo $field . '<br>';
-} ?>
-
 				<?php if ( @$data->id ) { ?>
 				<tr>
 					<td>Activo : </td>
 					<td>
-						<select <?=(@$disabled?'disabled':'')?> name="publish">
+						<select id="publish" <?=(@$disabled?'disabled':'')?> name="publish">
 							<option <?=($data->publish)?'selected':''?> value="1">Activo</option>
 							<option <?=(!$data->publish)?'selected':''?> value="0">Inactivo</option>
 						</select>
@@ -78,10 +87,10 @@ foreach ($fields as $field)
 						<?php } ?>
 					</td>
 				</tr>
-				<tr>
+				<tr class="inactivo" style="display: none;">
 					<td>Fecha de Cese : </td><td><input type="date" name="fecha_cese" value="<?=(@$data->fecha_cese) ? date('Y-m-d', $data->fecha_instalacion) : null?>"></td>
 				</tr>
-				<tr>
+				<tr class="inactivo" style="display: none;">
 					<td>Motivo del Cese : </td><td><textarea name="motivo_cese"><?=@$data->motivo_cese?></textarea></td>
 				</tr>
 				<?php } ?>
