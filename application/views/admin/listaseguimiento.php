@@ -42,6 +42,7 @@
 						<th scope="col"><span>NOMBRE DEL CLIENTE</span></th>
 						<th scope="col"><span>DISTRITO - DPTO</span></th>
 						<th scope="col"><span>ESTADO</span></th>
+						<th scope="col"><span>REASIGNAR</span></th>
 					</tr>
 				</thead>
 				<?php foreach ( $row->solicitudes as $key => $sid ) { ?>
@@ -51,6 +52,7 @@
 					<td><strong><?=$sid->cliente?></strong></td>
 					<td><strong><?=$sid->distrito . ' - ' . $sid->dpto?></strong></td>
 					<td><strong><?=$sid->enombre?></strong></td>
+					<a title="Reasignar Técnico" href="<?=base_url()?>index.php/solicitudes/formtecnicos/<?=$sid->id?>"><img src="<?=base_url()?>img/editar.png"></a>
 				</tr>
 				<?php } ?>
 				</table>

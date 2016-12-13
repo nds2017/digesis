@@ -61,7 +61,7 @@
 					<td><strong><?=$row->tsnombre?></strong></td>
 					<td><strong><?=$row->cliente?></strong></td>
 					<td><strong><?=$row->distrito . ' - ' . $row->dpto?></strong></td>
-					<td><a title="Asignar Técnico"  href="<?=base_url()?>index.php/solicitudes/formtecnicos/<?=$row->id?>"><img src="<?=base_url()?>img/editar.png"></a></td>
+					<td><a title="Asignar Técnico" href="<?=base_url()?>index.php/solicitudes/formtecnicos/<?=$row->id?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 				</tr>
 				<?php } ?>
 				</tbody>
