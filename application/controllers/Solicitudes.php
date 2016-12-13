@@ -308,14 +308,13 @@ class Solicitudes extends CI_Controller {
 						continue;
 					$formdata = array(
 						'id' => $datos[0],
-						'tipotrabajoid' => $this->msolicitudes->solicitudes_getTipoTrabajo($datos[1]),
-						'tiposervicioid' => $this->msolicitudes->solicitudes_getTipoServicio($datos[2]),
-						'plano' => $datos[8],
-						'cliente' => $datos[3],
-						'direccion' => $datos[4],
-						'distritoid' => $this->mdepartamentos->distritos_getDistrito($datos[5], $datos[6], $datos[7]),
+						'tiposervicioid' => $this->msolicitudes->solicitudes_getTipoServicio($datos[1]),
+						'plano' => $datos[7],
+						'cliente' => $datos[2],
+						'direccion' => $datos[3],
+						'distritoid' => $this->mdepartamentos->distritos_getDistrito($datos[4], $datos[5], $datos[6]),
 						'usuarioid' => $session->id,
-						'fecha_instalacion' => strtotime('now')
+						'fecha_instalacion' => empty($datos[8]) ? strtotime(date('d-m-Y')) : strtotime($datos[8])
 					);
 					if ( $this->msolicitudes->solicitudes_replace($formdata) == 1 )
 						$inserts++;

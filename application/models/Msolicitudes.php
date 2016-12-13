@@ -186,7 +186,7 @@ class Msolicitudes extends CI_Model
 		$this->db->join('distritos dist', 'dist.id = s.distritoid', 'left');
 		$this->db->join('provincias prov', 'prov.id = dist.provinciaid', 'left');
 		$this->db->join('departamentos dpto', 'dpto.id = prov.dptoid', 'left');
-		$this->db->where('s.estadoid', 1);
+		$this->db->where('s.fecha_instalacion >=', strtotime(date('d-m-Y')));
 		if ( !empty($id) )
 			$this->db->where('s.id LIKE "%' . $id . '%"', NULL, FALSE);
 		$query = $this->db->get();

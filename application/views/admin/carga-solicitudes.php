@@ -1,11 +1,3 @@
-
-<style>
-div.upload {
-    width: 130px;
-    overflow: hidden;
-    float: left;
-}
-</style>
 			</div>
 			<h1>Cargar Solicitudes</h1><br>
 			<fieldset class="search">
