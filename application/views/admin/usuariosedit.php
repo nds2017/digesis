@@ -5,7 +5,11 @@
 
 		var publish = $("#publish").val();
 
-		alert(publish);
+
+		$("#publish").change(function() {
+
+			alert(publish);
+		});
 
 		/*$('input[type=radio][name=estadosrfid]').change(function() {
 			if (this.value == '2')
