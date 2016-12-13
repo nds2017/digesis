@@ -26,7 +26,7 @@
 					echo '<em>' . $info->filas . ' Registros Procesados <br>' . $info->add . ' Registros Agregados <br>' . $info->update . ' Registros Actualizados</em><hr>';
 			?>
 
-			<h1>Solicitudes Cargadas <?=date('d-m-Y')?></h1>
+			<h1>Solicitudes Cargadas Desde <?=date('d-m-Y')?></h1>
 			<br>
 			<table class="table table-bordered table-striped">
 				<thead>
