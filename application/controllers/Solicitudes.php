@@ -306,21 +306,23 @@ class Solicitudes extends CI_Controller {
 					$i++;
 					if ( $i == 1 )
 						continue;
-					$formdata = array(
-						'id' => $datos[0],
-						'tiposervicioid' => $this->msolicitudes->solicitudes_getTipoServicio($datos[1]),
-						'plano' => $datos[7],
-						'cliente' => $datos[2],
-						'direccion' => $datos[3],
-						'distritoid' => $this->mdepartamentos->distritos_getDistrito($datos[4], $datos[5], $datos[6]),
-						'usuarioid' => $session->id,
-						'fecha_instalacion' => empty($datos[8]) ? strtotime(date('d-m-Y')) : strtotime($datos[8])
-					);
-					if ( $this->msolicitudes->solicitudes_replace($formdata) == 1 )
-						$inserts++;
-					else
-						$updates++;
-					$this->msolicitudes->solicitudes_addtecnicos(array('sid' => $datos[0], 't1id' => 0, 't2id' => 0, 'aid' => 0));
+					if ( !empty($datos[0]) ) {
+						$formdata = array(
+							'id' => $datos[0],
+							'tiposervicioid' => $this->msolicitudes->solicitudes_getTipoServicio($datos[1]),
+							'plano' => $datos[7],
+							'cliente' => $datos[2],
+							'direccion' => $datos[3],
+							'distritoid' => $this->mdepartamentos->distritos_getDistrito($datos[4], $datos[5], $datos[6]),
+							'usuarioid' => $session->id,
+							'fecha_instalacion' => empty($datos[8]) ? strtotime(date('d-m-Y')) : strtotime($datos[8])
+						);
+						if ( $this->msolicitudes->solicitudes_replace($formdata) == 1 )
+							$inserts++;
+						else
+							$updates++;
+						$this->msolicitudes->solicitudes_addtecnicos(array('sid' => $datos[0], 't1id' => 0, 't2id' => 0, 'aid' => 0));
+					}
 				}
 				$data['info'] = (object)array('filas' => $i-1, 'add' => $inserts, 'update' => $updates);
 			}
