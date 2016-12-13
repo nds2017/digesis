@@ -5,10 +5,14 @@
 
 		var publish = $("#publish").val();
 
+		if ( publish == 0 )
+			$(".inactivo").show('slow');
 
 		$("#publish").change(function() {
-
-			alert(publish);
+			if ( $("#publish").val() == 0 )
+				$(".inactivo").show('slow');
+			else
+				$(".inactivo").hide('slow');
 		});
 
 		/*$('input[type=radio][name=estadosrfid]').change(function() {
