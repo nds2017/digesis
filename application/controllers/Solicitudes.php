@@ -71,18 +71,21 @@ class Solicitudes extends CI_Controller {
 		securityAccess(array(1, 6));
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'listarf' ));
 		$data['solicitudid'] = isset($_POST['solicitudid']) ? $_POST['solicitudid'] : '';
+		$data['supervisorid'] = isset($_POST['supervisorid']) ? $_POST['supervisorid'] : 0;
 		$data['distritoid'] = isset($_POST['distritoid']) ? $_POST['distritoid'] : 0;
 		if ( $data['distritoid'] ) {
 			$data['provinciaid'] = $this->mdepartamentos->distrito_getProvincia($data['distritoid']);
 			$data['departamentoid'] = $this->mdepartamentos->provincia_getDpto($data['provinciaid']);
 		}
 		$data['estadorf'] = $estadorf ? $estadorf : 0;
-		$data['data'] = $this->msolicitudes->solicitudesrf_entrys($data['estadorf'], $data['distritoid'], $data['solicitudid']);
+		$data['data'] = $this->msolicitudes->solicitudesrf_entrys($data['estadorf'], $data['distritoid'], $data['solicitudid'], $data['supervisorid']);
 		$data['estados'] = $this->msolicitudes->estadosrf_entrys();
 		$data['distritos'] = $this->mdepartamentos->distritos_entrys(@$data['provinciaid']);
 		$data['provincias'] = $this->mdepartamentos->provincias_entrys(@$data['departamentoid']);
 		$data['departamentos'] = $this->mdepartamentos->departamentos_entrys();
 		$data['cantidades'] = $this->msolicitudes->solicitudesrf_cantidades();
+		$this->load->model('msupervisores');
+		$data['supervisores'] = $this->msupervisores->supervisores_entrys(FALSE, 1);
 		$this->load->view('admin/solicitudesrf', $data);
 	}
 

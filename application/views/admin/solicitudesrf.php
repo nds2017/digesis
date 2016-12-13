@@ -41,6 +41,13 @@
 					<input type="submit" class="btnsearch" value="Filtrar"/>
 					<br>
 					N° SOT: <input type="text" size="10" name="solicitudid" value="<?=@$solicitudid?>"/>
+					Supervisor:
+					<select name="supervisorid">
+						<option value="0">-Seleccione-</option>
+						<?php foreach ($supervisores as $id => $supervisor) { ?>
+						<option <?=(@$supervisorid==$supervisor->id ? 'selected' : '')?> value=<?=$id?>><?=$supervisor->nombres . ' ' . $supervisor->apellidos?></option>
+						<?php } ?>
+					</select>
 					<input type="submit" class="btnsearch" value="Buscar"/>
 				</form>
 			</fieldset>
@@ -52,6 +59,7 @@
 						<th scope="col"><span>NOMBRE DEL CLIENTE</span></th>
 						<th scope="col"><span>DISTRITO - DPTO</span></th>
 						<th scope="col"><span>ESTADO DE LA FOTO</span></th>
+						<th scope="col"><span>TÉCNICO 1</span></th>
 						<th scope="col"><span>EDITAR</span></th>
 					</tr>
 				</thead>
@@ -63,6 +71,7 @@
 					<td><strong><?=$row->tsnombre?></strong></td>
 					<td><strong><?=$row->cliente?></strong></td>
 					<td><strong><?=$row->distrito . ' - ' . $row->dpto?></strong></td>
+					<td><strong><?=$row->tnombres?></strong></td>
 					<td><strong><?=$row->rfnombre?></strong></td>
 					<td><a title="Editar Solicitud"  href="<?=base_url()?>index.php/solicitudes/formrf/<?=$row->id?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 				</tr>

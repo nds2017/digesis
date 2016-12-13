@@ -196,8 +196,10 @@ class Msolicitudes extends CI_Model
 	}
 
 	public function solicitudesrf_entrys($estadorfid = false, $distritoid = false, $solicitudid = '') {
-		$this->db->select('s.*, ts.nombre AS tsnombre, dist.nombre AS distrito, dpto.nombre AS dpto, rf.nombre AS rfnombre');
+		$this->db->select('s.*, CONCAT(t.nombres, " ", t.apellidos) AS tnombres, ts.nombre AS tsnombre, dist.nombre AS distrito, dpto.nombre AS dpto, rf.nombre AS rfnombre');
 		$this->db->from('solicitudes s');
+		$this->db->join('solicitudestecnicos st', 'st.sid = s.id', 'left');
+		$this->db->join('tecnicos t', 't.sid = st.t1id', 'left');
 		$this->db->join('tiposervicios ts', 'ts.id = s.tiposervicioid', 'left');
 		$this->db->join('estadosrf rf', 'rf.id = s.rf', 'left');
 		$this->db->join('distritos dist', 'dist.id = s.distritoid', 'left');
