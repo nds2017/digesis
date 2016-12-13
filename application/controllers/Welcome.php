@@ -9,7 +9,7 @@ class Welcome extends CI_Controller {
 	}
 
 	public function index() {
-		if ( $_GET ) {
+		if ( isset($_GET['dni']) && !empty($_GET['dni']) && ( $_GET['dni'] != 'DNI' ) ) {
 			if ( $this->madmin->tecnicos_login($_GET['dni']) )
 				redirect('encuestas?dni=' . $_GET['dni']);
 			else

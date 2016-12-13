@@ -10,7 +10,7 @@ class Encuestas extends CI_Controller {
 	}
 
 	public function index() {
-		if ( isset($_GET['dni']) && (!empty($_GET['dni'])) && ( $_GET['dni'] != 'DNI') ) {
+		if ( isset($_GET['dni']) && ( !empty($_GET['dni']) ) && ( $_GET['dni'] != 'DNI' ) ) {
 			$this->load->model('mtecnicos');
 			$datat = $this->mtecnicos->tecnicobyDNI($_GET['dni']);
 			if ( is_object($datat) ) {
