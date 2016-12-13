@@ -195,7 +195,7 @@ class Msolicitudes extends CI_Model
 		}
 	}
 
-	public function solicitudesrf_entrys($estadorfid = false, $distritoid = false, $solicitudid = '') {
+	public function solicitudesrf_entrys($estadorfid = false, $distritoid = false, $solicitudid = '', $supervisorid = false) {
 		$this->db->select('s.*, CONCAT(t.nombres, " ", t.apellidos) AS tnombres, ts.nombre AS tsnombre, dist.nombre AS distrito, dpto.nombre AS dpto, rf.nombre AS rfnombre');
 		$this->db->from('solicitudes s');
 		$this->db->join('solicitudestecnicos st', 'st.sid = s.id', 'left');
@@ -212,6 +212,8 @@ class Msolicitudes extends CI_Model
 			$this->db->where('s.distritoid', $distritoid);
 		if ( strlen($solicitudid) )
 			$this->db->where('s.id LIKE "%' . $solicitudid . '%"', NULL, FALSE);
+		if ( is_numeric($supervisorid) && ( $supervisorid != 0 ) )
+			$this->db->where('t.supervisorid', $supervisorid);
 		$query = $this->db->get();
 		if ( $query->num_rows() > 0 ) {
 			return $query->result();
