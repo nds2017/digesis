@@ -55,7 +55,7 @@
 				</thead>
 				<?php if ( count($data['pendientes']) || count($data['programadas']) ) { ?>
 				<tbody>
-				<?php if ( count($programadas) ) { ?>
+				<?php if ( count($data['programadas']) ) { ?>
 				<?php foreach ( $data['programadas'] as $row ) { ?>
 				<tr style="color: green;">
 					<td><strong><?=$row->id?></strong></td>
@@ -67,6 +67,7 @@
 				<?php } ?>
 				<?php } ?>
 
+				<?php if ( count($data['pendientes']) ) { ?>
 				<?php foreach ( $data['pendientes'] as $row ) { ?>
 				<tr>
 					<td><strong><?=$row->id?></strong></td>
@@ -75,6 +76,7 @@
 					<td><strong><?=$row->distrito . ' - ' . $row->dpto?></strong></td>
 					<td><a title="Asignar Técnico" href="<?=base_url()?>index.php/solicitudes/formtecnicos/<?=$row->id?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 				</tr>
+				<?php } ?>
 				<?php } ?>
 				</tbody>
 				<?php } else { ?>
