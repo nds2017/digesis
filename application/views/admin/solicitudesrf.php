@@ -45,7 +45,7 @@
 					<select name="supervisorid">
 						<option value="0">-Seleccione-</option>
 						<?php foreach ($supervisores as $id => $supervisor) { ?>
-						<option <?=(@$supervisorid==$supervisor->id ? 'selected' : '')?> value=<?=$id?>><?=$supervisor->nombres . ' ' . $supervisor->apellidos?></option>
+						<option <?=(@$supervisorid==$supervisor->id ? 'selected' : '')?> value=<?=$supervisor->id?>><?=$supervisor->nombres . ' ' . $supervisor->apellidos?></option>
 						<?php } ?>
 					</select>
 					<input type="submit" class="btnsearch" value="Buscar"/>
