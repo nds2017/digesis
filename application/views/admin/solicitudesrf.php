@@ -51,7 +51,7 @@
 					<input type="submit" class="btnsearch" value="Buscar"/>
 				</form>
 			</fieldset>
-			<table class="table table-bordered table-striped">
+			<table class="table tablep table-bordered table-striped">
 				<thead>
 					<tr>
 						<th scope="col"><span>N° SOT</span></th>
