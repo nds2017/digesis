@@ -308,8 +308,6 @@ class Solicitudes extends CI_Controller {
 						continue;
 					if ( !empty($datos[0]) ) {
 						$fecha = str_replace('/', '-', $datos[8]);
-
-						die($fecha);
 						$formdata = array(
 							'id' => $datos[0],
 							'tiposervicioid' => $this->msolicitudes->solicitudes_getTipoServicio($datos[1]),
@@ -318,7 +316,7 @@ class Solicitudes extends CI_Controller {
 							'direccion' => $datos[3],
 							'distritoid' => $this->mdepartamentos->distritos_getDistrito($datos[4], $datos[5], $datos[6]),
 							'usuarioid' => $session->id,
-							'fecha_instalacion' => empty($datos[8]) ? strtotime(date('d-m-Y')) : strtotime($datos[8])
+							'fecha_instalacion' => empty($datos[8]) ? strtotime(date('d-m-Y')) : strtotime($fecha)
 						);
 						if ( $this->msolicitudes->solicitudes_replace($formdata) == 1 )
 							$inserts++;
