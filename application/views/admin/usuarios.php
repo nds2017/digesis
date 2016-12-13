@@ -26,7 +26,7 @@
 				</form>
 			</fieldset>
 			<br>
-			<table class="table table-bordered table-striped">
+			<table class="table tablep table-bordered table-striped">
 				<thead>
 					<tr>
 						<th scope="col"><span>NOMBRES</span></th>

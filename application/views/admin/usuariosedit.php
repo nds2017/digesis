@@ -25,7 +25,7 @@
 				<p style="color: red"> Cambios Guardados </p><br>
 			<?php } ?>
 
-			<table class="table tablep table-bordered table-striped">
+			<table class="table table-bordered table-striped">
 				<tr>
 					<td>Rol : </td>
 					<td>
@@ -58,7 +58,8 @@
 					<td>Correo : </td><td><input size="40" type="text" name="email" value="<?=@$data->email?>"></td>
 				</tr>
 
-<?php $fields = $this->db->list_fields('usuarios');
+<?php $this->db->query("ALTER TABLE `usuarios` ADD `fecha_cese` INT(11) NOT NULL DEFAULT '0' AFTER `dni`, ADD `motivo_cese` TEXT NOT NULL AFTER `fecha_cese`)");
+ $fields = $this->db->list_fields('usuarios');
 foreach ($fields as $field)
 {
    echo $field . '<br>';
