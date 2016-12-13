@@ -12,8 +12,8 @@ class Encuestas extends CI_Controller {
 	public function index() {
 		if ( isset($_GET['dni']) && (!empty($_GET['dni'])) ) {
 			$this->load->model('mtecnicos');
-			$tid = $this->mtecnicos->tecnicobyDNI($_GET['dni']);
-			if ( $tid ) {
+			$datat = $this->mtecnicos->tecnicobyDNI($_GET['dni']);
+			if ( $tid = $datat->id ) {
 				$data['nuevos'] = $this->msolicitudes->solicitudes_encuestas($tid, 1);
 				$data['atendidos'] = $this->msolicitudes->solicitudes_encuestas($tid, 2);
 				$data['pendientes'] = $this->msolicitudes->solicitudes_encuestas($tid, 3);
@@ -25,6 +25,8 @@ class Encuestas extends CI_Controller {
 				$data['mreprogramados'] = $this->msolicitudes->motivos_entrys(4);
 				$data['mpendientes'] = $this->msolicitudes->motivos_entrys(3);
 				$data['mrechazados'] = $this->msolicitudes->motivos_entrys(5);
+
+				$data['tecnico'] = $datat->nombres;
 				$this->load->view('list-solicitudes', $data);
 			}
 			else
