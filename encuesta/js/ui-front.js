@@ -111,7 +111,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 	  var rule=(choice==="Rechazado");
 	  var rule2=(choice==="Validado");
 	  var rule3=(choice==="Reprogramado");
-	  var rule4=(choice==="Pendiente");	  
+	  var rule4=(choice==="Pendiente de Validar");	  
 		//var a=t.next(".label.combo-ui-lnk");
 		
 		//var b=a.next(".combo.combo-ui-lnk");
