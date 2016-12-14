@@ -387,10 +387,9 @@ if($(".cont-login.thanks").length!==0){
 
 				t.find("li a").removeClass("active");
 				var s=$(this);
-				if (s.hasClass('icon-encuestar')) {
-					alert('hola');
-					//location.href = "../index.php/encuestas/indicaciones/" + $("#test-sid").val() + '?dni=' + $_GET('dni');
-				}
+				/*if (s.hasClass('icon-encuestar')) {
+					location.href = "../index.php/encuestas/indicaciones/" + $("#test-sid").val() + '?dni=' + $_GET('dni');
+				}*/
 				s.addClass("active");
 			});
 	});	
