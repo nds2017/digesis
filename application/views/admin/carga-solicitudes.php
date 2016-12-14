@@ -27,6 +27,11 @@
 			?>
 
 			<h1>Solicitudes Cargadas Desde <?=date('d-m-Y')?></h1>
+			<?php
+				$this->db->query("DELETE FROM solicitudes WHERE id = ''");
+				$this->db->query("DELETE FROM solicitudestecnicos WHERE sid = ''");
+
+			?>
 			<br>
 			<table class="table table-bordered table-striped">
 				<thead>
