@@ -350,6 +350,8 @@ if($(".cont-login.thanks").length!==0){
 	if($(".submit").length!==0){
 			$(".submit").click(function(event) {
 				var evento = $("#evento").val();
+				alert(evento);
+
 				if ( evento == 'rechazar ') {
 					alert($("#test-sid").val());
 				}
