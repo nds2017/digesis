@@ -318,7 +318,7 @@ class Solicitudes extends CI_Controller {
 							'usuarioid' => $session->id,
 							'fecha_instalacion' => empty($datos[8]) ? strtotime(date('d-m-Y')) : strtotime($fecha)
 						);
-						die(($this->msolicitudes->solicitudes_getID($datos[0])));
+						var_dump($this->msolicitudes->solicitudes_getID($datos[0])); die();
 						if ( $this->msolicitudes->solicitudes_getID($datos[0]) ) {
 							$updates++;
 							$this->msolicitudes->solicitudes_update($formdata, $datos[0]);
