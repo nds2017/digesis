@@ -318,11 +318,15 @@ class Solicitudes extends CI_Controller {
 							'usuarioid' => $session->id,
 							'fecha_instalacion' => empty($datos[8]) ? strtotime(date('d-m-Y')) : strtotime($fecha)
 						);
-						if ( $this->msolicitudes->solicitudes_replace($formdata) == 1 )
+						if ( solicitudes_getID($datos[0]) ) {
 							$inserts++;
-						else
+							$this->msolicitudes->solicitudes_create($formdata);
+							$this->msolicitudes->solicitudes_addtecnicos(array('sid' => $datos[0], 't1id' => 0, 't2id' => 0, 'aid' => 0));
+						}
+						else {
 							$updates++;
-						$this->msolicitudes->solicitudes_addtecnicos(array('sid' => $datos[0], 't1id' => 0, 't2id' => 0, 'aid' => 0));
+							$this->msolicitudes->solicitudes_update($formdata, $datos[0]);
+						}
 					}
 				}
 				$data['info'] = (object)array('filas' => $i-1, 'add' => $inserts, 'update' => $updates);

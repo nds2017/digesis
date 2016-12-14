@@ -345,6 +345,13 @@ class Msolicitudes extends CI_Model
 		$this->db->update('solicitudes', $data);
 	}
 
+	public function solicitudes_getID($sid) {
+		$query = $this->db->query("SELECT id FROM solicitudes WHERE id = '$sid'");
+		if ( $query->row()->id )
+			return $query->row();
+		return null;
+	}
+
 	public function solicitudes_create($data) {
 		$this->db->insert('solicitudes', $data);
 	}
