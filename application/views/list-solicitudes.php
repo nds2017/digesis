@@ -19,7 +19,7 @@
 				<div class="calendar">
 					<div class="calendar-box"><div id="datepicker1"></div></div>
 				</div>
-				<div class="ui-popup-options-contenido">
+				<div class="ui-popup-options-contenido" id="reprogramar">
 					<div class="datetime ui-popup-options-contenido">
 						<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">SELECCIONAR</span></div>
 						<ul class="ui-popup-options-list">
@@ -47,10 +47,10 @@
 				</div>
 			</div>
 			<div class="ui-popup-options-wrapper client">
-				<div class="ui-popup-options-contenido">
+				<div class="ui-popup-options-contenido" id="pendientes">
 					<input type="hidden" id="client-sid" name="client-sid" value="empty-sid">
 					<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">SELECCIONAR</span></div>
-					<ul class="ui-popup-options-list" id="pendientes">
+					<ul class="ui-popup-options-list">
 					<?php foreach ( $mpendientes as $key => $value) { ?>
 						<li><a class="icon-cerrar" href="#"><?=$value?></a></li>
 					<?php } ?>
@@ -63,7 +63,7 @@
 			</div>
 		<div class="ui-popup-options-wrapper test">
 			<input type="hidden" id="test-sid" name="test-sid" value="empty-sid">
-			<div class="ui-popup-options-contenido">
+			<div class="ui-popup-options-contenido" id="encuestar">
 				<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">SELECCIONAR</span></div>
 				<ul class="ui-popup-options-list">
 					<li>
@@ -81,7 +81,7 @@
 		</div>
 		<div class="ui-popup-options-wrapper reject">
 			<input type="hidden" id="reject-sid" name="reject-sid" value="empty-sid">
-			<div class="ui-popup-options-contenido">
+			<div class="ui-popup-options-contenido" id="rechazar">
 				<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">MOTIVO RECHAZO</span></div>
 				<ul class="ui-popup-options-list">
 				<?php foreach ( $mrechazados as $key => $value) { ?>
