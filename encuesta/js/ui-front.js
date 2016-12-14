@@ -356,7 +356,7 @@ if($(".cont-login.thanks").length!==0){
 				else if ( evento == 'pendiente' ) {
 					alert($("#test-sid").val());
 				}
-				else if ( evento == 'encuestar' ) {
+				else if ( evento == 'validar' ) {
 					location.href = "../index.php/encuestas/indicaciones/" + $("#test-sid").val() + '?dni=' + $_GET('dni');					
 				}
 			});
