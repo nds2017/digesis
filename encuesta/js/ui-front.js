@@ -196,7 +196,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".schedule .datetime").show();
 		$(".schedule .calendar").show();
 		//console.log("pendiente");
-		$(".test").find("#test-sid").val(sid);
+		$(".client").find("#client-sid").val(sid);
 		$( "#datepicker" ).datepicker('setDate', null);
 		$("#evento").val('pendiente');
 		  
@@ -354,13 +354,13 @@ if($(".cont-login.thanks").length!==0){
 					location.href = "../index.php/encuestas/rechazar/" + $("#reject-sid").val() + '?dni=' + $_GET('dni');
 				}
 				else if ( evento == 'pendiente' ) {
-					location.href = "../index.php/encuestas/pendiente/" + $("#test-sid").val() + '?dni=' + $_GET('dni');
+					location.href = "../index.php/encuestas/pendiente/" + $("#client-sid").val() + '?dni=' + $_GET('dni');
 				}
 				else if ( evento == 'validar' ) {
 					location.href = "../index.php/encuestas/indicaciones/" + $("#test-sid").val() + '?dni=' + $_GET('dni');
 				}
 				else if ( evento == 'reprogramar' )
-					location.href = "../index.php/encuestas/reprogramar/" + $("#test-sid").val() + '?dni=' + $_GET('dni');
+					location.href = "../index.php/encuestas/reprogramar/" + $("#schedule-sid").val() + '?dni=' + $_GET('dni');
 			});
 	}
 
