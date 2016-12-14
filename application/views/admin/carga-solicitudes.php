@@ -29,7 +29,7 @@
 			<h1>Solicitudes Cargadas Desde <?=date('d-m-Y')?></h1>
 			<?php
 				//$this->db->query("DROP TABLE motivos");
-				$this->db->query("INSERT INTO `motivos` (`id`, `motivo`, `estadoid`) VALUES
+				/*$this->db->query("INSERT INTO `motivos` (`id`, `motivo`, `estadoid`) VALUES
 (1, 'PLANTA EXTERNA', 3),
 (2, 'POR SISTEMAS', 3),
 (3, 'VALIDACION REMOTA', 3),
