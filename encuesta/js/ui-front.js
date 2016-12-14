@@ -353,8 +353,8 @@ if($(".cont-login.thanks").length!==0){
 				var t = $("#rechazar");
 
 				var s = t.find("li a").hasClass('active');
-				alert($(s).attr('value'));
-				alert($(s).attr('class'));
+				alert(s.attr('value'));
+				alert(s.attr('class'));
 				//var s = $(this);
 				//if ( s.hasClass('active') )
 				//	alert(s.value);
