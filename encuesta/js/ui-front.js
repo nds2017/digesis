@@ -352,10 +352,11 @@ if($(".cont-login.thanks").length!==0){
 				alert($("#evento").val());
 				var t = $("#rechazar");
 
-				t.find("li a");
-				var s = $(this);
-				if ( s.hasClass('active') )
-					alert(s.value);
+				t.find("li a").hasClass('active');
+				alert($(this));
+				//var s = $(this);
+				//if ( s.hasClass('active') )
+				//	alert(s.value);
 				//event.preventDefault();
 				//hidepop();
 			});
