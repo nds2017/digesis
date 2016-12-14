@@ -323,7 +323,6 @@ class Solicitudes extends CI_Controller {
 							$this->msolicitudes->solicitudes_update($formdata, $datos[0]);
 						}
 						else {
-							die('agregand');
 							$inserts++;
 							$this->msolicitudes->solicitudes_create($formdata);
 							$this->msolicitudes->solicitudes_addtecnicos(array('sid' => $datos[0], 't1id' => 0, 't2id' => 0, 'aid' => 0));
