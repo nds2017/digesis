@@ -349,7 +349,7 @@ if($(".cont-login.thanks").length!==0){
 		$(".ui-popup-options-contenido .icon-cerrar").click(function(event) {
 			//$(this).parent().parent().parent().parent().hide();
 			event.preventDefault();
-			console.log($(this).parent().parent());
+			console.log($(this).parent().parent().parent().attr('id'));
 			//setTimeout(hidepop, 500);
 			$( "#datepicker" ).datepicker('setDate', null);
 		});	

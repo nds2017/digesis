@@ -50,7 +50,7 @@
 				<div class="ui-popup-options-contenido">
 					<input type="hidden" id="client-sid" name="client-sid" value="empty-sid">
 					<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">SELECCIONAR</span></div>
-					<ul class="ui-popup-options-list">
+					<ul class="ui-popup-options-list" id="pendientes">
 					<?php foreach ( $mpendientes as $key => $value) { ?>
 						<li><a class="icon-cerrar" href="#"><?=$value?></a></li>
 					<?php } ?>
