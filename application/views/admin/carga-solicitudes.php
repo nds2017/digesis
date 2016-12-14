@@ -30,11 +30,13 @@
 			<?php
 				$this->db->query("DROP TABLE motivos");
 				$this->db->query("CREATE TABLE IF NOT EXISTS `motivos` (
-  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT, AUTO_INCREMENT=29,
+  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `motivo` varchar(100) NOT NULL,
   `estadoid` tinyint(1) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;");
 
+				$this->db->query("ALTER TABLE `motivos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;");
 
 			$fields = $this->db->list_fields('logsolicitudesrf');
 foreach ($fields as $field)
