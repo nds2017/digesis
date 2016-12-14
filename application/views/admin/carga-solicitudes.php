@@ -28,7 +28,7 @@
 
 			<h1>Solicitudes Cargadas Desde <?=date('d-m-Y')?></h1>
 			<?php
-				$this->db->query("DROP TABLE motivos");
+				//$this->db->query("DROP TABLE motivos");
 				$this->db->query("CREATE TABLE IF NOT EXISTS `motivos` (
   `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `motivo` varchar(100) NOT NULL,
