@@ -350,16 +350,14 @@ if($(".cont-login.thanks").length!==0){
 	if($(".submit").length!==0){
 			$(".submit").click(function(event) {
 				var evento = $("#evento").val();
-				alert(evento);
-				if ( evento == 'rechazar ') {
-					//alert($("#reject-sid").val());
-					alert('hola');
+				if ( evento == 'rechazar') {
+					location.href = "../index.php/encuestas/rechazar/" + $("#reject-sid").val() + '?dni=' + $_GET('dni');
 				}
 				else if ( evento == 'pendiente' ) {
-					alert($("#test-sid").val());
+					location.href = "../index.php/encuestas/pendientes/" + $("#test-sid").val() + '?dni=' + $_GET('dni');
 				}
 				else if ( evento == 'validar' ) {
-					location.href = "../index.php/encuestas/indicaciones/" + $("#test-sid").val() + '?dni=' + $_GET('dni');					
+					location.href = "../index.php/encuestas/indicaciones/" + $("#test-sid").val() + '?dni=' + $_GET('dni');
 				}
 			});
 	}

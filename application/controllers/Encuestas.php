@@ -37,6 +37,27 @@ class Encuestas extends CI_Controller {
 			redirect('welcome');
 	}
 
+	public function pendiente($sid = null) {
+		if ( isset($sid) && !empty($sid) ) {
+			$form = array('id' => $sid, 'estadoid' => 3);
+			$this->msolicitudes->solicitudes_update($form, $sid);
+			redirect('encuestas?dni=' . $_GET['dni']);
+		}
+		else
+			redirect('welcome');
+
+	}
+
+	public function rechazar($sid = null) {
+		if ( isset($sid) && !empty($sid) ) {
+			$form = array('id' => $sid, 'estadoid' => 5);
+			$this->msolicitudes->solicitudes_update($form, $sid);
+			redirect('encuestas?dni=' . $_GET['dni']);
+		}
+		else
+			redirect('welcome');
+	}
+
 	public function preguntas($sid = null) {
 		$data = array();
 		$preguntas = $this->mencuestas->encuestas_preguntas();
