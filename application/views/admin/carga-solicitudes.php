@@ -28,20 +28,19 @@
 
 			<h1>Solicitudes Cargadas Desde <?=date('d-m-Y')?></h1>
 			<?php
-				/*$this->db->query("CREATE TABLE IF NOT EXISTS `logsolicitudesrf` (
-  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `moddate` int(11) NOT NULL,
-  `usuarioid` int(11) NOT NULL,
-  `sid` int(11) NOT NULL,
-  `estadorf` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
+				$this->db->query("DROP TABLE motivos");
+				$this->db->query("CREATE TABLE IF NOT EXISTS `motivos` (
+  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT, AUTO_INCREMENT=29,
+  `motivo` varchar(100) NOT NULL,
+  `estadoid` tinyint(1) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;");
 
 
 			$fields = $this->db->list_fields('logsolicitudesrf');
 foreach ($fields as $field)
 {
    echo $field . '<br>';
-}*/
+}
 				//$this->db->query("DELETE FROM logsolicitudesrf WHERE sid = ''");
 				//$query = $this->db->query("SELECT * FROM logsolicitudesrf");
 				//var_dump($query->result());
