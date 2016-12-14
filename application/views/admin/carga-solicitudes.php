@@ -28,12 +28,12 @@
 
 			<h1>Solicitudes Cargadas Desde <?=date('d-m-Y')?></h1>
 			<?php
-				$this->db->query("CREATE TABLE IF NOT EXISTS `logsolicitudes` (
+/*				$this->db->query("CREATE TABLE IF NOT EXISTS `logsolicitudes` (
   `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `fecha_upload` int(11) NOT NULL,
   `usuarioid` int(11) NOT NULL,
   `agregados` int(11) NOT NULL,
-  `archivo` varchar(50) NOT NULL
+  `archivo` varchar(50)* NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
 
 
@@ -43,6 +43,8 @@ foreach ($fields as $field)
    echo $field . '<br>';
 }
 				/*$this->db->query("DELETE FROM solicitudestecnicos WHERE sid = ''");*/
+				$query = $this->db->query("SELECT * FROM logsolicitudes");
+				var_dump($query->result()));
 			?>
 			<br>
 			<table class="table table-bordered table-striped">

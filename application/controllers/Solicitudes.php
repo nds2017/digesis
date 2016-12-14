@@ -296,7 +296,6 @@ class Solicitudes extends CI_Controller {
 		$data['bnombres'] = isset($_POST['bnombres']) ? $_POST['bnombres'] : '';
 		if ( @$_POST['carga'] ) {
 			$file = $_FILES['file']['tmp_name'];
-			var_dump($_FILES['file']); die();
 			if ( !empty($file) ) {
 				$handle = fopen($file, "r");
 				$fila = 1;
@@ -331,6 +330,12 @@ class Solicitudes extends CI_Controller {
 					}
 				}
 				$data['info'] = (object)array('filas' => $i-1, 'add' => $inserts, 'update' => $updates);
+				$this->msolicitudes->solicitudes_cargalog(array(
+					'fecha_upload' => strtotime("now"),
+					'usuarioid' => $session->id,
+					'agregados' => $inserts,
+					'archivo' => $_FILES['file']['name']
+				));
 			}
 			else
 				$data['error'] = '<p style="color: red;"><b>Error de Archivo, Elija un Archivo .csv</b></p>';
