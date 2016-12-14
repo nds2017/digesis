@@ -347,8 +347,7 @@ class Msolicitudes extends CI_Model
 
 	public function solicitudes_getID($sid) {
 		$query = $this->db->query("SELECT id FROM solicitudes WHERE id = '$sid'");
-		var_dump($query); die();
-		if ( $query->row()->id )
+		if ( $query->num_rows() )
 			return true;
 		return null;
 	}
