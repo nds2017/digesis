@@ -395,6 +395,10 @@ class Msolicitudes extends CI_Model
 		$this->db->insert('logsolicitudes', $data);
 	}
 
+	public function solicitudes_rflog($data) {
+		$this->db->insert('logsolicitudesrf', $data);
+	}
+
 	public function solicitudes_delete($id) {
 		$this->db->where('id', $id);
 		$this->db->update('solicitudes', array('publish' => 0));

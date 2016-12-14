@@ -225,11 +225,18 @@ class Solicitudes extends CI_Controller {
 	}
 
 	public function editrf($id) {
+		$session = get_session();
 		$formdata = array (
 			'rf' => $this->input->post('estadosrfid'),
 			'motivorf' => $this->input->post('motivo')
 		);
 		$this->msolicitudes->solicitudes_update($formdata, $id);
+		$this->msolicitudes->solicitudes_rflog(array(
+			'moddate' => strtotime("now"),
+			'usuarioid' => $session->id,
+			'sid' => $id,
+			'estadorf' => $this->input->post('estadosrfid')
+		));
 		redirect('solicitudes/listarf');
 	}
 
