@@ -319,13 +319,13 @@ class Solicitudes extends CI_Controller {
 							'fecha_instalacion' => empty($datos[8]) ? strtotime(date('d-m-Y')) : strtotime($fecha)
 						);
 						if ( $this->msolicitudes->solicitudes_getID($datos[0]) ) {
+							$updates++;
+							$this->msolicitudes->solicitudes_update($formdata, $datos[0]);
+						}
+						else {
 							$inserts++;
 							$this->msolicitudes->solicitudes_create($formdata);
 							$this->msolicitudes->solicitudes_addtecnicos(array('sid' => $datos[0], 't1id' => 0, 't2id' => 0, 'aid' => 0));
-						}
-						else {
-							$updates++;
-							$this->msolicitudes->solicitudes_update($formdata, $datos[0]);
 						}
 					}
 				}
