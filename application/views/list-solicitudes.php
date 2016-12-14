@@ -13,6 +13,7 @@
 
 	<body>
 		<div class="ui-popup-options">
+			<input type="hidden" id="evento" value="" />
 			<a href="#" class="ui-popup-close"></a>
 			<div class="ui-popup-options-wrapper schedule">
 				<input type="hidden" id="schedule-sid" name="schedule-sid" value="empty-sid">
@@ -41,7 +42,7 @@
 						</ul>
 					</div>
 					<div class="cont-btn final-p">
-						<input type="button" value="GUARDAR">
+						<input class="submit" type="button" value="GUARDAR">
 						<input class="cancel" type="button" value="CANCELAR">
 					</div>
 				</div>
@@ -56,7 +57,7 @@
 					<?php } ?>
 					</ul>
 					<div class="cont-btn final-p">
-						<input type="button" value="GUARDAR">
+						<input class="submit" type="button" value="GUARDAR">
 						<input class="cancel" type="button" value="CANCELAR">
 					</div>
 				</div>
@@ -67,14 +68,14 @@
 				<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">SELECCIONAR</span></div>
 				<ul class="ui-popup-options-list">
 					<li>
-						<a class="icon-encuestar" href="preguntas-final.html">Iniciar Encuesta</a>
+						<a class="icon-encuestar" href="#">Iniciar Encuesta</a>
 					</li>
 					<li>
 						<a class="icon-cerrar" href="#">Denegar Encuesta</a>
 					</li>
 				</ul>
 				<div class="cont-btn final-p">
-					<input type="button" value="GUARDAR">
+					<input class="submit" type="button" value="GUARDAR">
 					<input class="cancel" type="button" value="CANCELAR">
 				</div>
 			</div>
@@ -90,7 +91,7 @@
 				</ul>
 			</div>
 			<div class="cont-btn final-p">
-				<input type="button" value="GUARDAR">
+				<input class="submit" type="button" value="GUARDAR">
 				<input class="cancel" type="button" value="CANCELAR">
 			</div>
 		</div>

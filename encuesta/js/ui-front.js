@@ -138,7 +138,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".schedule .datetime").show();
 		$(".schedule .calendar").show();
 		$(".reject").find("#reject-sid").val(sid);
-		
+		$("#evento").val('rechazar');
 	  }else if(rule2){
 		//a.addClass("display-none");
 		//b.addClass("display-none");
@@ -156,6 +156,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".schedule .datetime").show();
 		$(".schedule .calendar").show();
 		$(".test").find("#test-sid").val(sid);
+		$("#evento").val('validar');
 		//console.log("validado");
 		
 	  }else if(rule3){
@@ -176,6 +177,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".schedule .calendar").show();	
 		$("#datepicker").trigger( "focus" );
 		$(".schedule").find("#schedule-sid").val(sid);
+		$("#evento").val('reprogramar');
 		//console.log("reprogramado")
 	  }else if(rule4){
 		//a.addClass("display-none");
@@ -195,7 +197,8 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".schedule .calendar").show();
 		//console.log("pendiente");
 		$(".test").find("#test-sid").val(sid);
-		$( "#datepicker" ).datepicker('setDate', null);	
+		$( "#datepicker" ).datepicker('setDate', null);
+		$("#evento").val('pendiente');
 		  
 	  }else{
 		//a.addClass("display-none");
@@ -344,12 +347,20 @@ if($(".cont-login.thanks").length!==0){
 			});
 	}
 
+	if($(".submit").length!==0){
+			$(".submit").click(function(event) {
+				alert($("#evento").val());
+				//event.preventDefault();
+				//hidepop();
+			});
+	}
+
 
 	if($(".ui-popup-options").length!==0){	
 		$(".ui-popup-options-contenido .icon-cerrar").click(function(event) {
 			//$(this).parent().parent().parent().parent().hide();
 			event.preventDefault();
-			console.log($(this).parent().parent().parent().attr('id'));
+			//console.log($(this).parent().parent().parent().attr('id'));
 			//setTimeout(hidepop, 500);
 			$( "#datepicker" ).datepicker('setDate', null);
 		});	
@@ -371,7 +382,8 @@ if($(".cont-login.thanks").length!==0){
 				t.find("li a").removeClass("active");
 				var s=$(this);
 				if (s.hasClass('icon-encuestar')) {
-					location.href = "../index.php/encuestas/indicaciones/" + $("#test-sid").val() + '?dni=' + $_GET('dni');
+					alert('hola');
+					//location.href = "../index.php/encuestas/indicaciones/" + $("#test-sid").val() + '?dni=' + $_GET('dni');
 				}
 				s.addClass("active");
 			});
