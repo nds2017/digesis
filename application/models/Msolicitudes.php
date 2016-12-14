@@ -391,6 +391,10 @@ class Msolicitudes extends CI_Model
 		return $this->db->affected_rows();
 	}
 
+	public function solicitudes_cargalog($data) {
+		$this->db->insert('logsolicitudes', $data);
+	}
+
 	public function solicitudes_delete($id) {
 		$this->db->where('id', $id);
 		$this->db->update('solicitudes', array('publish' => 0));

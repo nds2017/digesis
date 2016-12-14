@@ -296,6 +296,7 @@ class Solicitudes extends CI_Controller {
 		$data['bnombres'] = isset($_POST['bnombres']) ? $_POST['bnombres'] : '';
 		if ( @$_POST['carga'] ) {
 			$file = $_FILES['file']['tmp_name'];
+			var_dump($_FILES['file']); die();
 			if ( !empty($file) ) {
 				$handle = fopen($file, "r");
 				$fila = 1;
