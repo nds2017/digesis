@@ -48,6 +48,17 @@ class Encuestas extends CI_Controller {
 
 	}
 
+	public function reprogramar($sid = null) {
+		if ( isset($sid) && !empty($sid) ) {
+			$form = array('id' => $sid, 'estadoid' => 4);
+			$this->msolicitudes->solicitudes_update($form, $sid);
+			redirect('encuestas?dni=' . $_GET['dni']);
+		}
+		else
+			redirect('welcome');
+
+	}
+
 	public function rechazar($sid = null) {
 		if ( isset($sid) && !empty($sid) ) {
 			$form = array('id' => $sid, 'estadoid' => 5);
