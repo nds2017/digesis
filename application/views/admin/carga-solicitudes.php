@@ -63,8 +63,8 @@
 			/*$fields = $this->db->list_fields('motivos');
 foreach ($fields as $field)
 {
-   echo $field . '<br>';*/
-}
+   echo $field . '<br>';
+}*/
 				//$this->db->query("DELETE FROM logsolicitudesrf WHERE sid = ''");
 				$query = $this->db->query("SELECT * FROM motivos");
 				//var_dump($query->result());
