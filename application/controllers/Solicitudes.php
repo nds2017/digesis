@@ -318,7 +318,7 @@ class Solicitudes extends CI_Controller {
 							'usuarioid' => $session->id,
 							'fecha_instalacion' => empty($datos[8]) ? strtotime(date('d-m-Y')) : strtotime($fecha)
 						);
-						if ( solicitudes_getID($datos[0]) ) {
+						if ( $this->msolicitudes->solicitudes_getID($datos[0]) ) {
 							$inserts++;
 							$this->msolicitudes->solicitudes_create($formdata);
 							$this->msolicitudes->solicitudes_addtecnicos(array('sid' => $datos[0], 't1id' => 0, 't2id' => 0, 'aid' => 0));
