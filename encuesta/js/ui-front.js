@@ -100,7 +100,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
   var t=$( this );
   //var sid=t.parent().attr("id");
   var sid=t.parent().attr("data-codigo");
-  //console.log(sid);
+  console.log(sid);
   var sel=t.find("select");
   	//sel.val("Pendiente");
 	//sel.find("option[value='Pendiente']").attr('selected','selected');
@@ -134,6 +134,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".client").hide();
 		$(".schedule").hide();
 		$(".reject").show();
+		$("body").addClass("no-scroll");
 		$(".schedule .datetime").show();
 		$(".schedule .calendar").show();
 		$(".reject").find("#reject-sid").val(sid);
@@ -148,6 +149,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$( ".client-box" ).addClass('display-none');
 		$(".ui-popup-options-list li a").removeClass("active");
 		$(".test").show();
+		$("body").addClass("no-scroll");
 		$(".client").hide();
 		$(".schedule").hide();
 		$(".reject").hide();
@@ -168,6 +170,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".test").hide();
 		$(".client").hide();
 		$(".schedule").show();
+		$("body").addClass("no-scroll");
 		$(".reject").hide();
 		$(".schedule .datetime").show();
 		$(".schedule .calendar").show();	
@@ -185,6 +188,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".ui-popup-options-list li a").removeClass("active");
 		$(".test").hide();
 		$(".client").show();
+		$("body").addClass("no-scroll");
 		$(".schedule").hide();
 		$(".reject").hide();
 		$(".schedule .datetime").show();
@@ -209,7 +213,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".reject").hide();
 		$(".schedule .datetime").show();
 		$(".schedule .calendar").show();
-		
+		$("body").removeClass("no-scroll");
 	  }
 	  
 	  
@@ -296,7 +300,7 @@ if($(".cont-login.thanks").length!==0){
 										$(".ui-container-tab").height(nH);
 										$(".wrap-ui-container-tab").height(nH);	
 																			//console.log("i:"+i);
-										var cpos=$(".ui-container-tab").css("left").replace("px","");
+										//var cpos=$(".ui-container-tab").css("left").replace("px","");
 										//console.log("cpos:"+cpos);
 										
 										var npos=-(wrapW*i);
@@ -306,16 +310,19 @@ if($(".cont-login.thanks").length!==0){
 								});
 
 		}
+		
+		
 
 		ui_tabs();
 
 		window.addEventListener("resize", function() {
 		   ui_tabs();
-
+		   $(".ui-tabs-links li.active").find("a").trigger("click");
 		}, false);
 
 		window.addEventListener("orientationchange", function() {
 		   ui_tabs();
+		   $(".ui-tabs-links li.active").find("a").trigger("click");
 
 		}, false);
 
@@ -324,7 +331,10 @@ if($(".cont-login.thanks").length!==0){
 	//POPUP
 	function hidepop(){
 		$(".ui-popup-options").fadeOut("fast");
-	};
+		$("body").removeClass("no-scroll");
+		//RESET LI FORM  RADIO BUTTONS
+		//$(".ui-popup-options-list li a").removeClass("active");
+	}
 
 	//CANCEL
 	if($(".cancel").length!==0){
@@ -354,12 +364,14 @@ if($(".cont-login.thanks").length!==0){
 	});
 	
 	$(".ui-popup-options-list" ).each(function() {
+
 			var t=$(this);
 			t.find("li a").click(function(event) {
 				event.preventDefault();
+
 				t.find("li a").removeClass("active");
 				var s=$(this);
-				if ( s.hasClass('icon-encuestar') ) {
+				if (s.hasClass('icon-encuestar')) {
 					location.href = "../index.php/encuestas/indicaciones/" + $("#test-sid").val() + '?dni=' + $_GET('dni');
 				}
 				s.addClass("active");
@@ -371,6 +383,8 @@ if($(".cont-login.thanks").length!==0){
 	$(".ui-popup-close").click(function(event) {
 		event.preventDefault();
 			setTimeout(hidepop, 500);
+			
+			
 	});	
 
 		//console.log("..popup");
