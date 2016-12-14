@@ -29,22 +29,44 @@
 			<h1>Solicitudes Cargadas Desde <?=date('d-m-Y')?></h1>
 			<?php
 				//$this->db->query("DROP TABLE motivos");
-				$this->db->query("CREATE TABLE IF NOT EXISTS `motivos` (
-  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `motivo` varchar(100) NOT NULL,
-  `estadoid` tinyint(1) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;");
+				$this->db->query("INSERT INTO `motivos` (`id`, `motivo`, `estadoid`) VALUES
+(1, 'PLANTA EXTERNA', 3),
+(2, 'POR SISTEMAS', 3),
+(3, 'VALIDACION REMOTA', 3),
+(4, 'FACILIDADES DEL CLIENTE', 3),
+(5, 'CONTRATISTA', 3),
+(6, 'FACILIDADES INTERNAS', 3),
+(7, 'PLANTA EXTERNA', 4),
+(8, 'POR SISTEMAS', 4),
+(9, 'PENDIENTE MANTTO PEX', 4),
+(10, 'PENDIENTE ACTIVAS SISTEMAS', 4),
+(11, 'PENDIENTE PROB. MASIVO SISTEMAS', 4),
+(12, 'CLIENTE AUSENTE', 4),
+(13, 'CLIENTE NO CON EQUIPO', 4),
+(14, 'FACILIDADES INTERNAS', 4),
+(15, 'POR LA CONTRATISTA', 4),
+(16, 'POR FACILIDADES TECNICAS DEL CLIENTE', 4),
+(17, 'POR SISTEMAS', 5),
+(18, 'POR PORTABILIDAD NO EFECTUADA', 5),
+(19, 'POR FALTA DE INFRAESTRUCTURA DE RED', 5),
+(20, 'POR DUPLICIDAD', 5),
+(21, 'POR CLIENTE POSIBLE FRAUDE', 5),
+(22, 'POR NO DEFINE FECHA DE PROGRAMACION', 5),
+(23, 'POR CLIENTE NO DESEA EL SERVICIO', 5),
+(24, 'POR MALA OFERTA', 5),
+(25, 'POR MUDANZA O VIAJE', 5),
+(26, 'POR EXCESO DE ACOMETIDA', 5),
+(27, 'POR FACILIDADES TECNICAS DEL CLIENTE', 5),
+(28, 'POR ZONA PELIGROSA', 5);");
 
-				$this->db->query("ALTER TABLE `motivos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;");
 
-			$fields = $this->db->list_fields('motivos');
+			/*$fields = $this->db->list_fields('motivos');
 foreach ($fields as $field)
 {
-   echo $field . '<br>';
+   echo $field . '<br>';*/
 }
 				//$this->db->query("DELETE FROM logsolicitudesrf WHERE sid = ''");
-				//$query = $this->db->query("SELECT * FROM logsolicitudesrf");
+				$query = $this->db->query("SELECT * FROM motivos");
 				//var_dump($query->result());
 			?>
 			<br>
