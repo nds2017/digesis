@@ -349,17 +349,16 @@ if($(".cont-login.thanks").length!==0){
 
 	if($(".submit").length!==0){
 			$(".submit").click(function(event) {
-				alert($("#evento").val());
-				var t = $("#rechazar");
-
-				var s = t.find("li a").hasClass('active');
-				alert(s.attr('value'));
-				alert(s.attr('class'));
-				//var s = $(this);
-				//if ( s.hasClass('active') )
-				//	alert(s.value);
-				//event.preventDefault();
-				//hidepop();
+				var evento = $("#evento").val();
+				if ( evento == 'rechazar ') {
+					alert($("#test-sid").val());
+				}
+				else if ( evento == 'pendiente' ) {
+					alert($("#test-sid").val());
+				}
+				else if ( evento == 'encuestar' ) {
+					location.href = "../index.php/encuestas/indicaciones/" + $("#test-sid").val() + '?dni=' + $_GET('dni');					
+				}
 			});
 	}
 
