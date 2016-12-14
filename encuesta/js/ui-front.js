@@ -352,9 +352,9 @@ if($(".cont-login.thanks").length!==0){
 				alert($("#evento").val());
 				var t = $("#rechazar");
 
-				t.find("li a").hasClass('active');
-				alert($(this).attr('value'));
-				alert($(this).attr('class'));
+				var s = t.find("li a").hasClass('active');
+				alert($(s).attr('value'));
+				alert($(s).attr('class'));
 				//var s = $(this);
 				//if ( s.hasClass('active') )
 				//	alert(s.value);
