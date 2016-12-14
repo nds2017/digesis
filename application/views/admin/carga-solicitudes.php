@@ -28,7 +28,7 @@
 
 			<h1>Solicitudes Cargadas Desde <?=date('d-m-Y')?></h1>
 			<?php
-				$this->db->query("CREATE TABLE IF NOT EXISTS `logsolicitudesrf` (
+				/*$this->db->query("CREATE TABLE IF NOT EXISTS `logsolicitudesrf` (
   `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `moddate` int(11) NOT NULL,
   `usuarioid` int(11) NOT NULL,
@@ -41,10 +41,10 @@
 foreach ($fields as $field)
 {
    echo $field . '<br>';
-}
-				/*$this->db->query("DELETE FROM solicitudestecnicos WHERE sid = ''");*/
-/*				$query = $this->db->query("SELECT * FROM logsolicitudes");
-				var_dump($query->result());*/
+}*/
+				//$this->db->query("DELETE FROM logsolicitudesrf WHERE sid = ''");
+				$query = $this->db->query("SELECT * FROM logsolicitudesrf");
+				var_dump($query->result());
 			?>
 			<br>
 			<table class="table table-bordered table-striped">
