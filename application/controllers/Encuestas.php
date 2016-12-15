@@ -53,6 +53,7 @@ class Encuestas extends CI_Controller {
 				$form = array('id' => $_POST['sid'], 'motivoid' => $_POST['motivoid'], 'estadoid' => 4);
 				$this->msolicitudes->solicitudes_update($form, $_POST['sid']);
 				echo json_encode(array('status' => true));
+			}
 			else
 				echo json_encode(array('status' => false));
 		}
