@@ -265,7 +265,10 @@ class Solicitudes extends CI_Controller {
 			'fecha_instalacion' => strtotime("now")
 		);
 		$this->msolicitudes->solicitudes_update($formdata, $id);
-		redirect('solicitudes/listatecnicos');
+		if ( $_GET['flag'] == 'seguimiento')
+			redirect('solicitudes/seguimiento');
+		else
+			redirect('solicitudes/listatecnicos');
 	}
 
 	public function add() {
