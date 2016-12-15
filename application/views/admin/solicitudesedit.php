@@ -60,6 +60,7 @@
 					<td>Motivo : </td>
 					<td>
 						<select name="motivoid">
+							<option value="0">-Seleccione-</option>
 							<?php foreach ( $motivos as $key => $motivo ) { ?>
 								<option <?=(@$data->motivoid==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$motivo?></option>
 							<?php } ?>
