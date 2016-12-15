@@ -400,7 +400,7 @@ if($(".cont-login.thanks").length!==0){
 				}
 				else if ( evento == 'reprogramar' ) {
 					var date = $( "#datepicker1" ).datepicker().val();
-					var today = new Date('dd-mm-yy');
+					var today = $.datepicker.formatDate('dd-mm-yy', new Date());
 					alert(today); alert(date);
 					//if ( date )
 					//	alert(date);
