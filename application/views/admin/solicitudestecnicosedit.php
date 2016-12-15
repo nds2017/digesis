@@ -13,7 +13,7 @@
 				else
 					echo form_open_multipart('solicitudes/edittecnicos/' . @$data->id);
 			?>
-
+			<input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>
 			<table class="table table-bordered table-striped">
 				<tr>
 					<td>N° Solicitud : </td><td><input disabled type="text" name="solicitudid" value="<?=@$data->id?>"></td>
