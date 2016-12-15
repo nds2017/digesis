@@ -398,7 +398,7 @@ if($(".cont-login.thanks").length!==0){
 						alert("Seleccione una opción");
 				}
 				else if ( evento == 'reprogramar' ) {
-					alert($("#datepicker").datepicker('getDate'));
+					console.log($("#datepicker").datepicker('getDate'));
 					//location.href = "../index.php/encuestas/reprogramar/" + $("#schedule-sid").val() + '?dni=' + $_GET('dni');
 				}
 			});
