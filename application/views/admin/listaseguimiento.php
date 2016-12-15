@@ -52,7 +52,8 @@
 					<td><strong><?=$sid->cliente?></strong></td>
 					<td><strong><?=$sid->distrito . ' - ' . $sid->dpto?></strong></td>
 					<td><strong><?=$sid->enombre?></strong></td>
-					<td><a title="Reasignar Técnico" href="<?=base_url()?>index.php/solicitudes/formtecnicos/<?=$sid->id?>?flag=seguimiento"><img src="<?=base_url()?>img/editar.png"></a></td>
+					<?php $url = ($sid->estadoid==2) ? '#' : base_url() . 'index.php/solicitudes/formtecnicos/' . $sid->id . '?flag=seguimiento'; ?>
+					<td><a title="Reasignar Técnico" href="<?=$url?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 				</tr>
 				<?php } ?>
 				</table>
