@@ -164,7 +164,7 @@ class Msolicitudes extends CI_Model
 		$this->db->select('t1id, t2id');
 		$this->db->from('solicitudestecnicos s');
 		$this->db->where('t1id !=', 0);
-		$this->db->where('t2id !=', 0);
+		//$this->db->where('t2id !=', 0);
 
 		if ( is_numeric($tecnicoid) && ( $tecnicoid != 0 ) )
 			$this->db->where('t1id', $tecnicoid);
