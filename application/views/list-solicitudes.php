@@ -97,9 +97,9 @@
 		</div>
 	</div>
 	<div class="wrapper">
-		<header>
-			 <a href="<?=base_url()?>index.php/encuestas?dni=<?=$_GET['dni']?>"><img src="<?=base_url()?>encuesta/img/logo.png"/></a>
-		</header>
+		<a href="<?=base_url()?>index.php/encuestas?dni=<?=$_GET['dni']?>">
+			<header><img src="<?=base_url()?>encuesta/img/logo.png"/></header>
+		</a>
 		<div class="body_w">
 			<div class="list-solicitud">
 				<div class="cont_time-s">
