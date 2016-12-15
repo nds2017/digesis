@@ -41,7 +41,7 @@ class Encuestas extends CI_Controller {
 		if ( isset($_POST) && count($_POST) ) {
 			$form = array('id' => $_POST['sid'], 'motivoid' => $_POST['motivoid'], 'estadoid' => 3);
 			$this->msolicitudes->solicitudes_update($form, $_POST['sid']);
-			echo json_encode(array('status' => true));			
+			echo json_encode(array('status' => true));
 		}
 		else
 			redirect('welcome');
@@ -51,7 +51,7 @@ class Encuestas extends CI_Controller {
 		if ( isset($_POST) && count($_POST) ) {
 			$form = array('id' => $_POST['sid'], 'motivoid' => $_POST['motivoid'], 'estadoid' => 4);
 			$this->msolicitudes->solicitudes_update($form, $_POST['sid']);
-			echo json_encode(array('status' => true));			
+			echo json_encode(array('status' => true));
 		}
 		else
 			redirect('welcome');
@@ -60,9 +60,13 @@ class Encuestas extends CI_Controller {
 
 	public function rechazar() {
 		if ( isset($_POST) && count($_POST) ) {
-			$form = array('id' => $_POST['sid'], 'motivoid' => $_POST['motivoid'], 'estadoid' => 5);
-			$this->msolicitudes->solicitudes_update($form, $_POST['sid']);
-			echo json_encode(array('status' => true));			
+			if ( strtotime("now") <= strtotime($_POST['fecha']) ) {
+				$form = array('id' => $_POST['sid'], 'motivoid' => $_POST['motivoid'], 'estadoid' => 5);
+				$this->msolicitudes->solicitudes_update($form, $_POST['sid']);
+				echo json_encode(array('status' => true));
+			}
+			else
+				echo json_encode(array('status' => false));
 		}
 		else
 			redirect('welcome');
