@@ -212,6 +212,7 @@ class Solicitudes extends CI_Controller {
 			'distritoid' => $this->input->post('distritoid'),
 			'usuarioid' => $session->id,
 			'estadoid' => $this->input->post('estadoid'),
+			'motivoid' => $this->input->post('motivoid'),
 			'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($this->input->post('fecha_instalacion')) : strtotime('now')
 		);
 		$this->msolicitudes->solicitudes_update($formdata, $id);
