@@ -350,22 +350,28 @@ if($(".cont-login.thanks").length!==0){
 
 	if($(".submit").length!==0){
 			$(".submit").click(function(event) {
+				var value = '';
 				var evento = $("#evento").val();
 				if ( evento == 'rechazar') {
 					location.href = "../index.php/encuestas/rechazar/" + $("#reject-sid").val() + '?dni=' + $_GET('dni');
 				}
 				else if ( evento == 'pendiente' ) {
-					$.post( "../index.php/encuestas/pendiente",
-						{
-							motivoid : $(".ui-popup-options-contenido .active").attr('value'),
-							sid : $("#client-sid").val()
-						},
-						function( data ) {
-  							if ( data.status )
-  								location.reload();
-  							else
-  								alert('error');
-					}, 'json');
+					value = $("#pendientes .active").attr('value');
+					if ( value ) {
+						$.post( "../index.php/encuestas/pendiente",
+							{
+								motivoid : value,
+								sid : $("#client-sid").val()
+							},
+							function( data ) {
+	  							if ( data.status )
+	  								location.reload();
+	  							else
+	  								alert('error');
+						}, 'json');
+					}
+					else
+						alert('Seleccione un Motivo');
 					//location.href = "../index.php/encuestas/pendiente/" + $("#client-sid").val() + '?dni=' + $_GET('dni');
 					//$(".ui-popup-options-contenido .active").attr('value');
 				}
