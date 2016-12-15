@@ -56,6 +56,7 @@ class Solicitudes extends CI_Controller {
 		$data['departamentos'] = $this->mdepartamentos->departamentos_entrys();
 		$data['regiones'] = $this->msolicitudes->regiones_entrys();
 		$data['estados'] = $this->msolicitudes->estados_entrys();
+		$data['motivos'] = $this->msolicitudes->solicitudes_motivos();
 		$data['admin'] = true;
 		if ( is_numeric($id) && ( $id != 0 ) ) {
 			$session = get_session();

@@ -56,6 +56,16 @@
 						</select>
 					</td>
 				</tr>
+				<tr>
+					<td>Motivo : </td>
+					<td>
+						<select name="motivoid">
+							<?php foreach ( $motivos as $key => $motivo ) { ?>
+								<option <?=(@$data->motivoid==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$motivo?></option>
+							<?php } ?>
+						</select>
+					</td>
+				</tr>
 				<?php } ?>
 				</table>
 				<fieldset class="fieldform">

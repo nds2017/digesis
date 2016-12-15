@@ -403,4 +403,15 @@ class Msolicitudes extends CI_Model
 		$this->db->where('id', $id);
 		$this->db->update('solicitudes', array('publish' => 0));
 	}
+
+	public function solicitudes_motivos($estadoid = false) {
+		$rows = array();
+		$query = $this->db->query("SELECT * FROM motivos");
+		if ( is_numeric($estadoid) )
+			$query = $this->db->query("SELECT * FROM motivos WHERE estadoid = $estadoid");
+		foreach ($query->result() as $key=>$row) {
+			$rows[$row->id] = $row->motivo;
+		}
+		return $rows;
+	}
 }
