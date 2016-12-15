@@ -7,7 +7,7 @@
 			<br>
 
 			<?php
-				if ( isset($_GET) && ($_GET['flag']=='seguimiento') )
+				if ( isset($_GET) && (@$_GET['flag']=='seguimiento') )
 					echo form_open_multipart('solicitudes/edittecnicos/' . @$data->id . '?flag=seguimiento');
 				else
 					echo form_open_multipart('solicitudes/edittecnicos/' . @$data->id);
