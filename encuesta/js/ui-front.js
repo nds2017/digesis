@@ -344,7 +344,7 @@ if($(".cont-login.thanks").length!==0){
 			$(".cancel").click(function(event) {
 				/*event.preventDefault();
 				hidepop();*/
-				location.href = "../index.php/encuestas?dni=" + $_GET('dni');
+			    location.reload();
 			});
 	}
 
