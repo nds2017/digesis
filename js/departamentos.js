@@ -52,6 +52,56 @@ $(document).ready(function() {
 		}
 	});
 
+	$("#supervisorid").change(function() {
+		var tecnicos1 = $("#tecnico1id");
+		var tecnicos2 = $("#tecnico2id");
+		var supervisores = $(this)
+		if($(this).val() != '' && $(this).val() != 0) {
+			$.ajax({
+				data: { id : supervisores.val() },
+				url:   url + '/ajaxTecnicos/1',
+				type:  'POST',
+				dataType: 'json',
+				beforeSend: function () {
+					supervisores.prop('disabled', true);
+				},
+				success:  function (r) {
+					supervisores.prop('disabled', false);
+					tecnicos1.find('option').remove();
+					$(r).each(function(i, v) {
+						tecnicos1.append('<option value="' + v.id + '">' + v.nombre + '</option>');
+					})
+					tecnicos1.prop('disabled', false);
+				}
+			});
+
+			$.ajax({
+				data: { id : supervisores.val() },
+				url:   url + '/ajaxTecnicos/2',
+				type:  'POST',
+				dataType: 'json',
+				beforeSend: function () {
+					supervisores.prop('disabled', true);
+				},
+				success:  function (r) {
+					supervisores.prop('disabled', false);
+					tecnicos2.find('option').remove();
+					$(r).each(function(i, v) {
+						tecnicos2.append('<option value="' + v.id + '">' + v.nombre + '</option>');
+					})
+					tecnicos2.prop('disabled', false);
+				}
+			});
+
+		}
+		else {
+			tecnicos1.find('option').remove();
+			tecnicos1.prop('disabled', true);
+			tecnicos2.find('option').remove();
+			tecnicos2.prop('disabled', true);
+		}
+	});
+
 	$("#dptoid").change(function() {
 		var distritos = $("#distritoid");
 		distritos.find('option').remove();

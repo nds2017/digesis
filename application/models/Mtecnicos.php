@@ -44,6 +44,15 @@ class Mtecnicos extends CI_Model
 		return $rows;
 	}
 
+	public function tecnicos_bySupervisor($supervisorid = 0, $cargo = 1) {
+		$rows = array();
+		$query = $this->db->query("SELECT id, CONCAT(nombres, ' ', apellidos) AS tnombres FROM tecnicos WHERE cargo = $cargo AND publish = 1 AND supervisorid = $supervisorid");
+		foreach ($query->result() as $key=>$row) {
+			$rows[$row->id] = @$row->tnombres;
+		}
+		return $rows;
+	}
+
 	public function tecnicos_total() {
 		$query = $this->db->query("SELECT COUNT(id) AS cantidad FROM tecnicos");
 		return $query->row(0);

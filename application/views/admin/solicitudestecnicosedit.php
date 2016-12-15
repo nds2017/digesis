@@ -1,4 +1,5 @@
 			</div>
+			<script src="<?=base_url()?>js/departamentos.js"></script>
 
 			<div class="list-mod-panel">
 				<h1 style="float: left;">Asignar Técnico&nbsp;&nbsp;</h1>
@@ -25,7 +26,7 @@
 				<legend><b>Personal</b></legend>
 				<table class="table table-bordered table-striped">
 					<tr>
-						<td>Supervisor : </td>
+						<td>Buscar por Supervisor : </td>
 						<td>
 							<select id="supervisorid">
 								<option value="0">-Seleccione-</option>
