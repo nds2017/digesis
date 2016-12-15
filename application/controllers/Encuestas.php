@@ -40,9 +40,9 @@ class Encuestas extends CI_Controller {
 	public function pendiente($sid = null) {
 		if ( isset($sid) && !empty($sid) ) {
 			echo 'hola';
-			$form = array('id' => $sid, 'estadoid' => 3);
+			/*$form = array('id' => $sid, 'estadoid' => 3);
 			$this->msolicitudes->solicitudes_update($form, $sid);
-			redirect('encuestas?dni=' . $_GET['dni']);
+			redirect('encuestas?dni=' . $_GET['dni']);*/
 		}
 		else
 			redirect('welcome');
