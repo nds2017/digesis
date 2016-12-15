@@ -55,8 +55,6 @@ class Solicitudes extends CI_Controller {
 		$data['provincias'] = $this->mdepartamentos->provincias_entrys();
 		$data['departamentos'] = $this->mdepartamentos->departamentos_entrys();
 		$data['regiones'] = $this->msolicitudes->regiones_entrys();
-		$data['estados'] = $this->msolicitudes->estados_entrys();
-		$data['motivos'] = $this->msolicitudes->solicitudes_motivos();
 		$data['admin'] = true;
 		if ( is_numeric($id) && ( $id != 0 ) ) {
 			$session = get_session();
@@ -64,6 +62,8 @@ class Solicitudes extends CI_Controller {
 			$data['distritos'] = $this->mdepartamentos->distritos_entrys($data['data']->provinciaid);
 			$data['provincias'] = $this->mdepartamentos->provincias_entrys($data['data']->departamentoid);
 			$data['admin'] = ($session->rolid==1) ? TRUE : FALSE;
+			$data['estados'] = $this->msolicitudes->estados_entrys();
+			$data['motivos'] = $this->msolicitudes->solicitudes_motivos($data['data']->estadoid);
 		}
 		$this->load->view('admin/solicitudesedit', $data);
 	}
