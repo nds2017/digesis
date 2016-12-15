@@ -7,16 +7,15 @@ class Mjefes extends CI_Model
 		parent::__construct();
 	}
 
-	public function jefes_entrys($id = false, $publish = false, $bnombres = '') {
+	public function jefes_entrys($id = false, $publish = 1, $bnombres = '') {
 		if ( $id === false ) {
 			$this->db->select('c.*, r.nombre AS znombre');
 			$this->db->from('jefes c');
 			$this->db->join('regiones r', 'r.id = c.regionid', 'left');
 			if ( !empty($bnombres) )
 				$this->db->where('CONCAT(c.nombres, " ", c.apellidos) LIKE "%' . $bnombres . '%"', NULL, FALSE);
-			if ( $publish )
-				$this->db->where('c.publish', $publish);
-			$this->db->order_by("c.id", "desc");
+			$this->db->where('c.publish', $publish);
+			$this->db->order_by("c.publish, c.id", "desc");
 		}
 		else {
 			$this->db->select('c.*');

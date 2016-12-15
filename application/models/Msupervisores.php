@@ -8,7 +8,7 @@ class Msupervisores extends CI_Model
 	}
 	//obtenemos las entradas de todos o un usuario, dependiendo
 	// si le pasamos le id como argument o no
-	public function supervisores_entrys($id = false, $publish = false, $bnombres = '') {
+	public function supervisores_entrys($id = false, $publish = 1, $bnombres = '') {
 		//$rows = array();
 		if ( $id === false ) {
 			$this->db->select('s.*, CONCAT(j.nombres, " ", j.apellidos) AS jnombre, b.nombre AS bnombre');
@@ -17,9 +17,8 @@ class Msupervisores extends CI_Model
 			$this->db->join('bases b', 'b.id = s.baseid', 'left');
 			if ( !empty($bnombres) )
 				$this->db->where('CONCAT(s.nombres, " ", s.apellidos) LIKE "%' . $bnombres . '%"', NULL, FALSE);
-			if ( $publish )
-				$this->db->where('s.publish', $publish);
-			$this->db->order_by("s.id", "desc");
+			$this->db->where('s.publish', $publish);
+			$this->db->order_by("s.publish, s.id", "desc");
 		}
 		else {
 			$this->db->select('c.*');
