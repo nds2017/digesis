@@ -85,7 +85,6 @@ class Solicitudes extends CI_Controller {
 		$data['provincias'] = $this->mdepartamentos->provincias_entrys(@$data['departamentoid']);
 		$data['departamentos'] = $this->mdepartamentos->departamentos_entrys();
 		$data['cantidades'] = $this->msolicitudes->solicitudesrf_cantidades();
-		$this->load->model('msupervisores');
 		$data['supervisores'] = $this->msupervisores->supervisores_entrys(FALSE, 1);
 		$this->load->view('admin/solicitudesrf', $data);
 	}
