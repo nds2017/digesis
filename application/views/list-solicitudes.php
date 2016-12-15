@@ -37,7 +37,7 @@
 						<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">MOTIVO REPROGRAMACION</span></div>
 						<ul class="ui-popup-options-list">
 						<?php foreach ( $mreprogramados as $key => $value) { ?>
-							<li><a class="icon-cerrar" href="#"><?=$value?></a></li>
+							<li><a class="icon-cerrar" value="<?=$key?>" href="#"><?=$value?></a></li>
 						<?php } ?>
 						</ul>
 					</div>
@@ -86,7 +86,7 @@
 				<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">MOTIVO RECHAZO</span></div>
 				<ul class="ui-popup-options-list">
 				<?php foreach ( $mrechazados as $key => $value) { ?>
-					<li><a class="icon-cerrar" value="<?=$value?>" href="#"><?=$value?></a></li>
+					<li><a class="icon-cerrar" value="<?=$key?>" href="#"><?=$value?></a></li>
 				<?php } ?>
 				</ul>
 			</div>
