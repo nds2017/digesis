@@ -15,7 +15,7 @@ class Mtecnicos extends CI_Model
 			$this->db->join('bases b', 'b.id = t.baseid', 'left');
 			if ( !empty($bnombres) )
 				$this->db->where('CONCAT(t.nombres, " ", t.apellidos) LIKE "%' . $bnombres . '%"', NULL, FALSE);
-			$this->db->where('s.publish', $publish);
+			$this->db->where('t.publish', $publish);
 			$this->db->order_by("t.id", "desc");
 		}
 		else {
