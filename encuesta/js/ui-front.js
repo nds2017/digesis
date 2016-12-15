@@ -400,10 +400,12 @@ if($(".cont-login.thanks").length!==0){
 				}
 				else if ( evento == 'reprogramar' ) {
 					var date = $( "#datepicker1" ).datepicker().val();
-					if ( date )
-						alert(date);
-					else
-						alert('Seleccione una fecha');
+					var today = new Date();
+					alert(today); alert(date);
+					//if ( date )
+					//	alert(date);
+					//else
+					//	alert('Seleccione una fecha');
 					//location.href = "../index.php/encuestas/reprogramar/" + $("#schedule-sid").val() + '?dni=' + $_GET('dni');
 				}
 			});
