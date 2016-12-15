@@ -18,7 +18,7 @@ class Musuarios extends CI_Model
 				$this->db->where('c.rolid', $rolid);
 			if ( !empty($bnombres) )
 				$this->db->where('CONCAT(c.nombres, " ", c.apellidos) LIKE "%' . $bnombres . '%"', NULL, FALSE);
-			$this->db->order_by("c.id", "desc");
+			$this->db->order_by("c.publish, c.id", "desc");
 		}
 		else {
 			$this->db->select('c.*');
