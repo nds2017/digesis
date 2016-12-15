@@ -404,7 +404,7 @@ if($(".cont-login.thanks").length!==0){
 					//alert(today.getTime()); alert(date.getTime());
 					vtiempo = $("#reprogramar .active").attr('value');
 					vmotivo = $(".reason .active").attr('value');
-					if ( value ) {
+					if ( vmotivo ) {
 						$.post( "../index.php/encuestas/reprogramar",
 							{
 								motivoid : vmotivo,
@@ -413,8 +413,10 @@ if($(".cont-login.thanks").length!==0){
 								sid : $("#schedule-sid").val()
 							},
 							function( data ) {
-	  							if ( data.status )
-	  								location.reload();
+	  							if ( data.status ) {
+	  								alert('ok');
+	  								//location.reload();
+	  							}
 	  							else
 	  								alert('Error, comuniquese con su administrador');
 						}, 'json');
