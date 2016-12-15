@@ -404,7 +404,7 @@ if($(".cont-login.thanks").length!==0){
 					//alert(today.getTime()); alert(date.getTime());
 					vtiempo = $("#reprogramar .active").attr('value');
 					vmotivo = $(".reason .active").attr('value');
-					if ( vmotivo ) {
+					if ( date && vtiempo && vmotivo ) {
 						$.post( "../index.php/encuestas/reprogramar",
 							{
 								motivoid : vmotivo,
