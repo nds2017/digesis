@@ -7,7 +7,10 @@
 			<br>
 
 			<?php
-				echo form_open_multipart('solicitudes/edittecnicos/' . @$data->id);
+				if ( isset($_GET) && ($_GET['flag']=='seguimiento') )
+					echo form_open_multipart('solicitudes/edittecnicos/' . @$data->id . '?flag=seguimiento');
+				else
+					echo form_open_multipart('solicitudes/edittecnicos/' . @$data->id);
 			?>
 
 			<table class="table table-bordered table-striped">
