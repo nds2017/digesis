@@ -86,7 +86,7 @@ class Solicitudes extends CI_Controller {
 		$data['provincias'] = $this->mdepartamentos->provincias_entrys(@$data['departamentoid']);
 		$data['departamentos'] = $this->mdepartamentos->departamentos_entrys();
 		$data['cantidades'] = $this->msolicitudes->solicitudesrf_cantidades();
-		$data['supervisores'] = $this->msupervisores->supervisores_combo();
+		$data['supervisores'] = $this->msupervisores->supervisores_entrys(FALSE, 1);
 		$this->load->view('admin/solicitudesrf', $data);
 	}
 
@@ -114,7 +114,7 @@ class Solicitudes extends CI_Controller {
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'asignartecnicos' ));
 		$data['tecnicos1'] = $this->mtecnicos->tecnicos_byCargo(1);
 		$data['tecnicos2'] = $this->mtecnicos->tecnicos_byCargo(2);
-		$data['supervisores'] = $this->msupervisores->supervisores_entrys(FALSE, 1);
+		$data['supervisores'] = $this->msupervisores->supervisores_combo();
 		$data['data'] = $this->msolicitudes->solicitudes_byID($id);
 		$this->load->view('admin/solicitudestecnicosedit', $data);
 	}
