@@ -342,8 +342,9 @@ if($(".cont-login.thanks").length!==0){
 	//CANCEL
 	if($(".cancel").length!==0){
 			$(".cancel").click(function(event) {
-				event.preventDefault();
-				hidepop();
+				/*event.preventDefault();
+				hidepop();*/
+				location.href = "../index.php/encuestas?dni=" + $_GET('dni');
 			});
 	}
 
@@ -375,9 +376,6 @@ if($(".cont-login.thanks").length!==0){
 		});	
 		$(".ui-popup-options-contenido .icon-client").click(function(event) {
 			$( ".client-box" ).removeClass('display-none');
-		});
-		$(".ui-popup-options-contenido .icon-encuestar").click(function(event) {
-			alert('hola');
 		});
 	$("#datepicker").blur(function() {
 		
