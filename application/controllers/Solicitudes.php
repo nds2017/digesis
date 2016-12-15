@@ -10,6 +10,7 @@ class Solicitudes extends CI_Controller {
 		$this->load->model('mtecnicos');
 		$this->load->model('mdepartamentos');
 		$this->load->model('musuarios');
+		$this->load->model('msupervisores');
 		is_logged_in() ? true : redirect('admin');
 	}
 
