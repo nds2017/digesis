@@ -27,7 +27,7 @@ $.datepicker.regional['es'] = {
  dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
  dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
  weekHeader: 'Sm',
- dateFormat: 'dd/mm/yy',
+ dateFormat: 'dd-mm-yy',
  firstDay: 1,
  isRTL: false,
  showMonthAfterYear: false,
@@ -398,9 +398,8 @@ if($(".cont-login.thanks").length!==0){
 						alert("Seleccione una opción");
 				}
 				else if ( evento == 'reprogramar' ) {
-					//$( "#datepicker1" ).datepicker( "option", "dateFormat", "dd-mm-yy" );
-					alert($( "#datepicker1" ).datepicker({ dateFormat: 'yy-mm-dd' }).val());
-					console.log($("#datepicker1").datepicker('getDate'));
+					var date = $( "#datepicker1" ).datepicker.val();
+					alert(date);
 					//location.href = "../index.php/encuestas/reprogramar/" + $("#schedule-sid").val() + '?dni=' + $_GET('dni');
 				}
 			});
