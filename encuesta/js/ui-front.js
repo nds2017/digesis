@@ -369,7 +369,6 @@ if($(".cont-login.thanks").length!==0){
 					}
 					else
 						alert('Seleccione un Motivo');
-//					location.href = "../index.php/encuestas/rechazar/" + $("#reject-sid").val() + '?dni=' + $_GET('dni');
 				}
 				else if ( evento == 'pendiente' ) {
 					value = $("#pendientes .active").attr('value');
@@ -398,8 +397,10 @@ if($(".cont-login.thanks").length!==0){
 					else
 						alert("Seleccione una opción");
 				}
-				else if ( evento == 'reprogramar' )
-					location.href = "../index.php/encuestas/reprogramar/" + $("#schedule-sid").val() + '?dni=' + $_GET('dni');
+				else if ( evento == 'reprogramar' ) {
+					alert($("#datepicker").datepicker('getDate').getDate());
+					//location.href = "../index.php/encuestas/reprogramar/" + $("#schedule-sid").val() + '?dni=' + $_GET('dni');
+				}
 			});
 	}
 
