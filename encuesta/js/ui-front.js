@@ -422,7 +422,7 @@ if($(".cont-login.thanks").length!==0){
 						}, 'json');
 					}
 					else
-						alert('Seleccione un Motivo');
+						alert('Todos los formularios deben ser seleccionados');
 				}
 			});
 	}
