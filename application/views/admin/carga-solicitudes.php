@@ -29,9 +29,7 @@
 			<h1>Solicitudes Cargadas Desde <?=date('d-m-Y')?></h1>
 			<?php
 				//$this->db->query("DELETE FROM supervisores WHERE id = 5");
-			$this->db->query("ALTER TABLE `tecnicos` ADD `fecha_cese` INT(11) NOT NULL DEFAULT '0' AFTER `publish`, ADD `motivo_cese` TEXT NULL AFTER `fecha_cese`;");
-			$this->db->query("ALTER TABLE `supervisores` ADD `fecha_cese` INT(11) NOT NULL DEFAULT '0' AFTER `publish`, ADD `motivo_cese` TEXT NULL AFTER `fecha_cese`;");
-			$this->db->query("ALTER TABLE `jefes` ADD `fecha_cese` INT(11) NOT NULL DEFAULT '0' AFTER `publish`, ADD `motivo_cese` TEXT NULL AFTER `fecha_cese`;");
+			//$this->db->query("ALTER TABLE `tecnicos` ADD `fecha_cese` INT(11) NOT NULL DEFAULT '0' AFTER `publish`, ADD `motivo_cese` TEXT NULL AFTER `fecha_cese`;");
 
 
 			/*$fields = $this->db->list_fields('motivos');
