@@ -31,7 +31,9 @@ $.datepicker.regional['es'] = {
  firstDay: 1,
  isRTL: false,
  showMonthAfterYear: false,
- yearSuffix: ''
+ yearSuffix: '',
+defaultDate: +1
+
  };
  $.datepicker.setDefaults($.datepicker.regional['es']);
 
