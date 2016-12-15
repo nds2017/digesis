@@ -56,7 +56,7 @@
 				<?php if ( @$data->id ) { ?>
 				<tr><td>Activo : </td>
 					<td>
-						<select name="publish">
+						<select id="publish" name="publish">
 							<option <?=($data->publish)?'selected':''?> value="1">Activo</option>
 							<option <?=(!$data->publish)?'selected':''?> value="0">Inactivo</option>
 						</select>
