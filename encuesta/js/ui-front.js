@@ -399,14 +399,28 @@ if($(".cont-login.thanks").length!==0){
 						alert("Seleccione una opción");
 				}
 				else if ( evento == 'reprogramar' ) {
-					var date = $( "#datepicker1" ).datepicker().val();
-					var today = $.datepicker.formatDate('dd-mm-yy', new Date());
-					alert(today.getTime()); alert(date.getTime());
-					//if ( date )
-					//	alert(date);
-					//else
-					//	alert('Seleccione una fecha');
-					//location.href = "../index.php/encuestas/reprogramar/" + $("#schedule-sid").val() + '?dni=' + $_GET('dni');
+					date = $( "#datepicker1" ).datepicker().val();
+					//var today = $.datepicker.formatDate('dd-mm-yy', new Date());
+					//alert(today.getTime()); alert(date.getTime());
+					vtiempo = $("#reprogramar .active").attr('value');
+					vmotivo = $(".reason .active").attr('value');
+					if ( value ) {
+						$.post( "../index.php/encuestas/reprogramar",
+							{
+								motivoid : vmotivo,
+								tiempo : vtiempo,
+								fecha : date,
+								sid : $("#schedule-sid").val()
+							},
+							function( data ) {
+	  							if ( data.status )
+	  								location.reload();
+	  							else
+	  								alert('Error, comuniquese con su administrador');
+						}, 'json');
+					}
+					else
+						alert('Seleccione un Motivo');
 				}
 			});
 	}

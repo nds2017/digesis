@@ -20,15 +20,15 @@
 				<div class="calendar">
 					<div class="calendar-box"><div id="datepicker1"></div></div>
 				</div>
-				<div class="ui-popup-options-contenido" id="reprogramar">
-					<div class="datetime ui-popup-options-contenido">
+				<div class="ui-popup-options-contenido">
+					<div class="datetime ui-popup-options-contenido" id="reprogramar">
 						<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">SELECCIONAR</span></div>
 						<ul class="ui-popup-options-list">
 							<li>
-								<a class="icon-cerrar" href="#">Mañana</a>
+								<a class="icon-cerrar" value="1" href="#">Mañana</a>
 							</li>
 							<li>
-								<a class="icon-cerrar" href="#">Tarde</a>
+								<a class="icon-cerrar" value="2" href="#">Tarde</a>
 							</li>
 						</ul>
 					</div>
