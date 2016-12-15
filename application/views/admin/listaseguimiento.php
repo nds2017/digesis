@@ -8,7 +8,7 @@
 					<nav class="top_menu">
 						<ul>
 							<li><a href="<?=base_url()?>index.php/solicitudes/listatecnicos">Pendiente de Asignar&nbsp;&nbsp;|</a></li>
-							<li class="active"><a href="<?=base_url()?>index.php/solicitudes/seguimiento">Seguimiento&nbsp;&nbsp;|</a></li>
+							<li class="active"><a href="<?=base_url()?>index.php/solicitudes/seguimiento">Seguimiento (<?=count($data)?>)&nbsp;&nbsp;|</a></li>
 							<li><a href="<?=base_url()?>index.php/solicitudes/listavalidados">Incidencias&nbsp;&nbsp;|</a></li>
 						</ul>
 					</nav>
@@ -24,7 +24,7 @@
 			</fieldset>
 
 			<?php foreach ( $data as $key => $row ) { ?>
-			<?php if ( isset($tecnicos1[$row->t1id]) && isset($tecnicos2[$row->t2id]) && count($row->solicitudes) ) { ?>
+			<?php if ( isset($tecnicos1[$row->t1id]) /*&& isset($tecnicos2[$row->t2id])*/ && count($row->solicitudes) ) { ?>
 				<div class="divseg">
 				<table class="table tableseg table-bordered table-striped">
 					<thead> 	
