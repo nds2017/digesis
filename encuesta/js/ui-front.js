@@ -376,6 +376,9 @@ if($(".cont-login.thanks").length!==0){
 		$(".ui-popup-options-contenido .icon-client").click(function(event) {
 			$( ".client-box" ).removeClass('display-none');
 		});
+		$(".ui-popup-options-contenido .icon-encuestas").click(function(event) {
+			alert('hola');
+		});
 	$("#datepicker").blur(function() {
 		
 		//$("#datepicker").trigger( "focus" );
