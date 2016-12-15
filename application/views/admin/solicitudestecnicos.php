@@ -7,7 +7,7 @@
 				<form id="form" method="post" action="<?=base_url()?>index.php/solicitudes/listatecnicos">
 					<nav class="top_menu">
 						<ul>
-							<li class="active"><a href="<?=base_url()?>index.php/solicitudes/listatecnicos">Pendiente de Asignar (<?=count($data)?>)&nbsp;&nbsp;|</a></li>
+							<li class="active"><a href="<?=base_url()?>index.php/solicitudes/listatecnicos">Pendiente de Asignar (<?=count($data['programadas']) + count($data['pendientes'])?>)&nbsp;&nbsp;|</a></li>
 							<li><a href="<?=base_url()?>index.php/solicitudes/seguimiento">Seguimiento&nbsp;&nbsp;|</a></li>
 							<li><a href="<?=base_url()?>index.php/solicitudes/listavalidados">Incidencias&nbsp;&nbsp;|</a></li>
 						</ul>
