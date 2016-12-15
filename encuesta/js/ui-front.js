@@ -365,7 +365,7 @@ if($(".cont-login.thanks").length!==0){
   								location.reload();
   							else
   								alert('error');
-					});
+					}, 'post');
 					//location.href = "../index.php/encuestas/pendiente/" + $("#client-sid").val() + '?dni=' + $_GET('dni');
 					//$(".ui-popup-options-contenido .active").attr('value');
 				}
