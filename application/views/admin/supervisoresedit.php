@@ -1,4 +1,5 @@
 			</div>
+			<script src="<?=base_url()?>js/departamentos.js"></script>
 
 			<div class="list-mod-panel">
 				<h1 style="float: left;"> Crear Supervisor &nbsp;&nbsp;</h1>
