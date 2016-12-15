@@ -7,7 +7,7 @@ class Mtecnicos extends CI_Model
 		parent::__construct();
 	}
 
-	public function tecnicos_entrys($id = false, $publish = false, $bnombres = '') {
+	public function tecnicos_entrys($id = false, $publish = 1, $bnombres = '') {
 		if ( $id === false ) {
 			$this->db->select('t.*, CONCAT(s.nombres, " ", s.apellidos) AS snombre, b.nombre AS bnombre');
 			$this->db->from('tecnicos t');
@@ -15,8 +15,7 @@ class Mtecnicos extends CI_Model
 			$this->db->join('bases b', 'b.id = t.baseid', 'left');
 			if ( !empty($bnombres) )
 				$this->db->where('CONCAT(t.nombres, " ", t.apellidos) LIKE "%' . $bnombres . '%"', NULL, FALSE);
-			if ( $publish )
-				$this->db->where('s.publish', $publish);
+			$this->db->where('s.publish', $publish);
 			$this->db->order_by("t.id", "desc");
 		}
 		else {
