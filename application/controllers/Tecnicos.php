@@ -22,7 +22,8 @@ class Tecnicos extends CI_Controller {
 	public function lista() {
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'perfiles' ));
 		$data['bnombres'] = isset($_POST['bnombres']) ? $_POST['bnombres'] : '';
-		$data['data'] = $this->mtecnicos->tecnicos_entrys(false, false, $data['bnombres']);
+		$data['bpublish'] = isset($_POST['bpublish']) ? $_POST['bpublish'] : 1;
+		$data['data'] = $this->mtecnicos->tecnicos_entrys(false, $data['bpublish'], $data['bnombres']);
 		$data['cantidades'] = $this->mperfiles->mperfiles_total();
 		$this->load->view('admin/tecnicos', $data);
 	}

@@ -24,6 +24,7 @@
 						</ul>
 					</nav>
 					Nombres: <input type="text" name="bnombres" value="<?=@$bnombres?>"/>
+					Estado: <select name="bpublish"><option <?=($bpublish==1?'selected':'')?> value="1">Activos</option><option <?=($bpublish==0?'selected':'')?> value="0">Inactivos</option></select>
 					<input type="submit" class="btnsearch" value="Filtrar"/>
 				</form>
 			</fieldset>
