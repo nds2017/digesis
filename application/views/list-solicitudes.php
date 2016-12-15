@@ -68,10 +68,10 @@
 				<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">SELECCIONAR</span></div>
 				<ul class="ui-popup-options-list">
 					<li>
-						<a class="icon-encuestar" href="#">Iniciar Encuesta</a>
+						<a class="icon-encuestar" value="iniciar" href="#">Iniciar Encuesta</a>
 					</li>
 					<li>
-						<a class="icon-cerrar" href="#">Denegar Encuesta</a>
+						<a class="icon-cerrar" value="denegar" href="#">Denegar Encuesta</a>
 					</li>
 				</ul>
 				<div class="cont-btn final-p">

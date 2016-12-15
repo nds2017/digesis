@@ -353,7 +353,23 @@ if($(".cont-login.thanks").length!==0){
 				var value = '';
 				var evento = $("#evento").val();
 				if ( evento == 'rechazar') {
-					location.href = "../index.php/encuestas/rechazar/" + $("#reject-sid").val() + '?dni=' + $_GET('dni');
+					value = $("#rechazar .active").attr('value');
+					if ( value ) {
+						$.post( "../index.php/encuestas/rechazar",
+							{
+								motivoid : value,
+								sid : $("#reject-sid").val()
+							},
+							function( data ) {
+	  							if ( data.status )
+	  								location.reload();
+	  							else
+	  								alert('Error, comuniquese con su administrador');
+						}, 'json');
+					}
+					else
+						alert('Seleccione un Motivo');
+//					location.href = "../index.php/encuestas/rechazar/" + $("#reject-sid").val() + '?dni=' + $_GET('dni');
 				}
 				else if ( evento == 'pendiente' ) {
 					value = $("#pendientes .active").attr('value');
@@ -367,16 +383,20 @@ if($(".cont-login.thanks").length!==0){
 	  							if ( data.status )
 	  								location.reload();
 	  							else
-	  								alert('error');
+	  								alert('Error, comuniquese con su administrador');
 						}, 'json');
 					}
 					else
 						alert('Seleccione un Motivo');
-					//location.href = "../index.php/encuestas/pendiente/" + $("#client-sid").val() + '?dni=' + $_GET('dni');
-					//$(".ui-popup-options-contenido .active").attr('value');
 				}
 				else if ( evento == 'validar' ) {
-					location.href = "../index.php/encuestas/indicaciones/" + $("#test-sid").val() + '?dni=' + $_GET('dni');
+					value = $("#encuestar .active").attr('value');
+					if ( value == 'iniciar' )
+						location.href = "../index.php/encuestas/indicaciones/" + $("#test-sid").val() + '?dni=' + $_GET('dni');
+					else if ( value == 'denegar' )
+						location.reload();
+					else
+						alert("Seleccione una opción");
 				}
 				else if ( evento == 'reprogramar' )
 					location.href = "../index.php/encuestas/reprogramar/" + $("#schedule-sid").val() + '?dni=' + $_GET('dni');

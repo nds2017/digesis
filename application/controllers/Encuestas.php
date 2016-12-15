@@ -47,22 +47,22 @@ class Encuestas extends CI_Controller {
 			redirect('welcome');
 	}
 
-	public function reprogramar($sid = null) {
-		if ( isset($sid) && !empty($sid) ) {
-			$form = array('id' => $sid, 'estadoid' => 4);
-			$this->msolicitudes->solicitudes_update($form, $sid);
-			redirect('encuestas?dni=' . $_GET['dni']);
+	public function reprogramar() {
+		if ( isset($_POST) && count($_POST) ) {
+			$form = array('id' => $_POST['sid'], 'motivoid' => $_POST['motivoid'], 'estadoid' => 4);
+			$this->msolicitudes->solicitudes_update($form, $_POST['sid']);
+			echo json_encode(array('status' => true));			
 		}
 		else
 			redirect('welcome');
 
 	}
 
-	public function rechazar($sid = null) {
-		if ( isset($sid) && !empty($sid) ) {
-			$form = array('id' => $sid, 'estadoid' => 5);
-			$this->msolicitudes->solicitudes_update($form, $sid);
-			redirect('encuestas?dni=' . $_GET['dni']);
+	public function rechazar() {
+		if ( isset($_POST) && count($_POST) ) {
+			$form = array('id' => $_POST['sid'], 'motivoid' => $_POST['motivoid'], 'estadoid' => 5);
+			$this->msolicitudes->solicitudes_update($form, $_POST['sid']);
+			echo json_encode(array('status' => true));			
 		}
 		else
 			redirect('welcome');
