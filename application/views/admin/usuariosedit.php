@@ -86,9 +86,9 @@
 					</td>
 				</tr>
 				<tr class="inactivo" style="display: none;">
-					<td>Fecha de Cese : </td><td><input type="date" name="fecha_cese" value="<?=(@$data->fecha_cese) ? date('Y-m-d', $data->fecha_cese) : null?>"></td>
+					<td>Fecha de Cese : </td><td><input type="date" name="fecha_cese" value="<?=(@$data->fecha_cese) ? date('Y-m-d', $data->fecha_cese) : date('Y-m-d')?>"></td>
 				</tr>
-				<tr class="inactivo" style="display: none;">
+				<tr class="inactivo" style="display: none; width: 50%">
 					<td>Motivo del Cese : </td><td><textarea name="motivo_cese"><?=@$data->motivo_cese?></textarea></td>
 				</tr>
 				<?php } ?>
