@@ -98,7 +98,7 @@
 	</div>
 	<div class="wrapper">
 		<header>
-			 <img src="<?=base_url()?>encuesta/img/logo.png"/>
+			 <a href="<?=base_url()?>index.php/encuestas?dni=<?=$_GET['dni']?>"><img src="<?=base_url()?>encuesta/img/logo.png"/></a>
 		</header>
 		<div class="body_w">
 			<div class="list-solicitud">
@@ -250,7 +250,7 @@
 							<div class="ui-tab-item tab-content">
 								<div class="tab-title">PENDIENTE VALIDAR</div>
 								<?php if ( count($pendientes) ) { ?>
-								<?php unset($estados[1], $estados[4]); ?>
+								<?php unset($estados[1], $estados[4], $estados[5]); ?>
 								<?php foreach ( $pendientes as $key => $pendiente ) { ?>
 								<div class="cont-solicitud" data-codigo="<?=$pendiente->id?>">
 									<div class="data1">CÓDIGO SOT</div>
