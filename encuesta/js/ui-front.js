@@ -399,9 +399,9 @@ if($(".cont-login.thanks").length!==0){
 						alert("Seleccione una opción");
 				}
 				else if ( evento == 'reprogramar' ) {
-					date = $( "#datepicker1" ).datepicker().val();
-					var today = $.datepicker.formatDate('dd-mm-yy', new Date());
-					alert(today.getTime()); alert(date.getTime());
+					//date = $( "#datepicker1" ).datepicker().val();
+					today = $.datepicker.formatDate('yy-mm-dd', new Date());
+					alert(today.getTime()); //alert(date.getTime());
 					vtiempo = $("#reprogramar .active").attr('value');
 					vmotivo = $(".reason .active").attr('value');
 					/*if ( date && vtiempo && vmotivo ) {
