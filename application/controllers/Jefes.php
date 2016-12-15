@@ -47,7 +47,9 @@ class Jefes extends CI_Controller {
 			'regionid' => $this->input->post('regionid'),
 			'user' => $this->input->post('user'),
 			'password' => $this->input->post('password'),
-			'publish' => $this->input->post('publish')
+			'publish' => $this->input->post('publish'),
+			'fecha_cese' => $this->input->post('publish') ? 0 : strtotime($this->input->post('fecha_cese')),
+			'motivo_cese' => $this->input->post('publish') ? '' : $this->input->post('motivo_cese')
 		);
 		$this->mjefes->jefes_update($formdata);
 		redirect('jefes');

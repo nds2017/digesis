@@ -53,7 +53,9 @@ class Tecnicos extends CI_Controller {
 			'renta' => $this->input->post('renta'),
 			'supervisorid' => $this->input->post('supervisorid'),
 			'baseid' => $this->input->post('baseid'),
-			'publish' => $this->input->post('publish')
+			'publish' => $this->input->post('publish'),
+			'fecha_cese' => $this->input->post('publish') ? 0 : strtotime($this->input->post('fecha_cese')),
+			'motivo_cese' => $this->input->post('publish') ? '' : $this->input->post('motivo_cese')
 		);
 		$this->mtecnicos->tecnicos_update($formdata);
 		redirect('tecnicos');

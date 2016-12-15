@@ -51,7 +51,9 @@ class Supervisores extends CI_Controller {
 			'password' => $this->input->post('password'),
 			'jefeid' => $this->input->post('jefeid'),
 			'baseid' => $this->input->post('baseid'),
-			'publish' => $this->input->post('publish')
+			'publish' => $this->input->post('publish'),
+			'fecha_cese' => $this->input->post('publish') ? 0 : strtotime($this->input->post('fecha_cese')),
+			'motivo_cese' => $this->input->post('publish') ? '' : $this->input->post('motivo_cese')
 		);
 		$this->msupervisores->supervisores_update($formdata);
 		redirect('supervisores');

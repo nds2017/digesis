@@ -1,18 +1,5 @@
 			</div>
-
-<script>
-	$(document).ready(function() {
-		var publish = $("#publish").val();
-		if ( publish == 0 )
-			$(".inactivo").show('slow');
-		$("#publish").change(function() {
-			if ( $("#publish").val() == 0 )
-				$(".inactivo").show('slow');
-			else
-				$(".inactivo").hide('slow');
-		});
-	});
-</script>
+			<script src="<?=base_url()?>js/departamentos.js"></script>
 
 			<?php $data = @$data[0]; ?>
 			<div class="list-mod-panel">

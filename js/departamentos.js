@@ -1,5 +1,15 @@
 $(document).ready(function() {
 
+	var publish = $("#publish").val();
+	if ( publish == 0 )
+		$(".inactivo").show('slow');
+	$("#publish").change(function() {
+		if ( $("#publish").val() == 0 )
+			$(".inactivo").show('slow');
+		else
+			$(".inactivo").hide('slow');
+	});
+
 	$( "#form" ).submit(function( event ) {
 		if ( $("#dptoid").val() != 0 ) {
 			if ( $("#provinciaid").val() != 0 ) {

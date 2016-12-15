@@ -69,7 +69,7 @@ class Usuarios extends CI_Controller {
 			'rolid' => $this->input->post('rolid'),
 			'publish' => $this->input->post('publish'),
 			'fecha_cese' => $this->input->post('publish') ? 0 : strtotime($this->input->post('fecha_cese')),
-			'motivo_cese' => $this->input->post('publish') ? '' : $this->input->post('motivo_cese'),
+			'motivo_cese' => $this->input->post('publish') ? '' : $this->input->post('motivo_cese')
 		);
 		$this->musuarios->usuarios_update($formdata);
 		if ( $self )

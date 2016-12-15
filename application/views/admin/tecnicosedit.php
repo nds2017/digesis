@@ -59,14 +59,20 @@
 					</td>
 				</tr>
 				<?php if ( @$data->id ) { ?>
-					<tr><td>Activo : </td>
-						<td>
-							<select name="publish">
-								<option <?=($data->publish)?'selected':''?> value="1">Activo</option>
-								<option <?=(!$data->publish)?'selected':''?> value="0">Inactivo</option>
-							</select>
-						</td>
-					</tr>
+				<tr><td>Activo : </td>
+					<td>
+						<select name="publish">
+							<option <?=($data->publish)?'selected':''?> value="1">Activo</option>
+							<option <?=(!$data->publish)?'selected':''?> value="0">Inactivo</option>
+						</select>
+					</td>
+				</tr>
+				<tr class="inactivo" style="display: none;">
+					<td>Fecha de Cese : </td><td><input type="date" name="fecha_cese" value="<?=(@$data->fecha_cese) ? date('Y-m-d', $data->fecha_cese) : date('Y-m-d')?>"></td>
+				</tr>
+				<tr class="inactivo" style="display: none;">
+					<td>Motivo del Cese : </td><td><textarea rows="4" style="width: 50%;" name="motivo_cese"><?=@$data->motivo_cese?></textarea></td>
+				</tr>
 				<?php } ?>
 			</table>
 			<div class="divbuttons">
