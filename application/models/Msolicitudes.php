@@ -30,11 +30,12 @@ class Msolicitudes extends CI_Model
 
 	public function solicitudes_encuestas($tid = false, $estado = false) {
 		$rows = array();
-		$this->db->select('s.*, ts.nombre AS tsnombre, e.nombre AS enombre');
+		$this->db->select('s.*, ts.nombre AS tsnombre, e.nombre AS enombre, m.motivo');
 		$this->db->from('solicitudes s');
 		$this->db->join('tiposervicios ts', 'ts.id = s.tiposervicioid', 'left');
 		$this->db->join('solicitudestecnicos st', 'st.sid = s.id', 'left');
 		$this->db->join('estados e', 'e.id = s.estadoid', 'left');
+		$this->db->join('motivos m', 'm.id = s.motivoid', 'left');
 		if ( is_numeric($estado) && ( $estado != 0 ) )
 			$this->db->where('s.estadoid', $estado);
 		if ( is_numeric($tid) && ( $tid != 0 ) ) {

@@ -256,7 +256,7 @@
 									<div class="data1">CÓDIGO SOT</div>
 									<div class="data2"><?=$pendiente->id?></div>
 									<div class="data1">MOTIVO</div>
-									<div class="data2"><?='Motivo X'?></div>
+									<div class="data2"><?=$pendiente->motivo?></div>
 									<div class="data1">CLIENTE</div>
 									<div class="data2"><?=$pendiente->cliente?></div>
 									<div class="data1">DIRECCIÓN</div>
