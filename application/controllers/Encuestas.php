@@ -59,6 +59,7 @@ class Encuestas extends CI_Controller {
 	}
 
 	public function rechazar() {
+		var_dump($_POST); die();
 		if ( isset($_POST) && count($_POST) ) {
 			if ( strtotime("now") <= strtotime($_POST['fecha']) ) {
 				$form = array('id' => $_POST['sid'], 'motivoid' => $_POST['motivoid'], 'estadoid' => 5);
