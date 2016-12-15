@@ -401,7 +401,7 @@ if($(".cont-login.thanks").length!==0){
 				else if ( evento == 'reprogramar' ) {
 					var date = $( "#datepicker1" ).datepicker().val();
 					var today = $.datepicker.formatDate('dd-mm-yy', new Date());
-					alert(today); alert(date);
+					alert(today.getTime()); alert(date.getTime());
 					//if ( date )
 					//	alert(date);
 					//else
