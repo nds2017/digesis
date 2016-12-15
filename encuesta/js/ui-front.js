@@ -355,8 +355,13 @@ if($(".cont-login.thanks").length!==0){
 					location.href = "../index.php/encuestas/rechazar/" + $("#reject-sid").val() + '?dni=' + $_GET('dni');
 				}
 				else if ( evento == 'pendiente' ) {
-					location.href = "../index.php/encuestas/pendiente/" + $("#client-sid").val() + '?dni=' + $_GET('dni');
-					alert($(".ui-popup-options-contenido .active").attr('value'));
+					$.post( "../index.php/encuestas/pendiente/" + $("#client-sid").val() + '?dni=' + $_GET('dni'),
+						{ motivoid : $(".ui-popup-options-contenido .active").attr('value') },
+						function( data ) {
+  							alert(data);
+					});
+					//location.href = "../index.php/encuestas/pendiente/" + $("#client-sid").val() + '?dni=' + $_GET('dni');
+					//$(".ui-popup-options-contenido .active").attr('value');
 				}
 				else if ( evento == 'validar' ) {
 					location.href = "../index.php/encuestas/indicaciones/" + $("#test-sid").val() + '?dni=' + $_GET('dni');
