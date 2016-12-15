@@ -38,15 +38,14 @@ class Encuestas extends CI_Controller {
 	}
 
 	public function pendiente($sid = null) {
+		var_dump($_POST); die();
 		if ( isset($sid) && !empty($sid) ) {
-			echo 'hola';
-			/*$form = array('id' => $sid, 'estadoid' => 3);
+			$form = array('id' => $sid, 'estadoid' => 3);
 			$this->msolicitudes->solicitudes_update($form, $sid);
-			redirect('encuestas?dni=' . $_GET['dni']);*/
+			echo json_encode(array('status' => 1));
 		}
 		else
 			redirect('welcome');
-
 	}
 
 	public function reprogramar($sid = null) {
