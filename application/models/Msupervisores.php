@@ -45,4 +45,13 @@ class Msupervisores extends CI_Model
 		$this->db->where('id', $data['id']);
 		$this->db->update('supervisores', $data);
 	}
+
+	public function supervisores_combo() {
+		$rows = array();
+		$query = $this->db->query("SELECT id, CONCAT(nombres, ' ', apellidos) AS tnombres FROM supervisores WHERE publish = 1");
+		foreach ( $query->result() as $key=>$row ) {
+			$rows[$row->id] = @$row->tnombres;
+		}
+		return $rows;
+	}
 }
