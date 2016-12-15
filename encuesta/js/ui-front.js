@@ -355,10 +355,16 @@ if($(".cont-login.thanks").length!==0){
 					location.href = "../index.php/encuestas/rechazar/" + $("#reject-sid").val() + '?dni=' + $_GET('dni');
 				}
 				else if ( evento == 'pendiente' ) {
-					$.post( "../index.php/encuestas/pendiente/" + $("#client-sid").val() + '?dni=' + $_GET('dni'),
-						{ motivoid : $(".ui-popup-options-contenido .active").attr('value') },
+					$.post( "../index.php/encuestas/pendiente",
+						{
+							motivoid : $(".ui-popup-options-contenido .active").attr('value'),
+							sid : $("#client-sid").val()
+						},
 						function( data ) {
-  							alert(data);
+  							if ( data.status )
+  								location.reload();
+  							else
+  								alert('error');
 					});
 					//location.href = "../index.php/encuestas/pendiente/" + $("#client-sid").val() + '?dni=' + $_GET('dni');
 					//$(".ui-popup-options-contenido .active").attr('value');

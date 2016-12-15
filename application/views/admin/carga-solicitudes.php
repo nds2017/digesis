@@ -66,7 +66,7 @@ foreach ($fields as $field)
    echo $field . '<br>';
 }*/
 				//$this->db->query("DELETE FROM logsolicitudesrf WHERE sid = ''");
-				$query = $this->db->query("SELECT * FROM motivos");
+				$query = $this->db->query("SELECT * FROM motivos WHERE estadoid = 3");
 				var_dump($query->result());
 			?>
 			<br>

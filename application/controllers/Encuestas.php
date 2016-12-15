@@ -37,12 +37,11 @@ class Encuestas extends CI_Controller {
 			redirect('welcome');
 	}
 
-	public function pendiente($sid = null) {
-		var_dump($_POST); die();
-		if ( isset($sid) && !empty($sid) ) {
-			$form = array('id' => $sid, 'estadoid' => 3);
+	public function pendiente() {
+		if ( isset($_POST) && count($_POST) ) {
+			$form = array('id' => $_POST['sid'], 'estadoid' => 3);
 			$this->msolicitudes->solicitudes_update($form, $sid);
-			echo json_encode(array('status' => 1));
+			echo json_encode(array('status' => 1));			
 		}
 		else
 			redirect('welcome');
