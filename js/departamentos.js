@@ -24,6 +24,34 @@ $(document).ready(function() {
 
 	var url = $("#url").val() ? $("#url").val() : '';
 
+	$("#estadoid").change(function() {
+		var motivos = $("#motivoid");
+		var estados = $(this)
+		if($(this).val() != '' && $(this).val() != 0) {
+			$.ajax({
+				data: { id : estados.val() },
+				url:   url + '/ajaxMotivos',
+				type:  'POST',
+				dataType: 'json',
+				beforeSend: function () {
+					estados.prop('disabled', true);
+				},
+				success:  function (r) {
+					estados.prop('disabled', false);
+					motivos.find('option').remove();
+					$(r).each(function(i, v) {
+						motivos.append('<option value="' + v.id + '">' + v.nombre + '</option>');
+					})
+					motivos.prop('disabled', false);
+				}
+			});
+		}
+		else {
+			motivos.find('option').remove();
+			motivos.prop('disabled', true);
+		}
+	});
+
 	$("#dptoid").change(function() {
 		var distritos = $("#distritoid");
 		distritos.find('option').remove();

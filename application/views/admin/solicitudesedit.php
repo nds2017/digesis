@@ -1,6 +1,5 @@
 			</div>
 			<script src="<?=base_url()?>js/departamentos.js"></script>
-
 			<div class="list-mod-panel">
 				<h1 style="float: left;"> <?=(@$data)?'Editar Solicitud' : 'Agregar Solicitud'?> &nbsp;&nbsp;</h1>
 				<h2><a href="<?=base_url()?>index.php/solicitudes/lista">Regresar a Lista de Solicitudes</a></h2>
@@ -49,7 +48,7 @@
 				<tr>
 					<td>Estado : </td>
 					<td>
-						<select name="estadoid">
+						<select id="estadoid" name="estadoid">
 							<?php foreach ( $estados as $key => $estado ) { ?>
 								<option <?=(@$data->estadoid==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$estado?></option>
 							<?php } ?>
@@ -59,7 +58,7 @@
 				<tr>
 					<td>Motivo : </td>
 					<td>
-						<select name="motivoid">
+						<select id="motivoid" name="motivoid">
 							<option value="0">-Seleccione-</option>
 							<?php foreach ( $motivos as $key => $motivo ) { ?>
 								<option <?=(@$data->motivoid==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$motivo?></option>

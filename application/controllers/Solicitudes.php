@@ -181,6 +181,17 @@ class Solicitudes extends CI_Controller {
 		}
 	}
 
+	public function ajaxMotivos() {
+		if ( $_POST ) {
+			$array[] = array('id' => 0, 'nombre' => '-Seleccione-');
+			$data = $this->msolicitudes->solicitudes_motivos($_POST['id']);
+			foreach ($data as $key => $value) {
+				$array[] = array('id' => $key, 'nombre' => $value);
+			}
+			echo json_encode($array);
+		}
+	}
+
 	public function formrf($id = false) {
 		securityAccess(array(1, 6));
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'listarf' ));
