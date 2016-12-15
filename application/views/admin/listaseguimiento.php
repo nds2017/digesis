@@ -30,7 +30,7 @@
 					<thead> 	
 						<tr>
 							<th scope="col"><span>Téc 1: <?=$tecnicos1[$row->t1id]?></span></th>
-							<th scope="col"><span>Téc 2: <?=$tecnicos2[$row->t2id]?></span></th>
+							<th scope="col"><span>Téc 2: <?=@$tecnicos2[$row->t2id]?></span></th>
 						</tr>
 					</thead>
 				</table>

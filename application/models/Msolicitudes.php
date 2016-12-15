@@ -88,8 +88,10 @@ class Msolicitudes extends CI_Model
 		$this->db->where('s.estadoid !=', 2);
 		$this->db->where('s.estadoid !=', 3);
 		$this->db->where('s.estadoid !=', 5);
-		$where = "(st.t1id = 0 OR st.t2id = 0)";
-		$this->db->where($where);
+		$this->db->where('s.t1id', 0);
+		$this->db->where('s.t2id', 0);
+		/*$where = "(st.t1id = 0 OR st.t2id = 0)";
+		$this->db->where($where);*/
 
 		if ( is_numeric($distritoid) && ( $distritoid != 0 ) )
 			$this->db->where('s.distritoid', $distritoid);
