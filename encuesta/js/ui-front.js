@@ -30,10 +30,9 @@ $.datepicker.regional['es'] = {
  dateFormat: 'dd-mm-yy',
  firstDay: 1,
  isRTL: false,
- showMonthAfterYear: false,
- yearSuffix: '',
-defaultDate: +1
-
+	showMonthAfterYear: false,
+	yearSuffix: '',
+	defaultDate: +1
  };
  $.datepicker.setDefaults($.datepicker.regional['es']);
 
