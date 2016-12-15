@@ -25,9 +25,20 @@
 				<legend><b>Personal</b></legend>
 				<table class="table table-bordered table-striped">
 					<tr>
+						<td>Supervisor : </td>
+						<td>
+							<select id="supervisorid">
+								<option value="0">-Seleccione-</option>
+								<?php foreach ( $supervisores as $key => $supervisor ) { ?>
+								<option value="<?=$key?>"><?=$supervisor?></option>
+								<?php } ?>
+							</select>
+						</td>
+					</tr>
+					<tr>
 						<td>Técnico 1: : </td>
 						<td>
-							<select name="tecnico1id">
+							<select id="tecnico1id" name="tecnico1id">
 								<option value="0">-Seleccione-</option>
 								<?php foreach ( $tecnicos1 as $key => $tecnico1 ) { ?>
 								<option <?=(@$data->t1id==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tecnico1?></option>
@@ -38,7 +49,7 @@
 					<tr>
 						<td>Técnico 2: : </td>
 						<td>
-							<select name="tecnico2id">
+							<select id="tecnico2id" name="tecnico2id">
 								<option value="0">-Seleccione-</option>
 								<?php foreach ( $tecnicos2 as $key => $tecnico2 ) { ?>
 								<option <?=(@$data->t2id==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tecnico2?></option>

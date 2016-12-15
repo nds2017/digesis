@@ -114,6 +114,7 @@ class Solicitudes extends CI_Controller {
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'asignartecnicos' ));
 		$data['tecnicos1'] = $this->mtecnicos->tecnicos_byCargo(1);
 		$data['tecnicos2'] = $this->mtecnicos->tecnicos_byCargo(2);
+		$data['supervisores'] = $this->msupervisores->supervisores_entrys(FALSE, 1);
 		$data['data'] = $this->msolicitudes->solicitudes_byID($id);
 		$this->load->view('admin/solicitudestecnicosedit', $data);
 	}
