@@ -28,7 +28,7 @@
 
 			<h1>Solicitudes Cargadas Desde <?=date('d-m-Y')?></h1>
 			<?php
-				//$this->db->query("DELETE FROM tecnicos WHERE dni = 0");
+				$this->db->query("DELETE FROM supervisores WHERE nombres = ''");
 			/*$this->db->query("INSERT INTO `motivos` (`id`, `motivo`, `estadoid`) VALUES
 (1, 'PLANTA EXTERNA', 3),
 (2, 'POR SISTEMAS', 3),
