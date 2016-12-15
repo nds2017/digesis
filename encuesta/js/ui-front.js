@@ -368,6 +368,7 @@ if($(".cont-login.thanks").length!==0){
 	if($(".ui-popup-options").length!==0){	
 		$(".ui-popup-options-contenido .icon-cerrar").click(function(event) {
 			//$(this).parent().parent().parent().parent().hide();
+			console.log($(this));
 			event.preventDefault();
 			//setTimeout(hidepop, 500);
 			$( "#datepicker" ).datepicker('setDate', null);

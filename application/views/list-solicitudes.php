@@ -53,7 +53,7 @@
 					<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">SELECCIONAR</span></div>
 					<ul class="ui-popup-options-list">
 					<?php foreach ( $mpendientes as $key => $value) { ?>
-						<li><a class="icon-cerrar" href="#"><?=$value?></a></li>
+						<li><a class="icon-cerrar" value="<?=$key?>" href="#"><?=$value?></a></li>
 					<?php } ?>
 					</ul>
 					<div class="cont-btn final-p">
