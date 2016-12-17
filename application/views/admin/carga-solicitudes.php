@@ -64,7 +64,7 @@ foreach ($fields as $field)
 					<td><strong><?=$row->cliente?></strong></td>
 					<td><strong><?=$row->distrito . ' - ' . $row->dpto?></strong></td>
 					<td><strong><?=$row->plano?></strong></td>
-					<td><strong><?=date('d-m-Y', strtotime($row->fecha_instalacion))?></strong></td>
+					<td><strong><?=date('d-m-Y', $row->fecha_instalacion)?></strong></td>
 				</tr>
 				<?php } ?>
 				</tbody>
