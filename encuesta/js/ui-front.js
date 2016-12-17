@@ -96,38 +96,17 @@ $( "#datepicker2" ).datepicker({
 
 
 $(".cont-solicitud .combo-ui" ).each(function() {
-	
- 
-  var t=$( this );
-  var sid=t.parent().attr("data-codigo");
-  var sel=t.find("select");
-  	//sel.val("Pendiente");
-	//sel.find("option[value='Pendiente']").attr('selected','selected');
+	var t=$( this );
+	var sid=t.parent().attr("data-codigo");
+	var sel=t.find("select");
 	sel.change(function() {
-	  var opt=sel.find("option:selected");
-	  var choice=opt.text();
-	  //console.log(choice);
-	  var rule=(choice==="Rechazado");
-	  var rule2=(choice==="Validado");
-	  var rule3=(choice==="Reprogramado");
-	  var rule4=(choice==="Pendiente de Validar");
-	  var sid=t.attr("data-codigo");
-		//var a=t.next(".label.combo-ui-lnk");
-		
-		//var b=a.next(".combo.combo-ui-lnk");
-		//var sel2=b.find("select");
-		//var c=b.next(".reason.combo-ui-lnk");
-		//var d=c.next(".poll.combo-ui-lnk");		
-		//sel2.change(function() {
-			//c.removeClass("btn-inactive");
-		//}); 
-		
-	  if(rule){
-	  	sid=t.attr("data-codigo");
-		//a.removeClass("display-none");
-		//b.removeClass("display-none");
-		//c.removeClass("display-none");
-		//d.addClass("display-none");
+		var opt=sel.find("option:selected");
+		var choice=opt.text();
+		var rule=(choice==="Rechazado");
+		var rule2=(choice==="Validado");
+		var rule3=(choice==="Reprogramado");
+		var rule4=(choice==="Pendiente de Validar");
+	 	if ( rule ) {
 		$(".ui-popup-options").show();
 		$( ".client-box" ).addClass('display-none');
 		$(".ui-popup-options-list li a").removeClass("active");
@@ -141,12 +120,6 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".reject").find("#reject-sid").val(sid);
 		$("#evento").val('rechazar');
 	  }else if(rule2){
-	  	sid=t.attr("data-codigo");
-		//a.addClass("display-none");
-		//b.addClass("display-none");
-		//c.addClass("display-none");
-		//c.addClass("btn-inactive");
-		//d.addClass("display-none");
 		$(".ui-popup-options").show();
 		$( ".client-box" ).addClass('display-none');
 		$(".ui-popup-options-list li a").removeClass("active");
@@ -159,15 +132,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".schedule .calendar").show();
 		$(".test").find("#test-sid").val(sid);
 		$("#evento").val('validar');
-		//console.log("validado");
-		
 	  }else if(rule3){
-	  	sid=t.attr("data-codigo");
-		//a.addClass("display-none");
-		//b.addClass("display-none");
-		//c.addClass("display-none");
-		//c.addClass("btn-inactive");
-		//d.addClass("display-none");
 		$(".ui-popup-options").show();
 		$( ".client-box" ).addClass('display-none');
 		$(".ui-popup-options-list li a").removeClass("active");
@@ -181,14 +146,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$("#datepicker").trigger( "focus" );
 		$(".schedule").find("#schedule-sid").val(sid);
 		$("#evento").val('reprogramar');
-		//console.log("reprogramado")
 	  }else if(rule4){
-	  	sid=t.attr("data-codigo");
-		//a.addClass("display-none");
-		//b.addClass("display-none");
-		///c.addClass("display-none");
-		//c.addClass("btn-inactive");
-		//d.addClass("display-none");
 		$(".ui-popup-options").show();
 		$( ".client-box" ).addClass('display-none');
 		$(".ui-popup-options-list li a").removeClass("active");
@@ -199,19 +157,11 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".reject").hide();
 		$(".schedule .datetime").show();
 		$(".schedule .calendar").show();
-		//console.log("pendiente");
 		$(".client").find("#client-sid").val(sid);
 		$( "#datepicker" ).datepicker('setDate', null);
 		$("#evento").val('pendiente');
 		  
 	  }else{
-	  	sid=t.attr("data-codigo");
-		//a.addClass("display-none");
-		//b.addClass("display-none");
-		//c.addClass("display-none");
-		//c.addClass("btn-inactive");
-		//d.addClass("display-none");
-		
 		$(".ui-popup-options").hide();
 		$( ".client-box" ).addClass('display-none');
 		$(".ui-popup-options-list li a").removeClass("active");
