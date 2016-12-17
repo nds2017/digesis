@@ -298,11 +298,12 @@ if($(".cont-login.thanks").length!==0){
 	//CANCEL
 	if($(".cancel").length!==0){
 			$(".cancel").click(function(event) {
-				event.preventDefault();
+				location.reload();
+				/*event.preventDefault();
 				setTimeout(hidepop, 500);
 				var v=$(".ui-popup-options-wrapper").find("input[type='hidden'][name*='-sid']").attr("value");
 				var sol=$("[data-codigo='"+v+"']");
-				sol.find(".combo-ui select").val('SIN ESTADO').trigger('change');
+				sol.find(".combo-ui select").val('SIN ESTADO').trigger('change');*/
 			});
 	}
 
@@ -442,13 +443,14 @@ if($(".cont-login.thanks").length!==0){
 
 
 	$(".ui-popup-close").click(function(event) {
-		event.preventDefault();
+		location.reload();
+		/*event.preventDefault();
 		setTimeout(hidepop, 500);
 		var v=$(".ui-popup-options-wrapper").find("input[type='hidden'][name*='-sid']").attr("value");
 		console.log("cod:"+v);
 		var sol=$("[data-codigo='"+v+"']");
 		//console.log(sol);
-		sol.find(".combo-ui select").val('Seleccionar').trigger('change');
+		sol.find(".combo-ui select").val('Seleccionar').trigger('change');*/
 	});	
 
 		//console.log("..popup");
