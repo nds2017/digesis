@@ -8,6 +8,10 @@ div.upload {
 	float: left;
 }
 
+.useri {
+	color: red;
+}
+
 .divbuttons {
 	max-width:70%;
 	text-align: center;

@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="right-content">	
 			<div class="list-mod-panel">
 				<form class="btnf" method="POST" action="<?=base_url()?>index.php/admin/set_session">
-					<?=(@$inactivo)?'<b>Usuario Inactivo</b>':''?>
+					<?=(@$inactivo)?'<b class="useri">Usuario Inactivo</b><br>':''?>
 					<br>
 					Nombre de Usuario
 					<br>
@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<input type="password" name="session_pass"/>
 					<br><br>
 					<input class="btn" type="submit" value="Entrar">
-					<?=(@$error)?'<br><br><b>Datos Incorrectos</b>':''?>
+					<?=(@$error)?'<br><br><b class="useri">Datos Incorrectos</b>':''?>
 					<br>
 					<b><a href="<?=base_url()?>index.php/admin/olvidoclave">¿Olvidó su Contraseña?</a></b>
 				</form>
