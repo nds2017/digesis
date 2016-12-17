@@ -75,8 +75,8 @@ class Encuestas extends CI_Controller {
 
 	public function denegar() {
 		if ( isset($_POST) && count($_POST) ) {
-			$form = array('id' => $_POST['sid'], 'estadoid' => 2);
-			$this->msolicitudes->solicitudes_update($form, $sid);
+			$form = array('id' => $_POST['sid'], 'estadoid' => $_POST['estadoid']);
+			$this->msolicitudes->solicitudes_update($form, $_POST['sid']);
 			echo json_encode(array('status' => true));	
 		}
 		else
