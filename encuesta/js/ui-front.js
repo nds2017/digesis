@@ -106,6 +106,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		var rule2=(choice==="Validado");
 		var rule3=(choice==="Reprogramado");
 		var rule4=(choice==="Pendiente de Validar");
+		$(".ui-popup-options-wrapper").find("input[type='hidden'][name*='-sid']").attr("value",sid);
 	 	if ( rule ) {
 		$(".ui-popup-options").show();
 		$( ".client-box" ).addClass('display-none');
