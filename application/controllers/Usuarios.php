@@ -52,9 +52,6 @@ class Usuarios extends CI_Controller {
 		$session = get_session();
 		if ( $session->id == $id )
 			$data['disabled'] = true;
-		if ( $post )
-			$data['post'] = true;
-
 		$this->load->view('admin/usuariosedit', $data);
 	}	
 
@@ -73,7 +70,7 @@ class Usuarios extends CI_Controller {
 		);
 		$this->musuarios->usuarios_update($formdata);
 		if ( $self )
-			redirect('usuarios/	tuusuario/' . $id . '/true');
+			redirectUser();
 		else
 			redirect('usuarios');
 	}

@@ -26,6 +26,10 @@ $(document).ready(function() {
 			return;
 	});
 
+	$( "#tusuarioform" ).submit(function( event ) {
+		alert('hola');
+	});
+
 
 	if ( !$("#distritoid").val() ) {
 		$("#distritoid").prop('disabled', true);

@@ -16,16 +16,13 @@
 
 			<?php if ( @$data ) {
 				if ( @$disabled )
-					echo form_open_multipart('usuarios/edit/' . $data->id . '/true');
+					echo form_open_multipart('usuarios/edit/' . $data->id . '/true', array('id' => 'tusuarioform'));
 				else
-					echo form_open_multipart('usuarios/edit/' . $data->id);
+					echo form_open_multipart('usuarios/edit/' . $data->id, array('id' => 'tusuarioform'));
 			}
 			else
 				echo form_open_multipart('usuarios/add');
 			?>
-			<?php if ( @$post ) { ?>
-				<p style="color: red"> Cambios Guardados </p><br>
-			<?php } ?>
 
 			<table class="table table-bordered table-striped">
 				<tr>
