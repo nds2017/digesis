@@ -17,19 +17,19 @@ function $_GET(param) {
 "use strict";
 
 $.datepicker.regional['es'] = {
- closeText: 'Cerrar',
- prevText: '<Ant',
- nextText: 'Sig>',
- currentText: 'Hoy',
- monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
- monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
- dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
- dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
- dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
- weekHeader: 'Sm',
- dateFormat: 'dd-mm-yy',
- firstDay: 1,
- isRTL: false,
+	closeText: 'Cerrar',
+	prevText: '<Ant',
+	nextText: 'Sig>',
+	currentText: 'Hoy',
+	monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+	monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+	dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+	dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+	dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+	weekHeader: 'Sm',
+	dateFormat: 'dd-mm-yy',
+	firstDay: 1,
+	isRTL: false,
 	showMonthAfterYear: false,
 	yearSuffix: '',
 	defaultDate: +1
@@ -470,9 +470,10 @@ if($(".cont-login.thanks").length!==0){
 
 	$(".ui-popup-close").click(function(event) {
 		event.preventDefault();
-			setTimeout(hidepop, 500);
-			
-			
+		setTimeout(hidepop, 500);
+		var v=$(".ui-popup-options-wrapper").find("input[type='hidden'][name*='-sid']").attr("value");
+		var sol=$("[data-codigo='"+v+"']");
+		sol.find(".combo-ui select").val('Seleccionar').trigger('change');
 	});	
 
 		//console.log("..popup");
