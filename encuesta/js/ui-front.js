@@ -459,9 +459,36 @@ if($(".cont-login.thanks").length!==0){
 
 				t.find("li a").removeClass("active");
 				var s=$(this);
-				/*if (s.hasClass('icon-encuestar')) {
-					location.href = "../index.php/encuestas/indicaciones/" + $("#test-sid").val() + '?dni=' + $_GET('dni');
-				}*/
+
+				var ctrl=t.attr("binding");
+				ctrl="#"+ctrl;
+				//console.log(ctrl);
+
+				var fill=s.text();
+				$(ctrl).attr("value",fill);
+				//console.log("fill:"+fill);
+
+				if (s.hasClass('icon-encuestar')) {
+					//linking poll
+
+					/*$.ajax({
+					   type: 'POST',
+					   url: "methodPHP.php",
+					   data: data2serialize,
+					   success: function(data){
+					     console.log("data sended!");
+					   },
+					   complete:function(){
+					     console.log("finished!");
+					 	 setTimeout(hidepop, 500);
+					     location.href="preguntas-final.html";  
+					   }
+					});*/
+
+
+
+					
+				}
 				s.addClass("active");
 			});
 	});	
