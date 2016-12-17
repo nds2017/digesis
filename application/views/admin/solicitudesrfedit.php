@@ -26,7 +26,7 @@
 					<?php if ( $data->rf == 2 ) { ?>
 					<div id="divmotivo"><br><b>Motivo:</b><br><textarea rows="4" style="width: 50%;" id="motivo" name="motivo"><?=$data->motivorf?></textarea></div>
 					<?php } else { ?>
-					<div id="divmotivo" style="display: none;"><br><b>Motivo:</b><br><textarea id="motivo" name="motivo" rows="4"><?=$data->motivorf?></textarea></div>
+					<div id="divmotivo" style="display: none;"><br><b>Motivo:</b><br><textarea rows="4" style="width: 50%;" id="motivo" name="motivo"><?=$data->motivorf?></textarea></div>
 					<?php } ?>
 				</fieldset>
 				<br>
