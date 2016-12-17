@@ -45,22 +45,26 @@ foreach ($fields as $field)
 			<table class="table table-bordered table-striped">
 				<thead>
 					<tr>
+						<th scope="col"><span>N°</span></th>
 						<th scope="col"><span>N° SOT</span></th>
 						<th scope="col"><span>TIPO SERVICIO</span></th>
 						<th scope="col"><span>NOMBRE CLIENTE</span></th>
 						<th scope="col"><span>DISTRITO - DPTO</span></th>
 						<th scope="col"><span>PLANO</span></th>
+						<th scope="col"><span>FECHA PROGRAMACIÓN</span></th>
 					</tr>
 				</thead>
 				<?php if ( @$data ) { ?>
 				<tbody>
-				<?php foreach ( $data as $row ) { ?>
+				<?php foreach ( $data as $i => $row ) { ?>
 				<tr>
+					<td><strong><?=$i?></strong></td>
 					<td><strong><?=$row->id?></strong></td>
 					<td><strong><?=$row->tsnombre?></strong></td>
 					<td><strong><?=$row->cliente?></strong></td>
 					<td><strong><?=$row->distrito . ' - ' . $row->dpto?></strong></td>
 					<td><strong><?=$row->plano?></strong></td>
+					<td><strong><?=date('d-m-Y', strtotime($row->fecha_instalacion))?></strong></td>
 				</tr>
 				<?php } ?>
 				</tbody>
