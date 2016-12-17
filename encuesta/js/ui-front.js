@@ -393,8 +393,19 @@ if($(".cont-login.thanks").length!==0){
 					value = $("#encuestar .active").attr('value');
 					if ( value == 'iniciar' )
 						location.href = "../index.php/encuestas/indicaciones/" + $("#test-sid").val() + '?dni=' + $_GET('dni');
-					else if ( value == 'denegar' )
-						location.reload();
+					else if ( value == 'denegar' ) {
+						$.post( "../index.php/encuestas/denegar",
+							{
+								estadoid : 2,
+								sid : $("#test-sid").val()
+							},
+							function( data ) {
+	  							if ( data.status )
+	  								location.reload();
+	  							else
+	  								alert('Error, comuniquese con su administrador');
+						}, 'json');
+					}
 					else
 						alert("Seleccione una opción");
 				}

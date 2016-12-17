@@ -73,6 +73,16 @@ class Encuestas extends CI_Controller {
 			redirect('welcome');
 	}
 
+	public function denegar() {
+		if ( isset($_POST) && count($_POST) ) {
+			$form = array('id' => $_POST['sid'], 'estadoid' => 2);
+			$this->msolicitudes->solicitudes_update($form, $sid);
+			echo json_encode(array('status' => true));	
+		}
+		else
+			redirect('welcome');
+	}
+
 	public function preguntas($sid = null) {
 		$data = array();
 		$preguntas = $this->mencuestas->encuestas_preguntas();
