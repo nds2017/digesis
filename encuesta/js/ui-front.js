@@ -396,7 +396,6 @@ if($(".cont-login.thanks").length!==0){
 					else if ( value == 'denegar' ) {
 						$.post( "../index.php/encuestas/denegar",
 							{
-								estadoid : 2,
 								sid : $("#test-sid").val()
 							},
 							function( data ) {

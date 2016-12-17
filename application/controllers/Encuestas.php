@@ -15,10 +15,10 @@ class Encuestas extends CI_Controller {
 			$datat = $this->mtecnicos->tecnicobyDNI($_GET['dni']);
 			if ( is_object($datat) ) {
 				$tid = $datat->id;
-				$data['nuevos'] = $this->msolicitudes->solicitudes_encuestas($tid, 1);
+				$data['nuevos'] = $this->msolicitudes->solicitudes_encuestas($tid, 1, true);
 				$data['atendidos'] = $this->msolicitudes->solicitudes_encuestas($tid, 2);
 				$data['pendientes'] = $this->msolicitudes->solicitudes_encuestas($tid, 3);
-				$data['reprogramados'] = $this->msolicitudes->solicitudes_encuestas($tid, 4);
+				$data['reprogramados'] = $this->msolicitudes->solicitudes_encuestas($tid, 4, true);
 				$data['rechazados'] = $this->msolicitudes->solicitudes_encuestas($tid, 5);
 				$data['sinfotos'] = $this->msolicitudes->solicitudesrf_encuestas($tid);
 				$data['estados'] = $this->msolicitudes->estados_entrys();
@@ -75,7 +75,7 @@ class Encuestas extends CI_Controller {
 
 	public function denegar() {
 		if ( isset($_POST) && count($_POST) ) {
-			$form = array('id' => $_POST['sid'], 'estadoid' => $_POST['estadoid']);
+			$form = array('id' => $_POST['sid'], 'estadoid' => 3);
 			$this->msolicitudes->solicitudes_update($form, $_POST['sid']);
 			echo json_encode(array('status' => true));	
 		}
