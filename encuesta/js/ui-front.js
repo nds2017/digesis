@@ -391,10 +391,10 @@ if($(".cont-login.thanks").length!==0){
 				}
 				else if ( evento == 'validar' ) {
 					value = $("#encuestar .active").attr('value');
-					alert(value);
 					if ( value == 'iniciar' )
 						location.href = "../index.php/encuestas/indicaciones/" + $("#test-sid").val() + '?dni=' + $_GET('dni');
 					else if ( value == 'denegar' ) {
+						alert('hola');
 						$.post( "../index.php/encuestas/denegar",
 							{
 								estadoid : 2,
