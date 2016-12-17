@@ -27,7 +27,7 @@ $(document).ready(function() {
 	});
 
 	$( "#tusuarioform" ).submit(function( event ) {
-		alert('hola');
+		alert('Datos Guardados');
 	});
 
 
