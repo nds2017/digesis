@@ -36,16 +36,17 @@ class Msolicitudes extends CI_Model
 		$this->db->join('solicitudestecnicos st', 'st.sid = s.id', 'left');
 		$this->db->join('estados e', 'e.id = s.estadoid', 'left');
 		$this->db->join('motivos m', 'm.id = s.motivoid', 'left');
+
+		if ( $today ) {
+			$this->db->where('s.fecha_instalacion', $estado);
+			$this->db->where('s.fecha_instalacion >=', strtotime(date('Y-m-d')));
+			$this->db->where('s.fecha_instalacion <=', strtotime(date('Y-m-d 23:59:59')));
+		}
 		if ( is_numeric($estado) && ( $estado != 0 ) )
 			$this->db->where('s.estadoid', $estado);
 		if ( is_numeric($tid) && ( $tid != 0 ) ) {
 			$where = "(st.t1id = $tid OR st.t2id = $tid)";
 			$this->db->where($where);
-		}
-		if ( $today ) {
-			$this->db->where('s.fecha_instalacion', $estado);
-			$this->db->where('s.fecha_instalacion >=', strtotime(date('Y-m-d')));
-			$this->db->where('s.fecha_instalacion <=', strtotime(date('Y-m-d 23:59:59')));
 		}
 
 		$this->db->order_by("s.fecha_instalacion");
