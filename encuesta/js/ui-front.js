@@ -46,12 +46,6 @@ $.datepicker.regional['es'] = {
       return Math.random().toString(36).substr(2, 9)+'-'+postfix ;
     };  
    
-     /*$( ".container-list .cont-solicitud" ).each(function( index ) {
-		 var nkey=ID();
-		 var n_item=$(this);
-		 n_item.attr("id", nkey);
-     });  */
-   
 $( "#datepicker1" ).datepicker({
 	dateFormat: 'dd/mm/yy',
 	onSelect: function(dateText, inst) {
@@ -64,38 +58,6 @@ $( "#datepicker1" ).datepicker({
 		$("#date-schedule").attr("value",dateObject1);
     }
 });
-
-$( "#datepicker2" ).datepicker({
-	onSelect: function(dateText, inst) {
-		//$(".schedule .calendar").hide();
-		//$(".schedule .datetime").show();
-		//$("#datepicker").trigger( "focus" );
-		//$(".test").hide();
-		//$(".client").hide();
-		
-    }
-});
-
-//$( "#ui-datepicker-div" ).insertBefore(".schedule .ui-popup-options-contenido");
-/*    $("#datepicker").datepicker({
-            changeMonth: true,
-            changeYear: true,
-			onSelect: function(dateText, inst) {
-				$(".schedule .calendar").hide();
-				$(".schedule .datetime").show();
-				$(".test").hide();
-				$(".client").hide();
-				
-			}
-    })
-    .hide()
-    .click(function() {
-      $(this).hide();
-    });
-
-    $("#datepickerImage").click(function() {
-       $("#datepicker").show(); 
-    });*/
 
 
 $(".cont-solicitud .combo-ui select" ).each(function() {
