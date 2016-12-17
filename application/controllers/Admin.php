@@ -15,10 +15,11 @@ class Admin extends CI_Controller {
 			$this->load->view('admin/login');
 	}
 
-	public function errorlogin() {
+	public function errorlogin($user = null) {
 		if ( is_logged_in() ) 
 			redirect('solicitudes');
 		else {
+			$data['inactivo'] = $this->madmin->admin_inactivo($user) ? $this->madmin->admin_inactivo($user) : 0;
 			$data['error'] = 1;
 			$this->load->view('admin/login', $data);
 		}
@@ -33,7 +34,8 @@ class Admin extends CI_Controller {
 	}
 
 	public function set_session() {
-		$formdata = (object)array('user' =>  $this->input->post('session_value'), 'pass' =>  $this->input->post('session_pass'));
+		$user = $this->input->post('session_value');
+		$formdata = (object)array('user' => $user, 'pass' => $this->input->post('session_pass'));
 		$session = $this->madmin->admin_login($formdata);
 		if ( $session ) {
 			$sess_array = array(
@@ -45,7 +47,7 @@ class Admin extends CI_Controller {
 			redirectUser();
 		}
 		else
-			redirect('admin/errorlogin');
+			redirect('admin/errorlogin/' . $user);
 	}
 
 	public function unset_session() {

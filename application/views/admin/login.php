@@ -24,6 +24,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="right-content">	
 			<div class="list-mod-panel">
 				<form class="btnf" method="POST" action="<?=base_url()?>index.php/admin/set_session">
+					<?=(@$inactivo)?'<b>Usuario Inactivo</b>':''?>
+					<br>
 					Nombre de Usuario
 					<br>
 					<br>
