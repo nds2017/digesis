@@ -16,7 +16,7 @@ class Encuestas extends CI_Controller {
 			if ( is_object($datat) ) {
 				$tid = $datat->id;
 				$data['nuevos'] = $this->msolicitudes->solicitudes_encuestas($tid, 1, true);
-				$data['atendidos'] = $this->msolicitudes->solicitudes_encuestas($tid, 2, , true);
+				$data['atendidos'] = $this->msolicitudes->solicitudes_encuestas($tid, 2, true);
 				$data['pendientes'] = $this->msolicitudes->solicitudes_encuestas($tid, 3);
 				$data['reprogramados'] = $this->msolicitudes->solicitudes_encuestas($tid, 4, true);
 				$data['rechazados'] = $this->msolicitudes->solicitudes_encuestas($tid, 5, true);
