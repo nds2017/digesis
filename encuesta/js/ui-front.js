@@ -14,6 +14,11 @@ function $_GET(param) {
 }
 
 
+
+
+
+$( document ).ready(function() {
+
 "use strict";
 
 $.datepicker.regional['es'] = {
@@ -36,10 +41,6 @@ $.datepicker.regional['es'] = {
  };
  $.datepicker.setDefaults($.datepicker.regional['es']);
 
-
-$( document ).ready(function() {
-   
-   
      var ID = function () {
 	  var postfix="sid";
       return Math.random().toString(36).substr(2, 9)+'-'+postfix ;
@@ -52,13 +53,15 @@ $( document ).ready(function() {
      });  */
    
 $( "#datepicker1" ).datepicker({
+	dateFormat: 'dd/mm/yy',
 	onSelect: function(dateText, inst) {
 		//$(".schedule .calendar").hide();
 		//$(".schedule .datetime").show();
 		//$("#datepicker").trigger( "focus" );
 		//$(".test").hide();
 		//$(".client").hide();
-		
+		var dateObject1 = $(this).datepicker().val(); 
+		$("#date-schedule").attr("value",dateObject1);
     }
 });
 
@@ -95,24 +98,17 @@ $( "#datepicker2" ).datepicker({
     });*/
 
 
-$(".cont-solicitud .combo-ui" ).each(function() {
-	
- 
-  var t=$( this );
-  //var sid=t.parent().attr("id");
-  var sid=t.parent().attr("data-codigo");
-  console.log(sid);
-  var sel=t.find("select");
-  	//sel.val("Pendiente");
-	//sel.find("option[value='Pendiente']").attr('selected','selected');
-	sel.change(function() {
+$(".cont-solicitud .combo-ui select" ).each(function() {
+	  var sel=$( this );
+	  var t=sel.parent().parent();
 	  var opt=sel.find("option:selected");
 	  var choice=opt.text();
 	  //console.log(choice);
 	  var rule=(choice==="Rechazado");
 	  var rule2=(choice==="Validado");
 	  var rule3=(choice==="Reprogramado");
-	  var rule4=(choice==="Pendiente de Validar");	  
+	  var rule4=(choice==="Pendiente");	 
+	  var sid=t.attr("data-codigo");
 		//var a=t.next(".label.combo-ui-lnk");
 		
 		//var b=a.next(".combo.combo-ui-lnk");
@@ -124,6 +120,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		//}); 
 		
 	  if(rule){
+	  	sid=t.attr("data-codigo");
 		//a.removeClass("display-none");
 		//b.removeClass("display-none");
 		//c.removeClass("display-none");
@@ -141,6 +138,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".reject").find("#reject-sid").val(sid);
 		$("#evento").val('rechazar');
 	  }else if(rule2){
+	  	sid=t.attr("data-codigo");
 		//a.addClass("display-none");
 		//b.addClass("display-none");
 		//c.addClass("display-none");
@@ -161,6 +159,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		//console.log("validado");
 		
 	  }else if(rule3){
+	  	sid=t.attr("data-codigo");
 		//a.addClass("display-none");
 		//b.addClass("display-none");
 		//c.addClass("display-none");
@@ -181,6 +180,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$("#evento").val('reprogramar');
 		//console.log("reprogramado")
 	  }else if(rule4){
+	  	sid=t.attr("data-codigo");
 		//a.addClass("display-none");
 		//b.addClass("display-none");
 		///c.addClass("display-none");
@@ -202,6 +202,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$("#evento").val('pendiente');
 		  
 	  }else{
+	  	sid=t.attr("data-codigo");
 		//a.addClass("display-none");
 		//b.addClass("display-none");
 		//c.addClass("display-none");
@@ -219,11 +220,6 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".schedule .calendar").show();
 		$("body").removeClass("no-scroll");
 	  }
-	  
-	  
-	});  
-
-
 });
 
 if($(".cont-login").length!==0){
