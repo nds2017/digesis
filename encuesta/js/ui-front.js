@@ -445,6 +445,7 @@ if($(".cont-login.thanks").length!==0){
 		setTimeout(hidepop, 500);
 		var v=$(".ui-popup-options-wrapper").find("input[type='hidden'][name*='-sid']").attr("value");
 		var sol=$("[data-codigo='"+v+"']");
+		console.log(sol);
 		sol.find(".combo-ui select").val('Seleccionar').trigger('change');
 	});	
 
