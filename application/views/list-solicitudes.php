@@ -23,7 +23,7 @@
 				<div class="ui-popup-options-contenido">
 					<div class="datetime ui-popup-options-contenido" id="reprogramar">
 						<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">SELECCIONAR</span></div>
-						<ul class="ui-popup-options-list">
+						<ul class="ui-popup-options-list" binding="time-schedule">
 							<li>
 								<a class="icon-cerrar" value="1" href="#">Mañana</a>
 							</li>
@@ -35,7 +35,7 @@
 
 					<div class="reason">
 						<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">MOTIVO REPROGRAMACION</span></div>
-						<ul class="ui-popup-options-list">
+						<ul class="ui-popup-options-list" binding="reason-schedule">
 						<?php foreach ( $mreprogramados as $key => $value) { ?>
 							<li><a class="icon-cerrar" value="<?=$key?>" href="#"><?=$value?></a></li>
 						<?php } ?>
@@ -189,21 +189,6 @@
 									<div class="data1 label display-none combo-ui-lnk">
 										MOTIVO RECHAZO
 									</div>
-									<div class="data2 combo display-none combo-ui-lnk">
-										<select name="">
-											<option value="MOTIVO 1">MOTIVO 1</option>
-											<option value="MOTIVO 1">MOTIVO 2</option>
-											<option value="MOTIVO 1">MOTIVO 3</option>
-											<option value="MOTIVO 1">MOTIVO 4</option>
-											<option value="MOTIVO 1">MOTIVO 5</option>
-										</select>
-									</div>
-									<div class="reason cont-btn btn-inactive display-none combo-ui-lnk">
-										<input type="button" value="GUARDAR MOTIVO">
-									</div>
-									<div class="poll cont-btn display-none combo-ui-lnk">
-										<input type="button" value="ENCUESTA">
-									</div>
 								</div>
 								<?php } ?>
 								<?php } ?>
@@ -224,24 +209,6 @@
 											<option <?=($estadoid==1)?'selected':''?> value="<?=$estadoid?>"><?=$estado?></option>
 										<?php } ?>
 										</select>
-									</div>
-									<div class="data1 label display-none combo-ui-lnk">
-										MOTIVO RECHAZO
-									</div>
-									<div class="data2 combo display-none combo-ui-lnk">
-										<select name="">
-											<option value="MOTIVO 1">MOTIVO 1</option>
-											<option value="MOTIVO 1">MOTIVO 2</option>
-											<option value="MOTIVO 1">MOTIVO 3</option>
-											<option value="MOTIVO 1">MOTIVO 4</option>
-											<option value="MOTIVO 1">MOTIVO 5</option>
-										</select>
-									</div>
-									<div class="reason cont-btn btn-inactive display-none combo-ui-lnk">
-										<input type="button" value="GUARDAR MOTIVO">
-									</div>
-									<div class="poll cont-btn display-none combo-ui-lnk">
-										<input type="button" value="ENCUESTA">
 									</div>
 								</div>
 								<?php } ?>
@@ -268,24 +235,6 @@
 											<option <?=($estadoid==3)?'selected':''?> value="<?=$estadoid?>"><?=$estado?></option>
 										<?php } ?>
 										</select>
-									</div>
-									<div class="data1 label display-none combo-ui-lnk">
-										MOTIVO RECHAZO
-									</div>
-									<div class="data2 combo display-none combo-ui-lnk">
-										<select name="">
-											<option value="MOTIVO 1">MOTIVO 1</option>
-											<option value="MOTIVO 1">MOTIVO 2</option>
-											<option value="MOTIVO 1">MOTIVO 3</option>
-											<option value="MOTIVO 1">MOTIVO 4</option>
-											<option value="MOTIVO 1">MOTIVO 5</option>
-										</select>
-									</div>
-									<div class="reason cont-btn btn-inactive display-none combo-ui-lnk">
-										<input type="button" value="GUARDAR MOTIVO">
-									</div>
-									<div class="poll cont-btn display-none combo-ui-lnk">
-										<input type="button" value="ENCUESTA">
 									</div>
 								</div>
 								<?php } ?>
