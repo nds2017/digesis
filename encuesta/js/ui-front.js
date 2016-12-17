@@ -301,7 +301,7 @@ if($(".cont-login.thanks").length!==0){
 				setTimeout(hidepop, 500);
 				var v=$(".ui-popup-options-wrapper").find("input[type='hidden'][name*='-sid']").attr("value");
 				var sol=$("[data-codigo='"+v+"']");
-				sol.find(".combo-ui select").val('SIN ESTADO').trigger('change');
+				sol.find(".combo-ui select").val('Sin Estado').trigger('change');
 			});
 	}
 
@@ -445,7 +445,7 @@ if($(".cont-login.thanks").length!==0){
 		setTimeout(hidepop, 500);
 		var v=$(".ui-popup-options-wrapper").find("input[type='hidden'][name*='-sid']").attr("value");
 		var sol=$("[data-codigo='"+v+"']");
-		sol.find(".combo-ui select").val('SIN ESTADO').trigger('change');
+		sol.find(".combo-ui select").val('Sin Estado').trigger('change');
 	});	
 
 		//console.log("..popup");
