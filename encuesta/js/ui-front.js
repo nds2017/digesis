@@ -14,11 +14,6 @@ function $_GET(param) {
 }
 
 
-
-
-
-$( document ).ready(function() {
-
 "use strict";
 
 $.datepicker.regional['es'] = {
@@ -41,35 +36,81 @@ $.datepicker.regional['es'] = {
  };
  $.datepicker.setDefaults($.datepicker.regional['es']);
 
+
+$( document ).ready(function() {
+   
+   
      var ID = function () {
 	  var postfix="sid";
       return Math.random().toString(36).substr(2, 9)+'-'+postfix ;
     };  
    
+     /*$( ".container-list .cont-solicitud" ).each(function( index ) {
+		 var nkey=ID();
+		 var n_item=$(this);
+		 n_item.attr("id", nkey);
+     });  */
+   
 $( "#datepicker1" ).datepicker({
-	dateFormat: 'dd/mm/yy',
 	onSelect: function(dateText, inst) {
 		//$(".schedule .calendar").hide();
 		//$(".schedule .datetime").show();
 		//$("#datepicker").trigger( "focus" );
 		//$(".test").hide();
 		//$(".client").hide();
-		var dateObject1 = $(this).datepicker().val(); 
-		$("#date-schedule").attr("value",dateObject1);
+		
     }
 });
 
+$( "#datepicker2" ).datepicker({
+	onSelect: function(dateText, inst) {
+		//$(".schedule .calendar").hide();
+		//$(".schedule .datetime").show();
+		//$("#datepicker").trigger( "focus" );
+		//$(".test").hide();
+		//$(".client").hide();
+		
+    }
+});
 
-$(".cont-solicitud .combo-ui select" ).each(function() {
-	  var sel=$( this );
-	  var t=sel.parent().parent();
+//$( "#ui-datepicker-div" ).insertBefore(".schedule .ui-popup-options-contenido");
+/*    $("#datepicker").datepicker({
+            changeMonth: true,
+            changeYear: true,
+			onSelect: function(dateText, inst) {
+				$(".schedule .calendar").hide();
+				$(".schedule .datetime").show();
+				$(".test").hide();
+				$(".client").hide();
+				
+			}
+    })
+    .hide()
+    .click(function() {
+      $(this).hide();
+    });
+
+    $("#datepickerImage").click(function() {
+       $("#datepicker").show(); 
+    });*/
+
+
+$(".cont-solicitud .combo-ui" ).each(function() {
+	
+ 
+  var t=$( this );
+  var sid=t.parent().attr("data-codigo");
+  var sel=t.find("select");
+  	//sel.val("Pendiente");
+	//sel.find("option[value='Pendiente']").attr('selected','selected');
+	sel.change(function() {
 	  var opt=sel.find("option:selected");
 	  var choice=opt.text();
 	  //console.log(choice);
 	  var rule=(choice==="Rechazado");
 	  var rule2=(choice==="Validado");
 	  var rule3=(choice==="Reprogramado");
-	  var rule4=(choice==="Pendiente");	 
+	  var rule4=(choice==="Pendiente de Validar");
 	  var sid=t.attr("data-codigo");
 		//var a=t.next(".label.combo-ui-lnk");
 		
@@ -182,6 +223,11 @@ $(".cont-solicitud .combo-ui select" ).each(function() {
 		$(".schedule .calendar").show();
 		$("body").removeClass("no-scroll");
 	  }
+	  
+	  
+	});  
+
+
 });
 
 if($(".cont-login").length!==0){
