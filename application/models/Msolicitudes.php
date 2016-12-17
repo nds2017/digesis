@@ -38,7 +38,6 @@ class Msolicitudes extends CI_Model
 		$this->db->join('motivos m', 'm.id = s.motivoid', 'left');
 
 		if ( $today ) {
-			$this->db->where('s.fecha_instalacion', $estado);
 			$this->db->where('s.fecha_instalacion >=', strtotime(date('Y-m-d')));
 			$this->db->where('s.fecha_instalacion <=', strtotime(date('Y-m-d 23:59:59')));
 		}
