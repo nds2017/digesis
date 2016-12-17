@@ -343,9 +343,11 @@ if($(".cont-login.thanks").length!==0){
 	//CANCEL
 	if($(".cancel").length!==0){
 			$(".cancel").click(function(event) {
-				/*event.preventDefault();
-				hidepop();*/
-			    location.reload();
+				event.preventDefault();
+				setTimeout(hidepop, 500);
+				var v=$(".ui-popup-options-wrapper").find("input[type='hidden'][name*='-sid']").attr("value");
+				var sol=$("[data-codigo='"+v+"']");
+				sol.find(".combo-ui select").val('Seleccionar').trigger('change');
 			});
 	}
 
@@ -437,7 +439,6 @@ if($(".cont-login.thanks").length!==0){
 	if($(".ui-popup-options").length!==0){	
 		$(".ui-popup-options-contenido .icon-cerrar").click(function(event) {
 			//$(this).parent().parent().parent().parent().hide();
-			console.log($(this).attr('value'));
 			event.preventDefault();
 			//setTimeout(hidepop, 500);
 			$( "#datepicker" ).datepicker('setDate', null);
@@ -445,12 +446,7 @@ if($(".cont-login.thanks").length!==0){
 		$(".ui-popup-options-contenido .icon-client").click(function(event) {
 			$( ".client-box" ).removeClass('display-none');
 		});
-	$("#datepicker").blur(function() {
-		
-		//$("#datepicker").trigger( "focus" );
-		
-	});
-	
+
 	$(".ui-popup-options-list" ).each(function() {
 
 			var t=$(this);
@@ -470,7 +466,6 @@ if($(".cont-login.thanks").length!==0){
 
 				if (s.hasClass('icon-encuestar')) {
 					//linking poll
-
 					/*$.ajax({
 					   type: 'POST',
 					   url: "methodPHP.php",
@@ -484,10 +479,6 @@ if($(".cont-login.thanks").length!==0){
 					     location.href="preguntas-final.html";  
 					   }
 					});*/
-
-
-
-					
 				}
 				s.addClass("active");
 			});
