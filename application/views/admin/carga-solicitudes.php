@@ -58,7 +58,7 @@ foreach ($fields as $field)
 				<tbody>
 				<?php foreach ( $data as $i => $row ) { ?>
 				<tr>
-					<td><strong><?=$i?></strong></td>
+					<td><strong><?=$i+1?></strong></td>
 					<td><strong><?=$row->id?></strong></td>
 					<td><strong><?=$row->tsnombre?></strong></td>
 					<td><strong><?=$row->cliente?></strong></td>
