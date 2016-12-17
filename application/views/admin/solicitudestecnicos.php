@@ -50,6 +50,7 @@
 						<th scope="col"><span>TIPO DE SERVICIO</span></th>
 						<th scope="col"><span>NOMBRE DEL CLIENTE</span></th>
 						<th scope="col"><span>DISTRITO - DPTO</span></th>
+						<th scope="col"><span>FECHA PROGRAMACIÓN</span></th>
 						<th scope="col"><span>ASIGNAR</span></th>
 					</tr>
 				</thead>
@@ -62,6 +63,7 @@
 					<td><strong><?=$row->tsnombre?></strong></td>
 					<td><strong><?=$row->cliente?></strong></td>
 					<td><strong><?=$row->distrito . ' - ' . $row->dpto?></strong></td>
+					<td><strong><?=date('d-m-Y', $row->fecha_instalacion)?></strong></td>
 					<td><a title="Asignar Técnico" href="<?=base_url()?>index.php/solicitudes/formtecnicos/<?=$row->id?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 				</tr>
 				<?php } ?>
@@ -74,6 +76,7 @@
 					<td><strong><?=$row->tsnombre?></strong></td>
 					<td><strong><?=$row->cliente?></strong></td>
 					<td><strong><?=$row->distrito . ' - ' . $row->dpto?></strong></td>
+					<td><strong><?=date('d-m-Y', $row->fecha_instalacion)?></strong></td>
 					<td><a title="Asignar Técnico" href="<?=base_url()?>index.php/solicitudes/formtecnicos/<?=$row->id?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 				</tr>
 				<?php } ?>
