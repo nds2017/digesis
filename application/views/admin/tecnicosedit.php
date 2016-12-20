@@ -34,10 +34,17 @@
 					<td>RPC (9*) : </td><td><input class="solo-numero" maxlength="9" type="text" name="rpc" value="<?=@$data->rpc?>"></td>
 				</tr>
 				<tr>
-					<td>Fecha Ingreso : </td><td><input type="date" name="fechaingreso" value="<?=(@$data->fechaingreso) ? date('Y-m-d', $data->fechaingreso) : null?>"></td>
+					<td>Fecha Ingreso : </td><td><input type="date" required name="fechaingreso" value="<?=(@$data->fechaingreso) ? date('Y-m-d', $data->fechaingreso) : date('Y-m-d')?>"></td>
 				</tr>
 				<tr>
-					<td>Renta : </td><td><select name="renta"><option value="4" <?=(@$data->renta==4?'selected':'')?> >4ta Categoría</option><option value="5" <?=(@$data->renta==5?'selected':'')?>>5ta Categoría</option></select></td>
+					<td>Renta : </td>
+					<td>
+						<select name="renta">
+							<option value="0">-Seleccione-</option>
+							<option value="4" <?=(@$data->renta==4?'selected':'')?> >4ta Categoría</option>
+							<option value="5" <?=(@$data->renta==5?'selected':'')?>>5ta Categoría</option>
+						</select>
+					</td>
 				</tr>
 				<tr>
 					<td>Supervisor : </td>
