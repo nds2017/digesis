@@ -22,7 +22,7 @@ class Mperfiles extends CI_Model
 
 	public function mperfiles_entrys($bnombres = '') {
 		$rows = array();
-		$query = $this->db->query("SELECT id, nombres, apellidos, dni, email, publish FROM tecnicos WHERE CONCAT(nombres, " ", apellidos) LIKE %$bnombres%");
+		$query = $this->db->query("SELECT id, nombres, apellidos, dni, email, publish FROM tecnicos WHERE CONCAT(nombres, ' ', apellidos) LIKE %$bnombres%");
 		foreach ( $query->result() as $key => $row ) {
 			$rows['tecnicos'][] = $row;
 		}
