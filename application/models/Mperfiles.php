@@ -26,11 +26,11 @@ class Mperfiles extends CI_Model
 		foreach ( $query->result() as $key => $row ) {
 			$rows['tecnicos'][] = $row;
 		}
-		$query = $this->db->query("SELECT id, user, nombres, apellidos, dni, email, publish FROM jefes WHERE CONCAT(nombres, " ", apellidos) LIKE %$bnombres%");
+		$query = $this->db->query("SELECT id, user, nombres, apellidos, dni, email, publish FROM jefes WHERE CONCAT(nombres, ' ', apellidos) LIKE %$bnombres%");
 		foreach ( $query->result() as $key => $row ) {
 			$rows['jefes'][] = $row;
 		}
-		$query = $this->db->query("SELECT id, user, nombres, apellidos, dni, email, publish FROM supervisores WHERE CONCAT(nombres, " ", apellidos) LIKE %$bnombres%");
+		$query = $this->db->query("SELECT id, user, nombres, apellidos, dni, email, publish FROM supervisores WHERE CONCAT(nombres, ' ', apellidos) LIKE %$bnombres%");
 		foreach ( $query->result() as $key => $row ) {
 			$rows['supervisores'][] = $row;
 		}
