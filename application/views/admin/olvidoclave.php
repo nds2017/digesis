@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	        		data:$(".btnf").serializeArray()
 				}).done(function(respuesta){
 					alert(respuesta);
-					alert('¡Revisa Tu Correo!')
+					alert('¡Revisa Tu Correo!');
 					$("#search").val('');
 				});
 			}
