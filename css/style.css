@@ -29,12 +29,6 @@ input:required:invalid {
 border: 1px solid red;
  
 }
- 
-input:required:valid {
- 
-border: 1px solid blue;
- 
-}
 
 .useri {
 	color: red;
