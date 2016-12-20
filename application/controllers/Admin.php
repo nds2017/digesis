@@ -34,7 +34,11 @@ class Admin extends CI_Controller {
 	}
 
 	public function validateEmail() {
-		var_dump($_POST);
+		$user = $this->madmin->admin_email($_POST['search']);
+		if ( $user )
+			var_dump($user);
+		else
+			echo 'Correo Inválido';
 	}
 
 	public function set_session() {

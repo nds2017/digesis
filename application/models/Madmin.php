@@ -31,4 +31,8 @@ class Madmin extends CI_Model
 		return $this->db->get_where('usuarios', array('user' => $user, 'publish' => 0))->row();
 	}
 
+	public function admin_email($email = null) {
+		return $this->db->get_where('usuarios', array('email' => $email, 'publish' => 1))->row();
+	}
+
 }

@@ -20,6 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					dataType:'json',
 	        		data:$(".btnf").serializeArray()
 				}).done(function(respuesta){
+					alert(respuesta);
 					alert('¡Revisa Tu Correo!')
 					$("#search").val('');
 				});
