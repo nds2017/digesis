@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$.ajax({
 					url:'validateEmail',
 					type:'post',
-					dataType:'json',
+					//dataType:'json',
 	        		data:$(".btnf").serializeArray()
 				}).done(function(respuesta){
 					//alert(respuesta);
