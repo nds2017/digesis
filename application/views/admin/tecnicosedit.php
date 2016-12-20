@@ -31,7 +31,7 @@
 					<td>Cargo : </td><td><select name="cargo"><option value="1" <?=(@$data->cargo==1?'selected':'')?>>Técnico 1</option><option value="2" <?=(@$data->cargo==2?'selected':'')?>>Técnico 2</option></select></td>
 				</tr>
 				<tr>
-					<td>RPC : </td><td><input pattern="^[9]\d{8}$" maxlength="9" type="text" name="rpc" value="<?=@$data->rpc?>"></td>
+					<td>RPC (9*) : </td><td><input pattern="^[9]\d{8}$" maxlength="9" type="text" name="rpc" value="<?=@$data->rpc?>"></td>
 				</tr>
 				<tr>
 					<td>Fecha Ingreso : </td><td><input type="date" name="fechaingreso" value="<?=(@$data->fechaingreso) ? date('Y-m-d', $data->fechaingreso) : null?>"></td>

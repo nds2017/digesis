@@ -51,7 +51,7 @@
 					<td>Apellidos : </td><td><input required type="text" maxlength="30" name="apellidos" value="<?=@$data->apellidos?>"></td>
 				</tr>
 				<tr>
-					<td>DNI : </td><td><input required type="text" maxlength="8" name="dni" value="<?=@$data->dni?>"></td>
+					<td>DNI : </td><td><input required type="number" min="0" max="99999999" maxlength="8" name="dni" value="<?=@$data->dni?>"></td>
 				</tr>
 				<tr>
 					<td>Correo : </td><td><input required size="40" maxlength="40" type="email" name="email" value="<?=@$data->email?>"></td>
