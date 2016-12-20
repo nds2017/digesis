@@ -67,7 +67,7 @@ $mensaje = '<html>
    mail($_POST['search'], "Recuperar contraseña", $mensaje, $cabeceras);
 
 
-			echo '¡Revisa Tu Correo!'
+			echo '¡Revisa Tu Correo!';
 		}
 		else
 			echo 'Correo Inválido';
