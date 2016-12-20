@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			event.preventDefault();
 			if ( $("#search").val() ) {
 				$.ajax({
-					url:'admin/validateEmail',
+					url:'validateEmail',
 					type:'post',
 					dataType:'json',
 	        		data:$(".btnf").serializeArray()
@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					Correo Electrónico
 					<br>
 					<br>
-					<input type="email" maxlength="40" id="search" name="search"/>
+					<input type="email" size="40" maxlength="40" id="search" name="search"/>
 					<br><br>
 					<input class="btnsearch" type="submit" value="Contraseña Nueva">
 					<hr>
