@@ -33,6 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="list-mod-panel">
 				<form class="btnf" method="POST">
 					<p> Por favor, escribe tu correo electrónico. Recibirás un enlace para crear la contraseña nueva por correo electrónico </p>
+					<br>
 					Correo Electrónico
 					<br>
 					<br>
