@@ -39,7 +39,7 @@
 		if ( $rolid == 1 )
 			redirect('solicitudes');
 		else if ( $rolid == 2)
-			redirect('perfiles');
+			redirect('usuarios');
 		else if ( $rolid == 3)
 			redirect('solicitudes/carga');
 		else if ( $rolid == 4)
