@@ -20,17 +20,18 @@ class Mperfiles extends CI_Model
 		return $rows;
 	}
 
-	public function mperfiles_entrys() {
+	public function mperfiles_entrys($bnombres = '') {
 		$rows = array();
-		$query = $this->db->query("SELECT id, nombres, apellidos, dni, email, publish FROM tecnicos");
+		$query = $this->db->query("SELECT id, nombres, apellidos, dni, email, publish FROM tecnicos WHERE CONCAT(nombres, " ", apellidos) LIKE %$bnombres%"););
+
 		foreach ( $query->result() as $key => $row ) {
 			$rows['tecnicos'][] = $row;
 		}
-		$query = $this->db->query("SELECT id, user, nombres, apellidos, dni, email, publish FROM jefes");
+		$query = $this->db->query("SELECT id, user, nombres, apellidos, dni, email, publish FROM jefes WHERE CONCAT(nombres, " ", apellidos) LIKE %$bnombres%");
 		foreach ( $query->result() as $key => $row ) {
 			$rows['jefes'][] = $row;
 		}
-		$query = $this->db->query("SELECT id, user, nombres, apellidos, dni, email, publish FROM supervisores");
+		$query = $this->db->query("SELECT id, user, nombres, apellidos, dni, email, publish FROM supervisores WHERE CONCAT(nombres, " ", apellidos) LIKE %$bnombres%");
 		foreach ( $query->result() as $key => $row ) {
 			$rows['supervisores'][] = $row;
 		}

@@ -16,14 +16,18 @@
 			<br>
 			<fieldset class="search">
 				<legend></legend>
-				<nav class="top_menu">
-					<ul>
-						<li class="active"><a href="<?=base_url()?>index.php/perfiles">Todos (<?=$cantidades['total']?>)&nbsp;&nbsp;|</a></li>
-						<li><a href="<?=base_url()?>index.php/jefes/lista">Jefes (<?=$cantidades['jefes']?>)&nbsp;&nbsp;|</a></li>
-						<li><a href="<?=base_url()?>index.php/supervisores/lista">Supervisores (<?=$cantidades['supervisores']?>)&nbsp;&nbsp;|</a></li>
-						<li><a href="<?=base_url()?>index.php/tecnicos/lista">Técnicos (<?=$cantidades['tecnicos']?>)</a></li>
-					</ul>
-				</nav>
+				<form id="perfiles" method="post" action="<?=base_url()?>index.php/perfiles/lista">
+					<nav class="top_menu">
+						<ul>
+							<li class="active"><a href="<?=base_url()?>index.php/perfiles">Todos (<?=$cantidades['total']?>)&nbsp;&nbsp;|</a></li>
+							<li><a href="<?=base_url()?>index.php/jefes/lista">Jefes (<?=$cantidades['jefes']?>)&nbsp;&nbsp;|</a></li>
+							<li><a href="<?=base_url()?>index.php/supervisores/lista">Supervisores (<?=$cantidades['supervisores']?>)&nbsp;&nbsp;|</a></li>
+							<li><a href="<?=base_url()?>index.php/tecnicos/lista">Técnicos (<?=$cantidades['tecnicos']?>)</a></li>
+						</ul>
+					</nav>
+					Nombres: <input type="text" name="bnombres" value="<?=@$bnombres?>"/>
+					<input type="submit" class="btnsearch" value="Filtrar"/>
+				</form>
 			</fieldset>
 
 			<table class="table table-bordered table-striped">

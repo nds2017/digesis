@@ -18,6 +18,13 @@ class Perfiles extends CI_Controller {
 		$this->load->view('admin/perfiles', $data);
 	}
 
+	public function lista() {
+		$data['bnombres'] = isset($_POST['bnombres']) ? $_POST['bnombres'] : '';
+		$data['data'] = $this->mperfiles->mperfiles_entrys($data['bnombres']);
+		$data['cantidades'] = $this->mperfiles->mperfiles_total();
+		$this->load->view('admin/perfiles', $data);
+	}
+
 }
 
 ?>
