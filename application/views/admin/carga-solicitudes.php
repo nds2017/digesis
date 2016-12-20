@@ -29,7 +29,7 @@
 			<h1>Solicitudes Cargadas Desde <?=date('d-m-Y')?></h1>
 			<?php
 				//$this->db->query("DELETE FROM supervisores WHERE id = 5");
-			$this->db->query("CREATE TABLE IF NOT EXISTS `tblreseteopass` (
+			/*$this->db->query("CREATE TABLE IF NOT EXISTS `tblreseteopass` (
 `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 `userid` int(11) unsigned NOT NULL,
 `username` varchar(20) NOT NULL,
@@ -45,8 +45,8 @@ foreach ($fields as $field)
    echo $field . '<br>';
 }*/
 				//$this->db->query("DELETE FROM logsolicitudesrf WHERE sid = ''");
-				$query = $this->db->query("SELECT * FROM tblreseteopass");
-				var_dump($query->result());
+				//$query = $this->db->query("SELECT * FROM tblreseteopass");
+				//var_dump($query->result());
 			?>
 			<br>
 			<table class="table table-bordered table-striped">

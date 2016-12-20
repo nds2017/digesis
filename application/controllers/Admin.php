@@ -63,9 +63,8 @@ $mensaje = '<html>
  
    $cabeceras = 'MIME-Version: 1.0' . "\r\n";
    $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-   $cabeceras .= 'From: Codedrinks <mimail@codedrinks.com>' . "\r\n";
-   var_dump(mail($_POST['search'], "Recuperar contraseña", 'hola'));
-
+   $cabeceras .= 'From: Digetel <digetelservicio@digetel.pe>' . "\r\n";
+   mail($_POST['search'], "Recuperar contraseña", $mensaje, $cabeceras);
 
 			echo '¡Revisa Tu Correo!';
 		}
