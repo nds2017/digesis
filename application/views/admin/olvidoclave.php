@@ -12,7 +12,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script>
 	$(document).ready(function() {
 		$(".btnf").submit(function(event) {
-			event.preventDefault();
 			if ( $("#search").val() ) {
 				$.ajax({
 					url:'validateEmail',
@@ -23,6 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					alert(respuesta);
 					alert('¡Revisa Tu Correo!')
 					$("#search").val('');
+					event.preventDefault();
 				});
 			}
 			else
