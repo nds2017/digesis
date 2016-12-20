@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+	$('.solo-numero').keyup(function (){
+		this.value = (this.value + '').replace(/[^0-9]/g, '');
+	});
+
 	var publish = $("#publish").val();
 	if ( publish == 0 )
 		$(".inactivo").show('slow');
