@@ -16,16 +16,16 @@
 
 			<table class="table table-bordered table-striped">
 				<tr>
-					<td>Nombres : </td><td><input type="text" autofocus="autofocus" name="nombres" value="<?=@$data->nombres?>"></td>
+					<td>Nombres : </td><td><input type="text" required maxlength="30" autofocus="autofocus" name="nombres" value="<?=@$data->nombres?>"></td>
 				</tr>
 				<tr>
-					<td>Apellidos : </td><td><input type="text" name="apellidos" value="<?=@$data->apellidos?>"></td>
+					<td>Apellidos : </td><td><input type="text" required maxlength="30" name="apellidos" value="<?=@$data->apellidos?>"></td>
 				</tr>
 				<tr>
-					<td>DNI : </td><td><input type="text" maxlength="8" name="dni" value="<?=@$data->dni?>"></td>
+					<td>DNI : </td><td><input type="text" required maxlength="8" name="dni" value="<?=@$data->dni?>"></td>
 				</tr>
 				<tr>
-					<td>Correo : </td><td><input type="text" size="40" name="email" value="<?=@$data->email?>"></td>
+					<td>Correo : </td><td><input type="text" required maxlength="40" size="40" name="email" value="<?=@$data->email?>"></td>
 				</tr>
 				<tr>
 					<td>Cargo : </td><td><select name="cargo"><option value="1" <?=(@$data->cargo==1?'selected':'')?>>Técnico 1</option><option value="2" <?=(@$data->cargo==2?'selected':'')?>>Técnico 2</option></select></td>
@@ -60,7 +60,7 @@
 					</td>
 				</tr>
 				<?php if ( @$data->id ) { ?>
-				<tr><td>Activo : </td>
+				<tr><td>Estado : </td>
 					<td>
 						<select id="publish" name="publish">
 							<option <?=($data->publish)?'selected':''?> value="1">Activo</option>
