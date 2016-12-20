@@ -42,8 +42,9 @@
 						<th scope="col"><span>EDITAR</span></th>
 					</tr>
 				</thead>
-				<?php if ( @$data ) { ?>
+				<?php if ( count($data['tecnicos']) || count($data['supervisores']) || count($data['jefes']) ) { ?>
 				<tbody>
+				<?php if ( count($data['tecnicos'] ) { ?>
 				<?php foreach ( $data['tecnicos'] as $key => $row ) { ?>
 				<tr>
 					<td><strong><?=$row->nombres . ' ' . $row->apellidos?></strong></td>
@@ -55,6 +56,8 @@
 					<td><a title="Editar Técnico" href="<?=base_url()?>index.php/tecnicos/form/<?=$row->id?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 				</tr>
 				<?php } ?>
+				<?php } ?>
+				<?php if ( count($data['supervisores'] ) { ?>
 				<?php foreach ( $data['supervisores'] as $key => $row ) { ?>
 				<tr style="color: blue">
 					<td><strong><?=$row->nombres . ' ' . $row->apellidos?></strong></td>
@@ -66,6 +69,8 @@
 					<td><a title="Editar Supervisor" href="<?=base_url()?>index.php/supervisores/form/<?=$row->id?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 				</tr>
 				<?php } ?>
+				<?php } ?>
+				<?php if ( count($data['jefes'] ) { ?>
 				<?php foreach ( $data['jefes'] as $key => $row ) { ?>
 				<tr style="color: green">
 					<td><strong><?=$row->nombres . ' ' . $row->apellidos?></strong></td>
@@ -76,6 +81,7 @@
 					<td><strong><?=($row->publish)?'Activo':'Inactivo'?></strong></td>
 					<td><a title="Editar Jefe" href="<?=base_url()?>index.php/jefes/form/<?=$row->id?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 				</tr>
+				<?php } ?>
 				<?php } ?>
 				</tbody>
 				<?php } ?>
