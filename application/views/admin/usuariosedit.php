@@ -54,7 +54,7 @@
 					<td>DNI : </td><td><input required type="text" maxlength="8" name="dni" value="<?=@$data->dni?>"></td>
 				</tr>
 				<tr>
-					<td>Correo : </td><td><input required size="40" maxlength="40" type="text" name="email" value="<?=@$data->email?>"></td>
+					<td>Correo : </td><td><input required size="40" maxlength="40" type="email" name="email" value="<?=@$data->email?>"></td>
 				</tr>
 				<?php if ( @$data->id ) { ?>
 				<tr>
