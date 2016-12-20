@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					Correo Electrónico
 					<br>
 					<br>
-					<input type="email" size="40" maxlength="40" id="search" name="search"/>
+					<input type="text" size="40" maxlength="40" id="search" name="search"/>
 					<br><br>
 					<input class="btnsearch" type="submit" value="Contraseña Nueva">
 					<hr>
