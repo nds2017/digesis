@@ -37,7 +37,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<br>
 					<input type="text" id="search" name="search"/>
 					<br><br>
-					<input class="btn" type="submit" value="Contraseña Nueva" onclick="revisar();">
+					<input class="btnsearch" type="submit" value="Contraseña Nueva" onclick="revisar();">
+					<hr>
+					<b><a href="<?=base_url()?>index.php/admin">INGRESAR</a></b>
 				</form>
 			</div>
 		</div>

@@ -36,9 +36,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<br>
 					<input type="password" name="session_pass"/>
 					<br><br>
-					<input class="btn" type="submit" value="Entrar">
+					<input class="btnsearch" type="submit" value="Entrar">
 					<?=(@$error)?'<br><br><b class="useri">Datos Incorrectos</b>':''?>
-					<br>
+					<hr>
 					<b><a href="<?=base_url()?>index.php/admin/olvidoclave">¿Olvidó su Contraseña?</a></b>
 				</form>
 			</div>
