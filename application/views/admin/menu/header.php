@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div id="container">
 		<header>
 			<div class="header-inner">
-				<h1 style="float: left;">Bienvenidos al administrador de Solicitudes</h1>
+				<h1 style="float: left;">Bienvenidos al Administrador</h1>
 				<p style="float: right;">Bienvenido <em><?=$session->user?></em>, <a href="<?=base_url()?>index.php/admin/unset_session">Cerrar Sesión</a></p>
 			</div>
 		</header>

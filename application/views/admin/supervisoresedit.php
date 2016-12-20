@@ -22,7 +22,7 @@
 					<td>Apellidos : </td><td><input type="text" required maxlength="30" name="apellidos" value="<?=@$data->apellidos?>"></td>
 				</tr>
 				<tr>
-					<td>DNI : </td><td><input type="text" required maxlength="8" name="dni" value="<?=@$data->dni?>"></td>
+					<td>DNI : </td><td><input class="solo-numero" type="text" required maxlength="8" name="dni" value="<?=@$data->dni?>"></td>
 				</tr>
 				<tr>
 					<td>Correo : </td><td><input type="email" required maxlength="40" size="40" name="email" value="<?=@$data->email?>"></td>
@@ -48,10 +48,10 @@
 					</td>
 				</tr>
 				<tr>
-					<td>Usuario : </td><td><input type="text" maxlength="20" name="user" value="<?=@$data->user?>"></td>
+					<td>Usuario : </td><td><input <?=(@$data->id)?'disabled':''?> required type="text" maxlength="20" name="user" value="<?=@$data->user?>"></td>
 				</tr>
 				<tr>
-					<td>Contraseña : </td><td><input maxlength="20" type="password" name="password" value="<?=@$data->password?>"></td>
+					<td>Contraseña : </td><td><input required maxlength="20" type="password" name="password" value="<?=@$data->password?>"></td>
 				</tr>
 				<?php if ( @$data->id ) { ?>
 				<tr><td>Estado : </td>
