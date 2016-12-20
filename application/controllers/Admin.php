@@ -45,7 +45,7 @@ class Admin extends CI_Controller {
 				'fecha' => strtotime("now")
 			);
 			$this->madmin->generarLink($data);
-			$enlace = $_SERVER["SERVER_NAME"].'/pass/restablecer.php?idusuario=' . sha1($user->id) . '&token=' . $token;
+			$enlace = base_url() . 'index.php/admin/restablecer?idusuario=' . sha1($user->id) . '&token=' . $token;
 
 $mensaje = '<html>
      <head>
@@ -64,7 +64,7 @@ $mensaje = '<html>
    $cabeceras = 'MIME-Version: 1.0' . "\r\n";
    $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
    $cabeceras .= 'From: Codedrinks <mimail@codedrinks.com>' . "\r\n";
-   mail($_POST['search'], "Recuperar contraseña", $mensaje, $cabeceras);
+   var_dump(mail($_POST['search'], "Recuperar contraseña", $mensaje, $cabeceras));
 
 
 			echo '¡Revisa Tu Correo!';
