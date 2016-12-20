@@ -8,6 +8,34 @@ div.upload {
 	float: left;
 }
 
+input:invalid {
+ 
+border: 1px solid red;
+ 
+}
+ 
+/* Estilo por defecto */
+ 
+input:valid {
+ 
+border: 1px solid yellow;
+ 
+}
+
+/* Estilo por defecto */
+ 
+input:required:invalid {
+ 
+border: 1px solid red;
+ 
+}
+ 
+input:required:valid {
+ 
+border: 1px solid blue;
+ 
+}
+
 .useri {
 	color: red;
 }
