@@ -29,12 +29,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					Nombre de Usuario
 					<br>
 					<br>
-					<input type="text" name="session_value"/>
+					<input type="text" maxlength="20" name="session_value"/>
 					<br>
 					Contraseña
 					<br>
 					<br>
-					<input type="password" name="session_pass"/>
+					<input type="password" maxlength="20" name="session_pass"/>
 					<br><br>
 					<input class="btnsearch" type="submit" value="Entrar">
 					<?=(@$error)?'<br><br><b class="useri">Datos Incorrectos</b>':''?>

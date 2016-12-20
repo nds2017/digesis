@@ -33,6 +33,10 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function validateEmail() {
+		var_dump($_POST);
+	}
+
 	public function set_session() {
 		$user = $this->input->post('session_value');
 		$formdata = (object)array('user' => $user, 'pass' => $this->input->post('session_pass'));

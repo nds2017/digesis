@@ -10,12 +10,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?=base_url()?>css/font-awesome.min.css">
 	<script src="<?=base_url()?>encuesta/js/jquery-1.9.1.min.js"></script>
 	<script>
-		function revisar() {
-			if ( $("#search").val() )
-				alert('¡Revisa Tu Correo!');
+	$(document).ready(function() {
+		$(".btnf").submit(function(event) {
+			event.preventDefault();
+			if ( $("#search").val() ) {
+				$.ajax({
+					url:'admin/validateEmail',
+					type:'post',
+					dataType:'json',
+	        		data:$(".btnf").serializeArray()
+				}).done(function(respuesta){
+					alert('¡Revisa Tu Correo!')
+					$("#search").val('');
+				});
+			}
 			else
-				alert('¡Coloca tu Correo!')
-		}
+				alert('¡Coloca Tu Correo!');
+		});
+	});
 	</script>
 </head>
 <body>
@@ -37,9 +49,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					Correo Electrónico
 					<br>
 					<br>
-					<input type="text" id="search" name="search"/>
+					<input type="email" maxlength="40" id="search" name="search"/>
 					<br><br>
-					<input class="btnsearch" type="submit" value="Contraseña Nueva" onclick="revisar();">
+					<input class="btnsearch" type="submit" value="Contraseña Nueva">
 					<hr>
 					<b><a href="<?=base_url()?>index.php/admin">INGRESAR</a></b>
 				</form>
