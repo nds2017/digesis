@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div id="container">
 		<header>
 			<div class="header-inner">
-				<h1 style="float: left;">Bienvenidos al administrador de Solicitudes</h1>
+				<h1 style="float: left;">Bienvenidos al Administrador</h1>
 			</div>
 		</header>
 		<div class="right-list-admin">
