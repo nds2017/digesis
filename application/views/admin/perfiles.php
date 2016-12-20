@@ -44,7 +44,7 @@
 				</thead>
 				<?php if ( count($data['tecnicos']) || count($data['supervisores']) || count($data['jefes']) ) { ?>
 				<tbody>
-				<?php if ( count($data['tecnicos'] ) { ?>
+				<?php if ( count($data['tecnicos']) ) { ?>
 				<?php foreach ( $data['tecnicos'] as $key => $row ) { ?>
 				<tr>
 					<td><strong><?=$row->nombres . ' ' . $row->apellidos?></strong></td>
@@ -57,7 +57,7 @@
 				</tr>
 				<?php } ?>
 				<?php } ?>
-				<?php if ( count($data['supervisores'] ) { ?>
+				<?php if ( count($data['supervisores']) ) { ?>
 				<?php foreach ( $data['supervisores'] as $key => $row ) { ?>
 				<tr style="color: blue">
 					<td><strong><?=$row->nombres . ' ' . $row->apellidos?></strong></td>
@@ -70,7 +70,7 @@
 				</tr>
 				<?php } ?>
 				<?php } ?>
-				<?php if ( count($data['jefes'] ) { ?>
+				<?php if ( count($data['jefes']) ) { ?>
 				<?php foreach ( $data['jefes'] as $key => $row ) { ?>
 				<tr style="color: green">
 					<td><strong><?=$row->nombres . ' ' . $row->apellidos?></strong></td>
