@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if ( $("#search").val() )
 				alert('¡Revisa Tu Correo!');
 			else
-				alert('¡Coloca tu Usuario o Correo!')
+				alert('¡Coloca tu Correo!')
 		}
 	</script>
 </head>
@@ -32,7 +32,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="right-content">	
 			<div class="list-mod-panel">
 				<form class="btnf" method="POST">
-					Nombre de Usuario o Correo Electrónico
+					<p> Por favor, escribe tu correo electrónico. Recibirás un enlace para crear la contraseña nueva por correo electrónico </p>
+					Correo Electrónico
 					<br>
 					<br>
 					<input type="text" id="search" name="search"/>
