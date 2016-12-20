@@ -29,7 +29,14 @@
 			<h1>Solicitudes Cargadas Desde <?=date('d-m-Y')?></h1>
 			<?php
 				//$this->db->query("DELETE FROM supervisores WHERE id = 5");
-			//$this->db->query("ALTER TABLE `tecnicos` ADD `fecha_cese` INT(11) NOT NULL DEFAULT '0' AFTER `publish`, ADD `motivo_cese` TEXT NULL AFTER `fecha_cese`;");
+			$this->db->query("CREATE TABLE IF NOT EXISTS `tblreseteopass` (
+`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+`userid` int(11) unsigned NOT NULL,
+`username` varchar(20) NOT NULL,
+`token` varchar(64) NOT NULL,
+`fecha` int(11) NOT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");
 
 
 			/*$fields = $this->db->list_fields('motivos');
@@ -38,8 +45,8 @@ foreach ($fields as $field)
    echo $field . '<br>';
 }*/
 				//$this->db->query("DELETE FROM logsolicitudesrf WHERE sid = ''");
-				//$query = $this->db->query("SELECT * FROM motivos WHERE estadoid = 3");
-				//var_dump($query->result());
+				$query = $this->db->query("SELECT * FROM tblreseteopass");
+				var_dump($query->result());
 			?>
 			<br>
 			<table class="table table-bordered table-striped">

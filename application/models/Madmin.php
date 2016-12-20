@@ -35,4 +35,8 @@ class Madmin extends CI_Model
 		return $this->db->get_where('usuarios', array('email' => $email, 'publish' => 1))->row();
 	}
 
+	public function generarLink($data) {
+		$this->db->insert('tblreseteopass', $data);
+	}
+
 }
