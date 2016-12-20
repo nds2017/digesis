@@ -16,7 +16,7 @@
 			<table class="table table-bordered table-striped">
 				<input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>
 				<tr>
-					<td>N° Solicitud : </td><td><input type="text" autofocus="autofocus" name="solicitudid" value="<?=@$data->id?>"></td>
+					<td>N° Solicitud : </td><td><input required maxlength="11" type="text" autofocus="autofocus" name="solicitudid" value="<?=@$data->id?>"></td>
 				</tr>
 				<tr>
 					<td>Fecha de Programación : </td><td><input type="date" name="fecha_instalacion" value="<?=(@$data->fecha_instalacion) ? date('Y-m-d', $data->fecha_instalacion) : null?>"></td>
@@ -42,7 +42,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>Plano : </td><td><input type="text" name="plano" value="<?=@$data->plano?>"></td>
+					<td>Plano : </td><td><input maxlength="20" type="text" name="plano" value="<?=@$data->plano?>"></td>
 				</tr>
 				<?php if ( @$data->id ) { ?>
 				<tr>
@@ -72,10 +72,10 @@
 					<legend><b>Cliente</b></legend>
 					<table class="table table-bordered table-striped">
 						<tr>
-							<td>Nombres : </td><td><input type="text" size="30" name="cliente" value="<?=@$data->cliente?>"></td>
+							<td>Nombres : </td><td><input maxlength="30" required type="text" size="30" name="cliente" value="<?=@$data->cliente?>"></td>
 						</tr>
 						<tr>
-							<td>Direccion : </td><td><input type="text" size="70" name="direccion" value="<?=@$data->direccion?>"></td>
+							<td>Direccion : </td><td><input required maxlength="100" type="text" size="70" name="direccion" value="<?=@$data->direccion?>"></td>
 						</tr>
 						<tr>
 							<td>Region : </td>
