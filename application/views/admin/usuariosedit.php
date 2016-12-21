@@ -48,7 +48,7 @@
 					<td>Contraseña : </td><td><input type="password" maxlength="20" name="password" required value="<?=@$data->password?>"></td>
 				</tr>
 				<tr>
-					<td>Nombres : </td><td><input pattern="/[A-Za-z]{4-16}/" required type="text" name="nombres" value="<?=@$data->nombres?>"></td>
+					<td>Nombres : </td><td><input pattern="[a-z]{1,15}" required type="text" name="nombres" value="<?=@$data->nombres?>"></td>
 				</tr>
 				<tr>
 					<td>Apellidos : </td><td><input required type="text" maxlength="30" name="apellidos" value="<?=@$data->apellidos?>"></td>
