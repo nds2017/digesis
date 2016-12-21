@@ -48,10 +48,10 @@
 					<td>Contraseña : </td><td><input type="password" maxlength="20" name="password" required value="<?=@$data->password?>"></td>
 				</tr>
 				<tr>
-					<td>Nombres : </td><td><input pattern="[a-z]{1,20}" title="Solo 20 Letras" required type="text" name="nombres" value="<?=@$data->nombres?>"></td>
+					<td>Nombres : </td><td><input pattern="[A-Za-z]" title="Solo Letras" required type="text" maxlength="30" name="nombres" value="<?=@$data->nombres?>"></td>
 				</tr>
 				<tr>
-					<td>Apellidos : </td><td><input required type="text" maxlength="30" name="apellidos" value="<?=@$data->apellidos?>"></td>
+					<td>Apellidos : </td><td><input pattern="[A-Za-z]" title="Solo Letras" required type="text" maxlength="30" name="apellidos" value="<?=@$data->apellidos?>"></td>
 				</tr>
 				<tr>
 					<td>DNI : </td><td><input required type="text" class="solo-numero" maxlength="8" name="dni" value="<?=@$data->dni?>"></td>
