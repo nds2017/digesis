@@ -66,21 +66,28 @@ $mensaje = '<html>
    $cabeceras .= 'From: Digetel <digetelservicio@digetel.pe>' . "\r\n";
    var_dump(mail($_POST['search'], "Recuperar contraseña", $mensaje, $cabeceras));
 
-			echo '¡Revisa Tu Correo!';*/
+			echo '¡Revisa Tu Correo!';
+			$ci = get_instance();
+$ci->load->library('email');
+$config['protocol'] = "smtp";
+$config['smtp_host'] = "ssl://smtp.gmail.com";
+$config['smtp_port'] = "465";
+$config['smtp_user'] = "digesis2017@gmail.com"; 
+$config['smtp_pass'] = "Digesis2017@";
+$config['charset'] = "utf-8";
+$config['mailtype'] = "html";
+$config['newline'] = "\r\n";
 
-$this->load->library('email');
+$ci->email->initialize($config);
 
-$this->email->from('fk.franko.soto@gmail.com', 'GF Digitel');
-$this->email->to('fk.franko.soto@gmail.com');
-$this->email->cc('another@another-example.com');
-$this->email->bcc('them@their-example.com');
-
-$this->email->subject('Email Test');
-$this->email->message('Testing the email class.');
-
-$this->email->send();
-
-echo 'revisar';
+$ci->email->from('fk.franko.soto@gmail.com', 'Blabla');
+$list = array('fk.franko.soto@gmail.com');
+$ci->email->to($list);
+$this->email->reply_to('fk.franko.soto@gmail.com', 'Explendid Videos');
+$ci->email->subject('This is an email test');
+$ci->email->message('It is working. Great!');
+$ci->email->send();*/
+			echo '¡Revisa Tu Correo!';
 		}
 		else
 			echo 'Correo Inválido';
