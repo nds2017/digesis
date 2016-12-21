@@ -45,7 +45,6 @@ class Jefes extends CI_Controller {
 			'dni' => $this->input->post('dni'),
 			'email' => $this->input->post('email'),
 			'regionid' => $this->input->post('regionid'),
-			'user' => $this->input->post('user'),
 			'password' => $this->input->post('password'),
 			'publish' => $this->input->post('publish'),
 			'fecha_cese' => $this->input->post('publish') ? 0 : strtotime($this->input->post('fecha_cese')),

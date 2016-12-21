@@ -49,9 +49,6 @@
 				</tr>
 				<tr>
 					<td>Usuario : </td><td><input required type="text" maxlength="20" name="user" value="<?=@$data->user?>"></td>
-<!--					<?php if ( @$disabled ) { ?>
-						<input type="hidden" name="user" value="<?=$data->user?>"/>
-					<?php } ?>-->
 				</tr>
 				<tr>
 					<td>Contraseña : </td><td><input required maxlength="20" type="password" name="password" value="<?=@$data->password?>"></td>

@@ -47,7 +47,6 @@ class Supervisores extends CI_Controller {
 			'apellidos' => $this->input->post('apellidos'),
 			'dni' => $this->input->post('dni'),
 			'email' => $this->input->post('email'),
-			'user' => $this->input->post('user'),
 			'password' => $this->input->post('password'),
 			'jefeid' => $this->input->post('jefeid'),
 			'baseid' => $this->input->post('baseid'),
