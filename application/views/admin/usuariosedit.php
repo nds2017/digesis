@@ -39,7 +39,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>Nombre de Usuario : </td><td><input pattern="[A-Za-z]{4-20}" <?=(@$data->id)?'disabled':''?> maxlength="20" autofocus="autofocus" required type="text" name="user" value="<?=@$data->user?>"></td>
+					<td>Nombre de Usuario : </td><td><input pattern="[A-Za-z]" <?=(@$data->id)?'disabled':''?> maxlength="20" autofocus="autofocus" required type="text" name="user" value="<?=@$data->user?>"></td>
 				</tr>
 				<tr>
 					<td>Contraseña : </td><td><input type="password" maxlength="20" name="password" required value="<?=@$data->password?>"></td>
