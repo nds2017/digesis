@@ -36,7 +36,7 @@ class Admin extends CI_Controller {
 	public function validateEmail() {
 		$user = $this->madmin->admin_email($_POST['search']);
 		if ( $user ) {
-			$cadena = $user->id . $user->user . rand(1,9999999) . date('Y-m-d');
+			/*$cadena = $user->id . $user->user . rand(1,9999999) . date('Y-m-d');
 			$token = sha1($cadena);
 			$data = array(
 				'userid' => $user->id,
@@ -66,7 +66,28 @@ $mensaje = '<html>
    $cabeceras .= 'From: Digetel <digetelservicio@digetel.pe>' . "\r\n";
    var_dump(mail($_POST['search'], "Recuperar contraseña", $mensaje, $cabeceras));
 
-			echo '¡Revisa Tu Correo!';
+			echo '¡Revisa Tu Correo!';*/
+			$ci = get_instance();
+$ci->load->library('email');
+$config['protocol'] = "smtp";
+$config['smtp_host'] = "ssl://smtp.gmail.com";
+$config['smtp_port'] = "465";
+$config['smtp_user'] = "fk.franko.soto@gmail.com"; 
+$config['smtp_pass'] = "aXe952331352";
+$config['charset'] = "utf-8";
+$config['mailtype'] = "html";
+$config['newline'] = "\r\n";
+
+$ci->email->initialize($config);
+
+$ci->email->from('fk.franko.soto@gmail.com', 'Blabla');
+$list = array('fk.franko.soto@gmail.com');
+$ci->email->to($list);
+$this->email->reply_to('fk.franko.soto@gmail.com', 'Explendid Videos');
+$ci->email->subject('This is an email test');
+$ci->email->message('It is working. Great!');
+$ci->email->send();
+echo 'revisar';
 		}
 		else
 			echo 'Correo Inválido';
