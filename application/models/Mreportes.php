@@ -9,7 +9,7 @@ class Mreportes extends CI_Model
 
 	public function tecnico_getEncuestas($tid = null) {
 		$rows = array();
-		$this->db->select('s.id');
+		$this->db->select('s.id, s.fecha_instalacion');
 		$this->db->from('solicitudes s');
 		$this->db->join('solicitudestecnicos st', 'st.sid = s.id', 'left');
 		$this->db->where('s.estadoid', 2);
@@ -19,7 +19,8 @@ class Mreportes extends CI_Model
 		if ( $query->num_rows() > 0 ) {
 			foreach ( $query->result() as $key => $row ) {
 				$row->encuestas = $this->mreportes->preguntas_bySid($row->id);
-				$rows[] = $row;
+				$row->fecha_instalacion = date('d/m/Y', $row->fecha_instalacion);
+				$rows[$row->id] = $row;
 			}
 
 		}
