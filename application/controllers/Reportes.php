@@ -21,7 +21,8 @@ class Reportes extends CI_Controller {
 			print '</pre>';
 			//$this->load->view('admin/reportes/tecnico_encuestas', $data);
 		}
-		redirect('reportes');
+		else
+			redirect('reportes');
 	}
 
 }
