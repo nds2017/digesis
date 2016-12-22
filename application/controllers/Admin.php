@@ -33,25 +33,24 @@ class Admin extends CI_Controller {
 	}
 
 	public function restablecer() {
-		/*if ( isset($_GET['idusuario']) && isset($_GET['token']) ) {
+		if ( isset($_GET['idusuario']) && isset($_GET['token']) ) {
 			$usuario = $this->madmin->user_bytoken($_GET['token']);
 			if ( sha1($usuario->userid) == $_GET['idusuario'] ) {
-				$this->madmin->usuarios_update($usuario->userid);*/
-				$this->load->view('admin/restablecer');
-			/*}
+				$this->load->view('admin/restablecer', array('userid' => $usuario->userid));
+			}
 			else
 				redirect('admin');
 		}
 		else
-			redirect('admin');*/
+			redirect('admin');
 	}
 
 	public function updateContrasena() {
 		if ( $_POST ) {
-			print true;
+			$this->madmin->usuarios_update($_POST['userid']);
+			$this->musuarios->usuarios_update(array('id' => $_POST['userid'], 'password' => $_POST['pass']));
 		}
-		else
-			redirect('admin');
+		redirect('admin');
 	}
 
 	public function validateEmail() {

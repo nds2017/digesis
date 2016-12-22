@@ -13,8 +13,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	$(document).ready(function() {
 		$(".btnf").submit(function(event) {
 			if ( $("#pass").val() && $("#re_pass").val() ) {
-				if ( $("#pass").val() == $("#re_pass").val() )
+				if ( $("#pass").val() == $("#re_pass").val() ) {
+					alert('Contraseña Modificada, inicie sesión');
 					return;
+				}
 				else {
 					event.preventDefault();
 					alert('Las Contraseñas No coinciden');
@@ -47,6 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<br>
 					<br>
 					<input type="password" maxlength="20" name="pass" id="pass"/>
+					<input type="hidden" name="userid" id="<?=$userid?>"/>
 					<br>
 					Confirmar Nueva Contraseña
 					<br>
