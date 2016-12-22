@@ -36,7 +36,7 @@ class Admin extends CI_Controller {
 	public function validateEmail() {
 		$user = $this->madmin->admin_email($_POST['search']);
 		if ( $user ) {
-			/*$cadena = $user->id . $user->user . rand(1,9999999) . date('Y-m-d');
+			$cadena = $user->id . $user->user . rand(1,9999999) . date('Y-m-d');
 			$token = sha1($cadena);
 			$data = array(
 				'userid' => $user->id,
@@ -56,37 +56,29 @@ $mensaje = '<html>
        <p>Si hiciste esta petición, haz clic en el siguiente enlace, si no hiciste esta petición puedes ignorar este correo.</p>
        <p>
          <strong>Enlace para restablecer tu contraseña</strong><br>
-         <a href="'.$enlace.'"> Restablecer contraseña </a>
+         <a target="_blank" href="' . $enlace . '"> Restablecer contraseña </a>
        </p>
      </body>
     </html>';
- 
-   $cabeceras = 'MIME-Version: 1.0' . "\r\n";
-   $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-   $cabeceras .= 'From: Digetel <digetelservicio@digetel.pe>' . "\r\n";
-   var_dump(mail($_POST['search'], "Recuperar contraseña", $mensaje, $cabeceras));
 
-			echo '¡Revisa Tu Correo!';*/
 			$ci = get_instance();
-$ci->load->library('email');
-$config['protocol'] = "smtp";
-$config['smtp_host'] = "ssl://smtp.gmail.com";
-$config['smtp_port'] = "465";
-$config['smtp_user'] = "digesis2017@gmail.com"; 
-$config['smtp_pass'] = "Digesis2017@";
-$config['charset'] = "utf-8";
-$config['mailtype'] = "html";
-$config['newline'] = "\r\n";
-
-$ci->email->initialize($config);
-
-$ci->email->from('fk.franko.soto@gmail.com', 'Restablecer Contraseña - Digitel');
-$list = array('fk.franko.soto@gmail.com');
-$ci->email->to($list);
-$this->email->reply_to('digesis2017@gmail.com', 'Digetel Service');
-$ci->email->subject('Restablecer Contraseña');
-$ci->email->message('It is working. Great!');
-var_dump($ci->email->send());
+			$ci->load->library('email');
+			$config['protocol'] = "smtp";
+			$config['smtp_host'] = "ssl://smtp.gmail.com";
+			$config['smtp_port'] = "465";
+			$config['smtp_user'] = "digesis2017@gmail.com"; 
+			$config['smtp_pass'] = "Digesis2017@";
+			$config['charset'] = "utf-8";
+			$config['mailtype'] = "html";
+			$config['newline'] = "\r\n";
+			$ci->email->initialize($config);
+			$ci->email->from($_POST['search'], 'Restablecer Contraseña - Digetel');
+			$list = array($_POST['search']);
+			$ci->email->to($list);
+			$this->email->reply_to('digesis2017@gmail.com', 'Digetel Service');
+			$ci->email->subject('Restablecer Contraseña');
+			$ci->email->message($mensaje);
+			$ci->email->send();
 			echo '¡Revisa Tu Correo!';
 		}
 		else
