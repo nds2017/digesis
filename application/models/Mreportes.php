@@ -11,7 +11,7 @@ class Mreportes extends CI_Model
 		$rows = array();
 		$this->db->select('s.id');
 		$this->db->from('solicitudes s');
-		$this->db->join('solicitudestecnicos st', 'ts.id = s.id', 'left');
+		$this->db->join('solicitudestecnicos st', 'st.sid = s.id', 'left');
 		$this->db->where('s.estadoid', 2);
 		$where = "(st.t1id = $tid OR st.t2id = $tid)";
 		$this->db->where($where);
