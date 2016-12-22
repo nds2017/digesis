@@ -22,7 +22,7 @@ class Mreportes extends CI_Model
 				$row->fecha_instalacion = date('d/m/Y', $row->fecha_instalacion);
 				$this->db->select_avg('respuesta');
 				$this->db->where('sid', $row->id);
-				$row->promedio = $this->db->get('encuestas')->row();
+				$row->promedio = $this->db->get('encuestas')->row()->respuesta;
 				$rows[$row->id] = $row;
 			}
 
