@@ -36,7 +36,12 @@ class Madmin extends CI_Model
 	}
 
 	public function user_bytoken($token = null) {
-		return $this->db->get_where('tblreseteopass', array('token' => $token))->row();
+		return $this->db->get_where('tblreseteopass', array('token' => $token, 'active' => 1))->row();
+	}
+
+	public function usuarios_update($id) {
+		$this->db->where('userid', $id);
+		$this->db->update('tblreseteopass', array('active' => 0));
 	}
 
 	public function generarLink($data) {

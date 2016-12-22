@@ -28,19 +28,27 @@ class Admin extends CI_Controller {
 	public function olvidoclave() {
 		if ( is_logged_in() ) 
 			redirectUser();
-		else {
+		else
 			$this->load->view('admin/olvidoclave');
-		}
 	}
 
 	public function restablecer() {
 		if ( isset($_GET['idusuario']) && isset($_GET['token']) ) {
 			$usuario = $this->madmin->user_bytoken($_GET['token']);
 			if ( sha1($usuario->userid) == $_GET['idusuario'] ) {
-				echo true;
+				$this->madmin->usuarios_update($usuario->userid);
+				$this->load->view('admin/restablecer', array('user' => $usuario));
 			}
 			else
 				redirect('admin');
+		}
+		else
+			redirect('admin');
+	}
+
+	public function updateContrasena() {
+		if ( $_POST ) {
+			print true;
 		}
 		else
 			redirect('admin');
@@ -55,7 +63,8 @@ class Admin extends CI_Controller {
 				'userid' => $user->id,
 				'username' => $user->user,
 				'token' => $token,
-				'fecha' => strtotime("now")
+				'fecha' => strtotime("now"),
+				'active' => 1
 			);
 			$this->madmin->generarLink($data);
 			$enlace = base_url() . 'index.php/admin/restablecer?idusuario=' . sha1($user->id) . '&token=' . $token;

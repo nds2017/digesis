@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					url:'validateEmail',
 					type:'post',
 					//dataType:'json',
-	        		data:$(".btnf").serializeArray()
+					data:$(".btnf").serializeArray()
 				}).done(function(respuesta){
 					alert(respuesta);
 					$("#search").val('');
@@ -30,17 +30,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	});
 	</script>
 </head>
-<body>
-
+<body111111111111>
 	<div id="container">
 		<header>
 			<div class="header-inner">
 				<h1 style="float: left;">Bienvenidos al Administrador</h1>
 			</div>
 		</header>
-		<div class="right-list-admin">
-
-		</div>
+		<div class="right-list-admin"></div>
 		<div class="right-content">	
 			<div class="list-mod-panel">
 				<form class="btnf" method="POST">
@@ -58,6 +55,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>

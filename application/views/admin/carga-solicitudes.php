@@ -28,13 +28,14 @@
 
 			<h1>Solicitudes Cargadas Desde <?=date('d-m-Y')?></h1>
 			<?php
-				//$this->db->query("DELETE FROM supervisores WHERE id = 5");
-			/*$this->db->query("CREATE TABLE IF NOT EXISTS `tblreseteopass` (
+				$this->db->query("DROP TABLE tblreseteopass");
+			$this->db->query("CREATE TABLE IF NOT EXISTS `tblreseteopass` (
 `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 `userid` int(11) unsigned NOT NULL,
 `username` varchar(20) NOT NULL,
 `token` varchar(64) NOT NULL,
 `fecha` int(11) NOT NULL,
+`active` tinyint(1) NOT NULL,
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");
 
