@@ -33,17 +33,17 @@ class Admin extends CI_Controller {
 	}
 
 	public function restablecer() {
-		if ( isset($_GET['idusuario']) && isset($_GET['token']) ) {
+		/*if ( isset($_GET['idusuario']) && isset($_GET['token']) ) {
 			$usuario = $this->madmin->user_bytoken($_GET['token']);
 			if ( sha1($usuario->userid) == $_GET['idusuario'] ) {
-				$this->madmin->usuarios_update($usuario->userid);
-				$this->load->view('admin/restablecer', array('user' => $usuario));
-			}
+				$this->madmin->usuarios_update($usuario->userid);*/
+				$this->load->view('admin/restablecer');
+			/*}
 			else
 				redirect('admin');
 		}
 		else
-			redirect('admin');
+			redirect('admin');*/
 	}
 
 	public function updateContrasena() {

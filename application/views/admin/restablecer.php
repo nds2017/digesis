@@ -12,8 +12,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script>
 	$(document).ready(function() {
 		$(".btnf").submit(function(event) {
-
-
 			if ( $("#pass").val() && $("#re_pass").val() ) {
 				if ( $("#pass").val() == $("#re_pass").val() )
 					return;
@@ -25,23 +23,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			else {
 				event.preventDefault();
 				alert('No deje espacios en blanco');
-			}
-
-
-			if ( $("#search").val() ) {
-				$.ajax({
-					url:'validateEmail',
-					type:'post',
-					//dataType:'json',
-					data:$(".btnf").serializeArray()
-				}).done(function(respuesta){
-					alert(respuesta);
-					$("#search").val('');
-				});
-			}
-			else {
-				event.preventDefault();
-				alert('Las Contraseñas No coinciden');
 			}
 		});
 	});
