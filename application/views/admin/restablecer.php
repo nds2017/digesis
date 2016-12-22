@@ -8,13 +8,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>ATENCIÓN TÉCNICA CLARO</title>
 	<link rel="stylesheet" type="text/css" href="<?=base_url()?>css/style.css">
 	<link rel="stylesheet" href="<?=base_url()?>css/font-awesome.min.css">
-	<script src="<?=base_url()?>encuestas/js/jquery-1.9.1.min.js"></script>
+	<script src="<?=base_url()?>encuesta/js/jquery-1.9.1.min.js"></script>
 	<script>
 	$(document).ready(function() {
 		$(".btnf").submit(function(event) {
 			if ( $("#pass").val() && $("#re_pass").val() ) {
-				alert($("#pass").val());
-				alert($("#re_pass").val());
 				if ( $("#pass").val() == $("#re_pass").val() )
 					return;
 				else {
