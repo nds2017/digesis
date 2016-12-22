@@ -46,8 +46,8 @@ foreach ($fields as $field)
    echo $field . '<br>';
 }*/
 				//$this->db->query("DELETE FROM logsolicitudesrf WHERE sid = ''");
-				//$query = $this->db->query("SELECT * FROM tblreseteopass");
-				//var_dump($query->result());
+				$query = $this->db->query("SELECT preguntaid, respuesta FROM encuestas WHERE sid = '24233621'");
+				print_r($query->result());
 			?>
 			<br>
 			<table class="table table-bordered table-striped">
