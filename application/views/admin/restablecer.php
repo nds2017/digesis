@@ -13,6 +13,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	$(document).ready(function() {
 		$(".btnf").submit(function(event) {
 			if ( $("#pass").val() && $("#re_pass").val() ) {
+				alert($("#pass").val());
+				alert($("#re_pass").val());
 				if ( $("#pass").val() == $("#re_pass").val() )
 					return;
 				else {
@@ -46,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					Nueva Contraseña
 					<br>
 					<br>
-					<input type="text" maxlength="20" name="pass" id="pass"/>
+					<input type="password" maxlength="20" name="pass" id="pass"/>
 					<br>
 					Confirmar Nueva Contraseña
 					<br>
