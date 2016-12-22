@@ -20,6 +20,9 @@ class Mreportes extends CI_Model
 			foreach ( $query->result() as $key => $row ) {
 				$row->encuestas = $this->mreportes->preguntas_bySid($row->id);
 				$row->fecha_instalacion = date('d/m/Y', $row->fecha_instalacion);
+				$this->db->select_avg('respuesta');
+				$this->db->where('sid', $sid);
+				$rows->promedio = $this->db->get('encuestas')->row();
 				$rows[$row->id] = $row;
 			}
 
@@ -34,11 +37,6 @@ class Mreportes extends CI_Model
 		foreach ( $query->result() as $key=>$row ) {
 			$rows[$row->preguntaid] = $row->respuesta;
 		}
-
-		$this->db->select_avg('respuesta');
-		$this->db->where('sid', $sid);
-		$rows['promedio'] = $this->db->get('encuestas')->row();
-
 		return $rows;
 	}
 
