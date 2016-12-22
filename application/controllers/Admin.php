@@ -33,6 +33,19 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function restablecer() {
+		if ( isset($_GET['idusuario']) && isset($_GET['token']) ) {
+			$usuario = $this->madmin->user_bytoken($_GET['token']);
+			if ( sha1($usuario->id) == $_GET['idusuario'] ) {
+				echo true;
+			}
+			else
+				redirect('admin');
+		}
+		else
+			redirect('admin');
+	}
+
 	public function validateEmail() {
 		$user = $this->madmin->admin_email($_POST['search']);
 		if ( $user ) {
@@ -72,7 +85,7 @@ $mensaje = '<html>
 			$config['mailtype'] = "html";
 			$config['newline'] = "\r\n";
 			$ci->email->initialize($config);
-			$ci->email->from($_POST['search'], 'Restablecer Contraseña - Digetel');
+			$ci->email->from($_POST['search'], 'Digetel');
 			$list = array($_POST['search']);
 			$ci->email->to($list);
 			$this->email->reply_to('digesis2017@gmail.com', 'Digetel Service');
