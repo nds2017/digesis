@@ -66,7 +66,7 @@ $mensaje = '<html>
    $cabeceras .= 'From: Digetel <digetelservicio@digetel.pe>' . "\r\n";
    var_dump(mail($_POST['search'], "Recuperar contraseña", $mensaje, $cabeceras));
 
-			echo '¡Revisa Tu Correo!';
+			echo '¡Revisa Tu Correo!';*/
 			$ci = get_instance();
 $ci->load->library('email');
 $config['protocol'] = "smtp";
@@ -80,13 +80,13 @@ $config['newline'] = "\r\n";
 
 $ci->email->initialize($config);
 
-$ci->email->from('fk.franko.soto@gmail.com', 'Blabla');
+$ci->email->from('fk.franko.soto@gmail.com', 'Restablecer Contraseña - Digitel');
 $list = array('fk.franko.soto@gmail.com');
 $ci->email->to($list);
-$this->email->reply_to('fk.franko.soto@gmail.com', 'Explendid Videos');
-$ci->email->subject('This is an email test');
+$this->email->reply_to('digesis2017@gmail.com', 'Digetel Service');
+$ci->email->subject('Restablecer Contraseña');
 $ci->email->message('It is working. Great!');
-$ci->email->send();*/
+var_dump($ci->email->send());
 			echo '¡Revisa Tu Correo!';
 		}
 		else
