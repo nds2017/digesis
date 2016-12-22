@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<br>
 					<br>
 					<input type="password" maxlength="20" name="pass" id="pass"/>
-					<input type="hidden" name="userid" id="<?=$userid?>"/>
+					<input type="hidden" name="userid" value="<?=$userid?>"/>
 					<br>
 					Confirmar Nueva Contraseña
 					<br>
