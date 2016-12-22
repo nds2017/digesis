@@ -34,6 +34,10 @@ class Mreportes extends CI_Model
 		foreach ( $query->result() as $key=>$row ) {
 			$rows[$row->preguntaid] = $row->respuesta;
 		}
+
+		$this->db->select("SELECT SUM(respuesta) AS total FROM encuestas WHERE sid = '$sid'");
+		$query = $this->db->get();
+		var_dump($query);
 		return $rows;
 	}
 
