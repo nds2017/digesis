@@ -36,7 +36,7 @@ class Admin extends CI_Controller {
 	public function restablecer() {
 		if ( isset($_GET['idusuario']) && isset($_GET['token']) ) {
 			$usuario = $this->madmin->user_bytoken($_GET['token']);
-			if ( sha1($usuario->id) == $_GET['idusuario'] ) {
+			if ( sha1($usuario->userid) == $_GET['idusuario'] ) {
 				echo true;
 			}
 			else
