@@ -35,7 +35,7 @@ class Mreportes extends CI_Model
 			$rows[$row->preguntaid] = $row->respuesta;
 		}
 
-		$this->db->select_avg('respuesta'):
+		$this->db->select_avg('respuesta');
 		$this->db->where('sid', $sid);
 		$query = $this->db->get('encuestas');
 		var_dump($query);
