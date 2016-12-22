@@ -16,9 +16,12 @@ class Reportes extends CI_Controller {
 	public function tecnico_encuestas($tid = null) {
 		if ( is_numeric($tid) && ( $tid != 0 ) ) {
 			$data = $this->mreportes->tecnico_getEncuestas($tid);
+			print '<pre>';
+			print_r($data);
+			print '</pre>';
 			//$this->load->view('admin/reportes/tecnico_encuestas', $data);
 		}
-		redirect('reportes'):
+		redirect('reportes');
 	}
 
 }
