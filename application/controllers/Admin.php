@@ -47,6 +47,7 @@ class Admin extends CI_Controller {
 
 	public function updateContrasena() {
 		if ( $_POST ) {
+			$this->load->model('musuarios');
 			$this->madmin->usuarios_update($_POST['userid']);
 			$this->musuarios->usuarios_update(array('id' => $_POST['userid'], 'password' => $_POST['pass']));
 		}
