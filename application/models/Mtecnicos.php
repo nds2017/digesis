@@ -37,7 +37,7 @@ class Mtecnicos extends CI_Model
 
 	public function tecnicos_byCargo($cargo = 1, $supid = null) {
 		$rows = array();
-		$this->db->select('id, CONCAT(nombres, ' ', apellidos) AS tnombres');
+		$this->db->select('id, CONCAT(nombres, " ", apellidos) AS tnombres');
 		$this->db->from('tecnicos');
 
 		if ( is_numeric($supid) && ( $supid != 0 ) )
