@@ -11,7 +11,7 @@ class Solicitudes extends CI_Controller {
 		$this->load->model('mdepartamentos');
 		$this->load->model('musuarios');
 		$this->load->model('msupervisores');
-		//is_logged_in() ? true : redirect('admin');
+		is_logged_in() ? true : redirect('admin');
 	}
 
 	public function index() {
@@ -326,7 +326,7 @@ class Solicitudes extends CI_Controller {
 
 	public function carga() {
 		$session = get_session();
-		//securityAccess(array(1, 3));
+		securityAccess(array(1, 3));
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'solicitudesload' ));
 		$data['bnombres'] = isset($_POST['bnombres']) ? $_POST['bnombres'] : '';
 		if ( @$_POST['carga'] ) {
