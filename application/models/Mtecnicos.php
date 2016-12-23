@@ -46,7 +46,7 @@ class Mtecnicos extends CI_Model
 		$this->db->where('cargo', $cargo);
 		$this->db->where('publish', 1);
 
-
+		$query = $this->db->get();
 		foreach ( $query->result() as $key => $row ) {
 			$rows[$row->id] = $row->tnombres;
 		}
