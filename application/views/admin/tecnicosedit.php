@@ -49,7 +49,8 @@
 				<tr>
 					<td>Supervisor : </td>
 					<td>
-						<select name="supervisorid">
+						<select required name="supervisorid">
+							<option value="">-Seleccione-</option>
 							<?php foreach ( $supervisores as $key => $supervisor ) { ?>
 								<option <?=(@$data->supervisorid==$supervisor->id ? 'selected' : '')?>  value="<?=$supervisor->id?>"><?=$supervisor->nombres . ' ' . $supervisor->apellidos?></option>
 							<?php } ?>
