@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<form class="btnf" method="POST" action="<?=base_url()?>index.php/admin/set_session">
 					<?=(@$inactivo)?'<b class="useri">Usuario Inactivo</b><br>':''?>
 					<br>
-					Nombre de Usuario
+					Nombre de Usuario.
 					<br>
 					<br>
 					<input type="text" maxlength="20" name="session_value"/>
