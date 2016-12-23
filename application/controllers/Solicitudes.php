@@ -112,10 +112,10 @@ class Solicitudes extends CI_Controller {
 	public function formtecnicos($id) {
 		securityAccess(array(1, 4));
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'asignartecnicos' ));
-		$data['tecnicos1'] = $this->mtecnicos->tecnicos_byCargo(1);
-		$data['tecnicos2'] = $this->mtecnicos->tecnicos_byCargo(2);
 		$data['supervisores'] = $this->msupervisores->supervisores_combo();
 		$data['data'] = $this->msolicitudes->solicitudes_byID($id);
+		$data['tecnicos1'] = $this->mtecnicos->tecnicos_byCargo(1, $data->supid);
+		$data['tecnicos2'] = $this->mtecnicos->tecnicos_byCargo(2, $data->supid);
 		$this->load->view('admin/solicitudestecnicosedit', $data);
 	}
 
@@ -278,6 +278,7 @@ class Solicitudes extends CI_Controller {
 		$session = get_session();
 		$formdata = array(
 			'sid' => $id,
+			'supid' => $this->input->post('supid'), 
 			't1id' => $this->input->post('tecnico1id'),
 			't2id' => $this->input->post('tecnico2id'),
 			'aid' => $session->id

@@ -35,11 +35,20 @@ class Mtecnicos extends CI_Model
 		return null;
 	}
 
-	public function tecnicos_byCargo($cargo = 1) {
+	public function tecnicos_byCargo($cargo = 1, $supid = null) {
 		$rows = array();
-		$query = $this->db->query("SELECT id, CONCAT(nombres, ' ', apellidos) AS tnombres FROM tecnicos WHERE cargo = $cargo AND publish = 1");
-		foreach ($query->result() as $key=>$row) {
-			$rows[$row->id] = @$row->tnombres;
+		$this->db->select('id, CONCAT(nombres, ' ', apellidos) AS tnombres');
+		$this->db->from('tecnicos');
+
+		if ( is_numeric($supid) && ( $supid != 0 ) )
+			$this->db->where('supervisorid', $supid);
+
+		$this->db->where('cargo', $cargo);
+		$this->db->where('publish', 1);
+
+
+		foreach ( $query->result() as $key => $row ) {
+			$rows[$row->id] = $row->tnombres;
 		}
 		return $rows;
 	}
