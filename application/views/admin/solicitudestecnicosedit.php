@@ -50,8 +50,8 @@
 					<tr>
 						<td>Técnico 2: : </td>
 						<td>
-							<select required id="tecnico2id" name="tecnico2id">
-								<option value="">-Seleccione-</option>
+							<select id="tecnico2id" name="tecnico2id">
+								<option value="0">-Seleccione-</option>
 								<?php foreach ( $tecnicos2 as $key => $tecnico2 ) { ?>
 								<option <?=(@$data->t2id==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tecnico2?></option>
 								<?php } ?>
