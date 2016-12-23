@@ -40,7 +40,7 @@ PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");
 
 */
-			$fields = $this->db->list_fields('solicitudestecnicos');
+			/*$fields = $this->db->list_fields('solicitudestecnicos');
 foreach ($fields as $field)
 {
    echo $field . '<br>';
