@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 
 	$("#sid").blur(function() {
-  		$.post( "solicitudes/validateSid", { sid: $(this).val() })
+  		$.post( "../solicitudes/validateSid", { sid: $(this).val() })
   		.done(function( data ) {
     		alert( "Data Loaded: " + data );
   		});
