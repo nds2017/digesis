@@ -9,11 +9,13 @@
 			<?php
 			if ( @$data ) {
 				$check = '';
+				$nocheck = 'display: none;';
 				echo '<input type="hidden" id="status" value="edit"/><input type="hidden" id="asid" value="' . $data->id . ' "/>';
 				echo form_open_multipart('solicitudes/edit/' . $data->id);
 			}
 			else {
-				$nocheck = 'display: none;';
+				$check = 'display: none;';
+				$nocheck = '';
 				echo '<input type="hidden" id="status" value="add"/>';
 				echo form_open_multipart('solicitudes/add');
 			}
