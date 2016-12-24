@@ -337,21 +337,26 @@ class Solicitudes extends CI_Controller {
 
 	public function validateSid() {
 		if ( $_POST ) {
+			if ( !empty($_POST['sid']) ) {
 
-			if ( $_POST['evento'] == 'add' ) {
-				if ( $this->msolicitudes->solicitudes_validate($_POST['sid']) )
-					echo 'error';
-				else
-					echo 'OK';
+				else if ( $_POST['evento'] == 'add' ) {
+					if ( $this->msolicitudes->solicitudes_validate($_POST['sid']) )
+						echo 'error';
+					else
+						echo 'OK';
+				}
+				else {
+					if ( (int)$_POST['asid'] == (int)$_POST['sid'] )
+						echo 'OK';
+					else if ( $this->msolicitudes->solicitudes_validate($_POST['sid']) )
+						echo 'error';
+					else
+						echo 'OK';
+				}
+
 			}
-			else {
-				if ( (int)$_POST['asid'] == (int)$_POST['sid'] )
-					echo 'OK';
-				else if ( $this->msolicitudes->solicitudes_validate($_POST['sid']) )
-					echo 'error';
-				else
-					echo 'OK';
-			}
+			else
+				echo 'error';
 
 		}
 		else
