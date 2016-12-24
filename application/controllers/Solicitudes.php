@@ -45,6 +45,7 @@ class Solicitudes extends CI_Controller {
 
 
 	public function form($id = false) {
+		var_dump($id);
 		securityAccess(array(1, 4));
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'solicitudesadd' ));
 		$data['supervisores'] = $this->msupervisores->supervisores_combo();
