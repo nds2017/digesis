@@ -1,12 +1,14 @@
 			</div>
 			<script src="<?=base_url()?>js/departamentos.js"></script>
 			<script>
-			$("#sid").on("keydown", function() {
-    			alert('xd');
-			});
-			$("#sid").on("keyup", function() {
-    			alert('x2d');
-			});
+$(document).ready(function(){
+   	$("#sid").keydown(function(){
+    		alert('xd4');
+	}); 
+	$("#sid").keyup(function(){
+    		alert('xd');
+	}); 
+});
 			</script>
 			<div class="list-mod-panel">
 				<h1 style="float: left;"> <?=(@$data)?'Editar Solicitud' : 'Agregar Solicitud'?> &nbsp;&nbsp;</h1>
