@@ -1,5 +1,13 @@
 $(document).ready(function() {
 
+
+	$("#sid").blur(function() {
+  		$.post( "solicitudes/validateSid", { sid: $(this).val() })
+  		.done(function( data ) {
+    		alert( "Data Loaded: " + data );
+  		});
+	});
+
 	$('.solo-numero').keyup(function (){
 		this.value = (this.value + '').replace(/[^0-9]/g, '');
 	});

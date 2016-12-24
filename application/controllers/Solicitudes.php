@@ -335,6 +335,17 @@ class Solicitudes extends CI_Controller {
 		redirect('solicitudes');
 	}
 
+	public function validateSid() {
+		if ( $_POST ) {
+			if ( $this->msolicitudes->solicitudes_validate($_POST['sid']) )
+				print 'error';
+			else
+				print 'OK';
+		}
+		else
+			print 'error';
+	}
+
 	public function carga() {
 		$session = get_session();
 		securityAccess(array(1, 3));

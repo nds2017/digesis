@@ -1,12 +1,5 @@
 			</div>
 			<script src="<?=base_url()?>js/departamentos.js"></script>
-			<script>
-$(document).ready(function(){
-$("#sid").blur(function() {
-  alert("hello");
-});
-});
-			</script>
 			<div class="list-mod-panel">
 				<h1 style="float: left;"> <?=(@$data)?'Editar Solicitud' : 'Agregar Solicitud'?> &nbsp;&nbsp;</h1>
 				<h2><a href="<?=base_url()?>index.php/solicitudes/lista">Regresar a Lista de Solicitudes</a></h2>
