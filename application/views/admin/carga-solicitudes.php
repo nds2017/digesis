@@ -29,8 +29,8 @@
 			<h1>Solicitudes Cargadas Desde <?=date('d-m-Y')?></h1>
 			<?php
 				//			$this->db->query("DELETE FROM `solicitudestecnicos` WHERE sid = '001122'");
-				//			$query = $this->db->query("SELECT sid FROM solicitudestecnicos");
-				//print_r($query->result());
+							$query = $this->db->query("SELECT sid FROM solicitudestecnicos");
+				print_r($query->result());
 				//$this->db->query("ALTER TABLE `solicitudestecnicos` CHANGE `sid` `sid` INT(11) NOT NULL;");
 				//$this->db->query("DELETE FROM `solicitudestecnicos` WHERE sid = 't75r65'");
 			/*$this->db->query("CREATE TABLE IF NOT EXISTS `tblreseteopass` (
