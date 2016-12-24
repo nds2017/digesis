@@ -1,13 +1,8 @@
 			</div>
 			<script src="<?=base_url()?>js/departamentos.js"></script>
 			<script>
-$(document).ready(function(){
-   	$("#sid").keydown(function(){
-    		alert('xd4');
-	}); 
-	$("#sid").keyup(function(){
-    		alert('xd');
-	}); 
+$("#sid").blur(function() {
+  alert("hello");
 });
 			</script>
 			<div class="list-mod-panel">
