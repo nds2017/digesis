@@ -29,7 +29,7 @@
 			<h1>Solicitudes Cargadas Desde <?=date('d-m-Y')?></h1>
 			<?php
 				$this->db->query("DELETE FROM `solicitudes` WHERE id = 2147483647");
-				$query = $this->db->query("SELECT sid FROM solicitudestecnicos");
+				$query = $this->db->query("SELECT id FROM solicitudes");
 				print_r($query->result());
 				//$this->db->query("ALTER TABLE `solicitudestecnicos` CHANGE `sid` `sid` INT(11) NOT NULL;");
 				//$this->db->query("DELETE FROM `solicitudestecnicos` WHERE sid = 't75r65'");
