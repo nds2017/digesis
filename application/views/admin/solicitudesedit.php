@@ -48,7 +48,7 @@ $(document).ready(function() {
 				$check = 'display: none;';
 				$nocheck = '';
 				echo '<input type="hidden" id="status" value="add"/>';
-				echo form_open_multipart('solicitudes/add', , array('id' => 'solicitudform'));
+				echo form_open_multipart('solicitudes/add', array('id' => 'solicitudform'));
 			}
 			?>
 
