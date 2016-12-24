@@ -22,6 +22,9 @@
 					<td>Fecha de Programación : </td><td><input disabled type="date" name="fecha_instalacion" value="<?=(@$data->fecha_instalacion) ? date('Y-m-d', $data->fecha_instalacion) : null?>"></td>
 				</tr>
 			</table>
+			<?='<pre>'?>
+			<?=print_r($data)?>
+			<?='</pre>'?>
 			<fieldset class="fieldform">
 				<legend><b>Personal</b></legend>
 				<table class="table table-bordered table-striped">
