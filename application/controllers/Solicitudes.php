@@ -232,6 +232,7 @@ class Solicitudes extends CI_Controller {
 	}
 
 	public function edit($id) {
+		securityAccess(array(1));
 		$session = get_session();
 		$formdata = array (
 			'id' => $this->input->post('solicitudid'),
@@ -248,6 +249,32 @@ class Solicitudes extends CI_Controller {
 			'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($this->input->post('fecha_instalacion')) : strtotime('now')
 		);
 		$this->msolicitudes->solicitudes_update($formdata, $id);
+		$formdata = array(
+			'sid' => $this->input->post('solicitudid'),
+			'supid' => $this->input->post('supid'),
+			't1id' => $this->input->post('tecnico1id'),
+			't2id' => $this->input->post('tecnico2id'),
+			'aid' => $this->input->post('analistaid')
+		);
+		$this->msolicitudes->solicitudes_addtecnicos($formdata);
+		redirect('solicitudes');
+	}
+
+	public function add() {
+		$session = get_session();
+		$formdata = array (
+			'id' => $this->input->post('solicitudid'),
+			'tipotrabajoid' => $this->input->post('tipotrabajoid'),
+			'tiposervicioid' => $this->input->post('tiposervicioid'),
+			'plano' => $this->input->post('plano'),
+			'cliente' => $this->input->post('cliente'),
+			'direccion' => $this->input->post('direccion'),
+			'regionid' => $this->input->post('regionid')
+,			'distritoid' => $this->input->post('distritoid'),
+			'usuarioid' => $session->id,
+			'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($this->input->post('fecha_instalacion')) : strtotime('now')
+		);
+		$this->msolicitudes->solicitudes_create($formdata);
 		if ( $session->rolid == 1 ) {
 			$formdata = array(
 				'sid' => $this->input->post('solicitudid'),
@@ -308,31 +335,6 @@ class Solicitudes extends CI_Controller {
 			redirect('solicitudes/seguimiento');
 		else
 			redirect('solicitudes/listatecnicos');
-	}
-
-	public function add() {
-		$session = get_session();
-		$formdata = array (
-			'id' => $this->input->post('solicitudid'),
-			'tipotrabajoid' => $this->input->post('tipotrabajoid'),
-			'tiposervicioid' => $this->input->post('tiposervicioid'),
-			'plano' => $this->input->post('plano'),
-			'cliente' => $this->input->post('cliente'),
-			'direccion' => $this->input->post('direccion'),
-			'regionid' => $this->input->post('regionid')
-,			'distritoid' => $this->input->post('distritoid'),
-			'usuarioid' => $session->id,
-			'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($this->input->post('fecha_instalacion')) : strtotime('now')
-		);
-		$this->msolicitudes->solicitudes_create($formdata);
-		$formdata = array(
-			'sid' => $this->input->post('solicitudid'),
-			't1id' => $this->input->post('tecnico1id'),
-			't2id' => $this->input->post('tecnico2id'),
-			'aid' => $this->input->post('analistaid')
-		);
-		$this->msolicitudes->solicitudes_addtecnicos($formdata);
-		redirect('solicitudes');
 	}
 
 	public function delete($id) {
