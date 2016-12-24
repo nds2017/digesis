@@ -275,18 +275,14 @@ class Solicitudes extends CI_Controller {
 			'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($this->input->post('fecha_instalacion')) : strtotime('now')
 		);
 		$this->msolicitudes->solicitudes_create($formdata);
-		if ( $session->rolid == 1 ) {
-			$formdata = array(
-				'sid' => $this->input->post('solicitudid'),
-				'supid' => $this->input->post('supid'),
-				't1id' => $this->input->post('tecnico1id'),
-				't2id' => $this->input->post('tecnico2id'),
-				'aid' => $this->input->post('analistaid')
-			);
-			$this->msolicitudes->solicitudes_addtecnicos($formdata);
-		}
-		else
-			$this->msolicitudes->solicitudes_addtecnicos(array('sid' => $this->input->post('solicitudid')));
+		$formdata = array(
+			'sid' => $this->input->post('solicitudid'),
+			'supid' => $this->input->post('supid') ? $this->input->post('supid') : 0,
+			't1id' => $this->input->post('tecnico1id') ? $this->input->post('tecnico1id') : 0,
+			't2id' => $this->input->post('tecnico2id') ? $this->input->post('tecnico2id') : 0,
+			'aid' => $this->input->post('analistaid') ? $this->input->post('analistaid') : 0
+		);
+		$this->msolicitudes->solicitudes_addtecnicos($formdata);
 
 		redirectUser();
 	}
