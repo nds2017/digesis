@@ -349,6 +349,8 @@ class Solicitudes extends CI_Controller {
 					echo 'OK';
 				else if ( $this->msolicitudes->solicitudes_validate($_POST['sid']) )
 					echo 'error';
+				else
+					echo 'OK';
 			}
 
 		}
