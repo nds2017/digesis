@@ -338,12 +338,12 @@ class Solicitudes extends CI_Controller {
 	public function validateSid() {
 		if ( $_POST ) {
 			if ( $this->msolicitudes->solicitudes_validate($_POST['sid']) )
-				print 'error';
+				echo 'error';
 			else
-				print 'OK';
+				echo 'OK';
 		}
 		else
-			print 'error';
+			echo 'error';
 	}
 
 	public function carga() {
