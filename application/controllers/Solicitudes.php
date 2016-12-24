@@ -45,7 +45,7 @@ class Solicitudes extends CI_Controller {
 
 
 	public function form($id = false) {
-		var_dump($id);
+		var_dump(is_numeric($id));
 		securityAccess(array(1, 4));
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'solicitudesadd' ));
 		$data['supervisores'] = $this->msupervisores->supervisores_combo();
@@ -57,7 +57,7 @@ class Solicitudes extends CI_Controller {
 		$data['departamentos'] = $this->mdepartamentos->departamentos_entrys();
 		$data['regiones'] = $this->msolicitudes->regiones_entrys();
 		$data['admin'] = true;
-		if ( is_numeric($id) && ( $id != 0 ) ) {
+		if ( isset($id) && is_numeric($id) && ( $id != 0 ) ) {
 			if ( $this->msolicitudes->solicitudes_validate($id) ) {
 				$session = get_session();
 				$data['data'] = $this->msolicitudes->solicitudes_byID($id);
