@@ -2,9 +2,9 @@ $(document).ready(function() {
 
 
 	$("#sid").blur(function() {
-  		$.post( "../validateSid", { sid: $(this).val() })
+  		$.post( "../validateSid", { sid: $(this).val(), evento : $("#status").val(), asid : $("#asid").val() ? $("#asid").val() : 0 })
   		.done(function( data ) {
-    		
+  			console.log(data);
   		});
 	});
 
