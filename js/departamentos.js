@@ -4,7 +4,7 @@ $(document).ready(function() {
 	$("#sid").blur(function() {
   		$.post( "../validateSid", { sid: $(this).val() })
   		.done(function( data ) {
-    		alert( "Data Loaded: " + data );
+    		
   		});
 	});
 

@@ -7,16 +7,27 @@
 			<br>
 
 			<?php
-			if ( @$data )
-				echo form_open_multipart('solicitudes/edit/' . @$data->id);
-			else
+			if ( @$data ) {
+				$check = '';
+				echo '<input type="hidden" id="status" value="edit"/><input type="hidden" id="asid" value="' . $data->id . ' "/>';
+				echo form_open_multipart('solicitudes/edit/' . $data->id);
+			}
+			else {
+				$nocheck = 'display: none;';
+				echo '<input type="hidden" id="status" value="add"/>';
 				echo form_open_multipart('solicitudes/add');
+			}
 			?>
 
 			<table class="table table-bordered table-striped">
 				<input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>
 				<tr>
-					<td>N° Solicitud : </td><td><input id="sid" required title="Solo Números" class="solo-numero" maxlength="11" type="text" autofocus name="solicitudid" value="<?=@$data->id?>"></td>
+					<td>N° Solicitud : </td>
+					<td>
+						<input id="sid" required title="Solo Números" class="solo-numero" maxlength="11" type="text" autofocus name="solicitudid" value="<?=@$data->id?>">
+						<img style="<?=$check?>" class="check" src="<?=base_url()?>img/check.png">
+						<img style="<?=$nocheck?>" class="nocheck" src="<?=base_url()?>img/deactivate.png">
+					</td>
 				</tr>
 				<tr>
 					<td>Fecha de Programación : </td><td><input type="date" name="fecha_instalacion" value="<?=(@$data->fecha_instalacion) ? date('Y-m-d', $data->fecha_instalacion) : date('Y-m-d')?>"></td>
