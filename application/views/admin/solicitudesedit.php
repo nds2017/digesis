@@ -58,7 +58,7 @@ $(document).ready(function() {
 				<tr>
 					<td>N° Solicitud : </td>
 					<td>
-						<input id="sid" required title="Solo Números" class="solo-numero" maxlength="11" type="text" autofocus name="solicitudid" value="<?=@$data->id?>">
+						<input id="sid" required title="Solo Números" class="solo-numero" maxlength="10" type="text" autofocus name="solicitudid" value="<?=@$data->id?>">
 						<img style="<?=$check?>" title="Código Disponible" class="check" src="<?=base_url()?>img/check.png">
 						<img style="<?=$nocheck?>" title="Código No Disponible" class="nocheck" src="<?=base_url()?>img/deactivate.png">
 					</td>
