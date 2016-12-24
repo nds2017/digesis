@@ -57,17 +57,21 @@ class Solicitudes extends CI_Controller {
 		$data['regiones'] = $this->msolicitudes->regiones_entrys();
 		$data['admin'] = true;
 		if ( is_numeric($id) && ( $id != 0 ) ) {
-			$session = get_session();
-			$data['data'] = $this->msolicitudes->solicitudes_byID($id);
-			$data['distritos'] = $this->mdepartamentos->distritos_entrys($data['data']->provinciaid);
-			$data['provincias'] = $this->mdepartamentos->provincias_entrys($data['data']->departamentoid);
-			$data['admin'] = ($session->rolid==1) ? TRUE : FALSE;
-			$data['estados'] = $this->msolicitudes->estados_entrys();
-			$data['motivos'] = $this->msolicitudes->solicitudes_motivos($data['data']->estadoid);
-			if ( @$data['data']->supid ) {
-				$data['tecnicos1'] = $this->mtecnicos->tecnicos_bySupervisor($data['data']->supid, 1);
-				$data['tecnicos2'] = $this->mtecnicos->tecnicos_bySupervisor($data['data']->supid, 2);
+			if ( $this->msolicitudes->solicitudes_validate($id) ) {
+				$session = get_session();
+				$data['data'] = $this->msolicitudes->solicitudes_byID($id);
+				$data['distritos'] = $this->mdepartamentos->distritos_entrys($data['data']->provinciaid);
+				$data['provincias'] = $this->mdepartamentos->provincias_entrys($data['data']->departamentoid);
+				$data['admin'] = ($session->rolid==1) ? TRUE : FALSE;
+				$data['estados'] = $this->msolicitudes->estados_entrys();
+				$data['motivos'] = $this->msolicitudes->solicitudes_motivos($data['data']->estadoid);
+				if ( @$data['data']->supid ) {
+					$data['tecnicos1'] = $this->mtecnicos->tecnicos_bySupervisor($data['data']->supid, 1);
+					$data['tecnicos2'] = $this->mtecnicos->tecnicos_bySupervisor($data['data']->supid, 2);
+				}
 			}
+			else
+				redirect('solicitudes');
 		}
 		$this->load->view('admin/solicitudesedit', $data);
 	}
