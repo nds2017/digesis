@@ -58,6 +58,7 @@ class Solicitudes extends CI_Controller {
 		$data['regiones'] = $this->msolicitudes->regiones_entrys();
 		$data['admin'] = ($session->rolid==1) ? TRUE : FALSE;
 		if ( isset($id) && is_numeric($id) && ( $id != "0" ) ) {
+			securityAccess(array(1));
 			if ( $this->msolicitudes->solicitudes_validate($id) ) {
 				$data['data'] = $this->msolicitudes->solicitudes_byID($id);
 				$data['distritos'] = $this->mdepartamentos->distritos_entrys($data['data']->provinciaid);
