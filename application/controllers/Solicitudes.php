@@ -170,7 +170,7 @@ class Solicitudes extends CI_Controller {
 
 	public function ajaxDistritos() {
 		if ( $_POST ) {
-			$array[] = array('id' => 0, 'nombre' => '-Seleccione-');
+			$array[] = array('id' => '', 'nombre' => '-Seleccione-');
 			$data = $this->mdepartamentos->distritos_entrys($_POST['id']);
 			foreach ($data as $key => $value) {
 				$array[] = array('id' => $key, 'nombre' => $value);
@@ -182,7 +182,7 @@ class Solicitudes extends CI_Controller {
 
 	public function ajaxProvincias() {
 		if ( $_POST ) {
-			$array[] = array('id' => 0, 'nombre' => '-Seleccione-');
+			$array[] = array('id' => '', 'nombre' => '-Seleccione-');
 			$data = $this->mdepartamentos->provincias_entrys($_POST['id']);
 			foreach ($data as $key => $value) {
 				$array[] = array('id' => $key, 'nombre' => $value);
