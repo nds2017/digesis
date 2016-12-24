@@ -173,7 +173,7 @@ $(document).ready(function() {
 					</table>
 				</fieldset>
 				<br>
-				<fieldset class="fieldform">
+				<fieldset <?=($admin)?'':'style="display:none;"'?> class="fieldform">
 					<legend><b>Personal</b></legend>
 					<table class="table table-bordered table-striped">
 						<tr>
@@ -225,7 +225,7 @@ $(document).ready(function() {
 				<br><br>
 				<div class="divbuttons">
 					<input class="btnsearch" type="button" value="Regresar a Lista" onclick="window.location='<?=base_url()?>index.php/solicitudes/lista';">
-					<input <?=(@$admin)?'':'disabled'?> class="btnsearch" type="submit" value="<?=(@$data? 'Guardar' : 'Crear')?>">
+					<input class="btnsearch" type="submit" value="<?=(@$data? 'Guardar' : 'Crear')?>">
 				</div>
 		</div>
 	</div>

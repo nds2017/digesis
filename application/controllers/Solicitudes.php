@@ -46,6 +46,7 @@ class Solicitudes extends CI_Controller {
 
 	public function form($id = false) {
 		securityAccess(array(1, 4));
+		$session = get_session();
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'solicitudesadd' ));
 		$data['supervisores'] = $this->msupervisores->supervisores_combo();
 		$data['analistas'] = $this->musuarios->usuarios_entrys(false, false, 4);
@@ -55,14 +56,12 @@ class Solicitudes extends CI_Controller {
 		$data['provincias'] = $this->mdepartamentos->provincias_entrys();
 		$data['departamentos'] = $this->mdepartamentos->departamentos_entrys();
 		$data['regiones'] = $this->msolicitudes->regiones_entrys();
-		$data['admin'] = true;
+		$data['admin'] = ($session->rolid==1) ? TRUE : FALSE;
 		if ( isset($id) && is_numeric($id) && ( $id != "0" ) ) {
 			if ( $this->msolicitudes->solicitudes_validate($id) ) {
-				$session = get_session();
 				$data['data'] = $this->msolicitudes->solicitudes_byID($id);
 				$data['distritos'] = $this->mdepartamentos->distritos_entrys($data['data']->provinciaid);
 				$data['provincias'] = $this->mdepartamentos->provincias_entrys($data['data']->departamentoid);
-				$data['admin'] = ($session->rolid==1) ? TRUE : FALSE;
 				$data['estados'] = $this->msolicitudes->estados_entrys();
 				$data['motivos'] = $this->msolicitudes->solicitudes_motivos($data['data']->estadoid);
 				if ( @$data['data']->supid ) {
