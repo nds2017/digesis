@@ -20,6 +20,7 @@ $(document).ready(function() {
 
 	$( "#solicitudform" ).submit(function( event ) {
 		if ( $(".nocheck:hidden").length == 0 ) {
+			$( "#sid" ).focus();
 			alert('Digite un código correcto');
 			event.preventDefault();
 		}
