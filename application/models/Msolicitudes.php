@@ -425,7 +425,7 @@ class Msolicitudes extends CI_Model
 	}
 
 	public function solicitudes_validate($sid = null) {
-		return $this->db->get_where('solicitudes', array('sid' => $sid))->row();
+		return $this->db->get_where('solicitudes', array('id' => $sid))->row();
 	}
 
 }
