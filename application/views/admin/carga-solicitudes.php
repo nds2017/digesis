@@ -44,13 +44,13 @@ PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");
 
 */
-			/*$fields = $this->db->list_fields('solicitudestecnicos');
+			$fields = $this->db->list_fields('solicitudestecnicos');
 foreach ($fields as $field)
 {
    echo $field . '<br>';
 }
 				//$this->db->query("DELETE FROM logsolicitudesrf WHERE sid = ''");
-				$query = $this->db->query("SELECT preguntaid, respuesta FROM encuestas WHERE sid = '24233621'");
+				/*$query = $this->db->query("SELECT preguntaid, respuesta FROM encuestas WHERE sid = '24233621'");
 				print_r($query->result());*/
 			?>
 			<br>
