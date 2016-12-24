@@ -1,5 +1,36 @@
 			</div>
 			<script src="<?=base_url()?>js/departamentos.js"></script>
+<script>
+
+$(document).ready(function() {
+
+	$("#sid").blur(function() {
+  		$.post( "../validateSid", { sid: $(this).val(), evento : $("#status").val(), asid : $("#asid").val() ? $("#asid").val() : 0 })
+  		.done(function( data ) {
+  			if ( data == 'OK' ) {
+  				$(".check").show('fast');
+  				$(".nocheck").hide('fast');
+  			}
+  			else {
+  				$(".nocheck").show('fast');
+  				$(".check").hide('fast');
+  			}
+  		});
+	});
+
+	$( "#solicitudform" ).submit(function( event ) {
+		if ( $(".nocheck:visible").length == 0 ) {
+			alert('Digite un código correcto');
+			event.preventDefault();
+		}
+		else
+			return;
+	});
+
+});
+
+</script>
+
 			<div class="list-mod-panel">
 				<h1 style="float: left;"> <?=(@$data)?'Editar Solicitud' : 'Agregar Solicitud'?> &nbsp;&nbsp;</h1>
 				<h2><a href="<?=base_url()?>index.php/solicitudes/lista">Regresar a Lista de Solicitudes</a></h2>
@@ -11,13 +42,13 @@
 				$check = '';
 				$nocheck = 'display: none;';
 				echo '<input type="hidden" id="status" value="edit"/><input type="hidden" id="asid" value="' . $data->id . ' "/>';
-				echo form_open_multipart('solicitudes/edit/' . $data->id);
+				echo form_open_multipart('solicitudes/edit/' . $data->id, array('id' => 'solicitudform'));
 			}
 			else {
 				$check = 'display: none;';
 				$nocheck = '';
 				echo '<input type="hidden" id="status" value="add"/>';
-				echo form_open_multipart('solicitudes/add');
+				echo form_open_multipart('solicitudes/add', , array('id' => 'solicitudform'));
 			}
 			?>
 

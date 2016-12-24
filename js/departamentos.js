@@ -1,20 +1,5 @@
 $(document).ready(function() {
 
-
-	$("#sid").blur(function() {
-  		$.post( "../validateSid", { sid: $(this).val(), evento : $("#status").val(), asid : $("#asid").val() ? $("#asid").val() : 0 })
-  		.done(function( data ) {
-  			if ( data == 'OK' ) {
-  				$(".check").show('fast');
-  				$(".nocheck").hide('fast');
-  			}
-  			else {
-  				$(".nocheck").show('fast');
-  				$(".check").hide('fast');
-  			}
-  		});
-	});
-
 	$('.solo-numero').keyup(function (){
 		this.value = (this.value + '').replace(/[^0-9]/g, '');
 	});
