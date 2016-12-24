@@ -288,7 +288,7 @@ class Solicitudes extends CI_Controller {
 		else
 			$this->msolicitudes->solicitudes_addtecnicos(array('sid' => $this->input->post('solicitudid')));
 
-		redirect('solicitudes');
+		redirectUser();
 	}
 
 	public function editrf($id) {
