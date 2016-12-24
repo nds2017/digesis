@@ -246,6 +246,7 @@ class Solicitudes extends CI_Controller {
 		$this->msolicitudes->solicitudes_update($formdata, $id);
 		$formdata = array(
 			'sid' => $this->input->post('solicitudid'),
+			'supid' => $this->input->post('supid'),
 			't1id' => $this->input->post('tecnico1id'),
 			't2id' => $this->input->post('tecnico2id'),
 			'aid' => $this->input->post('analistaid')
