@@ -19,7 +19,7 @@
 					<td>N° Solicitud : </td><td><input required title="Solo Números" class="solo-numero" maxlength="11" type="text" autofocus name="solicitudid" value="<?=@$data->id?>"></td>
 				</tr>
 				<tr>
-					<td>Fecha de Programación : </td><td><input type="date" name="fecha_instalacion" value="<?=(@$data->fecha_instalacion) ? date('Y-m-d', $data->fecha_instalacion) : date('d-m-Y')?>"></td>
+					<td>Fecha de Programación : </td><td><input type="date" name="fecha_instalacion" value="<?=(@$data->fecha_instalacion) ? date('Y-m-d', $data->fecha_instalacion) : date('Y-m-d')?>"></td>
 				</tr>
 				<tr>
 					<td>Tipo de Trabajo : </td>
