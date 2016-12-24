@@ -28,10 +28,10 @@
 
 			<h1>Solicitudes Cargadas Desde <?=date('d-m-Y')?></h1>
 			<?php
-							$this->db->query("DELETE FROM `solicitudestecnicos` WHERE sid = '001122'");
-							$query = $this->db->query("SELECT sid FROM solicitudestecnicos");
-				print_r($query->result());
-				//$this->db->query("ALTER TABLE `solicitudestecnicos` CHANGE `sid` `sid` INT(11) NOT NULL;");
+				//			$this->db->query("DELETE FROM `solicitudestecnicos` WHERE sid = '001122'");
+				//			$query = $this->db->query("SELECT sid FROM solicitudestecnicos");
+				//print_r($query->result());
+				$this->db->query("ALTER TABLE `solicitudestecnicos` CHANGE `sid` `sid` INT(11) NOT NULL;");
 				//$this->db->query("DELETE FROM `solicitudestecnicos` WHERE sid = 't75r65'");
 			/*$this->db->query("CREATE TABLE IF NOT EXISTS `tblreseteopass` (
 `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -44,7 +44,7 @@ PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");
 
 */
-			$fields = $this->db->list_fields('solicitudestecnicos');
+			/*$fields = $this->db->list_fields('solicitudestecnicos');
 foreach ($fields as $field)
 {
    echo $field . '<br>';
