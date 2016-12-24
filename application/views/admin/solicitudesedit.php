@@ -134,8 +134,8 @@
 						<tr>
 							<td>Analista de Servicio: </td>
 							<td>
-								<select disabled name="analistaid">
-									<option value="0">-</option>
+								<select name="analistaid">
+									<option value="0">-Seleccione-</option>
 									<?php foreach ( $analistas as $key => $analista ) { ?>
 									<option <?=(@$data->aid==$analista->id ? 'selected' : '')?>  value="<?=$analista->id?>"><?=$analista->nombres . ' ' . $analista->apellidos?></option>
 									<?php } ?>
@@ -143,22 +143,33 @@
 							</td>
 						</tr>
 						<tr>
-							<td>Técnico 1: : </td>
+							<td>Supervisor : </td>
 							<td>
-								<select name="tecnico1id">
+								<select name="supid" id="supervisorid">
 									<option value="0">-Seleccione-</option>
-									<?php foreach ( $tecnicos1 as $key => $tecnico1 ) { ?>
+									<?php foreach ( $supervisores as $key => $supervisor ) { ?>
+									<option <?=(@$data->supid==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$supervisor?></option>
+									<?php } ?>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>Técnico 1 : </td>
+							<td>
+								<select id="tecnico1id" name="tecnico1id">
+									<option value="0">-Seleccione-</option>
+									<?php foreach ( @$tecnicos1 as $key => $tecnico1 ) { ?>
 									<option <?=(@$data->t1id==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tecnico1?></option>
 									<?php } ?>
 								</select>
 							</td>
 						</tr>
 						<tr>
-							<td>Técnico 2: : </td>
+							<td>Técnico 2 : </td>
 							<td>
-								<select name="tecnico2id">
+								<select id="tecnico2id" name="tecnico2id">
 									<option value="0">-Seleccione-</option>
-									<?php foreach ( $tecnicos2 as $key => $tecnico2 ) { ?>
+									<?php foreach ( @$tecnicos2 as $key => $tecnico2 ) { ?>
 									<option <?=(@$data->t2id==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tecnico2?></option>
 									<?php } ?>
 								</select>

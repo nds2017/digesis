@@ -47,8 +47,7 @@ class Solicitudes extends CI_Controller {
 	public function form($id = false) {
 		securityAccess(array(1, 4));
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'solicitudesadd' ));
-		$data['tecnicos1'] = $this->mtecnicos->tecnicos_byCargo(1);
-		$data['tecnicos2'] = $this->mtecnicos->tecnicos_byCargo(2);
+		$data['supervisores'] = $this->msupervisores->supervisores_combo();
 		$data['analistas'] = $this->musuarios->usuarios_entrys(false, false, 4);
 		$data['tipotrabajos'] = $this->msolicitudes->tipostrabajo_entrys();
 		$data['tiposervicios'] = $this->msolicitudes->tiposservicio_entrys();
@@ -65,6 +64,10 @@ class Solicitudes extends CI_Controller {
 			$data['admin'] = ($session->rolid==1) ? TRUE : FALSE;
 			$data['estados'] = $this->msolicitudes->estados_entrys();
 			$data['motivos'] = $this->msolicitudes->solicitudes_motivos($data['data']->estadoid);
+			if ( @$data->supid ) {
+				$data['tecnicos1'] = $this->mtecnicos->tecnicos_bySupervisor($data->supid, 1);
+				$data['tecnicos2'] = $this->mtecnicos->tecnicos_bySupervisor($data->supid, 2);
+			}
 		}
 		$this->load->view('admin/solicitudesedit', $data);
 	}
@@ -117,10 +120,6 @@ class Solicitudes extends CI_Controller {
 		if ( @$data->supid ) {
 			$data['tecnicos1'] = $this->mtecnicos->tecnicos_bySupervisor($data->supid, 1);
 			$data['tecnicos2'] = $this->mtecnicos->tecnicos_bySupervisor($data->supid, 2);
-		}
-		else {
-			$data['tecnicos1'] = $this->mtecnicos->tecnicos_byCargo(1);
-			$data['tecnicos2'] = $this->mtecnicos->tecnicos_byCargo(2);
 		}
 		$this->load->view('admin/solicitudestecnicosedit', $data);
 	}
