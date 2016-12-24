@@ -1,5 +1,13 @@
 			</div>
 			<script src="<?=base_url()?>js/departamentos.js"></script>
+			<script>
+			$("#sid").on("keydown", function() {
+    			alert('xd');
+			});
+			$("#sid").on("keyup", function() {
+    			alert('x2d');
+			});
+			</script>
 			<div class="list-mod-panel">
 				<h1 style="float: left;"> <?=(@$data)?'Editar Solicitud' : 'Agregar Solicitud'?> &nbsp;&nbsp;</h1>
 				<h2><a href="<?=base_url()?>index.php/solicitudes/lista">Regresar a Lista de Solicitudes</a></h2>
@@ -16,7 +24,7 @@
 			<table class="table table-bordered table-striped">
 				<input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>
 				<tr>
-					<td>N° Solicitud : </td><td><input required title="Solo Números" class="solo-numero" maxlength="11" type="text" autofocus name="solicitudid" value="<?=@$data->id?>"></td>
+					<td>N° Solicitud : </td><td><input id="sid" required title="Solo Números" class="solo-numero" maxlength="11" type="text" autofocus name="solicitudid" value="<?=@$data->id?>"></td>
 				</tr>
 				<tr>
 					<td>Fecha de Programación : </td><td><input type="date" name="fecha_instalacion" value="<?=(@$data->fecha_instalacion) ? date('Y-m-d', $data->fecha_instalacion) : date('Y-m-d')?>"></td>
