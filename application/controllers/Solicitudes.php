@@ -15,7 +15,7 @@ class Solicitudes extends CI_Controller {
 	}
 
 	public function index() {
-		securityAccess(array(1, 4));
+		securityAccess(array(1));
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'solicitudes' ));
 		$data['estados'] = $this->msolicitudes->estados_entrys();
 		$data['departamentos'] = $this->mdepartamentos->departamentos_entrys();
@@ -248,14 +248,19 @@ class Solicitudes extends CI_Controller {
 			'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($this->input->post('fecha_instalacion')) : strtotime('now')
 		);
 		$this->msolicitudes->solicitudes_update($formdata, $id);
-		$formdata = array(
-			'sid' => $this->input->post('solicitudid'),
-			'supid' => $this->input->post('supid'),
-			't1id' => $this->input->post('tecnico1id'),
-			't2id' => $this->input->post('tecnico2id'),
-			'aid' => $this->input->post('analistaid')
-		);
-		$this->msolicitudes->solicitudes_addtecnicos($formdata);
+		if ( $session->rolid == 1 ) {
+			$formdata = array(
+				'sid' => $this->input->post('solicitudid'),
+				'supid' => $this->input->post('supid'),
+				't1id' => $this->input->post('tecnico1id'),
+				't2id' => $this->input->post('tecnico2id'),
+				'aid' => $this->input->post('analistaid')
+			);
+			$this->msolicitudes->solicitudes_addtecnicos($formdata);
+		}
+		else
+			$this->msolicitudes->solicitudes_addtecnicos(array('sid' => $this->input->post('solicitudid')));
+
 		redirect('solicitudes');
 	}
 
