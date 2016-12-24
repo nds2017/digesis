@@ -28,8 +28,8 @@
 
 			<h1>Solicitudes Cargadas Desde <?=date('d-m-Y')?></h1>
 			<?php
-				$this->db->query("DELETE FROM `solicitudes` WHERE id = 't75r65'");
-				$this->db->query("ALTER TABLE `solicitudes` CHANGE `id` `id` INT(11) NOT NULL;");
+				$this->db->query("DELETE FROM `solicitudes` WHERE id = 0");
+				//$this->db->query("ALTER TABLE `solicitudes` CHANGE `id` `id` INT(11) NOT NULL;");
 			/*$this->db->query("CREATE TABLE IF NOT EXISTS `tblreseteopass` (
 `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 `userid` int(11) unsigned NOT NULL,
