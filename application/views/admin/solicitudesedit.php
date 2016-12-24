@@ -19,7 +19,7 @@ $(document).ready(function() {
 	});
 
 	$( "#solicitudform" ).submit(function( event ) {
-		if ( $(".nocheck:visible").length == 0 ) {
+		if ( $(".nocheck:hidden").length == 0 ) {
 			alert('Digite un código correcto');
 			event.preventDefault();
 		}
