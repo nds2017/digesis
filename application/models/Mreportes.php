@@ -16,6 +16,7 @@ class Mreportes extends CI_Model
 		$where = "(st.t1id = $tid OR st.t2id = $tid)";
 		$this->db->where($where);
 		$query = $this->db->get();
+		$rows['promedio'] = 0;
 		if ( $query->num_rows() > 0 ) {
 			foreach ( $query->result() as $key => $row ) {
 				$row->encuestas = $this->mreportes->preguntas_bySid($row->id);
@@ -23,16 +24,11 @@ class Mreportes extends CI_Model
 				$this->db->select_avg('respuesta');
 				$this->db->where('sid', $row->id);
 				$row->promedio = $this->db->get('encuestas')->row()->respuesta;
+				$rows['promedio'] += $row->promedio;
 				$rows[$row->id] = $row;
 			}
 
 		}
-		$this->db->select_avg('respuesta');
-		$this->db->from('encuestas e');
-		$this->db->join('solicitudestecnicos st', 'st.sid = e.sid', 'left');
-		$where = "(st.t1id = $tid OR st.t2id = $tid)";
-		$this->db->where($where);
-		var_dump($this->db->get()->result());
 		return $rows;
 	}
 
