@@ -29,7 +29,7 @@ class Mreportes extends CI_Model
 			}
 
 		}
-		$rows['promedio'] = $rows['promedio'] / ( count($rows[]) - 1 ); 
+		$rows['promedio'] = $rows['promedio'] / ( count($rows) - 1 ); 
 		return $rows;
 	}
 
