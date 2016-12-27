@@ -15,6 +15,7 @@
  */
 class Billetera
 {
+    
     protected $_ci;
     Const id_tipo=1;
             
