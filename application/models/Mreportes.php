@@ -32,7 +32,7 @@ class Mreportes extends CI_Model
 		$this->db->join('solicitudestecnicos st', 'st.sid = e.sid', 'left');
 		$where = "(st.t1id = $tid OR st.t2id = $tid)";
 		$this->db->where($where);
-		$rows->promedio = $this->db->get()->result();
+		var_dump(this->db->get()->result());
 		return $rows;
 	}
 
