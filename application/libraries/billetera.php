@@ -15,7 +15,7 @@
  */
 class Billetera
 {
-    
+
     protected $_ci;
     Const id_tipo=1;
             
@@ -55,4 +55,5 @@ class Billetera
         //return $this->_call('get', $uri, NULL, $format);
     }
     
+}
 }
