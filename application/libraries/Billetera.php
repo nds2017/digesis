@@ -54,7 +54,7 @@ class Billetera
 
                 //$data['atendidos'] 
             }
-            return $monto;
+            return $rcosto[1]->monto;
         //return $this->_call('get', $uri, NULL, $format);
     }
     
