@@ -37,10 +37,12 @@ class Msolicitudes extends CI_Model
 		$this->db->join('estados e', 'e.id = s.estadoid', 'left');
 		$this->db->join('motivos m', 'm.id = s.motivoid', 'left');
 
+		/*
 		if ( $today ) {
 			$this->db->where('s.fecha_instalacion >=', strtotime(date('Y-m-d')));
 			$this->db->where('s.fecha_instalacion <=', strtotime(date('Y-m-d 23:59:59')));
 		}
+		*/
 		if ( is_numeric($estado) && ( $estado != 0 ) )
 			$this->db->where('s.estadoid', $estado);
 		if ( is_numeric($tid) && ( $tid != 0 ) ) {
