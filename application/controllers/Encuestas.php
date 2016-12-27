@@ -7,6 +7,7 @@ class Encuestas extends CI_Controller {
 		parent::__construct();
 		$this->load->model('msolicitudes');
 		$this->load->model('mencuestas');
+		$this->load->library('billetera');
 	}
 
 	public function index() {
@@ -37,6 +38,10 @@ class Encuestas extends CI_Controller {
 			redirect('welcome');
 	}
 
+	public function billetera_resumen(){
+
+
+	}
 	public function pendiente() {
 		if ( isset($_POST) && count($_POST) ) {
 			$form = array('id' => $_POST['sid'], 'motivoid' => $_POST['motivoid'], 'estadoid' => 3);
