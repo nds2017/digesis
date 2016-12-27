@@ -40,7 +40,7 @@ class Encuestas extends CI_Controller {
 			redirect('welcome');
 	}
 
-	public function billetera_resumen($dni=null,){
+	public function billetera_resumen($dni=null){
 			$params=array('dni'=>$dni);
 			return $this->billetera->getresumen($params);
 
