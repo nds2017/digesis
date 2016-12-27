@@ -42,27 +42,21 @@ class Mreportes extends CI_Model
 		return $rows;
 	}
 
-	public function supervisor_getEncuestas($supid = null) {
+	public function supervisor_getEncuestas($tecnicos) {
 		$rows = array();
-		$this->db->select('s.id, s.fecha_instalacion');
-		$this->db->from('solicitudes s');
-		$this->db->join('solicitudestecnicos st', 'st.sid = s.id', 'left');
-		$this->db->where('s.estadoid', 2);
-		$where = "(st.t1id = $tid OR st.t2id = $tid)";
-		$this->db->where($where);
-		$query = $this->db->get();
-		if ( $query->num_rows() > 0 ) {
-			foreach ( $query->result() as $key => $row ) {
-				$row->encuestas = $this->mreportes->preguntas_bySid($row->id);
-				$row->fecha_instalacion = date('d/m/Y', $row->fecha_instalacion);
+		if ( is_array($tecnicos) && count($tecnicos) ) {
+			foreach ( $tecnicos as $tid => $tecnico ) {
 				$this->db->select_avg('respuesta');
-				$this->db->where('sid', $row->id);
-				$row->promedio = $this->db->get('encuestas')->row()->respuesta;
-				$rows[$row->id] = $row;
+				$this->db->from('encuestas e');
+				$this->db->join('solicitudestecnicos st', 'st.sid = e.sid', 'left');
+				$this->db->join('solicitudes s', 's.id = e.sid', 'left');
+				$this->db->where('s.estadoid', 2);
+				$where = "(st.t1id = $tid OR st.t2id = $tid)";
+				$this->db->where($where);
+				$rows[$tid] = array('nombres' => $tecnico, 'promedio' => $this->db->get()->row()->respuesta)
 			}
-
 		}
-		return $rows;		
+		return $rows;
 	}
 
 }

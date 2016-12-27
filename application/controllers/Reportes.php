@@ -7,6 +7,7 @@ class Reportes extends CI_Controller {
 		parent::__construct();
 		securityAccess(array(1));
 		$this->load->model('mreportes');
+		$this->load->model('mtecnicos');
 	}
 
 	public function index() {
@@ -27,7 +28,8 @@ class Reportes extends CI_Controller {
 
 	public function supervisor_encuestas($supid = null) {
 		if ( is_numeric($supid) && ( $supid != 0 ) ) {
-			$data = $this->mreportes->supervisor_getEncuestas($supid);
+			$tecnicos = $this->mtecnicos->tecnicos_bySupervisor($supid);
+			$data = $this->mreportes->supervisor_getEncuestas($tecnicos);
 			print '<pre>';
 			print_r($data);
 			print '</pre>';
