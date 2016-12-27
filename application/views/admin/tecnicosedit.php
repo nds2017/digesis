@@ -60,8 +60,8 @@
 				<tr>
 					<td>Base : </td>
 					<td>
-						<option value="0">-Seleccione-</option>
 						<select name="baseid">
+							<option value="0">-Seleccione-</option>
 							<?php foreach ( $bases as $key => $base ) { ?>
 								<option <?=(@$data->baseid==$base->id ? 'selected' : '')?>  value="<?=$base->id?>"><?=$base->nombre?></option>
 							<?php } ?>

@@ -25,7 +25,7 @@ class Mreportes extends CI_Model
 				$this->db->where('sid', $row->id);
 				$row->promedio = $this->db->get('encuestas')->row()->respuesta;
 				$rows['promedio'] += $row->promedio;
-				$rows[$row->id] = $row;
+				$rows['solicitudes'][] = $row;
 			}
 
 		}
@@ -44,6 +44,7 @@ class Mreportes extends CI_Model
 
 	public function supervisor_getEncuestas($tecnicos) {
 		$rows = array();
+		$rows['promedio'] = 0;
 		if ( is_array($tecnicos) && count($tecnicos) ) {
 			foreach ( $tecnicos as $tid => $tecnico ) {
 				$this->db->select_avg('respuesta');
@@ -53,7 +54,9 @@ class Mreportes extends CI_Model
 				$this->db->where('s.estadoid', 2);
 				$where = "(st.t1id = $tid OR st.t2id = $tid)";
 				$this->db->where($where);
-				$rows[$tid] = array('nombres' => $tecnico, 'promedio' => $this->db->get()->row()->respuesta);
+				$promedio = $this->db->get()->row()->respuesta;
+				$rows['promedio'] += $promedio;
+				$rows['tecnicos'][] = array('nombres' => $tecnico, 'promedio' => $promedio);
 			}
 		}
 		return $rows;
