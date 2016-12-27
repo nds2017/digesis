@@ -25,4 +25,16 @@ class Reportes extends CI_Controller {
 			redirect('reportes');
 	}
 
+	public function supervisor_encuestas($supid = null) {
+		if ( is_numeric($supid) && ( $supid != 0 ) ) {
+			$data = $this->mreportes->supervisor_getEncuestas($supid);
+			print '<pre>';
+			print_r($data);
+			print '</pre>';
+			//$this->load->view('admin/reportes/tecnico_encuestas', $data);
+		}
+		else
+			redirect('reportes');	
+	}
+
 }
