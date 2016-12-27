@@ -27,9 +27,8 @@ class Mreportes extends CI_Model
 				$rows['promedio'] += $row->promedio;
 				$rows['solicitudes'][] = $row;
 			}
-
+			$rows['promedio'] = $rows['promedio'] / ( count($rows['solicitudes']) - 1 );
 		}
-		$rows['promedio'] = $rows['promedio'] / ( count($rows) - 1 ); 
 		return $rows;
 	}
 
@@ -58,6 +57,7 @@ class Mreportes extends CI_Model
 				$rows['promedio'] += $promedio;
 				$rows['tecnicos'][] = array('nombres' => $tecnico, 'promedio' => $promedio);
 			}
+			$rows['promedio'] = $rows['promedio'] / ( count($rows['tecnicos']) - 1 ); 
 		}
 		return $rows;
 	}
