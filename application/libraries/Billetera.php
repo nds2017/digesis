@@ -49,8 +49,8 @@ class Billetera
                 $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($atendidos));                
                 print_r($rcosto[1]->monto);
 
-                if (!empty($rcosto))
-                    $monto=$atendidos*$rcosto[1]->monto;
+                //if (!empty($rcosto))
+                //    $monto=$atendidos*$rcosto[1]->monto;
 
                 //$data['atendidos'] 
             }
