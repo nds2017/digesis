@@ -53,7 +53,7 @@ class Mreportes extends CI_Model
 				$this->db->where('s.estadoid', 2);
 				$where = "(st.t1id = $tid OR st.t2id = $tid)";
 				$this->db->where($where);
-				$rows[$tid] = array('nombres' => $tecnico, 'promedio' => $this->db->get()->row()->respuesta)
+				$rows[$tid] = array('nombres' => $tecnico, 'promedio' => $this->db->get()->row()->respuesta);
 			}
 		}
 		return $rows;
