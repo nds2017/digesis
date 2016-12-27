@@ -47,7 +47,7 @@ class Billetera
                 $tid = $datat->id;            
                 $atendidos =$this->_ci->msolicitudes->solicitudes_encuestas($tid, 2, true);                
                 $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($atendidos));
-                print_r($rcosto);
+                print_r($rcosto[0]['monto']);
                 if (!empty($rcosto))
                     $monto=$atendidos * $rcosto['monto'];
 
