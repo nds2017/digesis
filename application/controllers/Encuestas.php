@@ -18,6 +18,7 @@ class Encuestas extends CI_Controller {
 				$tid = $datat->id;
 				$data['nuevos'] = $this->msolicitudes->solicitudes_encuestas($tid, 1, true);
 				$data['atendidos'] = $this->msolicitudes->solicitudes_encuestas($tid, 2, true);
+				var_dump($data['atendidos']);
 				$data['pendientes'] = $this->msolicitudes->solicitudes_encuestas($tid, 3);
 				$data['reprogramados'] = $this->msolicitudes->solicitudes_encuestas($tid, 4, true);
 				$data['rechazados'] = $this->msolicitudes->solicitudes_encuestas($tid, 5, true);
@@ -29,8 +30,8 @@ class Encuestas extends CI_Controller {
 				$data['mrechazados'] = $this->msolicitudes->motivos_entrys(5);
 
 				$data['tecnico'] = $datat->nombres;
-				$monto=$this->billetera_resumen($_GET['dni']);
-				$data['resumen_billetera']=$monto;
+				//$monto=$this->billetera_resumen($_GET['dni']);
+				//$data['resumen_billetera']=$monto;
 				$this->load->view('list-solicitudes', $data);
 			}
 			else
