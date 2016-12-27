@@ -46,12 +46,10 @@ class Billetera
             {
                 $tid = $datat->id;            
                 $atendidos =$this->_ci->msolicitudes->solicitudes_encuestas($tid, 2, true);                
-                $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($atendidos));                
-                
-
+                $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($atendidos));                                
                 if (!empty($rcosto))
                     $monto=intval($atendidos)*intval($rcosto[1]->monto);
-
+                
                 
             }
             return $monto;
