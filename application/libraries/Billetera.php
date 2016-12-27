@@ -45,7 +45,7 @@ class Billetera
             if ( is_object($datat) ) 
             {
                 $tid = $datat->id;            
-                $atendidos = $this->msolicitudes->solicitudes_encuestas($tid, 2, true);
+                $atendidos =$this->_ci->msolicitudes->solicitudes_encuestas($tid, 2, true);
                 $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,$atendidos);
                 $monto=$atendidos*$rcosto['monto'];
 
