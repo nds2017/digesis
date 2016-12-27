@@ -7,7 +7,7 @@ class Encuestas extends CI_Controller {
 		parent::__construct();
 		$this->load->model('msolicitudes');
 		$this->load->model('mencuestas');
-		//$this->load->library('Billetera');
+		$this->load->library('billetera');
 	}
 
 	public function index() {
