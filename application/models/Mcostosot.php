@@ -9,8 +9,11 @@ class Mcostosot extends CI_Model
 	}
 
 	public function getSotByType($id_tipo=null,$num=null){		
-	     $query = $this->db->get_where('monto_sot', array('tipo_id' => $id_tipo,'nsot'=>$num));
-	     return $query->result_array();
+	     $query = $this->db->get_where('monto_sot', array('tipo_id' => $id_tipo,'nsot'=>$num));	    
+	     foreach ($query->result() as $key => $row ) {
+				  $rows[$row->id] = $row;
+			}
+		return $rows;		
 	}
 
 
