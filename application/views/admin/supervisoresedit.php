@@ -30,7 +30,8 @@
 				<tr>
 					<td>Jefe : </td>
 					<td>
-						<select name="jefeid">
+						<select required name="jefeid">
+							<option value="">-Seleccione-</option>
 							<?php foreach ( $jefes as $key => $jefe ) { ?>
 								<option <?=(@$data->jefeid==$jefe->id ? 'selected' : '')?>  value="<?=$jefe->id?>"><?=$jefe->nombres . ' ' . $jefe->apellidos?></option>
 							<?php } ?>

@@ -94,10 +94,10 @@ $mensaje = '<html>
 			$config['mailtype'] = "html";
 			$config['newline'] = "\r\n";
 			$ci->email->initialize($config);
-			$ci->email->from($_POST['search'], 'Digetel');
+			$ci->email->from($_POST['search'], 'Digesis');
 			$list = array($_POST['search']);
 			$ci->email->to($list);
-			$this->email->reply_to('digesis2017@gmail.com', 'Digetel Service');
+			$this->email->reply_to('digesis2017@gmail.com', 'Digesis Service');
 			$ci->email->subject('Restablecer Contraseña');
 			$ci->email->message($mensaje);
 			$ci->email->send();

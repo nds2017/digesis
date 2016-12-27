@@ -1,12 +1,4 @@
 			</div>
-
-			<script>
-				/*function cambiarPerfil() {
-					var url = $("#url").val() + $("#perfilid").val() + '/lista';
-					window.location.href = url;
-				}*/
-			</script>
-
 			<div class="list-mod-panel">
 				<h1 style="float: left;"> Lista de Técnicos &nbsp;&nbsp;</h1>
 				<h2><a href="<?=base_url()?>index.php/tecnicos/form">Crear Técnico</a></h2>

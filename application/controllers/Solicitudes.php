@@ -15,7 +15,7 @@ class Solicitudes extends CI_Controller {
 	}
 
 	public function index() {
-		securityAccess(array(1, 4));
+		securityAccess(array(1));
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'solicitudes' ));
 		$data['estados'] = $this->msolicitudes->estados_entrys();
 		$data['departamentos'] = $this->mdepartamentos->departamentos_entrys();
@@ -46,9 +46,9 @@ class Solicitudes extends CI_Controller {
 
 	public function form($id = false) {
 		securityAccess(array(1, 4));
+		$session = get_session();
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'solicitudesadd' ));
-		$data['tecnicos1'] = $this->mtecnicos->tecnicos_byCargo(1);
-		$data['tecnicos2'] = $this->mtecnicos->tecnicos_byCargo(2);
+		$data['supervisores'] = $this->msupervisores->supervisores_combo();
 		$data['analistas'] = $this->musuarios->usuarios_entrys(false, false, 4);
 		$data['tipotrabajos'] = $this->msolicitudes->tipostrabajo_entrys();
 		$data['tiposervicios'] = $this->msolicitudes->tiposservicio_entrys();
@@ -56,15 +56,22 @@ class Solicitudes extends CI_Controller {
 		$data['provincias'] = $this->mdepartamentos->provincias_entrys();
 		$data['departamentos'] = $this->mdepartamentos->departamentos_entrys();
 		$data['regiones'] = $this->msolicitudes->regiones_entrys();
-		$data['admin'] = true;
-		if ( is_numeric($id) && ( $id != 0 ) ) {
-			$session = get_session();
-			$data['data'] = $this->msolicitudes->solicitudes_byID($id);
-			$data['distritos'] = $this->mdepartamentos->distritos_entrys($data['data']->provinciaid);
-			$data['provincias'] = $this->mdepartamentos->provincias_entrys($data['data']->departamentoid);
-			$data['admin'] = ($session->rolid==1) ? TRUE : FALSE;
-			$data['estados'] = $this->msolicitudes->estados_entrys();
-			$data['motivos'] = $this->msolicitudes->solicitudes_motivos($data['data']->estadoid);
+		$data['admin'] = ($session->rolid==1) ? TRUE : FALSE;
+		if ( isset($id) && is_numeric($id) && ( $id != "0" ) ) {
+			securityAccess(array(1));
+			if ( $this->msolicitudes->solicitudes_validate($id) ) {
+				$data['data'] = $this->msolicitudes->solicitudes_byID($id);
+				$data['distritos'] = $this->mdepartamentos->distritos_entrys($data['data']->provinciaid);
+				$data['provincias'] = $this->mdepartamentos->provincias_entrys($data['data']->departamentoid);
+				$data['estados'] = $this->msolicitudes->estados_entrys();
+				$data['motivos'] = $this->msolicitudes->solicitudes_motivos($data['data']->estadoid);
+				if ( @$data['data']->supid ) {
+					$data['tecnicos1'] = $this->mtecnicos->tecnicos_bySupervisor($data['data']->supid, 1);
+					$data['tecnicos2'] = $this->mtecnicos->tecnicos_bySupervisor($data['data']->supid, 2);
+				}
+			}
+			else
+				redirect('solicitudes');
 		}
 		$this->load->view('admin/solicitudesedit', $data);
 	}
@@ -112,10 +119,12 @@ class Solicitudes extends CI_Controller {
 	public function formtecnicos($id) {
 		securityAccess(array(1, 4));
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'asignartecnicos' ));
-		$data['tecnicos1'] = $this->mtecnicos->tecnicos_byCargo(1);
-		$data['tecnicos2'] = $this->mtecnicos->tecnicos_byCargo(2);
 		$data['supervisores'] = $this->msupervisores->supervisores_combo();
 		$data['data'] = $this->msolicitudes->solicitudes_byID($id);
+		if ( @$data['data']->supid ) {
+			$data['tecnicos1'] = $this->mtecnicos->tecnicos_bySupervisor($data['data']->supid, 1);
+			$data['tecnicos2'] = $this->mtecnicos->tecnicos_bySupervisor($data['data']->supid, 2);
+		}
 		$this->load->view('admin/solicitudestecnicosedit', $data);
 	}
 
@@ -161,7 +170,7 @@ class Solicitudes extends CI_Controller {
 
 	public function ajaxDistritos() {
 		if ( $_POST ) {
-			$array[] = array('id' => 0, 'nombre' => '-Seleccione-');
+			$array[] = array('id' => '', 'nombre' => '-Seleccione-');
 			$data = $this->mdepartamentos->distritos_entrys($_POST['id']);
 			foreach ($data as $key => $value) {
 				$array[] = array('id' => $key, 'nombre' => $value);
@@ -173,7 +182,7 @@ class Solicitudes extends CI_Controller {
 
 	public function ajaxProvincias() {
 		if ( $_POST ) {
-			$array[] = array('id' => 0, 'nombre' => '-Seleccione-');
+			$array[] = array('id' => '', 'nombre' => '-Seleccione-');
 			$data = $this->mdepartamentos->provincias_entrys($_POST['id']);
 			foreach ($data as $key => $value) {
 				$array[] = array('id' => $key, 'nombre' => $value);
@@ -223,30 +232,64 @@ class Solicitudes extends CI_Controller {
 	}
 
 	public function edit($id) {
-		$session = get_session();
-		$formdata = array (
-			'id' => $this->input->post('solicitudid'),
-			'tipotrabajoid' => $this->input->post('tipotrabajoid'),
-			'tiposervicioid' => $this->input->post('tiposervicioid'),
-			'plano' => $this->input->post('plano'),
-			'cliente' => $this->input->post('cliente'),
-			'direccion' => $this->input->post('direccion'),
-			'regionid' => $this->input->post('regionid'),
-			'distritoid' => $this->input->post('distritoid'),
-			'usuarioid' => $session->id,
-			'estadoid' => $this->input->post('estadoid'),
-			'motivoid' => $this->input->post('motivoid'),
-			'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($this->input->post('fecha_instalacion')) : strtotime('now')
-		);
-		$this->msolicitudes->solicitudes_update($formdata, $id);
-		$formdata = array(
-			'sid' => $this->input->post('solicitudid'),
-			't1id' => $this->input->post('tecnico1id'),
-			't2id' => $this->input->post('tecnico2id'),
-			'aid' => $this->input->post('analistaid')
-		);
-		$this->msolicitudes->solicitudes_addtecnicos($formdata);
-		redirect('solicitudes');
+		if ( $_POST ) {
+			securityAccess(array(1));
+			$session = get_session();
+			$formdata = array (
+				'id' => $this->input->post('solicitudid'),
+				'tipotrabajoid' => $this->input->post('tipotrabajoid'),
+				'tiposervicioid' => $this->input->post('tiposervicioid'),
+				'plano' => $this->input->post('plano'),
+				'cliente' => $this->input->post('cliente'),
+				'direccion' => $this->input->post('direccion'),
+				'regionid' => $this->input->post('regionid'),
+				'distritoid' => $this->input->post('distritoid'),
+				'usuarioid' => $session->id,
+				'estadoid' => $this->input->post('estadoid'),
+				'motivoid' => $this->input->post('motivoid'),
+				'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($this->input->post('fecha_instalacion')) : strtotime('now')
+			);
+			$this->msolicitudes->solicitudes_update($formdata, $id);
+			$formdata = array(
+				'sid' => $this->input->post('solicitudid'),
+				'supid' => $this->input->post('supid'),
+				't1id' => $this->input->post('tecnico1id'),
+				't2id' => $this->input->post('tecnico2id'),
+				'aid' => $this->input->post('analistaid')
+			);
+			$this->msolicitudes->solicitudes_addtecnicos($formdata);
+			redirect('solicitudes');
+		}
+		redirectUser();
+	}
+
+	public function add() {
+		if ( $_POST ) {
+			$session = get_session();
+			$formdata = array (
+				'id' => $this->input->post('solicitudid'),
+				'tipotrabajoid' => $this->input->post('tipotrabajoid'),
+				'tiposervicioid' => $this->input->post('tiposervicioid'),
+				'plano' => $this->input->post('plano'),
+				'cliente' => $this->input->post('cliente'),
+				'direccion' => $this->input->post('direccion'),
+				'regionid' => $this->input->post('regionid')
+	,			'distritoid' => $this->input->post('distritoid'),
+				'usuarioid' => $session->id,
+				'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($this->input->post('fecha_instalacion')) : strtotime('now')
+			);
+			$this->msolicitudes->solicitudes_create($formdata);
+			$formdata = array(
+				'sid' => $this->input->post('solicitudid'),
+				'supid' => $this->input->post('supid') ? $this->input->post('supid') : 0,
+				't1id' => $this->input->post('tecnico1id') ? $this->input->post('tecnico1id') : 0,
+				't2id' => $this->input->post('tecnico2id') ? $this->input->post('tecnico2id') : 0,
+				'aid' => $this->input->post('analistaid') ? $this->input->post('analistaid') : 0
+			);
+			$this->msolicitudes->solicitudes_addtecnicos($formdata);
+		}
+
+		redirectUser();
 	}
 
 	public function editrf($id) {
@@ -278,6 +321,7 @@ class Solicitudes extends CI_Controller {
 		$session = get_session();
 		$formdata = array(
 			'sid' => $id,
+			'supid' => $this->input->post('supid'), 
 			't1id' => $this->input->post('tecnico1id'),
 			't2id' => $this->input->post('tecnico2id'),
 			'aid' => $session->id
@@ -294,34 +338,37 @@ class Solicitudes extends CI_Controller {
 			redirect('solicitudes/listatecnicos');
 	}
 
-	public function add() {
-		$session = get_session();
-		$formdata = array (
-			'id' => $this->input->post('solicitudid'),
-			'tipotrabajoid' => $this->input->post('tipotrabajoid'),
-			'tiposervicioid' => $this->input->post('tiposervicioid'),
-			'plano' => $this->input->post('plano'),
-			'cliente' => $this->input->post('cliente'),
-			'direccion' => $this->input->post('direccion'),
-			'regionid' => $this->input->post('regionid')
-,			'distritoid' => $this->input->post('distritoid'),
-			'usuarioid' => $session->id,
-			'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($this->input->post('fecha_instalacion')) : strtotime('now')
-		);
-		$this->msolicitudes->solicitudes_create($formdata);
-		$formdata = array(
-			'sid' => $this->input->post('solicitudid'),
-			't1id' => $this->input->post('tecnico1id'),
-			't2id' => $this->input->post('tecnico2id'),
-			'aid' => $this->input->post('analistaid')
-		);
-		$this->msolicitudes->solicitudes_addtecnicos($formdata);
-		redirect('solicitudes');
-	}
-
 	public function delete($id) {
 		$this->msolicitudes->solicitudes_delete($id);
 		redirect('solicitudes');
+	}
+
+	public function validateSid() {
+		if ( $_POST ) {
+			if ( !empty($_POST['sid']) ) {
+
+				if ( $_POST['evento'] == 'add' ) {
+					if ( $this->msolicitudes->solicitudes_validate($_POST['sid']) )
+						echo 'error';
+					else
+						echo 'OK';
+				}
+				else {
+					if ( (int)$_POST['asid'] == (int)$_POST['sid'] )
+						echo 'OK';
+					else if ( $this->msolicitudes->solicitudes_validate($_POST['sid']) )
+						echo 'error';
+					else
+						echo 'OK';
+				}
+
+			}
+			else
+				echo 'error';
+
+		}
+		else
+			echo 'error';
 	}
 
 	public function carga() {

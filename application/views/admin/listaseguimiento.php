@@ -8,7 +8,7 @@
 					<nav class="top_menu">
 						<ul>
 							<li><a href="<?=base_url()?>index.php/solicitudes/listatecnicos">Pendiente de Asignar&nbsp;&nbsp;|</a></li>
-							<li class="active"><a href="<?=base_url()?>index.php/solicitudes/seguimiento">Seguimiento (<?=count($data)?>)&nbsp;&nbsp;|</a></li>
+							<li class="active"><a href="<?=base_url()?>index.php/solicitudes/seguimiento">Seguimiento&nbsp;&nbsp;|</a></li>
 							<li><a href="<?=base_url()?>index.php/solicitudes/listavalidados">Incidencias&nbsp;&nbsp;|</a></li>
 						</ul>
 					</nav>

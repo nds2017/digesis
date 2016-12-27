@@ -28,7 +28,8 @@
 
 			<h1>Solicitudes Cargadas Desde <?=date('d-m-Y')?></h1>
 			<?php
-				//$this->db->query("DROP TABLE tblreseteopass");
+				//$this->db->query("DELETE FROM `solicitudes` WHERE id = 2147483647");
+				//$this->db->query("DELETE FROM `solicitudestecnicos` WHERE sid = 't75r65'");
 			/*$this->db->query("CREATE TABLE IF NOT EXISTS `tblreseteopass` (
 `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 `userid` int(11) unsigned NOT NULL,
@@ -39,15 +40,15 @@
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");
 
-
-			/*$fields = $this->db->list_fields('motivos');
+*/
+			/*$fields = $this->db->list_fields('solicitudestecnicos');
 foreach ($fields as $field)
 {
    echo $field . '<br>';
-}*/
+}
 				//$this->db->query("DELETE FROM logsolicitudesrf WHERE sid = ''");
-				$query = $this->db->query("SELECT preguntaid, respuesta FROM encuestas WHERE sid = '24233621'");
-				print_r($query->result());
+				/*$query = $this->db->query("SELECT preguntaid, respuesta FROM encuestas WHERE sid = '24233621'");
+				print_r($query->result());*/
 			?>
 			<br>
 			<table class="table table-bordered table-striped">

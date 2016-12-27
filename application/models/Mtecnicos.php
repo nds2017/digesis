@@ -37,9 +37,14 @@ class Mtecnicos extends CI_Model
 
 	public function tecnicos_byCargo($cargo = 1) {
 		$rows = array();
-		$query = $this->db->query("SELECT id, CONCAT(nombres, ' ', apellidos) AS tnombres FROM tecnicos WHERE cargo = $cargo AND publish = 1");
-		foreach ($query->result() as $key=>$row) {
-			$rows[$row->id] = @$row->tnombres;
+		$this->db->select('id, CONCAT(nombres, " ", apellidos) AS tnombres');
+		$this->db->from('tecnicos');
+		$this->db->where('cargo', $cargo);
+		$this->db->where('publish', 1);
+
+		$query = $this->db->get();
+		foreach ( $query->result() as $key => $row ) {
+			$rows[$row->id] = $row->tnombres;
 		}
 		return $rows;
 	}
@@ -48,7 +53,7 @@ class Mtecnicos extends CI_Model
 		$rows = array();
 		$query = $this->db->query("SELECT id, CONCAT(nombres, ' ', apellidos) AS tnombres FROM tecnicos WHERE cargo = $cargo AND publish = 1 AND supervisorid = $supervisorid");
 		foreach ($query->result() as $key=>$row) {
-			$rows[$row->id] = @$row->tnombres;
+			$rows[$row->id] = $row->tnombres;
 		}
 		return $rows;
 	}
