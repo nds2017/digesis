@@ -39,4 +39,22 @@ class Reportes extends CI_Controller {
 			redirect('reportes');	
 	}
 
+	public function jefe_encuestas($jefeid = null) {
+		$rows = array();
+		if ( is_numeric($jefeid) && ( $jefeid != 0 ) ) {
+			$supervisores = $this->msupervisores->supervisores_combo($jefeid);
+			foreach ( $supervisores as $id => $supervisor ) {
+				$tecnicos = $this->mtecnicos->tecnicos_bySupervisor($supid);
+				$data_sup = $this->mreportes->supervisor_getEncuestas($tecnicos);
+				$rows['supervisores'][] = $data_sup;
+			}
+			print '<pre>';
+			print_r($rows);
+			print '</pre>';
+			//$this->load->view('admin/reportes/tecnico_encuestas', $data);
+		}
+		else
+			redirect('reportes');	
+	}
+
 }

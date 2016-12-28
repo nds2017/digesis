@@ -46,11 +46,14 @@ class Msupervisores extends CI_Model
 		$this->db->update('supervisores', $data);
 	}
 
-	public function supervisores_combo() {
+	public function supervisores_combo($jefeid = null) {
 		$rows = array();
-		$query = $this->db->query("SELECT id, CONCAT(nombres, ' ', apellidos) AS tnombres FROM supervisores WHERE publish = 1");
+		if ( is_numeric($jefeid) && ($jefeid != 0) )
+			$query = $this->db->query("SELECT id, CONCAT(nombres, ' ', apellidos) AS tnombres FROM supervisores WHERE jefeid = $jefeid AND publish = 1");
+		else
+			$query = $this->db->query("SELECT id, CONCAT(nombres, ' ', apellidos) AS tnombres FROM supervisores WHERE publish = 1");
 		foreach ( $query->result() as $key=>$row ) {
-			$rows[$row->id] = @$row->tnombres;
+			$rows[$row->id] = $row->tnombres;
 		}
 		return $rows;
 	}
