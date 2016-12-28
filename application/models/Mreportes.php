@@ -83,8 +83,10 @@ class Mreportes extends CI_Model
 					}
 				}
 			}
-			$rows['promedio'] = $rows['promedio'] / (count($rows['supervisores']));
-			$rows['id'] = $jefeid;
+			if ( count($rows['supervisores']) ) {
+				$rows['promedio'] = $rows['promedio'] / (count($rows['supervisores']));
+				$rows['id'] = $jefeid;
+			}
 		}
 		return $rows;
 	}
