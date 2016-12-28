@@ -57,6 +57,14 @@
 					<td><strong><?=isset($row['promedio'])?$row['promedio']:'-'?></strong></td>
 					<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/jefe_encuestas/<?=$jefeid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 				</tr>
+				<?php foreach ( $row['supervisores'] as $supid => $row2 ) { ?>
+				<tr>
+					<td><strong>-</strong></td>
+					<td><strong><?=$supervisores[$supid]?></strong></td>
+					<td><strong>-</strong></td>
+					<td><strong><?=isset($row['promedio'])?$row['promedio']:'-'?></strong></td>
+					<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/supervisor_encuestas/<?=$supid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
+				</tr>
 				<?php } ?>
 				</tbody>
 				<?php } ?>
