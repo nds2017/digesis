@@ -10,6 +10,7 @@ class Reportes extends CI_Controller {
 		$this->load->model('mtecnicos');
 		$this->load->model('msupervisores');
 		$this->load->model('mjefes');
+		public $data;
 		$data['jefes'] = $this->mjefes->jefes_combo();
 		$data['supervisores'] = $this->msupervisores->supervisores_combo();
 		$data['tecnicos'] = $this->mtecnicos->tecnicos_combo();
