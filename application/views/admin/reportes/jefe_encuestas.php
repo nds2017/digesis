@@ -32,9 +32,7 @@
 				<?php } ?>
 			</table>
 			<br><br>
-			<div class="divbuttons">
-				<input class="btnsearch" type="button" value="Regresar" onclick="window.location='<?=base_url()?>index.php/reportes/encuestas';">
-			</div>
+			<input class="btnsearch" type="button" value="Regresar" onclick="window.location='<?=base_url()?>index.php/reportes/encuestas';">
 		</div>
 	</div>
 </body>
