@@ -36,8 +36,8 @@
 					<tr>
 						<td><strong>-</strong></td>
 						<td><strong><?=$solicitud->id?></strong></td>
-						<td><strong><?=$solicitud['fecha_instalacion']?></strong></td>
-						<?php foreach ( $solicitud['encuestas'] as $value ) { ?>
+						<td><strong><?=$solicitud->fecha_instalacion?></strong></td>
+						<?php foreach ( $solicitud->encuestas as $value ) { ?>
 							<td><strong><?=$value?></strong></td>
 						<?php } ?>
 						<td><strong><?=isset($solicitud['promedio'])?$solicitud['promedio']:'-'?></strong></td>
