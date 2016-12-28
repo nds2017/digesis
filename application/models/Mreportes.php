@@ -23,7 +23,7 @@ class Mreportes extends CI_Model
 				$row->fecha_instalacion = date('d/m/Y', $row->fecha_instalacion);
 				$this->db->select_avg('respuesta');
 				$this->db->where('sid', $row->id);
-				$row->promedio = $this->db->get('encuestas')->row()->respuesta;
+				$row->promedio = number_format($this->db->get('encuestas')->row()->respuesta, 2);
 				$rows['promedio'] += $row->promedio;
 				$rows['solicitudes'][] = $row;
 			}
@@ -54,7 +54,7 @@ class Mreportes extends CI_Model
 				$this->db->where('s.estadoid', 2);
 				$where = "(st.t1id = $tid OR st.t2id = $tid)";
 				$this->db->where($where);
-				$promedio = $this->db->get()->row()->respuesta;
+				$promedio = number_format($this->db->get()->row()->respuesta, 2);
 				if ( $promedio ) {
 					$rows['promedio'] += $promedio;
 					$rows['tecnicos'][$tid] = array('id' => $tid, 'nombres' => $tecnico, 'promedio' => $promedio);
