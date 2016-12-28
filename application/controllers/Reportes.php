@@ -10,20 +10,18 @@ class Reportes extends CI_Controller {
 		$this->load->model('mtecnicos');
 		$this->load->model('msupervisores');
 		$this->load->model('mjefes');
+		$data['jefes'] = $this->mjefes->jefes_combo();
+		$data['supervisores'] = $this->msupervisores->supervisores_combo();
+		$data['tecnicos'] = $this->mtecnicos->tecnicos_combo();
 	}
 
 	public function index() {
-		var_dump('hola');
+		redirect('reportes/encuestas');
 	}
 
 	public function encuestas() {
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'encuestas' ));
-		$data['supervisores'] = $this->msupervisores->supervisores_combo();
-		$data['tecnicos'] = $this->mtecnicos->tecnicos_combo();
-		$data['jefes'] = $this->mjefes->jefes_combo();
-
 		$data['data'] = $this->mreportes->jefes_getEncuestas($data['jefes']);
-
 		$this->load->view('admin/reportes/encuestas', $data);
 	}
 
@@ -57,11 +55,9 @@ class Reportes extends CI_Controller {
 		$rows['promedio'] = 0;
 		if ( is_numeric($jefeid) && ( $jefeid != 0 ) ) {
 			$supervisores = $this->msupervisores->supervisores_combo($jefeid);
-			$data = $this->mreportes->jefe_getEncuestas($supervisores, $jefeid);
-			print '<pre>';
-			print_r($data);
-			print '</pre>';
-			//$this->load->view('admin/reportes/tecnico_encuestas', $data);
+			$data['data'] = $this->mreportes->jefe_getEncuestas($supervisores, $jefeid);
+			$data['jefeid'] = $jefeid;
+			$this->load->view('admin/reportes/jefe_encuestas', $data);
 		}
 		else
 			redirect('reportes');	
