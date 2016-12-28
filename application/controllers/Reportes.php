@@ -8,6 +8,7 @@ class Reportes extends CI_Controller {
 		securityAccess(array(1));
 		$this->load->model('mreportes');
 		$this->load->model('mtecnicos');
+		$this->load->model('msupervisores');
 	}
 
 	public function index() {
