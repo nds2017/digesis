@@ -8,7 +8,7 @@
 			<fieldset class="search">
 				<legend></legend>
 				<form id="form" method="post" action="<?=base_url()?>index.php/reportes/encuestas">
-					<p>Seleccionar rango de fechas:</p>
+					<h3>Seleccionar rango de fechas:</h3><br>
 					De : <input type="date" name="desde">
 					Hasta : <input type="date" name="hasta">
 					<br>
