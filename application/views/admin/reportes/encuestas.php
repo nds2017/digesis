@@ -4,15 +4,14 @@
 			<div class="list-mod-panel">
 				<h1 style="float: left;"> Reportes / Encuestas &nbsp;&nbsp;</h1>
 			</div>
-			<br>
-			<br>
+			<br><br><br><hr>
 			<fieldset class="search">
 				<legend></legend>
 				<form id="form" method="post" action="<?=base_url()?>index.php/reportes/encuestas">
 					<p>Seleccionar rango de fechas:</p>
 					De : <input type="date" name="desde">
 					Hasta : <input type="date" name="hasta">
-					<hr>
+					<br>
 					<input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>
 					Jefe :
 					<select id="jefeid">
