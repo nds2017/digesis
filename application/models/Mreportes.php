@@ -55,8 +55,10 @@ class Mreportes extends CI_Model
 				$where = "(st.t1id = $tid OR st.t2id = $tid)";
 				$this->db->where($where);
 				$promedio = $this->db->get()->row()->respuesta;
-				$rows['promedio'] += $promedio;
-				$rows['tecnicos'][] = array('id' => $tid, 'nombres' => $tecnico, 'promedio' => $promedio);
+				if ( $promedio ) {
+					$rows['promedio'] += $promedio;
+					$rows['tecnicos'][$tid] = array('id' => $tid, 'nombres' => $tecnico, 'promedio' => $promedio);
+				}
 			}
 			$rows['promedio'] = $rows['promedio'] / (count($rows['tecnicos'])); 
 			$rows['id'] = $supid;
@@ -73,8 +75,10 @@ class Mreportes extends CI_Model
 				$tecnicos = $this->mtecnicos->tecnicos_bySupervisor($id);
 				if ( count($tecnicos) ) {
 					$data_sup = $this->mreportes->supervisor_getEncuestas($tecnicos, $id);
-					$rows['promedio'] += $data_sup['promedio'];
-					$rows['supervisores'][] = $data_sup;
+					if ( count($data_sup['tecnicos']) ) {
+						$rows['promedio'] += $data_sup['promedio'];
+						$rows['supervisores'][$id] = $data_sup;
+					}
 				}
 			}
 			$rows['promedio'] = $rows['promedio'] / (count($rows['supervisores']));
@@ -89,7 +93,8 @@ class Mreportes extends CI_Model
 			$this->load->model('msupervisores');
 			foreach ( $jefes as $id => $jefe ) {
 				$supervisores = $this->msupervisores->supervisores_combo($id);
-				$rows[$id] = $this->mreportes->jefe_getEncuestas($supervisores, $id);
+				if ( count($supervisores) )
+					$rows[$id] = $this->mreportes->jefe_getEncuestas($supervisores, $id);
 			}
 		}
 		return $rows;
