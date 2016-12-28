@@ -53,6 +53,7 @@ class Reportes extends CI_Controller {
 					$rows['supervisores'][] = $data_sup;
 				}
 			}
+			$rows['promedio'] = $rows['promedio'] / (count($rows['supervisores'])); 
 			print '<pre>';
 			print_r($rows);
 			print '</pre>';
