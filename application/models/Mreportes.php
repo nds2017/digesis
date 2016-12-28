@@ -60,8 +60,10 @@ class Mreportes extends CI_Model
 					$rows['tecnicos'][$tid] = array('id' => $tid, 'nombres' => $tecnico, 'promedio' => $promedio);
 				}
 			}
-			$rows['promedio'] = $rows['promedio'] / (count($rows['tecnicos'])); 
-			$rows['id'] = $supid;
+			if ( count($rows['tecnicos']) ) {
+				$rows['promedio'] = $rows['promedio'] / (count($rows['tecnicos'])); 
+				$rows['id'] = $supid;
+			}
 		}
 		return $rows;
 	}
