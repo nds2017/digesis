@@ -82,7 +82,7 @@ class Mreportes extends CI_Model
 		}
 	}
 
-	public function jefes_encuestas($jefes) {
+	public function jefes_getEncuestas($jefes) {
 		$rows = array();
 		if ( is_array($jefes) && count($jefes) ) {
 			$this->load->model('msupervisores');
