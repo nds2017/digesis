@@ -60,7 +60,7 @@ class Mreportes extends CI_Model
 					$rows['tecnicos'][$tid] = array('id' => $tid, 'nombres' => $tecnico, 'promedio' => $promedio);
 				}
 			}
-			if ( count($rows['tecnicos']) ) {
+			if ( isset($rows['tecnicos']) && count($rows['tecnicos']) ) {
 				$rows['promedio'] = $rows['promedio'] / (count($rows['tecnicos'])); 
 				$rows['id'] = $supid;
 			}
@@ -83,7 +83,7 @@ class Mreportes extends CI_Model
 					}
 				}
 			}
-			if ( count($rows['supervisores']) ) {
+			if ( isset($rows['supervisores']) && count($rows['supervisores']) ) {
 				$rows['promedio'] = $rows['promedio'] / (count($rows['supervisores']));
 				$rows['id'] = $jefeid;
 			}
