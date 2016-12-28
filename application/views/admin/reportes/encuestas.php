@@ -48,6 +48,7 @@
 					</tr>
 				</thead>
 				<?php if ( isset($data) && count($data) ) { ?>
+				<?=var_dump($data)?>
 				<tbody>
 				<?php foreach ( $data as $jefeid => $data_j ) { ?>
 				<tr>
