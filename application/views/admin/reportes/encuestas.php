@@ -62,7 +62,7 @@
 					<td><strong>-</strong></td>
 					<td><strong><?=$supervisores[$supid]?></strong></td>
 					<td><strong>-</strong></td>
-					<td><strong><?=isset($row['promedio'])?$row['promedio']:'-'?></strong></td>
+					<td><strong><?=isset($row2['promedio'])?$row2['promedio']:'-'?></strong></td>
 					<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/supervisor_encuestas/<?=$supid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 				</tr>
 				<?php } ?>
