@@ -49,21 +49,21 @@
 				</thead>
 				<?php if ( isset($data) && count($data) ) { ?>
 				<tbody>
-				<?php foreach ( $data as $jefeid => $row ) { ?>
+				<?php foreach ( $data as $jefeid => $row_s ) { ?>
 				<tr>
 					<td><strong><?=$jefes[$jefeid]?></strong></td>
 					<td><strong>-</strong></td>
 					<td><strong>-</strong></td>
-					<td><strong><?=isset($row['promedio'])?$row['promedio']:'-'?></strong></td>
+					<td><strong><?=isset($row_s['promedio'])?$row_s['promedio']:'-'?></strong></td>
 					<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/jefe_encuestas/<?=$jefeid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 				</tr>
-					<?php if ( isset($rows['supervisores']) && count($rows['supervisores']) ) { ?>
-					<?php foreach ( $row['supervisores'] as $supid => $row2 ) { ?>
+					<?php if ( isset($row_s['supervisores']) && count($row_s['supervisores']) ) { ?>
+					<?php foreach ( $row_s['supervisores'] as $supid => $row_t ) { ?>
 					<tr>
 						<td><strong>-</strong></td>
 						<td><strong><?=$supervisores[$supid]?></strong></td>
 						<td><strong>-</strong></td>
-						<td><strong><?=isset($row2['promedio'])?$row2['promedio']:'-'?></strong></td>
+						<td><strong><?=isset($row_t['promedio'])?$row_t['promedio']:'-'?></strong></td>
 						<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/supervisor_encuestas/<?=$supid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 					</tr>
 					<?php } ?>
