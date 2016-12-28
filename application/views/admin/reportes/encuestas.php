@@ -75,7 +75,7 @@
 							<td><strong><?=$tecnicos[$tid]?></strong></td>
 							<td><strong>-</strong></td>
 							<td><strong><?=isset($data_t['promedio'])?$data_t['promedio']:'-'?></strong></td>
-							<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/supervisor_encuestas/<?=$tid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
+							<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/tecnico_encuestas/<?=$tid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 						</tr>
 						<?php } ?>
 						<?php } ?>
