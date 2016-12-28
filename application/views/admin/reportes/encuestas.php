@@ -49,17 +49,15 @@
 				</thead>
 				<?php if ( isset($data) && count($data) ) { ?>
 				<tbody>
-				<!--<?php foreach ( $data as $row ) { ?>
+				<?php foreach ( $data as $jefeid => $row ) { ?>
 				<tr>
-					<td><strong><?=$row->id?></strong></td>
-					<td><strong><?=$row->tsnombre?></strong></td>
-					<td><strong><?=$row->cliente?></strong></td>
-					<td><strong><?=$row->distrito . ' - ' . $row->dpto?></strong></td>
-					<td><strong><?=$row->plano?></strong></td>
-					<td><strong><?=$row->enombre?></strong></td>
-					<td><a title="Ver Detalle" href="<?=base_url()?>index.php/solicitudes/form/<?=$row->id?>"><img src="<?=base_url()?>img/editar.png"></a></td>
+					<td><strong><?=$jefes[$jefeid]?></strong></td>
+					<td><strong>-</strong></td>
+					<td><strong>-</strong></td>
+					<td><strong><?=$row->promedio?></strong></td>
+					<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/jefe_encuestas/<?=$jefeid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 				</tr>
-				<?php } ?>-->
+				<?php } ?>
 				<?='<pre>' . print_r($data) . '</pre>'?>
 				</tbody>
 				<?php } ?>
