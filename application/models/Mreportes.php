@@ -56,7 +56,7 @@ class Mreportes extends CI_Model
 				$this->db->where($where);
 				$promedio = $this->db->get()->row()->respuesta;
 				$rows['promedio'] += $promedio;
-				$rows['tecnicos'][] = array('nombres' => $tecnico, 'promedio' => $promedio);
+				$rows['tecnicos'][] = array('id' => $tid, 'nombres' => $tecnico, 'promedio' => $promedio);
 			}
 			$rows['promedio'] = $rows['promedio'] / (count($rows['tecnicos'])); 
 			$rows['id'] = $supid;
