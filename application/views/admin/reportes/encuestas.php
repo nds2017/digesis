@@ -66,6 +66,7 @@
 					<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/supervisor_encuestas/<?=$supid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 				</tr>
 				<?php } ?>
+				<?php } ?>
 				</tbody>
 				<?php } ?>
 			</table>
