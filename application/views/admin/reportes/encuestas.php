@@ -49,25 +49,36 @@
 				</thead>
 				<?php if ( isset($data) && count($data) ) { ?>
 				<tbody>
-				<?php foreach ( $data as $jefeid => $row_s ) { ?>
+				<?php foreach ( $data as $jefeid => $data_j ) { ?>
 				<tr>
 					<td><strong><?=$jefes[$jefeid]?></strong></td>
 					<td><strong>-</strong></td>
 					<td><strong>-</strong></td>
-					<td><strong><?=isset($row_s['promedio'])?$row_s['promedio']:'-'?></strong></td>
+					<td><strong><?=isset($data_j['promedio'])?$data_j['promedio']:'-'?></strong></td>
 					<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/jefe_encuestas/<?=$jefeid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 				</tr>
-					<?php if ( isset($row_s['supervisores']) && count($row_s['supervisores']) ) { ?>
-					<?php foreach ( $row_s['supervisores'] as $supid => $row_t ) { ?>
+					<?php if ( isset($data_j['supervisores']) && count($data_j['supervisores']) ) { ?>
+					<?php foreach ( $data_j['supervisores'] as $supid => $data_s ) { ?>
 					<tr>
 						<td><strong>-</strong></td>
 						<td><strong><?=$supervisores[$supid]?></strong></td>
 						<td><strong>-</strong></td>
-						<td><strong><?=isset($row_t['promedio'])?$row_t['promedio']:'-'?></strong></td>
+						<td><strong><?=isset($data_s['promedio'])?$data_s['promedio']:'-'?></strong></td>
 						<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/supervisor_encuestas/<?=$supid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 					</tr>
 					<?php } ?>
 					<?php } ?>
+						<?php if ( isset($data_s['tecnicos']) && count($data_s['tecnicos']) ) { ?>
+						<?php foreach ( $data_s['tecnicos'] as $tid => $data_t ) { ?>
+						<tr>
+							<td><strong>-</strong></td>
+							<td><strong><?=$tecnicos[$tid]?></strong></td>
+							<td><strong>-</strong></td>
+							<td><strong><?=isset($data_t['promedio'])?$data_t['promedio']:'-'?></strong></td>
+							<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/supervisor_encuestas/<?=$tid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
+						</tr>
+						<?php } ?>
+						<?php } ?>
 				<?php } ?>
 				</tbody>
 				<?php } ?>
