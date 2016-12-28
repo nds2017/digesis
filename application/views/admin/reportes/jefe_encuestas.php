@@ -20,7 +20,7 @@
 					<td><strong><?=isset($data['promedio'])?$data['promedio']:'-'?></strong></td>
 				</tr>
 					<?php if ( isset($data['supervisores']) && count($data['supervisores']) ) { ?>
-					<?php foreach ( $data['supervisores'] as $supid => $supervisor ) { ?>
+					<?php foreach ( $data['supervisores'] as $supid => $data_s ) { ?>
 					<tr>
 						<td><strong>-</strong></td>
 						<td><strong><?=$supervisores[$supid]?></strong></td>
