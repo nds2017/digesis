@@ -37,7 +37,7 @@ class Reportes extends CI_Controller {
 	}
 
 	public function supervisor_encuestas($supid = null) {
-		if ( is_numeric($supid) && ( $supid != 0 ) ) 
+		if ( is_numeric($supid) && ( $supid != 0 ) ) {
 			$data['supervisores'] = $this->msupervisores->supervisores_combo();
 			$data['tecnicos'] = $this->mtecnicos->tecnicos_combo();
 			$data['supid'] = $supid;
