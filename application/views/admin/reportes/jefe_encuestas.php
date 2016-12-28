@@ -31,7 +31,8 @@
 				</tbody>
 				<?php } ?>
 			</table>
-			<div class="divbuttons">
+			<br><br>
+			<div class="tableseg">
 				<input class="btnsearch" type="button" value="Regresar" onclick="window.location='<?=base_url()?>index.php/reportes/encuestas';">
 			</div>
 		</div>
