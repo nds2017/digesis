@@ -28,7 +28,7 @@ class Reportes extends CI_Controller {
 	public function tecnico_encuestas($tid = null) {
 		if ( is_numeric($tid) && ( $tid != 0 ) ) {
 			$data['header'] = $this->load->view('admin/menu/header', array('active' => 'encuestas' ));
-			$data = $this->mreportes->tecnico_getEncuestas($tid);
+			$data['data'] = $this->mreportes->tecnico_getEncuestas($tid);
 			$data['tecnicos'] = $this->mtecnicos->tecnicos_combo();
 			$data['tid'] = $tid;
 			$this->load->view('admin/reportes/tecnico_encuestas', $data);
@@ -44,7 +44,7 @@ class Reportes extends CI_Controller {
 			$data['tecnicos'] = $this->mtecnicos->tecnicos_combo();
 			$data['supid'] = $supid;
 			$tecnicos = $this->mtecnicos->tecnicos_bySupervisor($supid);
-			$data = $this->mreportes->supervisor_getEncuestas($tecnicos, $supid);
+			$data['data'] = $this->mreportes->supervisor_getEncuestas($tecnicos, $supid);
 			$this->load->view('admin/reportes/supervisor_encuestas', $data);
 		}
 		else
