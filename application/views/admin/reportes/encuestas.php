@@ -5,10 +5,11 @@
 				<h1 style="float: left;"> Reportes / Encuestas &nbsp;&nbsp;</h1>
 			</div>
 			<br>
+			<br>
 			<fieldset class="search">
 				<legend></legend>
 				<form id="form" method="post" action="<?=base_url()?>index.php/reportes/encuestas">
-					Seleccionar rango de fechas:
+					<p>Seleccionar rango de fechas:</p>
 					De : <input type="date" name="desde">
 					Hasta : <input type="date" name="hasta">
 					<hr>
