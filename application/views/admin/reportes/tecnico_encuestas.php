@@ -40,7 +40,7 @@
 						<?php foreach ( $solicitud->encuestas as $value ) { ?>
 							<td><strong><?=$value?></strong></td>
 						<?php } ?>
-						<td><strong><?=isset($solicitud['promedio'])?$solicitud['promedio']:'-'?></strong></td>
+						<td><strong><?=isset($solicitud->promedio)?$solicitud->promedio:'-'?></strong></td>
 					</tr>
 					<?php } ?>
 					<?php } ?>
