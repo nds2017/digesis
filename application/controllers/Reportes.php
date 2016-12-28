@@ -52,6 +52,7 @@ class Reportes extends CI_Controller {
 
 	public function jefe_encuestas($jefeid = null) {
 		$rows = array();
+		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'encuestas' ));
 		$data['jefes'] = $this->mjefes->jefes_combo();
 		$data['supervisores'] = $this->msupervisores->supervisores_combo();
 		$rows['promedio'] = 0;
