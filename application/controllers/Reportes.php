@@ -42,12 +42,14 @@ class Reportes extends CI_Controller {
 
 	public function jefe_encuestas($jefeid = null) {
 		$rows = array();
+		$rows['promedio'] = 0;
 		if ( is_numeric($jefeid) && ( $jefeid != 0 ) ) {
 			$supervisores = $this->msupervisores->supervisores_combo($jefeid);
 			foreach ( $supervisores as $id => $supervisor ) {
 				$tecnicos = $this->mtecnicos->tecnicos_bySupervisor($id);
 				if ( count($tecnicos) ) {
 					$data_sup = $this->mreportes->supervisor_getEncuestas($tecnicos);
+					$rows['promedio'] += $data_sup['promedio'];
 					$rows['supervisores'][] = $data_sup;
 				}
 			}
