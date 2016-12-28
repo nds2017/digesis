@@ -32,7 +32,7 @@
 				<?php } ?>
 			</table>
 			<br><br>
-			<div class="tableseg">
+			<div class="divbuttons">
 				<input class="btnsearch" type="button" value="Regresar" onclick="window.location='<?=base_url()?>index.php/reportes/encuestas';">
 			</div>
 		</div>
