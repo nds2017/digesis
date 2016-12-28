@@ -64,4 +64,34 @@ class Mreportes extends CI_Model
 		return $rows;
 	}
 
+	public function jefe_getEncuestas($supervisores, $jefeid) {
+		$rows = array();
+		$rows['promedio'] = 0;
+		if ( is_array($supervisores) && count($supervisores) ) {
+			$this->load->model('mtecnicos');
+			foreach ( $supervisores as $id => $supervisor ) {
+				$tecnicos = $this->mtecnicos->tecnicos_bySupervisor($id);
+				if ( count($tecnicos) ) {
+					$data_sup = $this->mreportes->supervisor_getEncuestas($tecnicos, $id);
+					$rows['promedio'] += $data_sup['promedio'];
+					$rows['supervisores'][] = $data_sup;
+				}
+			}
+			$rows['promedio'] = $rows['promedio'] / (count($rows['supervisores']));
+			$rows['id'] = $jefeid;
+		}
+	}
+
+	public function jefes_encuestas($jefes) {
+		$rows = array();
+		if ( is_array($jefes) && count($jefes) ) {
+			$this->load->model('msupervisores');
+			foreach ( $jefes as $id => $jefe ) {
+				$supervisores = $this->msupervisores->supervisores_combo($id);
+				$rows[$id] = $this->mreportes->jefe_getEncuestas($supervisores, $id);
+			}
+		}
+		return $rows;
+	}
+
 }

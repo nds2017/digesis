@@ -41,4 +41,14 @@ class Mjefes extends CI_Model
 		$this->db->where('id', $data['id']);
 		$this->db->update('jefes', $data);
 	}
+
+	public function jefes_combo() {
+		$rows = array();
+		$query = $this->db->query("SELECT id, CONCAT(nombres, ' ', apellidos) AS tnombres FROM jefes WHERE publish = 1");
+		foreach ( $query->result() as $key=>$row ) {
+			$rows[$row->id] = $row->tnombres;
+		}
+		return $rows;
+	}
+
 }
