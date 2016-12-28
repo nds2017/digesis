@@ -8,7 +8,10 @@
 			<fieldset class="search">
 				<legend></legend>
 				<form id="form" method="post" action="<?=base_url()?>index.php/reportes/encuestas">
-
+					Seleccionar rango de fechas:
+					De : <input type="date" name="desde">
+					Hasta : <input type="date" name="hasta">
+					<hr>
 					<input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>
 					Jefe :
 					<select id="jefeid">
@@ -17,7 +20,7 @@
 						<option <?=(@$jefeid==$id ? 'selected' : '')?> value=<?=$id?>><?=$jefe?></option>
 						<?php } ?>
 					</select>
-					Provincia
+					Supervisor :
 					<select id="supervisorid" name="supervisorid">
 						<?php if ( @$supervisorid ) { ?>
 						<?php foreach ($supervisores as $id => $supervisor) { ?>
@@ -25,7 +28,7 @@
 						<?php } ?>
 						<?php } ?>
 					</select>
-					Distrito:
+					Técnico :
 					<select name="tecnicoid" id="tecnicoid">
 						<?php if ( @$tecnicoid ) { ?>
 						<?php foreach ($tecnicos as $id => $tecnico) { ?>
