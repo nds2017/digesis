@@ -15,6 +15,10 @@ class Reportes extends CI_Controller {
 		var_dump('hola');
 	}
 
+	public function encuestas() {
+
+	}
+
 	public function tecnico_encuestas($tid = null) {
 		if ( is_numeric($tid) && ( $tid != 0 ) ) {
 			$data = $this->mreportes->tecnico_getEncuestas($tid);
@@ -30,7 +34,7 @@ class Reportes extends CI_Controller {
 	public function supervisor_encuestas($supid = null) {
 		if ( is_numeric($supid) && ( $supid != 0 ) ) {
 			$tecnicos = $this->mtecnicos->tecnicos_bySupervisor($supid);
-			$data = $this->mreportes->supervisor_getEncuestas($tecnicos);
+			$data = $this->mreportes->supervisor_getEncuestas($tecnicos, $supid);
 			print '<pre>';
 			print_r($data);
 			print '</pre>';
@@ -48,7 +52,7 @@ class Reportes extends CI_Controller {
 			foreach ( $supervisores as $id => $supervisor ) {
 				$tecnicos = $this->mtecnicos->tecnicos_bySupervisor($id);
 				if ( count($tecnicos) ) {
-					$data_sup = $this->mreportes->supervisor_getEncuestas($tecnicos);
+					$data_sup = $this->mreportes->supervisor_getEncuestas($tecnicos, $id);
 					$rows['promedio'] += $data_sup['promedio'];
 					$rows['supervisores'][] = $data_sup;
 				}

@@ -28,6 +28,7 @@ class Mreportes extends CI_Model
 				$rows['solicitudes'][] = $row;
 			}
 			$rows['promedio'] = $rows['promedio'] / (count($rows['solicitudes']));
+			$rows['id'] = $tid;
 		}
 		return $rows;
 	}
@@ -41,7 +42,7 @@ class Mreportes extends CI_Model
 		return $rows;
 	}
 
-	public function supervisor_getEncuestas($tecnicos) {
+	public function supervisor_getEncuestas($tecnicos, $supid) {
 		$rows = array();
 		$rows['promedio'] = 0;
 		if ( is_array($tecnicos) && count($tecnicos) ) {
@@ -58,6 +59,7 @@ class Mreportes extends CI_Model
 				$rows['tecnicos'][] = array('nombres' => $tecnico, 'promedio' => $promedio);
 			}
 			$rows['promedio'] = $rows['promedio'] / (count($rows['tecnicos'])); 
+			$rows['id'] = $supid;
 		}
 		return $rows;
 	}
