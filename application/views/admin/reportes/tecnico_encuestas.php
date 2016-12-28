@@ -35,7 +35,7 @@
 					<?php foreach ( $data['solicitudes'] as $solicitud ) { ?>
 					<tr>
 						<td><strong>-</strong></td>
-						<td><strong><?=$solicitud['id']?></strong></td>
+						<td><strong><?=$solicitud->id?></strong></td>
 						<td><strong><?=$solicitud['fecha_instalacion']?></strong></td>
 						<?php foreach ( $solicitud['encuestas'] as $value ) { ?>
 							<td><strong><?=$value?></strong></td>
