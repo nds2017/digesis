@@ -4,7 +4,7 @@
 				<h1 style="float: left;"> Reportes / Encuestas / JEFE &nbsp;&nbsp;</h1>
 			</div>
 			<br><br><br>
-			<table class="table table-bordered table-striped">
+			<table class="table tableseg table-bordered table-striped">
 				<thead>
 					<tr>
 						<th scope="col"><span>JEFE</span></th>
@@ -31,7 +31,9 @@
 				</tbody>
 				<?php } ?>
 			</table>
-			<input class="btnsearch" type="button" value="Regresar" onclick="window.location='<?=base_url()?>index.php/reportes/encuestas';">
+			<div class="divbuttons">
+				<input class="btnsearch" type="button" value="Regresar" onclick="window.location='<?=base_url()?>index.php/reportes/encuestas';">
+			</div>
 		</div>
 	</div>
 </body>
