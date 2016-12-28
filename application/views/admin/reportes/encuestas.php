@@ -54,7 +54,7 @@
 					<td><strong><?=$jefes[$jefeid]?></strong></td>
 					<td><strong>-</strong></td>
 					<td><strong>-</strong></td>
-					<td><strong><?=isset($row->promedio)?$row->promedio:'-'?></strong></td>
+					<td><strong><?=isset($row['promedio'])?$row['promedio']:'-'?></strong></td>
 					<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/jefe_encuestas/<?=$jefeid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 				</tr>
 				<?php } ?>
