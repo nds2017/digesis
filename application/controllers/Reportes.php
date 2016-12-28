@@ -46,8 +46,10 @@ class Reportes extends CI_Controller {
 			$supervisores = $this->msupervisores->supervisores_combo($jefeid);
 			foreach ( $supervisores as $id => $supervisor ) {
 				$tecnicos = $this->mtecnicos->tecnicos_bySupervisor($id);
-				$data_sup = $this->mreportes->supervisor_getEncuestas($tecnicos);
-				$rows['supervisores'][] = $data_sup;
+				if ( count($tecnicos) ) {
+					$data_sup = $this->mreportes->supervisor_getEncuestas($tecnicos);
+					$rows['supervisores'][] = $data_sup;
+				}
 			}
 			print '<pre>';
 			print_r($rows);
