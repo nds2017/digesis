@@ -17,6 +17,7 @@ class Reportes extends CI_Controller {
 	}
 
 	public function encuestas() {
+		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'encuestas' ));
 		$data['supervisores'] = $this->msupervisores->supervisores_combo();
 		$data['tecnicos'] = $this->mtecnicos->tecnicos_combo();
 		$data['jefes'] = $this->mjefes->jefes_combo();
