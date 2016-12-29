@@ -176,8 +176,7 @@ if (!empty($eficiencia))
     $desc_mes_rf_no_validada=$monto_desc_rf*$c;
     
 /* descuento por insidencias*/
-    $desc_insidencia = $this->_ci->mpenalidades->getPenalidadesById(self::CODIGO_IN);
-    print_r($desc_insidencia);
+    $desc_insidencia = $this->_ci->mpenalidades->getPenalidadesById(self::CODIGO_IN);    
     $c_i=0;
     foreach ($sot_atendidos as $key => $value) {
     $r_insidencias=$this->_ci->minsi->getIncidenciasById($value['id']);
