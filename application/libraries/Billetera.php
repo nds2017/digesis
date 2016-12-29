@@ -38,7 +38,7 @@ class Billetera
         $this->_ci->load->model('mencuestas');
         $this->_ci->load->model('mtecnicos');
         $this->_ci->load->model('mpenalidades');
-        //$this->_ci->load->model('mincidencias');
+        $this->_ci->load->model('mincidencias');
                 
     }        
     /**
@@ -66,7 +66,7 @@ class Billetera
         $this->pendientes = $this->_ci->msolicitudes->solicitudes_encuestas_all($tid, 3);              
         
         $data['comision_dia']=$this->getComisionDia($tid);
-        //$data['comision_mes']=$this->getComisionMes($tid);                                            
+        $data['comision_mes']=$this->getComisionMes($tid);                                            
         return $data;
     }
     
@@ -140,7 +140,7 @@ if (!empty($eficiencia))
 /* descuento por RF no validada*/
     $c=0;    
     $sot_atendidos=$this->_ci->msolicitudes->solicitudesByMonth($tid);    
-    $monto_desc_rf = $this->_ci->mpenalidades->getPenalidadesById($this->CODIGO_RF);
+    $monto_desc_rf = $this->_ci->mpenalidades->getPenalidadesById(self::CODIGO_RF);
     foreach ($sot_atendidos as $key => $value) {
       $rf=$this->_ci->msolicitudes->solicitudesByIdAndDate($value['id'],true);
         if ($rf)
@@ -149,7 +149,7 @@ if (!empty($eficiencia))
     $desc_mes_rf_no_validada=$monto_desc_rf*$c;
     
 /* descuento por insidencias*/
-    $desc_insidencia = $this->_ci->mpenalidades->getPenalidadesById($this->CODIGO_IN);
+    $desc_insidencia = $this->_ci->mpenalidades->getPenalidadesById(self::CODIGO_IN);
     $c_i=0;
     foreach ($sot_atendidos as $key => $value) {
     $r_insidencias=$this->_ci->mincidencias->getIncidenciasById($value['id']);
