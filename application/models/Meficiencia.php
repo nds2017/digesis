@@ -21,8 +21,10 @@ class Meficiencia extends CI_Model
 			$y=0;
             foreach ($rows as $key => $value){
             	   if (in_array($p,$value))
-            	   	   $y=$key;					
+            	   	   $y=$key;					            	   	
 			}          
+			if ($y==0)
+				$y=$key;					            	   	
 		}
 		return $y;
 	}
