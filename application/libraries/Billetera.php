@@ -147,6 +147,7 @@ catch(Exception $e){
 }
 restore_error_handler();
 
+$p=90;
 $eficiencia=$this->_ci->meficiencia->geteficiencia($p);
 print_r($eficiencia);
 
