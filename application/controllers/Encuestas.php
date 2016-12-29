@@ -30,7 +30,7 @@ class Encuestas extends CI_Controller {
 
 				$data['tecnico'] = $datat->nombres;
 				$monto=$this->billetera_resumen($_GET['dni']);
-				var_dump($monto)
+				var_dump($monto);
 				//$data['resumen_billetera']=$monto;
 				$this->load->view('list-solicitudes', $data);
 			}
