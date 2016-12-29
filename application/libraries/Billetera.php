@@ -70,8 +70,8 @@ class Billetera
         return $data;
     }
     
+    }
 }
-
 /* calculo de la comision por dia*/
 private function getComisionDia($tid=null){
 
