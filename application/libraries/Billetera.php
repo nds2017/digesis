@@ -67,7 +67,7 @@ class Billetera
         $this->rechazados = $this->_ci->msolicitudes->solicitudes_encuestas_all($tid, 5);
         $this->pendientes = $this->_ci->msolicitudes->solicitudes_encuestas_all($tid, 3);              
 
-        print_r($this->atendidosm);
+        //print_r($this->atendidosm);
         print_r($this->reprogramados);
         print_r($this->rechazados);
         print_r($this->pendientes);
