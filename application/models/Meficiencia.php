@@ -10,7 +10,7 @@ class Meficiencia extends CI_Model
 
 	public function geteficiencia($p=null){			     
 	     $rows = array();
-	     $query = $this->db->where('eficiencia');
+	     $query = $this->db->where('eficiencia')->get();
 	     if( $query->num_rows() > 0 ) {
 	     	$x=0;
 		    foreach ($query->result() as $key => $row ) {
