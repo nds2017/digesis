@@ -72,7 +72,7 @@ class Msolicitudes extends CI_Model
 		$this->db->join('motivos m', 'm.id = s.motivoid', 'left');
 
 		date_default_timezone_set('America/Lima');  		
-		$this->db->where('month(s.fecha_instalacion)=', date("m"));			
+		$this->db->where('month(FROM_UNIXTIME(s.fecha_instalacion))=',intval(date("m")));			
 		
 		
 		if ( is_numeric($estado) && ( $estado != 0 ) )
