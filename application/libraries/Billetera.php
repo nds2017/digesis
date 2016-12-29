@@ -180,7 +180,7 @@ if (!empty($eficiencia))
     $desc_insidencia = $this->_ci->mpenalidades->getPenalidadesById(self::CODIGO_IN);
     $c_i=0;
     foreach ($sot_atendidos as $key => $value) {
-    $r_insidencias=$this->_ci->mincidencia->getIncidenciasById($value['id']);
+    $r_insidencias=$this->_ci->minsi->getIncidenciasById($value['id']);
     $c_i=$c_i+count($r_insidencias);
     }
     $desc_mes_insidencia=$desc_insidencia * $c_i;
