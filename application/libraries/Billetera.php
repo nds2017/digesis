@@ -132,6 +132,9 @@ if (!empty($r_sot_validadas))
             $comision_mes_sot=$comision_mes_sot + intval($rcosto[1]->monto); 
     }
 }
+echo 'comision_mes_sot';
+print_r($comision_mes_sot);
+echo '---------------------';
 
 /*comision por eficiencia*/
 set_error_handler(function () {
@@ -147,7 +150,6 @@ catch(Exception $e){
 }
 restore_error_handler();
 
-$p=90;
 $eficiencia=$this->_ci->meficiencia->geteficiencia($p);
 print_r($eficiencia);
 
