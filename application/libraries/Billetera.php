@@ -38,7 +38,7 @@ class Billetera
         $this->_ci->load->model('mencuestas');
         $this->_ci->load->model('mtecnicos');
         $this->_ci->load->model('mpenalidades');
-        $this->_ci->load->model('mincidencias');
+        $this->_ci->load->model('mincidencia');
                 
     }        
     /**
