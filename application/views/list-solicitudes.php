@@ -12,7 +12,7 @@
 	</head>
 
 	<body>
-	<?php echo $resumen_billetera?>
+	<?php //echo $resumen_billetera?>
 		<div class="ui-popup-options">
 			<input type="hidden" id="evento" value="" />
 			<a href="#" class="ui-popup-close"></a>

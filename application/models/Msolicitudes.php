@@ -37,12 +37,12 @@ class Msolicitudes extends CI_Model
 		$this->db->join('estados e', 'e.id = s.estadoid', 'left');
 		$this->db->join('motivos m', 'm.id = s.motivoid', 'left');
 
-		/*
+		
 		if ( $today ) {
 			$this->db->where('s.fecha_instalacion >=', strtotime(date('Y-m-d')));
 			$this->db->where('s.fecha_instalacion <=', strtotime(date('Y-m-d 23:59:59')));
 		}
-		*/
+		
 		if ( is_numeric($estado) && ( $estado != 0 ) )
 			$this->db->where('s.estadoid', $estado);
 		if ( is_numeric($tid) && ( $tid != 0 ) ) {
@@ -51,6 +51,38 @@ class Msolicitudes extends CI_Model
 		}
 
 		$this->db->order_by("s.fecha_instalacion, s.id");
+
+		$query = $this->db->get();
+
+		if ( $query->num_rows() > 0 ) {
+			foreach ( $query->result() as $key => $row ) {
+				$rows[$row->id] = $row;
+			}
+		}
+		return $rows;
+	}
+
+	public function solicitudes_encuestas_all($tid = false, $estado = false) {
+		$rows = array();
+		$this->db->select('s.*, ts.nombre AS tsnombre, e.nombre AS enombre, m.motivo');
+		$this->db->from('solicitudes s');
+		$this->db->join('tiposervicios ts', 'ts.id = s.tiposervicioid', 'left');
+		$this->db->join('solicitudestecnicos st', 'st.sid = s.id', 'left');
+		$this->db->join('estados e', 'e.id = s.estadoid', 'left');
+		$this->db->join('motivos m', 'm.id = s.motivoid', 'left');
+
+		date_default_timezone_set('America/Lima');  		
+		$this->db->where('month(s.fecha_instalacion)=', date("m"));			
+		
+		
+		if ( is_numeric($estado) && ( $estado != 0 ) )
+			$this->db->where('s.estadoid', $estado);
+		if ( is_numeric($tid) && ( $tid != 0 ) ) {
+			$where = "(st.t1id = $tid OR st.t2id = $tid)";
+			$this->db->where($where);
+		}
+
+		//$this->db->order_by("s.fecha_instalacion, s.id");
 		
 		$query = $this->db->get();
 		if ( $query->num_rows() > 0 ) {
@@ -430,5 +462,64 @@ class Msolicitudes extends CI_Model
 	public function solicitudes_validate($sid = null) {
 		return $this->db->get_where('solicitudes', array('id' => $sid))->row();
 	}
+
+	/*JC*/
+	public function solicitudesByIdAndDate($sid,$flag=false){
+		
+		$this->db->select('s.id,s.rf');
+		$this->db->from('solicitudes s');
+		if ($flag==false):
+			$this->db->where('s.fecha_instalacion >=', strtotime(date('Y-m-d')));
+			$this->db->where('s.fecha_instalacion <=', strtotime(date('Y-m-d 23:59:59')));
+		endif;	
+		$this->db->where('s.id LIKE "%' . $sid . '%"', NULL, FALSE);
+		$this->db->where('s.rf', 2); // estado observado
+		$query = $this->db->get();
+		if ( $query->num_rows() > 0 ) {
+			return true;
+		}
+		return false;		
+	}
+
+
+public function solicitudesByMonthCount($tid=null){
+
+	$sql="SELECT
+	DATE_FORMAT(FROM_UNIXTIME(solicitudes.fecha_instalacion), '%Y-%m-%d'),
+	count(solicitudes.id) as cantidad
+	FROM
+	solicitudes
+	LEFT JOIN tiposervicios ON solicitudes.tiposervicioid = tiposervicios.id
+	LEFT JOIN solicitudestecnicos ON solicitudestecnicos.sid = solicitudes.id
+	LEFT JOIN estados ON estados.id = solicitudes.estadoid
+	LEFT JOIN motivos ON motivos.id = solicitudes.motivoid
+	where solicitudes.estadoid=2 and (solicitudestecnicos.t1id=$tid or solicitudestecnicos.t2id=$tid) AND
+	month(FROM_UNIXTIME(solicitudes.fecha_instalacion))=date('m')
+	group by solicitudes.fecha_instalacion";
+	$query= $this->db->query($sql);
+	return $query->result_array();
+
+}
+
+public function solicitudesByMonth($tid=null){
+	$sql="SELECT
+		solicitudes.id,
+		DATE_FORMAT(FROM_UNIXTIME(solicitudes.fecha_instalacion), '%Y-%m-%d')
+		FROM
+		solicitudes
+		LEFT JOIN tiposervicios ON solicitudes.tiposervicioid = tiposervicios.id
+		LEFT JOIN solicitudestecnicos ON solicitudestecnicos.sid = solicitudes.id
+		LEFT JOIN estados ON estados.id = solicitudes.estadoid
+		LEFT JOIN motivos ON motivos.id = solicitudes.motivoid
+		where solicitudes.estadoid=2 and (solicitudestecnicos.t1id=$tid or solicitudestecnicos.t2id=$tid) AND
+		month(FROM_UNIXTIME(solicitudes.fecha_instalacion))=date('m')";
+		$query= $this->db->query($sql);
+		return $query->result_array();
+
+}
+
+
+
+
 
 }
