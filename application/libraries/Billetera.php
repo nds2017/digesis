@@ -139,6 +139,7 @@ set_error_handler(function () {
 });
 try{
 $p=(100* count($this->atendidosm))/(count($this->pendientes)+count($this->reprogramados)+count($this->rechazados)+count($this->atendidosm));
+$p=round($p, 0);
 echo 'valor de p: '.$p;
 }
 catch(Exception $e){
@@ -147,6 +148,7 @@ catch(Exception $e){
 restore_error_handler();
 
 $eficiencia=$this->_ci->meficiencia->geteficiencia($p);
+print_r($eficiencia);
 
 if (!empty($eficiencia))
     $comision_mes_eficiencia = intval($eficiencia);
