@@ -33,7 +33,7 @@ class Billetera
     {
         $this->_ci =& get_instance();        
 
-        $this->_ci->load->model('mroles');
+        $this->_ci->load->model('minsi');
         $this->_ci->load->model('mcostosot');        
         $this->_ci->load->model('meficiencia');
         $this->_ci->load->model('msolicitudes');
