@@ -130,7 +130,7 @@ $r_sot_validadas=$this->_ci->msolicitudes->solicitudesByMonthCount($tid);
 if (!empty($r_sot_validadas))
 {
     foreach ($r_sot_validadas as $key => $value) {
-        $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,6);        
+        $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,$value['cantidad']);        
         if(!empty($rcosto))
             $comision_mes_sot=$comision_mes_sot + intval($rcosto[0]->monto); 
     }
@@ -177,12 +177,18 @@ if (!empty($eficiencia))
     
 /* descuento por insidencias*/
     $desc_insidencia = $this->_ci->mpenalidades->getPenalidadesById(self::CODIGO_IN);
+    print_r($desc_insidencia);
     $c_i=0;
     foreach ($sot_atendidos as $key => $value) {
     $r_insidencias=$this->_ci->minsi->getIncidenciasById($value['id']);
+    print_r($r_insidencias);
     $c_i=$c_i+count($r_insidencias);
     }
     $desc_mes_insidencia=$desc_insidencia * $c_i;
+
+    echo 'desc_mes_insidencia';
+    print_r($desc_mes_insidencia);
+    echo '---------------------';
 
 }
 
