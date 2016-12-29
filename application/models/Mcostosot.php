@@ -14,7 +14,7 @@ class Mcostosot extends CI_Model
 	     $query = $this->db->get_where('monto_sot', array('tipo_id' => $id_tipo,'nsot'=>$num));
 	     if( $query->num_rows() > 0 ) {
 		     foreach ($query->result() as $key => $row ) {
-					  $rows[$row->id] = $row;
+					  $rows[] = $row;
 				}
 			}
 		return $rows;
