@@ -21,6 +21,6 @@ class Minsi extends CI_Model
 				$rows[$row->id] = $row;
 			}
 		}
-		
+		return $rows;
 	}
 }	
