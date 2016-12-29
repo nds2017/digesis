@@ -131,6 +131,8 @@ if (!empty($r_sot_validadas))
 {
     foreach ($r_sot_validadas as $key => $value) {
         $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,$value['cantidad']);
+        print_r($rcosto);
+        exit;
         if(!empty($rcosto))
             $comision_mes_sot=$comision_mes_sot + intval($rcosto[1]->monto); 
     }
