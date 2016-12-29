@@ -179,14 +179,16 @@ if (!empty($eficiencia))
     $desc_insidencia = $this->_ci->mpenalidades->getPenalidadesById(self::CODIGO_IN);    
     $c_i=0;
     foreach ($sot_atendidos as $key => $value) {
-    $r_insidencias=$this->_ci->minsi->getIncidenciasById($value['id']);
-    echo '------:';
-    print_r($r_insidencias);
-    echo '------:';
+    $r_insidencias=$this->_ci->minsi->getIncidenciasById($value['id']);    
+    echo $value['id'];
+    echo '<br/>';
     $c_i=$c_i+count($r_insidencias);
     }
-    echo 'xxxx:'.$c_i;
-    $desc_mes_insidencia=$desc_insidencia * $c_i;
+
+    $porcentaje=((100*$c_i)/count($sot_atendidos));
+    echo 'porcentaje'.$porcentaje;
+    if ($porcentaje>=5)
+        $desc_mes_insidencia=$desc_insidencia * $c_i;
 
     echo 'desc_mes_insidencia';
     print_r($desc_mes_insidencia);
