@@ -67,13 +67,13 @@ class Billetera
         $this->rechazados = $this->_ci->msolicitudes->solicitudes_encuestas_all($tid, 5);
         $this->pendientes = $this->_ci->msolicitudes->solicitudes_encuestas_all($tid, 3);              
 
-        print_r(count($this->atendidosm));
+        /*print_r(count($this->atendidosm));
         echo '<br/>';
         print_r(count($this->reprogramados));
         echo '<br/>';
         print_r(count($this->rechazados));
         echo '<br/>';
-        print_r(count($this->pendientes));
+        print_r(count($this->pendientes));*/
         
         $data['comision_dia']=$this->getComisionDia($tid);
         $data['comision_mes']=$this->getComisionMes($tid);                                            
@@ -125,7 +125,7 @@ $desc_mes_insidencia=0;
 /* comision por sot mes */
 $r_sot_validadas=$this->_ci->msolicitudes->solicitudesByMonthCount($tid);
 
-print_r($r_sot_validadas);
+//print_r($r_sot_validadas);
 
 if (!empty($r_sot_validadas))
 {
