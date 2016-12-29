@@ -7,4 +7,19 @@ class Minsi extends CI_Model
 		parent::__construct();
 		$this->load->model('mdepartamentos');
 	}
+	public function getIncidenciasById($idsot=null){		
+
+		$rows = array();
+		$this->db->select('i.*');
+		$this->db->from('incidencias i');
+		$this->db->where('month(FROM_UNIXTIME(i.fecha_incidencia))=',intval(date('m')));
+		$this->db->where('i.sid=',$idsot);
+		$query = $this->db->get();  
+	     if( $query->num_rows() > 0 ) {
+	     	foreach ( $query->result() as $key => $row ) {
+				$rows[$row->id] = $row;
+			}
+		}
+		
+	}
 }	
