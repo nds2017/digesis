@@ -485,7 +485,7 @@ class Msolicitudes extends CI_Model
 public function solicitudesByMonthCount($tid=null){
 	$date=date('m');
 	$sql="SELECT
-	DATE_FORMAT(FROM_UNIXTIME(solicitudes.fecha_instalacion), '%Y-%m-%d'),
+	DATE_FORMAT(FROM_UNIXTIME(solicitudes.fecha_instalacion), '%Y-%m-%d') as fecha,
 	count(solicitudes.id) as cantidad
 	FROM
 	solicitudes
@@ -507,7 +507,7 @@ public function solicitudesByMonth($tid=null){
 	$date=date('m');
 	$sql="SELECT
 		solicitudes.id,
-		DATE_FORMAT(FROM_UNIXTIME(solicitudes.fecha_instalacion), '%Y-%m-%d')
+		DATE_FORMAT(FROM_UNIXTIME(solicitudes.fecha_instalacion), '%Y-%m-%d') as fecha
 		FROM
 		solicitudes
 		LEFT JOIN tiposervicios ON solicitudes.tiposervicioid = tiposervicios.id
