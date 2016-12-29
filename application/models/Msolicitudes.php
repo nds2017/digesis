@@ -483,7 +483,7 @@ class Msolicitudes extends CI_Model
 
 
 public function solicitudesByMonthCount($tid=null){
-
+	$date=date('m');
 	$sql="SELECT
 	DATE_FORMAT(FROM_UNIXTIME(solicitudes.fecha_instalacion), '%Y-%m-%d'),
 	count(solicitudes.id) as cantidad
@@ -494,16 +494,17 @@ public function solicitudesByMonthCount($tid=null){
 	LEFT JOIN estados ON estados.id = solicitudes.estadoid
 	LEFT JOIN motivos ON motivos.id = solicitudes.motivoid
 	where solicitudes.estadoid=2 and (solicitudestecnicos.t1id=$tid or solicitudestecnicos.t2id=$tid) AND
-	month(FROM_UNIXTIME(solicitudes.fecha_instalacion))=date('m')
+	month(FROM_UNIXTIME(solicitudes.fecha_instalacion))=$date
 	group by solicitudes.fecha_instalacion";
 	$query= $this->db->query($sql);
-	echo $this->db->last_query();
-	exit;
+	//echo $this->db->last_query();
+	//exit;
 	return $query->result_array();
 
 }
 
 public function solicitudesByMonth($tid=null){
+	$date=date('m');
 	$sql="SELECT
 		solicitudes.id,
 		DATE_FORMAT(FROM_UNIXTIME(solicitudes.fecha_instalacion), '%Y-%m-%d')
@@ -514,7 +515,7 @@ public function solicitudesByMonth($tid=null){
 		LEFT JOIN estados ON estados.id = solicitudes.estadoid
 		LEFT JOIN motivos ON motivos.id = solicitudes.motivoid
 		where solicitudes.estadoid=2 and (solicitudestecnicos.t1id=$tid or solicitudestecnicos.t2id=$tid) AND
-		month(FROM_UNIXTIME(solicitudes.fecha_instalacion))=date('m')";
+		month(FROM_UNIXTIME(solicitudes.fecha_instalacion))=$date";
 		$query= $this->db->query($sql);
 		return $query->result_array();
 
