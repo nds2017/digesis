@@ -4,8 +4,7 @@ class Minsi extends CI_Model
 {
 	public function __construct()
 	{
-		parent::__construct();
-		$this->load->model('mdepartamentos');
+		parent::__construct();		
 	}
 	public function getIncidenciasById($idsot=null){		
 

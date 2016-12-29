@@ -66,6 +66,11 @@ class Billetera
         $this->reprogramados= $this->_ci->msolicitudes->solicitudes_encuestas_all($tid, 4);
         $this->rechazados = $this->_ci->msolicitudes->solicitudes_encuestas_all($tid, 5);
         $this->pendientes = $this->_ci->msolicitudes->solicitudes_encuestas_all($tid, 3);              
+
+        print_r($this->atendidosm);
+        print_r($this->reprogramados);
+        print_r($this->rechazados);
+        print_r($this->pendientes);
         
         $data['comision_dia']=$this->getComisionDia($tid);
         $data['comision_mes']=$this->getComisionMes($tid);                                            
