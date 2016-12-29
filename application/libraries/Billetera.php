@@ -89,7 +89,7 @@ else
 
 /* descuento por RF no validada*/
    $c=0;
-   $monto_desc_rf = $this->_ci->mpenalidades->getPenalidadesById(self:CODIGO_RF);
+   $monto_desc_rf = $this->_ci->mpenalidades->getPenalidadesById($this->CODIGO_RF);
 
     foreach ($this->atendidos as $key => $value) {
         $rf=$this->_ci->msolicitudes->solicitudesByIdAndDate($key);
