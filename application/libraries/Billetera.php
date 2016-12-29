@@ -155,7 +155,7 @@ catch(Exception $e){
 restore_error_handler();
 
 $eficiencia=$this->_ci->meficiencia->geteficiencia($p);
-print_r($eficiencia);
+//print_r($eficiencia);
 
 if (!empty($eficiencia))
     $comision_mes_eficiencia = intval($eficiencia);
