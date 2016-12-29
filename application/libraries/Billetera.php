@@ -26,7 +26,7 @@ class Billetera
     private $reprogramados=null;
     private $rechazados =null;
     private $pendientes=null;
-    private $mincidencias=null;
+    private $incidencias=null;
     private $tid=null;
             
     function __construct($config = array())
