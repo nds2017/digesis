@@ -7,3 +7,4 @@ class Minsi extends CI_Model
 		parent::__construct();
 		$this->load->model('mdepartamentos');
 	}
+}	
