@@ -130,8 +130,7 @@ $r_sot_validadas=$this->_ci->msolicitudes->solicitudesByMonthCount($tid);
 if (!empty($r_sot_validadas))
 {
     foreach ($r_sot_validadas as $key => $value) {
-        $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,$value['cantidad']);
-        print_r($rcosto);        
+        $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,6);        
         if(!empty($rcosto))
             $comision_mes_sot=$comision_mes_sot + intval($rcosto[0]->monto); 
     }
