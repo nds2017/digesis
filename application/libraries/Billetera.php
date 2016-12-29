@@ -31,13 +31,14 @@ class Billetera
             
     function __construct($config = array())
     {
-        $this->_ci =& get_instance();                    
+        $this->_ci =& get_instance();        
+
+        $this->_ci->load->model('mroles');
         $this->_ci->load->model('mcostosot');        
         $this->_ci->load->model('meficiencia');
         $this->_ci->load->model('msolicitudes');
         $this->_ci->load->model('mencuestas');
-        $this->_ci->load->model('mtecnicos');
-        $this->_ci->load->model('mincidencia');
+        $this->_ci->load->model('mtecnicos');        
         $this->_ci->load->model('mpenalidades');
         
                 
@@ -153,7 +154,7 @@ if (!empty($eficiencia))
     $desc_insidencia = $this->_ci->mpenalidades->getPenalidadesById(self::CODIGO_IN);
     $c_i=0;
     foreach ($sot_atendidos as $key => $value) {
-    $r_insidencias=$this->_ci->mincidencias->getIncidenciasById($value['id']);
+    $r_insidencias=$this->_ci->mincidencia->getIncidenciasById($value['id']);
     $c_i=$c_i+count($r_insidencias);
     }
     $desc_mes_insidencia=$desc_insidencia * $c_i;
