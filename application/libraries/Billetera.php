@@ -132,7 +132,12 @@ if (!empty($r_sot_validadas))
 
 /*comision por eficiencia*/
 
+try{
 $p=(100* count($this->atendidosm))/(count($this->pendientes)+count($this->reprogramados)+count($this->rechazados)+count($this->atendidosm));
+}
+catch(Exception $e){
+    $p=0;
+}
 
 $eficiencia=$this->_ci->meficiencia->geteficiencia($p);
 
