@@ -180,9 +180,10 @@ if (!empty($eficiencia))
     $c_i=0;
     foreach ($sot_atendidos as $key => $value) {
     $r_insidencias=$this->_ci->minsi->getIncidenciasById($value['id']);
-    print_r($r_insidencias);
+    //print_r($r_insidencias);
     $c_i=$c_i+count($r_insidencias);
     }
+    echo 'xxxx:'.$c_i;
     $desc_mes_insidencia=$desc_insidencia * $c_i;
 
     echo 'desc_mes_insidencia';
