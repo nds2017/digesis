@@ -124,6 +124,7 @@ $desc_mes_insidencia=0;
 
 /* comision por sot mes */
 $r_sot_validadas=$this->_ci->msolicitudes->solicitudesByMonthCount($tid);
+print_r($r_sot_validadas);
 if (!empty($r_sot_validadas))
 {
     foreach ($r_sot_validadas as $key => $value) {
