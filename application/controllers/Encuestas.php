@@ -7,7 +7,7 @@ class Encuestas extends CI_Controller {
 		parent::__construct();
 		$this->load->model('msolicitudes');
 		$this->load->model('mencuestas');
-		$this->load->library('billetera');
+		//$this->load->library('billetera');
 	}
 
 	public function index() {
@@ -29,8 +29,8 @@ class Encuestas extends CI_Controller {
 				$data['mrechazados'] = $this->msolicitudes->motivos_entrys(5);
 
 				$data['tecnico'] = $datat->nombres;
-				$monto=$this->billetera_resumen($_GET['dni']);
-				var_dump($monto);
+				//$monto=$this->billetera_resumen($_GET['dni']);
+				//var_dump($monto);
 				//$data['resumen_billetera']=$monto;
 				$this->load->view('list-solicitudes', $data);
 			}

@@ -179,9 +179,7 @@ if (!empty($eficiencia))
     $desc_insidencia = $this->_ci->mpenalidades->getPenalidadesById(self::CODIGO_IN);    
     $c_i=0;
     foreach ($sot_atendidos as $key => $value) {
-    $r_insidencias=$this->_ci->minsi->getIncidenciasById($value['id']);    
-    echo $value['id'];
-    echo '<br/>';
+    $r_insidencias=$this->_ci->minsi->getIncidenciasById($value['id']);        
     $c_i=$c_i+count($r_insidencias);
     }
 
