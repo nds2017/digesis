@@ -141,7 +141,7 @@ set_error_handler(function () {
 try{
 $p=(100* count($this->atendidosm))/(count($this->pendientes)+count($this->reprogramados)+count($this->rechazados)+count($this->atendidosm));
 //$p=round($p, 0);
-echo count($this->pendientes)+count($this->reprogramados)+count($this->rechazados)+count($this->atendidosm);
+echo count($this->reprogramados)+count($this->rechazados)+count($this->atendidosm);
 echo 'valor de p: '.$p;
 }
 catch(Exception $e){
