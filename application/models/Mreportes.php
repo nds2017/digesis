@@ -24,8 +24,8 @@ class Mreportes extends CI_Model
 				$this->db->select_avg('respuesta');
 				$this->db->where('sid', $row->id);
 				$row->promedio = $this->db->get('encuestas')->row()->respuesta;
-				if ( @$promedio ) {
-					$promedio = number_format($promedio, 2);
+				if ( $row->promedio ) {
+					$row->promedio = number_format($row->promedio, 2);
 					$rows['promedio'] += $row->promedio;
 					$rows['solicitudes'][] = $row;
 				}
