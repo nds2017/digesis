@@ -66,14 +66,6 @@ class Billetera
         $this->reprogramados= $this->_ci->msolicitudes->solicitudes_encuestas_all($tid, 4);
         $this->rechazados = $this->_ci->msolicitudes->solicitudes_encuestas_all($tid, 5);
         $this->pendientes = $this->_ci->msolicitudes->solicitudes_encuestas_all($tid, 3);              
-
-        /*print_r(count($this->atendidosm));
-        echo '<br/>';
-        print_r(count($this->reprogramados));
-        echo '<br/>';
-        print_r(count($this->rechazados));
-        echo '<br/>';
-        print_r(count($this->pendientes));*/
         
         $data['comision_dia']=$this->getComisionDia($tid);
         $data['comision_mes']=$this->getComisionMes($tid);                                            
@@ -130,12 +122,6 @@ if (!empty($r_sot_validadas))
     }
 }
 
-/*
-echo 'comision_mes_sot';
-print_r($comision_mes_sot);
-echo '---------------------';
-echo '<br/>'; 
-*/
 
 /*comision por eficiencia*/
 set_error_handler(function () {
@@ -171,10 +157,6 @@ if (!empty($eficiencia))
     }      
     $desc_mes_rf_no_validada=$monto_desc_rf*$c;
 
-    /*echo '<br/>';
-    echo 'desc_mes_rf_no_validada';
-    print_r($desc_mes_rf_no_validada);
-    echo '---------------------';*/    
 /* descuento por insidencias*/
     $desc_insidencia = $this->_ci->mpenalidades->getPenalidadesById(self::CODIGO_IN);    
     $c_i=0;
@@ -187,10 +169,6 @@ if (!empty($eficiencia))
     if (round($porcentaje,0)>=5)
         $desc_mes_insidencia=$desc_insidencia * $c_i;
 
-    //echo '<br/>';
-    //echo 'desc_mes_insidencia';
-    //print_r($desc_mes_insidencia);
-    //echo '---------------------';
 
     return ($comision_mes_sot + $comision_mes_eficiencia - ($desc_mes_inasistencia + $desc_mes_rf_no_validada +$desc_mes_insidencia));
 
