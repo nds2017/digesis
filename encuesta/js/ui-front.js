@@ -96,6 +96,7 @@ $( "#datepicker2" ).datepicker({
 
 
 $(".cont-solicitud .combo-ui" ).each(function() {
+	alert('aqui');
 	var t=$( this );
 	var sid=t.parent().attr("data-codigo");
 	var sel=t.find("select");
@@ -124,7 +125,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".ui-popup-options").show();
 		$( ".client-box" ).addClass('display-none');
 		$(".ui-popup-options-list li a").removeClass("active");
-		//$(".test").show();
+		$(".test").show();
 		$("body").addClass("no-scroll");
 		$(".client").hide();
 		$(".schedule").hide();
