@@ -75,7 +75,7 @@ class Billetera
         echo '<br/>';
         print_r(count($this->pendientes));*/
         
-        //$data['comision_dia']=$this->getComisionDia($tid);
+        $data['comision_dia']=$this->getComisionDia($tid);
         $data['comision_mes']=$this->getComisionMes($tid);                                            
         return $data;
     }
@@ -129,10 +129,13 @@ if (!empty($r_sot_validadas))
             $comision_mes_sot=$comision_mes_sot + intval($rcosto[0]->monto); 
     }
 }
+
+/*
 echo 'comision_mes_sot';
 print_r($comision_mes_sot);
 echo '---------------------';
-echo '<br/>';
+echo '<br/>'; 
+*/
 
 /*comision por eficiencia*/
 set_error_handler(function () {
@@ -140,9 +143,7 @@ set_error_handler(function () {
 });
 try{
 $p=(100* count($this->atendidosm))/(count($this->pendientes)+count($this->reprogramados)+count($this->rechazados)+count($this->atendidosm));
-//$p=round($p, 0);
-echo count($this->rechazados);
-echo 'valor de p: '.$p;
+$p=round($p, 0);
 }
 catch(Exception $e){
     $p=0;
@@ -150,7 +151,6 @@ catch(Exception $e){
 restore_error_handler();
 
 $eficiencia=$this->_ci->meficiencia->geteficiencia($p);
-print_r($eficiencia);
 
 if (!empty($eficiencia))
     $comision_mes_eficiencia = intval($eficiencia);
@@ -171,10 +171,10 @@ if (!empty($eficiencia))
     }      
     $desc_mes_rf_no_validada=$monto_desc_rf*$c;
 
-    echo '<br/>';
+    /*echo '<br/>';
     echo 'desc_mes_rf_no_validada';
     print_r($desc_mes_rf_no_validada);
-    echo '---------------------';
+    echo '---------------------';*/
     
 /* descuento por insidencias*/
     $desc_insidencia = $this->_ci->mpenalidades->getPenalidadesById(self::CODIGO_IN);    
@@ -184,15 +184,14 @@ if (!empty($eficiencia))
     $c_i=$c_i+count($r_insidencias);
     }
 
-    $porcentaje=((100*$c_i)/count($sot_atendidos));
-    echo 'porcentaje'.$porcentaje;
+    $porcentaje=((100*$c_i)/count($sot_atendidos));    
     if (round($porcentaje,0)>=5)
         $desc_mes_insidencia=$desc_insidencia * $c_i;
 
-    echo '<br/>';
-    echo 'desc_mes_insidencia';
-    print_r($desc_mes_insidencia);
-    echo '---------------------';
+    //echo '<br/>';
+    //echo 'desc_mes_insidencia';
+    //print_r($desc_mes_insidencia);
+    //echo '---------------------';
 
     return ($comision_mes_sot + $comision_mes_eficiencia - ($desc_mes_inasistencia + $desc_mes_rf_no_validada +$desc_mes_insidencia));
 
