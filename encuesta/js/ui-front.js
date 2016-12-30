@@ -96,7 +96,7 @@ $( "#datepicker2" ).datepicker({
 
 $( ".cont_billetera" ).on( "click", function() {
     event.preventDefault();
-    alert('llego');
+    $(".test").show();
 });
 
 
