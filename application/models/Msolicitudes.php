@@ -42,7 +42,7 @@ class Msolicitudes extends CI_Model
 		
 
 		if ( $today ) {
-			$this->db->where('s.fecha_instalacion >=', strtotime(date('Y-m-d')));
+			$this->db->where('s.fecha_instalacion >=', strtotime(date('Y-m-d 00:00:00')));
 			$this->db->where('s.fecha_instalacion <=', strtotime(date('Y-m-d 23:59:59')));
 		}
 		
