@@ -140,7 +140,7 @@ set_error_handler(function () {
 });
 try{
 $p=(100* count($this->atendidosm))/(count($this->pendientes)+count($this->reprogramados)+count($this->rechazados)+count($this->atendidosm));
-$p=round($p, 0);
+//$p=round($p, 0);
 echo 'valor de p: '.$p;
 }
 catch(Exception $e){
