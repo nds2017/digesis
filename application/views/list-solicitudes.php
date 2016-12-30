@@ -104,7 +104,7 @@
 				<img src="<?=base_url()?>encuesta/img/logo.png"/>
 			</div>
 			<div class="cont_billetera">
-				<a>Billetera Digital</a>
+				<a  href="#" class="billetera">Billetera Digital</a>
 			</div>	
 			<div style="clear: both;"></div>
 			</header>
