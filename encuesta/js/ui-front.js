@@ -94,7 +94,7 @@ $( "#datepicker2" ).datepicker({
        $("#datepicker").show(); 
     });*/
 
-$( "a .cont_billetera" ).on( "click", function() {
+$( ".cont_billetera" ).on( "click", function() {
     event.preventDefault();
     alert('llego');
 });
