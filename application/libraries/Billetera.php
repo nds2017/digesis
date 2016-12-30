@@ -193,6 +193,8 @@ if (!empty($eficiencia))
     print_r($desc_mes_insidencia);
     echo '---------------------';
 
+    return ($comision_mes_sot + $comision_mes_eficiencia - ($desc_mes_inasistencia + $desc_mes_rf_no_validada +$desc_mes_insidencia));
+
 }
 
 }
