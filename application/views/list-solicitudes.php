@@ -105,7 +105,8 @@
 			</div>
 			<div class="cont_billetera">
 				<a>Billetera Digital</a>
-			</div>			
+			</div>	
+			<div style="clear: both;"></div>
 			</header>
 		</a>
 		<div class="body_w">
