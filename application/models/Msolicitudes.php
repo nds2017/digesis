@@ -499,8 +499,8 @@ public function solicitudesByMonthCount($tid=null){
 	month(FROM_UNIXTIME(solicitudes.fecha_instalacion))=$date
 	group by solicitudes.fecha_instalacion";
 	$query= $this->db->query($sql);
-	//echo $this->db->last_query();
-	//exit;
+	echo $this->db->last_query();
+	exit;
 	return $query->result_array();
 
 }
