@@ -106,9 +106,6 @@ else
          $c++;
       }      
   $desc_rf_no_validada=$monto_desc_rf*$c;
-  
-  echo 20 - intval($desc_inasistencia) - intval($desc_rf_no_validada);
-
 
   return $pago_sot_validado - $desc_inasistencia - $desc_rf_no_validada;
 }
@@ -124,8 +121,6 @@ $desc_mes_insidencia=0;
 /* comision por sot mes */
 $r_sot_validadas=$this->_ci->msolicitudes->solicitudesByMonthCount($tid);
 
-//print_r($r_sot_validadas);
-
 if (!empty($r_sot_validadas))
 {
     foreach ($r_sot_validadas as $key => $value) {
@@ -137,6 +132,7 @@ if (!empty($r_sot_validadas))
 echo 'comision_mes_sot';
 print_r($comision_mes_sot);
 echo '---------------------';
+echo '<br/>';
 
 /*comision por eficiencia*/
 set_error_handler(function () {
@@ -153,7 +149,7 @@ catch(Exception $e){
 restore_error_handler();
 
 $eficiencia=$this->_ci->meficiencia->geteficiencia($p);
-//print_r($eficiencia);
+print_r($eficiencia);
 
 if (!empty($eficiencia))
     $comision_mes_eficiencia = intval($eficiencia);
@@ -173,6 +169,11 @@ if (!empty($eficiencia))
            $c++;
     }      
     $desc_mes_rf_no_validada=$monto_desc_rf*$c;
+
+    echo '<br/>';
+    echo 'desc_mes_rf_no_validada';
+    print_r($desc_mes_rf_no_validada);
+    echo '---------------------';
     
 /* descuento por insidencias*/
     $desc_insidencia = $this->_ci->mpenalidades->getPenalidadesById(self::CODIGO_IN);    
@@ -187,6 +188,7 @@ if (!empty($eficiencia))
     if ($porcentaje>=5)
         $desc_mes_insidencia=$desc_insidencia * $c_i;
 
+    echo '<br/>';
     echo 'desc_mes_insidencia';
     print_r($desc_mes_insidencia);
     echo '---------------------';
