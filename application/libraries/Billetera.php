@@ -76,7 +76,7 @@ class Billetera
         print_r(count($this->pendientes));*/
         
         $data['comision_dia']=$this->getComisionDia($tid);
-        $data['comision_mes']=$this->getComisionMes($tid);                                            
+        //$data['comision_mes']=$this->getComisionMes($tid);                                            
         return $data;
     }
     
