@@ -99,7 +99,14 @@
 	</div>
 	<div class="wrapper">
 		<a href="<?=base_url()?>index.php/encuestas?dni=<?=$_GET['dni']?>">
-			<header><img src="<?=base_url()?>encuesta/img/logo.png"/></header>
+			<header>
+			<div class="cont_logo">
+				<img src="<?=base_url()?>encuesta/img/logo.png"/>
+			</div>
+			<div class="cont_billetera">
+				<a>Billetera Digital</a>
+			</div>			
+			</header>
 		</a>
 		<div class="body_w">
 			<div class="list-solicitud">

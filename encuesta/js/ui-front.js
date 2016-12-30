@@ -94,6 +94,10 @@ $( "#datepicker2" ).datepicker({
        $("#datepicker").show(); 
     });*/
 
+$( "#dataTable tbody tr" ).on( "click", function() {
+  console.log( $( this ).text() );
+});
+
 
 $(".cont-solicitud .combo-ui" ).each(function() {	
 	var t=$( this );
@@ -121,7 +125,18 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".reject").find("#reject-sid").val(sid);
 		$("#evento").val('rechazar');
 	  }else if(rule2){
-		alert('aaaqui');
+		$(".ui-popup-options").show();
+		$( ".client-box" ).addClass('display-none');
+		$(".ui-popup-options-list li a").removeClass("active");
+		$(".test").show();
+		$("body").addClass("no-scroll");
+		$(".client").hide();
+		$(".schedule").hide();
+		$(".reject").hide();
+		$(".schedule .datetime").show();
+		$(".schedule .calendar").show();
+		$(".test").find("#test-sid").val(sid);
+		$("#evento").val('validar');
 	  }else if(rule3){
 		$(".ui-popup-options").show();
 		$( ".client-box" ).addClass('display-none');
