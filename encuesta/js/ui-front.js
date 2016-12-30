@@ -124,7 +124,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".ui-popup-options").show();
 		$( ".client-box" ).addClass('display-none');
 		$(".ui-popup-options-list li a").removeClass("active");
-		$(".test").show();
+		//$(".test").show();
 		$("body").addClass("no-scroll");
 		$(".client").hide();
 		$(".schedule").hide();
