@@ -101,8 +101,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 	var sel=t.find("select");
 	sel.change(function() {
 		var opt=sel.find("option:selected");
-		var choice=opt.text();
-		alert(choice);
+		var choice=opt.text();		
 		var rule=(choice==="Rechazado");
 		var rule2=(choice==="Validado");
 		var rule3=(choice==="Reprogramado");
@@ -122,18 +121,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".reject").find("#reject-sid").val(sid);
 		$("#evento").val('rechazar');
 	  }else if(rule2){
-		$(".ui-popup-options").show();
-		$( ".client-box" ).addClass('display-none');
-		$(".ui-popup-options-list li a").removeClass("active");
-		$(".test").show();
-		$("body").addClass("no-scroll");
-		$(".client").hide();
-		$(".schedule").hide();
-		$(".reject").hide();
-		$(".schedule .datetime").show();
-		$(".schedule .calendar").show();
-		$(".test").find("#test-sid").val(sid);
-		$("#evento").val('validar');
+		alert('aaaqui');
 	  }else if(rule3){
 		$(".ui-popup-options").show();
 		$( ".client-box" ).addClass('display-none');
