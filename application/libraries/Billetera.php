@@ -107,7 +107,7 @@ else
       }      
   $desc_rf_no_validada=$monto_desc_rf*$c;
   
-  echo intval($pago_sot_validado) - intval($desc_inasistencia) - intval($desc_rf_no_validada);
+  echo intval($pago_sot_validado);
 
 
   return $pago_sot_validado - $desc_inasistencia - $desc_rf_no_validada;
