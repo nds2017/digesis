@@ -95,14 +95,14 @@ $( "#datepicker2" ).datepicker({
     });*/
 
 
-$(".cont-solicitud .combo-ui" ).each(function() {
-	alert('aqui');
+$(".cont-solicitud .combo-ui" ).each(function() {	
 	var t=$( this );
 	var sid=t.parent().attr("data-codigo");
 	var sel=t.find("select");
 	sel.change(function() {
 		var opt=sel.find("option:selected");
 		var choice=opt.text();
+		alert(choice);
 		var rule=(choice==="Rechazado");
 		var rule2=(choice==="Validado");
 		var rule3=(choice==="Reprogramado");
