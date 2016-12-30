@@ -194,18 +194,4 @@ if (!empty($eficiencia))
 
 }
 
-private function getEficiencia(){
-$p=(100* count($this->atendidos))/(count($this->pendientes)+count($this->reprogramados)+count($this->rechazados)+count($this->atendidos));
-
-print_r($p);
-
-$eficiencia=$this->_ci->meficiencia->geteficiencia($p);
-print_r($eficiencia);
-
-if (!empty($eficiencia))
-    return intval($eficiencia);
-else
-    return 0;
-}
-
 }
