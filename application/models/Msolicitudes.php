@@ -38,7 +38,9 @@ class Msolicitudes extends CI_Model
 		$this->db->join('motivos m', 'm.id = s.motivoid', 'left');
 
 		date_default_timezone_set('America/Lima');
-		echo date('Y-m-d');
+		echo date('Y-m-d 23:59:59');
+		
+
 		if ( $today ) {
 			$this->db->where('s.fecha_instalacion >=', strtotime(date('Y-m-d')));
 			$this->db->where('s.fecha_instalacion <=', strtotime(date('Y-m-d 23:59:59')));
