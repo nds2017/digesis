@@ -174,8 +174,7 @@ if (!empty($eficiencia))
     /*echo '<br/>';
     echo 'desc_mes_rf_no_validada';
     print_r($desc_mes_rf_no_validada);
-    echo '---------------------';*/
-    
+    echo '---------------------';*/    
 /* descuento por insidencias*/
     $desc_insidencia = $this->_ci->mpenalidades->getPenalidadesById(self::CODIGO_IN);    
     $c_i=0;
