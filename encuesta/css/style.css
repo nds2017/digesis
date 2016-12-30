@@ -98,6 +98,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 
 .cont_logo{margin-bottom: 0;width: 50%;float: left;padding: 10px 0}
 .cont_billetera{margin-bottom: 0;width: 50%;float: left; text-align:right; padding: 10px 0}
+.cont_billetera a{ font-size: 14px; font-weight: bold; color:#901010 }
 
 .no-scroll{ overflow-y: hidden;}
 
