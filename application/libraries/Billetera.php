@@ -100,6 +100,8 @@ else
 /* descuento por RF no validada*/
    $c=0;
    $monto_desc_rf = $this->_ci->mpenalidades->getPenalidadesById(self::CODIGO_RF);
+   print_r($monto_desc_rf);
+   print_r($this->atendidos);
     foreach ($this->atendidos as $key => $value) {
         $rf=$this->_ci->msolicitudes->solicitudesByIdAndDate($key);
         if ($rf)
