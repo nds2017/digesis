@@ -97,7 +97,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .btn-inactive input  { background:#AAAAAA; color:#CCCCCC }
 
 .cont_logo{margin-bottom: 0;width: 50%;float: left;padding: 10px 0}
-.cont_billetera{margin-bottom: 0;width: 50%;float: left;padding: 10px 0}
+.cont_billetera{margin-bottom: 0;width: 50%;float: left; text-align:right; padding: 10px 0}
 
 .no-scroll{ overflow-y: hidden;}
 
