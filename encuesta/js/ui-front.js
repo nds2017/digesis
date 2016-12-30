@@ -94,8 +94,9 @@ $( "#datepicker2" ).datepicker({
        $("#datepicker").show(); 
     });*/
 
-$( "#dataTable tbody tr" ).on( "click", function() {
-  console.log( $( this ).text() );
+$( "a .cont_billetera" ).on( "click", function() {
+    event.preventDefault();
+    alert('llego');
 });
 
 
