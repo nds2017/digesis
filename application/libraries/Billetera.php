@@ -185,7 +185,7 @@ if (!empty($eficiencia))
 
     $porcentaje=((100*$c_i)/count($sot_atendidos));
     echo 'porcentaje'.$porcentaje;
-    if ($porcentaje>=5)
+    if (round($porcentaje,0)>=5)
         $desc_mes_insidencia=$desc_insidencia * $c_i;
 
     echo '<br/>';
