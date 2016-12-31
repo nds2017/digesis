@@ -101,17 +101,17 @@
 		<div class="ui-popup-options-wrapper billetera">
 			<input type="hidden" id="test-sid" name="test-sid" value="empty-sid">
 			<div class="ui-popup-options-contenido" id="encuestar">
-				<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">SELECCIONAR</span></div>
+			<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">MONEDERO DIGITAL</span></div>
 				<ul class="ui-popup-options-list">
 					<li>
-						<a class="icon-encuestar" value="iniciar" href="#">Iniciar Encuesta</a>
+						Comision del Dia <b>S/.100.00</b>
 					</li>
 					<li>
-						<a class="icon-cerrar" value="denegar" href="#">Denegar Encuesta</a>
+						Comision del Mes <b>S/.200.00</b>
 					</li>
 				</ul>
 				<div class="cont-btn final-p">
-					<input class="submit" type="button" value="GUARDAR">
+					<input class="submit" type="button" value="Ver Detalle">
 					<input class="cancel" type="button" value="CANCELAR">
 				</div>
 			</div>
