@@ -81,6 +81,7 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="ui-popup-options-wrapper reject">
 			<input type="hidden" id="reject-sid" name="reject-sid" value="empty-sid">
 			<div class="ui-popup-options-contenido" id="rechazar">
@@ -96,6 +97,26 @@
 				<input class="cancel" type="button" value="CANCELAR">
 			</div>
 		</div>
+
+		<div class="ui-popup-options-wrapper billetera">
+			<input type="hidden" id="test-sid" name="test-sid" value="empty-sid">
+			<div class="ui-popup-options-contenido" id="encuestar">
+				<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">SELECCIONAR</span></div>
+				<ul class="ui-popup-options-list">
+					<li>
+						<a class="icon-encuestar" value="iniciar" href="#">Iniciar Encuesta</a>
+					</li>
+					<li>
+						<a class="icon-cerrar" value="denegar" href="#">Denegar Encuesta</a>
+					</li>
+				</ul>
+				<div class="cont-btn final-p">
+					<input class="submit" type="button" value="GUARDAR">
+					<input class="cancel" type="button" value="CANCELAR">
+				</div>
+			</div>
+		</div>
+
 	</div>
 	<div class="wrapper">
 		<a href="<?=base_url()?>index.php/encuestas?dni=<?=$_GET['dni']?>">
