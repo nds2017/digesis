@@ -96,8 +96,19 @@ $( "#datepicker2" ).datepicker({
 
 $( ".cont_billetera" ).on( "click", function() {
     event.preventDefault();
-    //$(".ui-popup-options").show();
-    $(".ui-popup-options-wrapper billetera").show();
+    	$(".ui-popup-options").show();
+		$( ".client-box" ).addClass('display-none');
+		$(".ui-popup-options-list li a").removeClass("active");
+		$(".billetera").show();
+		$("body").addClass("no-scroll");
+		$(".client").hide();
+		$(".schedule").hide();
+		$(".reject").hide();
+		$(".schedule .datetime").show();
+		$(".schedule .calendar").show();
+		$(".test").find("#test-sid").val(sid);
+		$("#evento").val('validar');
+    
 });
 
 
