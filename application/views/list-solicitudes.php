@@ -104,10 +104,10 @@
 			<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">MONEDERO DIGITAL</span></div>
 				<ul class="ui-popup-options-list">
 					<li>
-						Comision del Dia <b>S/.100.00</b>
+						<span>Comision del Dia <b>S/.100.00</b></span>
 					</li>
 					<li>
-						Comision del Mes <b>S/.200.00</b>
+						<span>Comision del Mes <b>S/.200.00</b></span>
 					</li>
 				</ul>
 				<div class="cont-btn final-p">

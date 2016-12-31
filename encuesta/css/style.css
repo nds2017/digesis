@@ -341,6 +341,14 @@ background:url(../img/tab-icon.png) no-repeat top center;
     padding-right: 50px;
 }
 
+.ui-popup-options-contenido li span{
+    
+    width:100%;
+    display:block;
+    float:left;
+    padding:24px 8px;
+    padding-right: 50px;
+}
 
 .icon-titulo{ float:left}
 .icon-cerrar{ float:right}
