@@ -104,10 +104,10 @@
 			<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">MONEDERO DIGITAL</span></div>
 				<ul class="ui-popup-options-list">
 					<li>
-						<span>Comision del Dia <b>S/.100.00</b></span>
+						<span>Comision del Dia <b>S/.<?php echo round($resumen['comision_dia'],2)?></b></span>
 					</li>
 					<li>
-						<span>Comision del Mes <b>S/.200.00</b></span>
+						<span>Comision del Mes <b>S/.<?php echo round($resumen['comision_mes'],2)?></b></span>
 					</li>
 				</ul>
 				<div class="cont-btn final-p">

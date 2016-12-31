@@ -29,9 +29,8 @@ class Encuestas extends CI_Controller {
 				$data['mrechazados'] = $this->msolicitudes->motivos_entrys(5);
 
 				$data['tecnico'] = $datat->nombres;
-				$resumen=$this->billetera_resumen($_GET['dni']);				
-				print_r($resumen);
-				//$data['resumen_billetera']=$monto;
+				$resumen=$this->billetera_resumen($_GET['dni']);								
+				$data['resumen_billetera']=$resumen;
 				$this->load->view('list-solicitudes', $data);
 			}
 			else
