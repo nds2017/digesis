@@ -236,7 +236,7 @@ restore_error_handler();
                             print_r($rcosto);                                                        
                             $monto= !empty($rcosto)? $rcosto[0]->monto:0;
                         echo '</pre>';
-                                                
+                        echo intval($monto);                                                
                             $r_detalle[$cc][$key]['fecha']=$fecha;
                             $r_detalle[$cc][$key]['sot']=count($this->atendidos);
                             $r_detalle[$cc][$key]['monto']=intval($monto);
