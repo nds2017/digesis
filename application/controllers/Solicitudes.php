@@ -234,16 +234,8 @@ class Solicitudes extends CI_Controller {
 	public function edit($id) {
 		date_default_timezone_set('America/Lima');
 		date_default_timezone_set("GMT");
-		if ( $_POST ) {
-
-			echo $this->input->post('fecha_instalacion');
-			echo '---';
-			echo strtotime($this->input->post('fecha_instalacion'));
-			echo '---';
-			$fecha=$this->input->post('fecha_instalacion');
-			echo strtotime($fecha.'00:00:00');
-			exit;
-
+		if ( $_POST ) {			
+			$fecha=$this->input->post('fecha_instalacion');			
 			securityAccess(array(1));
 			$session = get_session();
 			$formdata = array (
@@ -258,7 +250,7 @@ class Solicitudes extends CI_Controller {
 				'usuarioid' => $session->id,
 				'estadoid' => $this->input->post('estadoid'),
 				'motivoid' => $this->input->post('motivoid'),
-				'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($this->input->post('fecha_instalacion')) : strtotime('now')
+				'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($fecha) : strtotime('now')
 			);
 			$this->msolicitudes->solicitudes_update($formdata, $id);
 			$formdata = array(
@@ -275,8 +267,11 @@ class Solicitudes extends CI_Controller {
 	}
 
 	public function add() {
+		date_default_timezone_set('America/Lima');
+		date_default_timezone_set("GMT");
 		if ( $_POST ) {
 			$session = get_session();
+			$fecha=$this->input->post('fecha_instalacion');			
 			$formdata = array (
 				'id' => $this->input->post('solicitudid'),
 				'tipotrabajoid' => $this->input->post('tipotrabajoid'),
@@ -287,7 +282,7 @@ class Solicitudes extends CI_Controller {
 				'regionid' => $this->input->post('regionid')
 	,			'distritoid' => $this->input->post('distritoid'),
 				'usuarioid' => $session->id,
-				'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($this->input->post('fecha_instalacion')) : strtotime('now')
+				'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($fecha) : strtotime('now')
 			);
 			$this->msolicitudes->solicitudes_create($formdata);
 			$formdata = array(
