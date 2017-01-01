@@ -189,7 +189,7 @@ restore_error_handler();
 }
 
  public function getdetalle_comision($params=array()){
-    
+    date_default_timezone_set('America/Lima');
     $r_detalle=array();    
     if ($params)
         {
@@ -204,10 +204,10 @@ restore_error_handler();
                 if (!empty($r_asistencia)):
                       $cc=1;
                       foreach ($r_asistencia as $key => $value) {
-                        $monto_desc_asistencia=0;
-                        date_default_timezone_set('America/Lima');    
+                        $monto_desc_asistencia=0;                        
                         echo $fecha= date('Y-m-d',$value->fecha);
                         echo '<br/>'.$value->fecha;
+                        echo gmdate("M d Y H:i:s", $value->fecha);
                         if ($value->asistencia==0){
                             $dia_semana = $this->dias[date('N', strtotime($fecha))];                                                
                             $monto_desc_asistencia = $this->_ci->mpenalidades->getPenalidadesById(($dia_semana=='Domingo')? self::CODIGO_ASISTENCIA2 : self::CODIGO_ASISTENCIA1);   
