@@ -189,7 +189,7 @@ restore_error_handler();
 }
 
  public function getdetalle_comision($params=array()){
-    date_default_timezone_set('America/Lima');    
+    
     $r_detalle=array();    
     if ($params)
         {
@@ -205,6 +205,7 @@ restore_error_handler();
                       $cc=1;
                       foreach ($r_asistencia as $key => $value) {
                         $monto_desc_asistencia=0;
+                        date_default_timezone_set('America/Lima');    
                         echo $fecha= date('Y-m-d',$value->fecha);
                         echo '<br/>'.$value->fecha;
                         if ($value->asistencia==0){
