@@ -216,3 +216,5 @@ restore_error_handler();
  return $r_detalle;
 
 }
+}
+
