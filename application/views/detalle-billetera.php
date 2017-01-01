@@ -17,7 +17,7 @@
 		</header>
 		<div class="body_w">
 			<div class="indications">
-				<table>
+				<table class="detalle-billetera">
 					<thead>
 						<th>
 							<td>Fecha</td>
@@ -33,12 +33,12 @@
 					foreach($detalle as $key=>$value):
 					?>
 					<tr>
-						<td><?php echo $value['fecha']; ?></td>
-						<td><?php echo $value['sot']; ?></td>
-						<td><?php echo $value['monto'] ?></td>
-						<td><?php echo $value['desc_asistencia'] ?></td>
-						<td><?php echo $value['desc_rf'] ?></td>
-						<td><?php echo $value['total'] ?></td>
+						<td data-label="Fecha"><?php echo $value['fecha']; ?></td>
+						<td data-label="Cant.SOT"><?php echo $value['sot']; ?></td>
+						<td data-label="Monto SOT"><?php echo $value['monto'] ?></td>
+						<td data-label="Desc.Asist"><?php echo $value['desc_asistencia'] ?></td>
+						<td data-label="Desc.RF"><?php echo $value['desc_rf'] ?></td>
+						<td data-label="Monto"><?php echo $value['total'] ?></td>
 						</tr>
 					<?php 
 						endforeach;
@@ -48,7 +48,7 @@
 
 				<div class="cont-btn">
 					<?php //$url = base_url() . 'index.php/encuestas/preguntas/' . $sid . '?dni=' . $_GET['dni']; ?>
-					<input type="button" value="ACEPTAR" onclick="window.location='<?=$url?>';">
+					<input type="button" value="ACEPTAR" onclick="window.location='<?php //$url?>';">
 				</div>
 			</div>
 		</div>
