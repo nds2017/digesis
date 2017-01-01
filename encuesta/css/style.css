@@ -481,7 +481,7 @@ table {
   table th, table td {
     padding: 10px;
     text-align: center;
-    background:#01558E url("../img/arrow.png");
+    background:#01558E;
     color: #ffffff;
   }
 
