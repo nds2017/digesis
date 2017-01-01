@@ -465,14 +465,17 @@ p.extreme span.negative-level{float:left;}
   font-size: 14px;
   float: right;
 }
-
-.list-comision li{
+.list-comision ul{
+    list-style: none;
+    float: left;
+    width: 100%;
+}
+.list-comision ul li{
     padding:0px;
     margin:0px; 
     width:100%;
     display:block;
-    float:left;
-    background: #FFF;
+    float:left;    
 }
 
 
