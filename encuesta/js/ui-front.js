@@ -137,6 +137,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".schedule .datetime").show();
 		$(".schedule .calendar").show();
 		$(".reject").find("#reject-sid").val(sid);
+		$(".billetera").hide();		
 		$("#evento").val('rechazar');
 	  }else if(rule2){
 		$(".ui-popup-options").show();
@@ -150,6 +151,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".schedule .datetime").show();
 		$(".schedule .calendar").show();
 		$(".test").find("#test-sid").val(sid);
+		$(".billetera").hide();
 		$("#evento").val('validar');
 	  }else if(rule3){
 		$(".ui-popup-options").show();
@@ -162,6 +164,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".reject").hide();
 		$(".schedule .datetime").show();
 		$(".schedule .calendar").show();	
+		$(".billetera").hide();
 		$("#datepicker").trigger( "focus" );
 		$(".schedule").find("#schedule-sid").val(sid);
 		$("#evento").val('reprogramar');
@@ -174,6 +177,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$("body").addClass("no-scroll");
 		$(".schedule").hide();
 		$(".reject").hide();
+		$(".billetera").hide();
 		$(".schedule .datetime").show();
 		$(".schedule .calendar").show();
 		$(".client").find("#client-sid").val(sid);
@@ -188,6 +192,7 @@ $(".cont-solicitud .combo-ui" ).each(function() {
 		$(".client").hide();
 		$(".schedule").hide();
 		$(".reject").hide();
+		$(".billetera").hide();
 		$(".schedule .datetime").show();
 		$(".schedule .calendar").show();
 		$("body").removeClass("no-scroll");
