@@ -58,8 +58,10 @@ class Msolicitudes extends CI_Model
 		$this->db->order_by("s.fecha_instalacion, s.id");
 
 		$query = $this->db->get();
-		//echo $this->db->last_query();
-		
+		if ($date) {			
+		echo $this->db->last_query();
+		exit;
+		}
 
 		if ( $query->num_rows() > 0 ) {
 			foreach ( $query->result() as $key => $row ) {
