@@ -234,6 +234,7 @@ restore_error_handler();
                         
                         echo '<pre>---costo';
                             print_r($rcosto);                            
+                            echo !empty($rcosto)? $rcosto[0]->monto:0;
                         echo '</pre>';
                                                 
                             $r_detalle[$cc][$key]['fecha']=$fecha;
