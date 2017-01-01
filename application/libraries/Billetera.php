@@ -186,6 +186,12 @@ restore_error_handler();
     echo $comision_mes_sot;
     echo '-';
     echo $comision_mes_eficiencia;
+    echo '-----';
+    echo $desc_mes_inasistencia;
+    echo '-';
+    echo $desc_mes_rf_no_validada;
+    echo '-';
+    echo $desc_mes_insidencia;
 
     return ($comision_mes_sot + $comision_mes_eficiencia - ($desc_mes_inasistencia + $desc_mes_rf_no_validada +$desc_mes_insidencia));
 
