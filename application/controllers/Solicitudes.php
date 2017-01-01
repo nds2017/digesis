@@ -235,6 +235,15 @@ class Solicitudes extends CI_Controller {
 		date_default_timezone_set('America/Lima');
 		date_default_timezone_set("GMT");
 		if ( $_POST ) {
+
+			echo $this->input->post('fecha_instalacion');
+			echo '---';
+			echo strtotime($this->input->post('fecha_instalacion'));
+			echo '---';
+			$fecha=$this->input->post('fecha_instalacion');
+			echo strtotime(gmdate('Y-m-d',$fecha));
+			exit;
+
 			securityAccess(array(1));
 			$session = get_session();
 			$formdata = array (
