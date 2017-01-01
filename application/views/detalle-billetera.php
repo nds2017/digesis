@@ -47,8 +47,8 @@
 				</table>
 
 				<div class="cont-btn">
-					<?php //$url = base_url() . 'index.php/encuestas/preguntas/' . $sid . '?dni=' . $_GET['dni']; ?>
-					<input type="button" value="ACEPTAR" onclick="window.location='<?php //$url?>';">
+					<?php $url = base_url() . 'index.php/encuestas/.'?dni=' . $_GET['dni']; ?>
+					<input type="button" value="CERRAR" onclick="window.location='<?php echo $url?>';">
 				</div>
 			</div>
 		</div>
