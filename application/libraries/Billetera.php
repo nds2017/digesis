@@ -198,9 +198,11 @@ restore_error_handler();
             {
                 $tid = $datat->id; 
                 $r_asistencia=$this->_ci->masistencia->getAsistenciaByIdAndMonth($tid);
+                /*
                 echo '<pre>';
                     print_r($r_asistencia);
                 echo '</pre>';
+                */
                 if (!empty($r_asistencia)):
                       $cc=1;
                       foreach ($r_asistencia as $key => $value) {
@@ -214,10 +216,11 @@ restore_error_handler();
 
 
                         $this->atendidos =$this->_ci->msolicitudes->solicitudes_encuestas($tid, 2, false,$fecha);       
+                        /*
                         echo '<pre>';
                             print_r($this->atendidos);
                         echo '</pre>';
-
+                        */
                         $c=0;                        
                         $monto_desc_rf = $this->_ci->mpenalidades->getPenalidadesById(self::CODIGO_RF);   
                             foreach ($this->atendidos as $key => $value) {
@@ -228,9 +231,11 @@ restore_error_handler();
                           $desc_rf_no_validada=$monto_desc_rf*$c;
 
                         $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($this->atendidos));
+                        
                         echo '<pre>---costo';
                             print_r($rcosto);
                         echo '</pre>';
+                        
                         if (!empty($rcosto)){
                             $r_detalle[$cc][$key]['fecha']=$fecha;
                             $r_detalle[$cc][$key]['sot']=count($this->atendidos);
@@ -238,7 +243,7 @@ restore_error_handler();
                             $r_detalle[$cc][$key]['desc_asistencia']=$monto_desc_asistencia;
                             $r_detalle[$cc][$key]['desc_rf']=$desc_rf_no_validada;
                             $r_detalle[$cc][$key]['monto']=0;                            
-                            echo $cc++;
+                            $cc++;
                       }                      
                   }
                 endif;    
