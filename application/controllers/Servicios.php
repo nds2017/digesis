@@ -23,17 +23,27 @@ class Servicios extends CI_Controller {
 			$file = $_FILES['file']['tmp_name'];
 			$type = $_FILES['file']['type'];
 			if ( !empty($file) && ( $type == 'application/vnd.ms-excel' ) ) {
-			
+
 		 		$obj_excel = PHPExcel_IOFactory::load($file);    
 		       	$sheetData = $obj_excel->getActiveSheet()->toArray(null,true,true,true);
 		       	$arr_datos = array();
 		       	foreach ($sheetData as $index => $value) {  
-					print_r($value);
-		       	}
+					if ( $index != 1 ){
+			                $arr_datos = array(
+			                    'descripcion'  => $value['A'],
+			                    'campo1'  =>  $value['B'],
+			                    'categoria' =>  $value['C'],
+			                    'motivos'  =>  $value['D'],            
+			                    'fotos'  =>  $value['BD']
+			                ); 
+				foreach ($arr_datos as $llave => $valor) {
+					$arr_datos[$llave] = $valor;
+				}
+
+				$this->mservicios->insert($arr_datos);	
+            } 
 	}
-
    		endif;
-
 	 	$this->load->view('admin/carga-servicios',$data);
 	 }
 
