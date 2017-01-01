@@ -205,9 +205,8 @@ restore_error_handler();
                       $cc=1;
                       foreach ($r_asistencia as $key => $value) {
                         $monto_desc_asistencia=0;                        
-                        echo $fecha= date('Y-m-d',$value->fecha);
-                        echo '<br/>'.$value->fecha;
-                        echo gmdate("Y-m-d", $value->fecha);
+                        //$fecha= date('Y-m-d',$value->fecha);                        
+                        $fecha= gmdate("Y-m-d", $value->fecha);
                         if ($value->asistencia==0){
                             $dia_semana = $this->dias[date('N', strtotime($fecha))];                                                
                             $monto_desc_asistencia = $this->_ci->mpenalidades->getPenalidadesById(($dia_semana=='Domingo')? self::CODIGO_ASISTENCIA2 : self::CODIGO_ASISTENCIA1);   
