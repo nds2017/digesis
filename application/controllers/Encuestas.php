@@ -151,9 +151,10 @@ class Encuestas extends CI_Controller {
 	public function detalle() {
 		date_default_timezone_set('America/Lima');
 		date_default_timezone_set("GMT");
+		setlocale(LC_ALL,"es_ES");		
 		if (isset($_GET['dni']) && ( !empty($_GET['dni']) ) ) {
 			$detalle=$this->billetera_detalle($_GET['dni']);			
-			$fecha=date('l, d M Y');
+			$fecha=strftime("%A %d de %B del %Y");
 			$data['detalle'] = $detalle;
 			$data['fecha'] = $fecha;			
 			$this->load->view('detalle-billetera', $data);			
