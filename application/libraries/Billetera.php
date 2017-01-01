@@ -202,6 +202,7 @@ restore_error_handler();
                     print_r($r_asistencia);
                 echo '</pre>';
                 if (!empty($r_asistencia)):
+                      $cc=1;
                       foreach ($r_asistencia as $key => $value) {
                         $monto_desc_asistencia=0;
                         $fecha= date('Y-m-d',$value->fecha);
@@ -226,7 +227,7 @@ restore_error_handler();
                           $desc_rf_no_validada=$monto_desc_rf*$c;
 
                         $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($this->atendidos));
-                        $cc=1;
+
                         if (!empty($rcosto)){
                             $r_detalle[$cc][$key]['fecha']=$fecha;
                             $r_detalle[$cc][$key]['sot']=count($this->atendidos);
