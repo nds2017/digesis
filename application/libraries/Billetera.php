@@ -35,8 +35,7 @@ class Billetera
             
     function __construct($config = array())
     {
-        $this->_ci =& get_instance();    
-        date_default_timezone_set('America/Lima');    
+        $this->_ci =& get_instance();            
         $this->_ci->load->model('minsi');
         $this->_ci->load->model('mcostosot');        
         $this->_ci->load->model('meficiencia');
@@ -190,6 +189,7 @@ restore_error_handler();
 }
 
  public function getdetalle_comision($params=array()){
+    date_default_timezone_set('America/Lima');    
     $r_detalle=array();    
     if ($params)
         {
@@ -205,7 +205,8 @@ restore_error_handler();
                       $cc=1;
                       foreach ($r_asistencia as $key => $value) {
                         $monto_desc_asistencia=0;
-                        $fecha= date('Y-m-d',$value->fecha);
+                        echo $fecha= date('Y-m-d',$value->fecha);
+                        echo '<br/>';
                         if ($value->asistencia==0){
                             $dia_semana = $this->dias[date('N', strtotime($fecha))];                                                
                             $monto_desc_asistencia = $this->_ci->mpenalidades->getPenalidadesById(($dia_semana=='Domingo')? self::CODIGO_ASISTENCIA2 : self::CODIGO_ASISTENCIA1);   
@@ -227,7 +228,9 @@ restore_error_handler();
                           $desc_rf_no_validada=$monto_desc_rf*$c;
 
                         $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($this->atendidos));
-
+                        echo '<pre>---costo';
+                            print_r($rcosto);
+                        echo '</pre>';
                         if (!empty($rcosto)){
                             $r_detalle[$cc][$key]['fecha']=$fecha;
                             $r_detalle[$cc][$key]['sot']=count($this->atendidos);
