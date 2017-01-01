@@ -412,7 +412,7 @@ if($(".cont-login.thanks").length!==0){
 						alert('Todos los formularios deben ser seleccionados');
 				}
 				else if ( evento == 'detalle' ) {					
-					location.href = "../index.php/encuestas/detalle/" +'?dni=' + $_GET('dni');
+					location.href = "/index.php/encuestas/detalle/" +'?dni=' + $_GET('dni');
 				}
 
 
