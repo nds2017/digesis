@@ -461,6 +461,11 @@ p.extreme span{ width:auto; display:block; color:#FFF; font-size: 12px}
 p.extreme span.positive-level{float:right;}
 p.extreme span.negative-level{float:left;}
 
+.titulo_billetera{
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
 .date_billetera{
   font-size: 14px;
   float: right;
@@ -469,6 +474,7 @@ p.extreme span.negative-level{float:left;}
     list-style: none;
     float: left;
     width: 100%;
+    text-align: left;
 }
 .list-comision ul li{
     padding:0px;
