@@ -474,9 +474,13 @@ p.extreme span.negative-level{float:left;}
     padding:0px;
     margin:0px; 
     width:100%;
+    text-align: left;
     display:block;
     float:left;    
+    font-size: 14px;
+    padding: 5px;
 }
+
 
 
 
