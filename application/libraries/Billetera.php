@@ -211,8 +211,8 @@ restore_error_handler();
                       }
                   }
                 endif;    
-            }
-    return $r_detalle;
+            }    
  }
+ return $r_detalle;
 
 }

@@ -15,8 +15,8 @@ class Masistencia extends CI_Model
 		$this->db->where('a.idtecnico=',$id);
 		$this->db->order_by("a.fecha");
 		$query = $this->db->get();  
-		echo $this->db->last_query();
-		exit;
+		//echo $this->db->last_query();
+		//exit;
 	     if( $query->num_rows() > 0 ) {
 	     	foreach ( $query->result() as $key => $row ) {
 				$rows[$row->id] = $row;
