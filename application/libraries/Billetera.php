@@ -198,7 +198,7 @@ restore_error_handler();
                 if (!empty($r_asistencia)):
                       foreach ($r_asistencia as $key => $value) {
                         $fecha= date('Y-m-d',$value->fecha);
-                        $this->atendidos =$this->_ci->msolicitudes->solicitudes_encuestas($tid, 2, true,$fecha);          
+                        $this->atendidos =$this->_ci->msolicitudes->solicitudes_encuestas($tid, 2, false,$fecha);          
                         print_r($this->atendidos);
                         $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($this->atendidos));
                         if (!empty($rcosto)){                                
