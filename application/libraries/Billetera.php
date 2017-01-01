@@ -198,6 +198,9 @@ restore_error_handler();
             {
                 $tid = $datat->id; 
                 $r_asistencia=$this->_ci->masistencia->getAsistenciaByIdAndMonth($tid);
+                echo '<pre>';
+                    print_r($r_asistencia);
+                echo '</pre>';
                 if (!empty($r_asistencia)):
                       foreach ($r_asistencia as $key => $value) {
                         $monto_desc_asistencia=0;
@@ -209,7 +212,9 @@ restore_error_handler();
 
 
                         $this->atendidos =$this->_ci->msolicitudes->solicitudes_encuestas($tid, 2, false,$fecha);                        
-
+                        echo '<pre>';
+                            print_r($this->atendidos);
+                        echo '</pre>';
 
                         $c=0;                        
                         $monto_desc_rf = $this->_ci->mpenalidades->getPenalidadesById(self::CODIGO_RF);   
@@ -222,7 +227,7 @@ restore_error_handler();
 
                         $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($this->atendidos));
                         $cc=1;
-                        if (!empty($rcosto)){                                
+                        if (!empty($rcosto)){
                             $r_detalle[$cc][$key]['fecha']=$fecha;
                             $r_detalle[$cc][$key]['sot']=count($this->atendidos);
                             $r_detalle[$cc][$key]['monto']=$rcosto[0]->monto;
