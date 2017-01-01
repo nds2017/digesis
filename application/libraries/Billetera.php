@@ -186,9 +186,9 @@ restore_error_handler();
 
 }
 
- public function getdetalle_comision($id){
+ public function getdetalle_comision($params=array()){
     $r_detalle=array();
-
+    $id=$params['dni'];
     $r_asistencia=$this->_ci->masistencia->getAsistenciaByIdAndMonth($id);        
     if (!empty($r_asistencia)):
           foreach ($r_asistencia as $key => $value) {
