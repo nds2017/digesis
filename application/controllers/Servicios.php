@@ -28,10 +28,9 @@ class Servicios extends CI_Controller {
 		       	$sheetData = $obj_excel->getActiveSheet()->toArray(null,true,true,true);
 		       	$arr_datos = array();
 		       	foreach ($sheetData as $index => $value) {  
-					if ( $index != 1 ){
+					if ( $index != 2 ){
 			                $arr_datos = array(
-			                    'descripcion'  => $value['A'],
-			                    'campo1'  =>  $value['B'],
+			                    'descripcion'  => $value['B'], 
 			                    'categoria' =>  $value['C'],
 			                    'motivos'  =>  $value['D'],            
 			                    'fotos'  =>  $value['BD']
