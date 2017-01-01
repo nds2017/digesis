@@ -108,7 +108,7 @@ $( ".cont_billetera" ).on( "click", function() {
 		$(".schedule .datetime").show();
 		$(".schedule .calendar").show();
 		//$(".test").find("#test-sid").val(sid);
-		//$("#evento").val('validar');
+		$("#evento").val('detalle');
     
 });
 
@@ -411,6 +411,11 @@ if($(".cont-login.thanks").length!==0){
 					else
 						alert('Todos los formularios deben ser seleccionados');
 				}
+				else if ( evento == 'detalle' ) {					
+					location.href = "../index.php/encuestas/detalle/" +'?dni=' + $_GET('dni');
+				}
+
+
 			});
 	}
 

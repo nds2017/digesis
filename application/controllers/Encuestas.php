@@ -30,9 +30,8 @@ class Encuestas extends CI_Controller {
 
 				$data['tecnico'] = $datat->nombres;
 				$resumen=$this->billetera_resumen($_GET['dni']);								
-				$detalle=$this->billetera_detalle($_GET['dni']);												
 				$data['resumen']=$resumen;
-				$data['detalle']=$detalle;				
+				//$data['detalle']=$detalle;				
 				$this->load->view('list-solicitudes', $data);
 			}
 			else
@@ -148,5 +147,15 @@ class Encuestas extends CI_Controller {
 		else
 			redirect('welcome');
 	}
+
+	public function detalle() {
+		if (isset($_GET['dni']) && ( !empty($_GET['dni']) ) ) {
+			$detalle=$this->billetera_detalle($_GET['dni']);			
+			$data['detalle'] = $detalle;
+			$this->load->view('detalle-billetera', $data);			
+		}else
+				redirect('welcome');	
+	}
+
 
 }
