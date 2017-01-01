@@ -471,6 +471,7 @@ p.extreme span.negative-level{float:left;}
     text-align: center;
     width: 50%;
     margin: auto;    
+    font-size: 18px;
 }
 .date_billetera{
   width: 100%;  
@@ -479,7 +480,7 @@ p.extreme span.negative-level{float:left;}
   text-align: right;
   margin-bottom: 15px;
 }
-.list-comision ul{
+.listcomision ul{
     list-style: none;
     float: left;
     width: 100%;
@@ -487,7 +488,7 @@ p.extreme span.negative-level{float:left;}
     margin-bottom: 15px;
 }
 
-.list-comision ul li{
+.listcomision ul li{
     padding:0px;
     margin:0px; 
     width:100%;
@@ -497,7 +498,7 @@ p.extreme span.negative-level{float:left;}
     font-size: 14px;
     padding: 10px;
 }
-.list-comision ul li b{
+.listcomision ul li b{
     color:#800000;
 }
 
