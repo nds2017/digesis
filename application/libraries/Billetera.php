@@ -232,9 +232,9 @@ restore_error_handler();
 
                         $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($this->atendidos));
                         
-                        /*echo '<pre>---costo';
+                        echo '<pre>---costo';
                             print_r($rcosto);
-                        echo '</pre>';*/
+                        echo '</pre>';
                                                 
                             $r_detalle[$cc][$key]['fecha']=$fecha;
                             $r_detalle[$cc][$key]['sot']=count($this->atendidos);
