@@ -187,26 +187,31 @@ restore_error_handler();
 }
 
  public function getdetalle_comision($params=array()){
-    $r_detalle=array();
-    $id=$params['dni'];
-    $r_asistencia=$this->_ci->masistencia->getAsistenciaByIdAndMonth($id);        
-    print_r($r_asistencia);
-    if (!empty($r_asistencia)):
-          foreach ($r_asistencia as $key => $value) {
-            $fecha= date('Y-m-d',$value->fecha);
-            $this->atendidos =$this->_ci->msolicitudes->solicitudes_encuestas($tid, 2, true,$fecha);          
-            $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($this->atendidos));
-            if (!empty($rcosto)){                                
-                $r_detalle[][$key]['fecha']=$fecha;
-                $r_detalle[][$key]['sot']=$rcosto[0]->monto;
-                $r_detalle[][$key]['monto']=0;
-                $r_detalle[][$key]['desc_asistencia']=0;
-                $r_detalle[][$key]['desc_rf']=0;
-                $r_detalle[][$key]['monto']=0;
-                //if ($value->asistencia==1):                                    
-          }
-      }
-    endif;    
+    $r_detalle=array();    
+    if ($params)
+        {
+            $datat = $this->_ci->mtecnicos->tecnicobyDNI($params['dni']);
+            if ( is_object($datat) ) 
+            {
+                $tid = $datat->id; 
+                $r_asistencia=$this->_ci->masistencia->getAsistenciaByIdAndMonth($tid);            
+                if (!empty($r_asistencia)):
+                      foreach ($r_asistencia as $key => $value) {
+                        $fecha= date('Y-m-d',$value->fecha);
+                        $this->atendidos =$this->_ci->msolicitudes->solicitudes_encuestas($tid, 2, true,$fecha);          
+                        $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($this->atendidos));
+                        if (!empty($rcosto)){                                
+                            $r_detalle[][$key]['fecha']=$fecha;
+                            $r_detalle[][$key]['sot']=$rcosto[0]->monto;
+                            $r_detalle[][$key]['monto']=0;
+                            $r_detalle[][$key]['desc_asistencia']=0;
+                            $r_detalle[][$key]['desc_rf']=0;
+                            $r_detalle[][$key]['monto']=0;
+                            //if ($value->asistencia==1):                                    
+                      }
+                  }
+                endif;    
+            }
     return $r_detalle;
  }
 
