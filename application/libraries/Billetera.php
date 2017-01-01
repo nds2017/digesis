@@ -183,6 +183,9 @@ restore_error_handler();
     if (round($porcentaje,0)>=5)
         $desc_mes_insidencia=$desc_insidencia * $c_i;
 
+    echo $comision_mes_sot;
+    echo '-';
+    echo $comision_mes_eficiencia;
 
     return ($comision_mes_sot + $comision_mes_eficiencia - ($desc_mes_inasistencia + $desc_mes_rf_no_validada +$desc_mes_insidencia));
 
