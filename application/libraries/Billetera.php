@@ -195,6 +195,7 @@ restore_error_handler();
             {
                 $tid = $datat->id; 
                 $r_asistencia=$this->_ci->masistencia->getAsistenciaByIdAndMonth($tid);            
+                print_r($r_asistencia);
                 if (!empty($r_asistencia)):
                       foreach ($r_asistencia as $key => $value) {
                         $fecha= date('Y-m-d',$value->fecha);
