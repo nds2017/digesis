@@ -469,6 +469,8 @@ table {
     padding:0;
     border-collapse: collapse;
     border-spacing: 0;
+    background: #ffffff;
+    color: #000000;
   }
 
   table tr {
@@ -479,6 +481,8 @@ table {
   table th, table td {
     padding: 10px;
     text-align: center;
+    background:#01558E url("../img/arrow.png");
+    color: #ffffff;
   }
 
   table th {
