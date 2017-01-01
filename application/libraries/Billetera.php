@@ -211,7 +211,7 @@ restore_error_handler();
                         }
 
 
-                        $this->atendidos =$this->_ci->msolicitudes->solicitudes_encuestas($tid, 2, false,$fecha);                        
+                        $this->atendidos =$this->_ci->msolicitudes->solicitudes_encuestas($tid, 2, false,$fecha);       
                         echo '<pre>';
                             print_r($this->atendidos);
                         echo '</pre>';
