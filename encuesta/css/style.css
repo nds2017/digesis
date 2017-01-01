@@ -475,6 +475,7 @@ p.extreme span.negative-level{float:left;}
 .date_billetera{
   font-size: 14px;
   float: right;
+  margin-bottom: 15px;
 }
 .list-comision ul{
     list-style: none;
