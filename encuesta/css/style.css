@@ -480,7 +480,7 @@ p.extreme span.negative-level{float:left;}
   text-align: right;
   margin-bottom: 15px;
 }
-ul#listcomision ul{
+ul#listcomision {
     list-style: none;
     float: left;
     width: 100%;
@@ -488,7 +488,7 @@ ul#listcomision ul{
     margin-bottom: 15px;
 }
 
-ul#listcomision ul li{
+ul#listcomision li{
     padding:0px;
     margin:0px; 
     width:100%;
