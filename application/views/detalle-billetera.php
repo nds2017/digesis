@@ -17,24 +17,37 @@
 		</header>
 		<div class="body_w">
 			<div class="indications">
-				<h2>INDICACIONES</h2>
-				<p>Para la calificar el servicio de NPS se ha considerado las siguientes 6 preguntas
-las cuales se calificaran en el rango del 0 a 9 donde 0 indica completa insatisfacción con la instalación  y 9 completa satisfacción</p>
+				<table>
+					<thead>
+						<th>
+							<td>Fecha</td>
+							<td>Cant.SOT</td>
+							<td>Monto SOT</td>
+							<td>Desc.Asist</td>
+							<td>Desc.RF</td>
+							<td>Monto</td>
+						</th>
+					</thead>
+					<tbody>
+					<?php 
+					foreach($detalle as $key=>$value):
+					?>
+					<tr>
+						<td><?php echo $value['fecha']; ?></td>
+						<td><?php echo $value['sot']; ?></td>
+						<td><?php echo $value['monto'] ?></td>
+						<td><?php echo $value['desc_asistencia'] ?></td>
+						<td><?php echo $value['desc_rf'] ?></td>
+						<td><?php echo $value['total'] ?></td>
+						</tr>
+					<?php 
+						endforeach;
+					?>	
+					</tbody>					  
+				</table>
 
-				<ul>
-					<li class="l0"><a href="">0</a></li>
-					<li class="l1"><a href="">1</a></li>
-					<li class="l2"><a href="">2</a></li>
-					<li class="l3"><a href="">3</a></li>
-					<li class="l4"><a href="">4</a></li>
-					<li class="l5"><a href="">5</a></li>
-					<li class="l6"><a href="">6</a></li>
-					<li class="l7"><a href="">7</a></li>
-					<li class="l8"><a href="">8</a></li>
-					<li class="l9"><a href="">9</a></li>
-				</ul>
 				<div class="cont-btn">
-					<?php $url = base_url() . 'index.php/encuestas/preguntas/' . $sid . '?dni=' . $_GET['dni']; ?>
+					<?php //$url = base_url() . 'index.php/encuestas/preguntas/' . $sid . '?dni=' . $_GET['dni']; ?>
 					<input type="button" value="ACEPTAR" onclick="window.location='<?=$url?>';">
 				</div>
 			</div>
