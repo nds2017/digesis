@@ -489,6 +489,7 @@ table {
     font-size: 14px;
     letter-spacing: 1px;
     background:#01558E;
+    color: #ffffff;
   }
 
   @media screen and (max-width: 600px) {
