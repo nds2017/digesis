@@ -17,6 +17,11 @@
 		</header>
 		<div class="body_w">
 			<div class="indications">
+				<h1>Monedero Digital</h1>
+				<span><?php echo date('d-M-Y')?></span>
+				<ul>
+				<li>Comisión del día<b>S/.100.00</b></li>
+				<li>Comisión del mes<b>S/.2000.00</b></li>
 				<table class="detalle-billetera">
 					<thead>
 						<tr>
@@ -45,6 +50,29 @@
 					?>	
 					</tbody>					  
 				</table>
+				<br/><br/><br/>
+
+				<table class="detalle-billetera">
+					<thead>
+						<tr>
+							<th>%eficiencia</th>
+							<th>Monto Eficiencia</th>
+							<th>Monto SOT</th>
+							<th>Desc.Incidencia</th>
+							<th>Pago del Mes</th>							
+						</tr>
+					</thead>
+					<tbody>					
+					<tr>
+						<td data-label="%eficiencia"></td>
+						<td data-label="Monto Eficiencia"></td>
+						<td data-label="Monto SOT"></td>
+						<td data-label="Desc.Incidencia"></td>
+						<td data-label="Pago del Mes"></td>
+					</tr>
+					</tbody>
+					</table>	
+
 
 				<div class="cont-btn">
 					<?php $url = base_url() . 'index.php/encuestas/?dni=' . $_GET['dni']; ?>
