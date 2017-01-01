@@ -241,7 +241,7 @@ class Solicitudes extends CI_Controller {
 			echo strtotime($this->input->post('fecha_instalacion'));
 			echo '---';
 			$fecha=$this->input->post('fecha_instalacion');
-			echo strtotime(gmdate('Y-m-d',$fecha));
+			echo strtotime($fecha.'00:00:00');
 			exit;
 
 			securityAccess(array(1));
