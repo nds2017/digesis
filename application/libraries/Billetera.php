@@ -167,7 +167,17 @@ if (!empty($eficiencia))
     $c_i=$c_i+count($r_insidencias);
     }
 
-    $porcentaje=((100*$c_i)/count($sot_atendidos));    
+set_error_handler(function () {
+    throw new Exception('Ach!');
+    });
+    try{
+        $porcentaje=((100*$c_i)/count($sot_atendidos));    
+    }
+    catch(Exception $e){
+        $porcentaje=0;
+    }
+restore_error_handler();
+
     if (round($porcentaje,0)>=5)
         $desc_mes_insidencia=$desc_insidencia * $c_i;
 
