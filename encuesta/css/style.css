@@ -476,6 +476,7 @@ p.extreme span.negative-level{float:left;}
   width: 100%;  
   font-size: 14px;
   float: right;
+  text-align: right;
   margin-bottom: 15px;
 }
 .list-comision ul{
@@ -483,6 +484,7 @@ p.extreme span.negative-level{float:left;}
     float: left;
     width: 100%;
     text-align: left;
+    margin-bottom: 15px;
 }
 
 .list-comision ul li{
