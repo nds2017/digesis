@@ -200,20 +200,33 @@ restore_error_handler();
                 $r_asistencia=$this->_ci->masistencia->getAsistenciaByIdAndMonth($tid);
                 if (!empty($r_asistencia)):
                       foreach ($r_asistencia as $key => $value) {
+                        $monto_desc_asistencia=0;
                         $fecha= date('Y-m-d',$value->fecha);
-                        echo $dia_semana = $this->dias[date('N', strtotime($fecha))];
-                        exit;
-                        //$monto_desc_asistencia = $this->_ci->mpenalidades->getPenalidadesById($tipo_desc);   
+                        if ($value->asistencia==0){
+                            $dia_semana = $this->dias[date('N', strtotime($fecha))];                                                
+                            $monto_desc_asistencia = $this->_ci->mpenalidades->getPenalidadesById(($dia_semana=='Domingo')? self::CODIGO_ASISTENCIA2 : self::CODIGO_ASISTENCIA1);   
+                        }
 
 
                         $this->atendidos =$this->_ci->msolicitudes->solicitudes_encuestas($tid, 2, false,$fecha);                        
+
+
+                        $c=0;                        
+                        $monto_desc_rf = $this->_ci->mpenalidades->getPenalidadesById(self::CODIGO_RF);   
+                            foreach ($this->atendidos as $key => $value) {
+                                $rf=$this->_ci->msolicitudes->solicitudesByIdAndDate($key);
+                                if ($rf)
+                                 $c++;
+                              }      
+                          $desc_rf_no_validada=$monto_desc_rf*$c;
+
                         $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($this->atendidos));
                         if (!empty($rcosto)){                                
                             $r_detalle[][$key]['fecha']=$fecha;
                             $r_detalle[][$key]['sot']=count($this->atendidos);
                             $r_detalle[][$key]['monto']=$rcosto[0]->monto;
-                            $r_detalle[][$key]['desc_asistencia']=0;
-                            $r_detalle[][$key]['desc_rf']=0;
+                            $r_detalle[][$key]['desc_asistencia']=$monto_desc_asistencia;
+                            $r_detalle[][$key]['desc_rf']=$desc_rf_no_validada;
                             $r_detalle[][$key]['monto']=0;                            
                       }
                   }
