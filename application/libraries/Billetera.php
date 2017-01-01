@@ -221,14 +221,16 @@ restore_error_handler();
                           $desc_rf_no_validada=$monto_desc_rf*$c;
 
                         $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($this->atendidos));
+                        $cc=1;
                         if (!empty($rcosto)){                                
-                            $r_detalle[][$key]['fecha']=$fecha;
-                            $r_detalle[][$key]['sot']=count($this->atendidos);
-                            $r_detalle[][$key]['monto']=$rcosto[0]->monto;
-                            $r_detalle[][$key]['desc_asistencia']=$monto_desc_asistencia;
-                            $r_detalle[][$key]['desc_rf']=$desc_rf_no_validada;
-                            $r_detalle[][$key]['monto']=0;                            
-                      }
+                            $r_detalle[$cc][$key]['fecha']=$fecha;
+                            $r_detalle[$cc][$key]['sot']=count($this->atendidos);
+                            $r_detalle[$cc][$key]['monto']=$rcosto[0]->monto;
+                            $r_detalle[$cc][$key]['desc_asistencia']=$monto_desc_asistencia;
+                            $r_detalle[$cc][$key]['desc_rf']=$desc_rf_no_validada;
+                            $r_detalle[$cc][$key]['monto']=0;                            
+                            $cc++;
+                      }                      
                   }
                 endif;    
             }    
