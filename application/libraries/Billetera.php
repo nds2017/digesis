@@ -195,11 +195,11 @@ restore_error_handler();
             {
                 $tid = $datat->id; 
                 $r_asistencia=$this->_ci->masistencia->getAsistenciaByIdAndMonth($tid);            
-                print_r($r_asistencia);
                 if (!empty($r_asistencia)):
                       foreach ($r_asistencia as $key => $value) {
                         $fecha= date('Y-m-d',$value->fecha);
                         $this->atendidos =$this->_ci->msolicitudes->solicitudes_encuestas($tid, 2, true,$fecha);          
+                        print_r($this->atendidos);
                         $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($this->atendidos));
                         if (!empty($rcosto)){                                
                             $r_detalle[][$key]['fecha']=$fecha;
