@@ -28,6 +28,7 @@ class Billetera
     private $pendientes=null;
     private $incidencias=null;
     private $tid=null;
+    private $monto_sot=null;
             
     function __construct($config = array())
     {
@@ -40,8 +41,7 @@ class Billetera
         $this->_ci->load->model('mencuestas');
         $this->_ci->load->model('mtecnicos');        
         $this->_ci->load->model('mpenalidades');
-        
-                
+        $this->_ci->load->model('Masistencia');                        
     }        
     /**
      * get
@@ -80,8 +80,10 @@ private function getComisionDia($tid=null){
 /* pago por Sot validadas*/
 $this->atendidos =$this->_ci->msolicitudes->solicitudes_encuestas($tid, 2, true);          
 $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($this->atendidos));
-if (!empty($rcosto))
+if (!empty($rcosto)){
+    $this->monto_sot=$rcosto[0]->monto;
     $pago_sot_validado=$rcosto[0]->monto;
+}
 else
     $pago_sot_validado=0;
 
@@ -173,5 +175,28 @@ if (!empty($eficiencia))
     return ($comision_mes_sot + $comision_mes_eficiencia - ($desc_mes_inasistencia + $desc_mes_rf_no_validada +$desc_mes_insidencia));
 
 }
+
+ public function getdetalle_comision($id){
+    $r_detalle=array();
+
+    $r_asistencia=$this->_ci->masistencia->getAsistenciaByIdAndMonth($id);        
+    if (!empty($r_asistencia)):
+          foreach ($r_asistencia as $key => $value) {
+            $fecha= date('Y-m-d',$value->fecha);
+            $this->atendidos =$this->_ci->msolicitudes->solicitudes_encuestas($tid, 2, true,$fecha);          
+            $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($this->atendidos));
+            if (!empty($rcosto)){                                
+                $r_detalle[][$key]['fecha']=$fecha;
+                $r_detalle[][$key]['sot']=$rcosto[0]->monto;
+                $r_detalle[][$key]['monto']=0;
+                $r_detalle[][$key]['desc_asistencia']=0;
+                $r_detalle[][$key]['desc_rf']=0;
+                $r_detalle[][$key]['monto']=0;
+                //if ($value->asistencia==1):                                    
+          }
+      }
+    endif;    
+    return $r_detalle;
+ }
 
 }

@@ -30,7 +30,10 @@ class Encuestas extends CI_Controller {
 
 				$data['tecnico'] = $datat->nombres;
 				$resumen=$this->billetera_resumen($_GET['dni']);								
+				$detalle=$this->billetera_detalle($_GET['dni']);								
+				var_dump($detalle);
 				$data['resumen']=$resumen;
+				$data['detalle']=$detalle;				
 				$this->load->view('list-solicitudes', $data);
 			}
 			else
@@ -45,6 +48,15 @@ class Encuestas extends CI_Controller {
 			return $this->billetera->getresumen($params);
 
 	}
+	public function billetera_detalle($dni=null){
+			$params=array('dni'=>$dni);
+			return $this->billetera->getdetalle_comision($params);
+
+	}
+
+
+
+
 	public function pendiente() {
 		if ( isset($_POST) && count($_POST) ) {
 			$form = array('id' => $_POST['sid'], 'motivoid' => $_POST['motivoid'], 'estadoid' => 3);

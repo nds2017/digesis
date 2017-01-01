@@ -28,7 +28,7 @@ class Msolicitudes extends CI_Model
 		}
 	}
 
-	public function solicitudes_encuestas($tid = false, $estado = false, $today = false) {
+	public function solicitudes_encuestas($tid = false, $estado = false, $today = false,$date=false) {
 		$rows = array();
 		$this->db->select('s.*, ts.nombre AS tsnombre, e.nombre AS enombre, m.motivo');
 		$this->db->from('solicitudes s');
@@ -38,9 +38,14 @@ class Msolicitudes extends CI_Model
 		$this->db->join('motivos m', 'm.id = s.motivoid', 'left');
 
 		date_default_timezone_set('America/Lima');
-		if ( $today ) {
+		if ( $today ) {			
 			$this->db->where('s.fecha_instalacion >=', strtotime(date('Y-m-d 00:00:00')));
 			$this->db->where('s.fecha_instalacion <=', strtotime(date('Y-m-d 23:59:59')));
+		}
+
+		if ($date) {			
+			$this->db->where('s.fecha_instalacion >=', strtotime(date($date.' 00:00:00')));
+			$this->db->where('s.fecha_instalacion <=', strtotime(date($date.' 23:59:59')));
 		}
 		
 		if ( is_numeric($estado) && ( $estado != 0 ) )
