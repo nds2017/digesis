@@ -43,6 +43,7 @@ class Servicios extends CI_Controller {
 				$this->mservicios->insert($arr_datos);	
             } 
 	}
+}
    		endif;
 	 	$this->load->view('admin/carga-servicios',$data);
 	 }
