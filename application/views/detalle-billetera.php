@@ -19,14 +19,14 @@
 			<div class="indications">
 				<table class="detalle-billetera">
 					<thead>
-						<th>
-							<td>Fecha</td>
-							<td>Cant.SOT</td>
-							<td>Monto SOT</td>
-							<td>Desc.Asist</td>
-							<td>Desc.RF</td>
-							<td>Monto</td>
-						</th>
+						<tr>
+							<th>Fecha</th>
+							<th>Cant.SOT</th>
+							<th>Monto SOT</th>
+							<th>Desc.Asist</th>
+							<th>Desc.RF</th>
+							<th>Monto</th>
+						</tr>
 					</thead>
 					<tbody>
 					<?php 
@@ -39,7 +39,7 @@
 						<td data-label="Desc.Asist"><?php echo $value['desc_asistencia'] ?></td>
 						<td data-label="Desc.RF"><?php echo $value['desc_rf'] ?></td>
 						<td data-label="Monto"><?php echo $value['total'] ?></td>
-						</tr>
+					</tr>
 					<?php 
 						endforeach;
 					?>	
