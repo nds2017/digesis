@@ -208,7 +208,7 @@ restore_error_handler();
                       foreach ($r_asistencia as $key => $value) {
                         $monto_desc_asistencia=0;                        
                         //$fecha= date('Y-m-d',$value->fecha);                        
-                        echo $fecha= gmdate("Y-m-d", $value->fecha);
+                        $fecha= gmdate("Y-m-d", $value->fecha);
                         if ($value->asistencia==0){
                             $dia_semana = $this->dias[date('N', strtotime($fecha))];                                                
                             $monto_desc_asistencia = $this->_ci->mpenalidades->getPenalidadesById(($dia_semana=='Domingo')? self::CODIGO_ASISTENCIA2 : self::CODIGO_ASISTENCIA1);   
@@ -232,16 +232,16 @@ restore_error_handler();
 
                         $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($this->atendidos));
                         
-                        echo '<pre>---costo';
+                        /*echo '<pre>---costo';
                             print_r($rcosto);
-                        echo '</pre>';
+                        echo '</pre>';*/
                         
                             $r_detalle[$cc][$key]['fecha']=$fecha;
                             $r_detalle[$cc][$key]['sot']=count($this->atendidos);
                             $r_detalle[$cc][$key]['monto']=!empty($rcosto)? $rcosto[0]->monto:0;
                             $r_detalle[$cc][$key]['desc_asistencia']=$monto_desc_asistencia;
                             $r_detalle[$cc][$key]['desc_rf']=$desc_rf_no_validada;
-                            $r_detalle[$cc][$key]['total']=($r_detalle[$cc][$key]['sot']) - ($monto_desc_asistencia+$desc_rf_no_validada);                            
+                            $r_detalle[$cc][$key]['total']=($r_detalle[$cc][$key]['monto']) - ($monto_desc_asistencia+$desc_rf_no_validada);                            
                             $cc++;
                                            
                   }
