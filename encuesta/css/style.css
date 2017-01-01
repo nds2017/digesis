@@ -461,9 +461,13 @@ p.extreme span{ width:auto; display:block; color:#FFF; font-size: 12px}
 p.extreme span.positive-level{float:right;}
 p.extreme span.negative-level{float:left;}
 
+.detalle_billetera{
+    width: 100%;
+    float: left;
+}
 .titulo_billetera{
     text-align: center;
-    width: 100%;
+    width: 50%;
     margin: auto;
     padding: 15px;
 }

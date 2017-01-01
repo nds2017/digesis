@@ -17,7 +17,10 @@
 		</header>
 		<div class="body_w">
 			<div class="indicationsaa">
+			<div class="detalle_billetera">
 			<span class="titulo_billetera">Monedero Digital</span>
+			</div>
+
 			<span class="date_billetera"><?php echo date('d-M-Y')?></span>
 				<ul class="list-comision">
 					<li>Comisión del día: <b>S/.100.00</b></li>
