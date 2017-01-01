@@ -236,12 +236,12 @@ restore_error_handler();
                             print_r($rcosto);
                         echo '</pre>';*/
                         
-                            $r_detalle[$cc][$key]['fecha']=$fecha;
-                            $r_detalle[$cc][$key]['sot']=count($this->atendidos);
-                            $r_detalle[$cc][$key]['monto']=!empty($rcosto)? $rcosto[0]->monto:0;
-                            $r_detalle[$cc][$key]['desc_asistencia']=$monto_desc_asistencia;
-                            $r_detalle[$cc][$key]['desc_rf']=$desc_rf_no_validada;
-                            $r_detalle[$cc][$key]['total']=($r_detalle[$cc][$key]['monto']) - ($monto_desc_asistencia+$desc_rf_no_validada);                            
+                            $r_detalle[$cc]['fecha']=$fecha;
+                            $r_detalle[$cc]['sot']=count($this->atendidos);
+                            $r_detalle[$cc]['monto']=!empty($rcosto)? $rcosto[0]->monto:0;
+                            $r_detalle[$cc]['desc_asistencia']=$monto_desc_asistencia;
+                            $r_detalle[$cc]['desc_rf']=$desc_rf_no_validada;
+                            $r_detalle[$cc]['total']=($r_detalle[$cc]['monto']) - ($monto_desc_asistencia+$desc_rf_no_validada);                            
                             $cc++;
                                            
                   }
