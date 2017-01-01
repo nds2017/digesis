@@ -20,7 +20,8 @@ class Billetera
     Const id_tipo=1;
     Const CODIGO_RF='PEN03';
     Const CODIGO_IN='PEN04';
-
+    Const CODIGO_ASISTENCIA1='PEN05';
+    Const CODIGO_ASISTENCIA2='PEN06';
     private $atendidos =null;
     private $atendidosm=null;
     private $reprogramados=null;
@@ -29,11 +30,13 @@ class Billetera
     private $incidencias=null;
     private $tid=null;
     private $monto_sot=null;
+    private $dias = array('Lunes','Martes','Miercoles','Jueves','Viernes','Sabado','Domingo');
+
             
     function __construct($config = array())
     {
-        $this->_ci =& get_instance();        
-
+        $this->_ci =& get_instance();    
+        date_default_timezone_set('America/Lima');    
         $this->_ci->load->model('minsi');
         $this->_ci->load->model('mcostosot');        
         $this->_ci->load->model('meficiencia');
@@ -194,20 +197,24 @@ restore_error_handler();
             if ( is_object($datat) ) 
             {
                 $tid = $datat->id; 
-                $r_asistencia=$this->_ci->masistencia->getAsistenciaByIdAndMonth($tid);            
+                $r_asistencia=$this->_ci->masistencia->getAsistenciaByIdAndMonth($tid);
                 if (!empty($r_asistencia)):
                       foreach ($r_asistencia as $key => $value) {
                         $fecha= date('Y-m-d',$value->fecha);
+                        echo $dia_semana = $this->dias[date('N', strtotime($fecha))];
+                        exit;
+                        //$monto_desc_asistencia = $this->_ci->mpenalidades->getPenalidadesById($tipo_desc);   
+
+
                         $this->atendidos =$this->_ci->msolicitudes->solicitudes_encuestas($tid, 2, false,$fecha);                        
                         $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($this->atendidos));
                         if (!empty($rcosto)){                                
                             $r_detalle[][$key]['fecha']=$fecha;
-                            $r_detalle[][$key]['sot']=$rcosto[0]->monto;
-                            $r_detalle[][$key]['monto']=0;
+                            $r_detalle[][$key]['sot']=count($this->atendidos);
+                            $r_detalle[][$key]['monto']=$rcosto[0]->monto;
                             $r_detalle[][$key]['desc_asistencia']=0;
                             $r_detalle[][$key]['desc_rf']=0;
-                            $r_detalle[][$key]['monto']=0;
-                            //if ($value->asistencia==1):                                    
+                            $r_detalle[][$key]['monto']=0;                            
                       }
                   }
                 endif;    
