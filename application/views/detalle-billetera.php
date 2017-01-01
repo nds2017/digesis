@@ -23,8 +23,8 @@
 
 			<span class="date_billetera"><?php echo $fecha ?></span>
 				<ul id="listcomision">
-					<li>Comisión del día: <b>S/.100.00</b></li>
-					<li>Comisión del mes: <b>S/.2000.00</b></li>
+					<li>Comisión del día: <b>S/.<?php echo round($resumen['comision_dia'],2)?></b></li>
+					<li>Comisión del mes: <b>S/.<?php echo round($resumen['comision_mes'],2)?></b></li>
 				</ul>
 				<table class="detalle-billetera">
 					<thead>
