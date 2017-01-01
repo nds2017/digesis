@@ -473,6 +473,7 @@ p.extreme span.negative-level{float:left;}
     margin: auto;    
     font-size: 18px;
     color: #01558e;
+    font-weight: bold;
 }
 .date_billetera{
   width: 100%;  

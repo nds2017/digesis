@@ -149,9 +149,13 @@ class Encuestas extends CI_Controller {
 	}
 
 	public function detalle() {
+		date_default_timezone_set('America/Lima');
+		date_default_timezone_set("GMT");
 		if (isset($_GET['dni']) && ( !empty($_GET['dni']) ) ) {
 			$detalle=$this->billetera_detalle($_GET['dni']);			
+			$fecha=date('d-M-Y');
 			$data['detalle'] = $detalle;
+			$data['fecha'] = $fecha;			
 			$this->load->view('detalle-billetera', $data);			
 		}else
 				redirect('welcome');	

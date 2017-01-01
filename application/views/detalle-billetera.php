@@ -21,7 +21,7 @@
 			<span class="titulo_billetera">Monedero Digital</span>
 			</div>
 
-			<span class="date_billetera"><?php echo date('d-M-Y')?></span>
+			<span class="date_billetera"><?php echo $fecha ?></span>
 				<ul id="listcomision">
 					<li>Comisión del día: <b>S/.100.00</b></li>
 					<li>Comisión del mes: <b>S/.2000.00</b></li>
