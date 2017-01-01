@@ -39,13 +39,13 @@ class Msolicitudes extends CI_Model
 
 		date_default_timezone_set('America/Lima');
 		if ( $today ) {			
-			$this->db->where('s.fecha_instalacion >=', strtotime(gmdate('Y-m-d 00:00:00')));
-			$this->db->where('s.fecha_instalacion <=', strtotime(gmdate('Y-m-d 23:59:59')));
+			$this->db->where('s.fecha_instalacion >=', strtotime(date('Y-m-d 00:00:00')));
+			$this->db->where('s.fecha_instalacion <=', strtotime(date('Y-m-d 23:59:59')));
 		}
 
 		if ($date) {			
-			$this->db->where('s.fecha_instalacion >=', strtotime(gmdate($date.' 00:00:00')));
-			$this->db->where('s.fecha_instalacion <=', strtotime(gmdate($date.' 23:59:59')));
+			$this->db->where('s.fecha_instalacion >=', strtotime(date($date.' 00:00:00')));
+			$this->db->where('s.fecha_instalacion <=', strtotime(date($date.' 23:59:59')));
 		}
 		
 		if ( is_numeric($estado) && ( $estado != 0 ) )

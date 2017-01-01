@@ -233,6 +233,7 @@ class Solicitudes extends CI_Controller {
 
 	public function edit($id) {
 		date_default_timezone_set('America/Lima');
+		date_default_timezone_set("GMT");
 		if ( $_POST ) {
 			securityAccess(array(1));
 			$session = get_session();
