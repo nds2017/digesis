@@ -233,8 +233,7 @@ restore_error_handler();
                         $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($this->atendidos));
                         
                         echo '<pre>---costo';
-                            print_r($rcosto);
-                            echo $rcosto[0]->monto;
+                            print_r($rcosto);                            
                         echo '</pre>';
                                                 
                             $r_detalle[$cc][$key]['fecha']=$fecha;
