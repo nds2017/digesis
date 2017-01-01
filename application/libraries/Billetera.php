@@ -232,19 +232,18 @@ restore_error_handler();
 
                         $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($this->atendidos));
                         
-                        echo '<pre>---costo';
+                        /*echo '<pre>---costo';
                             print_r($rcosto);
-                        echo '</pre>';
-                        
-                        if (!empty($rcosto)){
+                        echo '</pre>';*/
+                                                
                             $r_detalle[$cc][$key]['fecha']=$fecha;
                             $r_detalle[$cc][$key]['sot']=count($this->atendidos);
-                            $r_detalle[$cc][$key]['monto']=$rcosto[0]->monto;
+                            $r_detalle[$cc][$key]['monto']=!empty($rcosto)? $rcosto[0]->monto:0;
                             $r_detalle[$cc][$key]['desc_asistencia']=$monto_desc_asistencia;
                             $r_detalle[$cc][$key]['desc_rf']=$desc_rf_no_validada;
                             $r_detalle[$cc][$key]['monto']=0;                            
                             $cc++;
-                      }                      
+                                           
                   }
                 endif;    
             }    
