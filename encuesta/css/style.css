@@ -476,11 +476,12 @@ p.extreme span.negative-level{float:left;}
     width: 100%;
     text-align: left;
 }
+
 .list-comision ul li{
     padding:0px;
     margin:0px; 
     width:100%;
-    text-align: left;
+    text-align:none;
     display:block;
     float:left;    
     font-size: 14px;

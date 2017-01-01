@@ -16,12 +16,12 @@
 			 <img src="<?=base_url()?>encuesta/img/logo.png"/>
 		</header>
 		<div class="body_w">
-			<div class="indications">
+			<div class="indicationsaa">
 			<span class="titulo_billetera">Monedero Digital</span>
 			<span class="date_billetera"><?php echo date('d-M-Y')?></span>
 				<ul class="list-comision">
-				<li>Comisión del día<b>S/.100.00</b></li>
-				<li>Comisión del mes<b>S/.2000.00</b></li>
+					<li>Comisión del día: <b>S/.100.00</b></li>
+					<li>Comisión del mes: <b>S/.2000.00</b></li>
 				</ul>
 				<table class="detalle-billetera">
 					<thead>
