@@ -70,7 +70,9 @@
                     <td><?php echo $val->id ?></td>
                     <input type="hidden" id="id-<?php echo $i ?>" name="id-<?php echo $i ?>" value="<?php echo $val->id ?>">
                     <td><?php echo $val->nombres ?></td>
-    <td><?php echo date('Y-m-d',$val->fecha) ?></td>                    
+    <td><?php echo date('Y-m-d',$val->fecha) ?></td>
+<input type="hidden" id="fecha-<?php echo $i ?>" name="fecha-<?php echo $i ?>" value="<?php echo $val->fecha; ?>">
+
                     <td><input type="checkbox" class="form-control" id="asistencia-<?php echo $val->id ?>" name="asistencia-<?php echo $i ?>" <?php echo $asistencia ?> value="1"></td>
 
                     <td><input type="checkbox" class="form-control" id="descanso-<?php echo $i ?>" name="descanso-<?php echo $i ?>" <?php echo $descanso ?> value="1" ></td>

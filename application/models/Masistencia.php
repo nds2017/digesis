@@ -118,4 +118,38 @@ $this->db->where('month(FROM_UNIXTIME(fecha))=',date('m',strtotime($fecha)));
             return false;
         }
 
+        function set_records2($output = array())
+        {                   
+            date_default_timezone_set('America/Lima');
+            
+            for ($i=1; $i <= $output['cantidad']; $i++) {
+
+                $idtecnico  = $output['id-' . $i];
+
+    $fecha = (isset($output['fecha-' . $i])? $output['fecha-' . $i] : date('Y-m-d'));
+
+                $asistio    = (isset($output['asistencia-' . $i])) ? $output['asistencia-' . $i] : '0';
+                $falto      = (isset($output['descanso-' . $i])) ? $output['descanso-' . $i] : '0';
+                $motivo     = (isset($output['motivo-' . $i]) && trim($output['motivo-' . $i]) != '') ? $output['motivo-' . $i] : '';
+
+                $data = array(
+                    'idTecnico' => $idtecnico,
+                    'fecha'     =>strtotime($fecha),
+                    'asistencia'   => $asistio,
+                    'descanso'     => $falto,
+                    'motivo'    => $motivo
+                );
+                print_r($data);
+
+                //$result = $this->db->insert('asistencia', $data);
+
+            }
+
+            if($result){
+              return $result;
+            }
+            return false;
+        }
+
+
 }	
