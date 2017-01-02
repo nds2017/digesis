@@ -236,11 +236,11 @@ restore_error_handler();
                         $c=0;                        
                          $monto_desc_rf = $this->_ci->mpenalidades->getPenalidadesById(self::CODIGO_RF);   
                             foreach ($this->atendidos as $key => $value) {
-                                echo $rf=$this->_ci->msolicitudes->solicitudesByIdAndDate($key,true,true);
+                        $rf=$this->_ci->msolicitudes->solicitudesByIdAndDate($key,true);
                                 if ($rf==1)
                                     $c++;
                               }      
-                          echo 'monto'.$desc_rf_no_validada=$monto_desc_rf*$c;
+                          $desc_rf_no_validada=$monto_desc_rf*$c;
 
                         $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($this->atendidos));
                         
