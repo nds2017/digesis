@@ -18,6 +18,7 @@ class Monedero extends CI_Controller {
 	 	securityAccess(array(1));
 		date_default_timezone_set('America/Lima');	
 		$perfil=null;
+		$supervisor=null;
 		$fecha=date('Y-m-d');
 
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'monedero' ));
