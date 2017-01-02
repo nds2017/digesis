@@ -62,7 +62,7 @@
                     <td><input type="text" class="form-control" id="motivo-<?php echo $i ?>" name="motivo-<?php echo $i ?>" placeholder="Motivo" value="<?php echo $motivo ?>"></td>
 
 
-  <td><img width="25px" height="25px"> src="<?php echo ($asistencia==1)? base_url().'encuesta/img/asistio.png':base_url().'encuesta/img/falto.png' ?>"></td>
+  <td><img width="25px" height="25px" src="<?php echo ($asistencia==1)? base_url().'encuesta/img/asistio.png':base_url().'encuesta/img/falto.png' ?>"></td>
 
                   </tr>
                   <?php
