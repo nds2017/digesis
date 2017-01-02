@@ -53,7 +53,7 @@
                 <?php                
                 
                   $i=1;
-                  foreach ($result as $key => $val) {
+                  foreach ($result1 as $key => $val) {
                     $asistencia = '';
                     $descanso = '';
                     $motivo = '';
@@ -94,7 +94,7 @@ $img= base_url().'encuesta/img/falto.png';
                   }                
               ?>
                 <tr>
-                  <td colspan="5">Total Registros: <?php echo count($result) ?></td>
+                  <td colspan="5">Total Registros: <?php echo count($result1) ?></td>
                 </tr>
                 <input type="hidden" id="cantidad" name="cantidad" value="<?php echo count($result) ?>">
               </tbody>
@@ -117,7 +117,7 @@ $img= base_url().'encuesta/img/falto.png';
                 <?php                
                 
                   $i=1;
-                  foreach ($result as $key => $val) {
+                  foreach ($result2 as $key => $val) {
                     $asistencia = '';
                     $descanso = '';
                     $motivo = '';
@@ -157,7 +157,7 @@ $img= base_url().'encuesta/img/falto.png';
                 
               ?>
                 <tr>
-                  <td colspan="5">Total Registros: <?php echo count($result) ?></td>
+                  <td colspan="5">Total Registros: <?php echo count($result2) ?></td>
                 </tr>
                 <input type="hidden" id="cantidad" name="cantidad" value="<?php echo count($result) ?>">
               </tbody>
