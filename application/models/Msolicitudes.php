@@ -22,6 +22,9 @@ class Msolicitudes extends CI_Model
 			$this->db->where('s.distritoid', $distritoid);
 		if ( !empty($solicitudid) )
 			$this->db->where('s.id LIKE "%' . $solicitudid . '%"', NULL, FALSE);
+
+		$this->db->order_by("s.fecha_instalacion, s.horario");
+
 		$query = $this->db->get();
 		if ( $query->num_rows() > 0 ) {
 			return $query->result();
@@ -57,7 +60,7 @@ class Msolicitudes extends CI_Model
 			$this->db->where($where);
 		}
 
-		$this->db->order_by("s.fecha_instalacion, s.id");
+		$this->db->order_by("s.fecha_instalacion, s.horario");
 
 		$query = $this->db->get();
 
@@ -365,6 +368,15 @@ class Msolicitudes extends CI_Model
 		return $rows;
 	}
 
+	public function horarios_entrys() {
+		$rows = array();
+		$query = $this->db->query("SELECT * FROM horarios");
+		foreach ($query->result() as $key=>$row) {
+			$rows[$row->id] = $row->nombreh;
+		}
+		return $rows;
+	}
+
 	public function tiposservicio_entrys() {
 		$rows = array();
 		$query = $this->db->query("SELECT * FROM tiposervicios");
@@ -399,6 +411,10 @@ class Msolicitudes extends CI_Model
 	public function solicitudes_update($data, $id) {
 		$this->db->where('id', $id);
 		$this->db->update('solicitudes', $data);
+	}
+
+	public function solicitudes_programadas($id) {
+		$this->db->replace('solicitudesprogramadas', array('sid' => $id, 'fecha' => strtotime("now")));
 	}
 
 	public function solicitudes_getID($sid) {

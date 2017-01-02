@@ -2,7 +2,7 @@
 			<script src="<?=base_url()?>js/departamentos.js"></script>
 
 			<div class="list-mod-panel">
-				<h1 style="float: left;"> Reportes / Encuestas &nbsp;&nbsp;</h1>
+				<h1 style="float: left;"> Reportes / Eficiencia &nbsp;&nbsp;</h1>
 			</div>
 			<br><br><br><hr>
 			<fieldset class="search">
@@ -44,10 +44,17 @@
 				<thead>
 					<tr>
 						<th scope="col"><span>JEFE</span></th>
-						<th scope="col"><span>SUPERVISORES</span></th>
-						<th scope="col"><span>TÉCNICOS</span></th>
-						<th scope="col"><span>PROMEDIO</span></th>
-						<th scope="col"><span>DETALLE</span></th>
+						<th scope="col"><span>BASE</span></th>
+						<th scope="col"><span>SUPERVISOR</span></th>
+						<th scope="col"><span>Prog.</span></th>
+						<th scope="col"><span>Adic.</span></th>
+						<th scope="col"><span>Total P.</span></th>
+						<th scope="col"><span>Rech.</span></th>
+						<th scope="col"><span>Reprog.</span></th>
+						<th scope="col"><span>Pend.</span></th>
+						<th scope="col"><span>Valid.</span></th>
+						<th scope="col"><span>Sin E.</span></th>
+						<th scope="col"><span>%</span></th>
 					</tr>
 				</thead>
 				<?php if ( isset($data) && count($data) ) { ?>
