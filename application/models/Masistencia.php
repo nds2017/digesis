@@ -86,7 +86,6 @@ $this->db->where('month(FROM_UNIXTIME(fecha))=',date('m',strtotime($fecha)));
             if(!empty($dataa)){
               $this->db->delete('asistencia', array('fecha' =>strtotime($output['date'])));
             }
-
             for ($i=1; $i <= $output['cantidad']; $i++) {
 
                 $idtecnico  = $output['id-' . $i];

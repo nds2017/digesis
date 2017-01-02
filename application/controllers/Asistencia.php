@@ -21,6 +21,7 @@ class Asistencia extends CI_Controller {
 $fecha = $this->input->get('fecha');
 $dni = $this->input->get('dni');
 $fecha=(!empty($fecha))? $fecha:date('Y-m-d');
+$data['dni']= $dni;
 $data['fecha']= $fecha;
  if(!empty($dni))
  	$data['result1']= $this->masistencia->get_records_by_tecnico($dni,$fecha);
@@ -35,8 +36,8 @@ $this->load->view('admin/asistencia_view', $data);
 		 $data = $this->input->post('data');		 
 		 parse_str($data, $output);
 
-		 print_r($output);
-		 exit();
+		 //print_r($output);
+		 //exit();
 		 $datar['result'] = $this->masistencia->set_records($output);
 		 echo json_encode($datar);
    }
