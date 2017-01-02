@@ -2,7 +2,7 @@
 			<script src="<?=base_url()?>js/departamentos.js"></script>
 
 			<div class="list-mod-panel">
-				<h1 style="float: left;"> Reportes / Encuestas &nbsp;&nbsp;</h1>
+				<h1 style="float: left;"> Reportes / Eficiencia &nbsp;&nbsp;</h1>
 			</div>
 			<br><br><br><hr>
 			<fieldset class="search">

@@ -202,7 +202,18 @@ class Solicitudes extends CI_Controller {
 		}
 	}
 
-	public function ajaxTecnicos($cargo = 1) {
+	public function ajaxSupervisores() {
+		if ( $_POST ) {
+			$array[] = array('id' => 0, 'nombre' => '-Seleccione-');
+			$data = $this->msupervisores->supervisores_combo($_POST['id']);
+			foreach ($data as $key => $value) {
+				$array[] = array('id' => $key, 'nombre' => $value);
+			}
+			echo json_encode($array);
+		}
+	}
+
+	public function ajaxTecnicos($cargo = null) {
 		if ( $_POST ) {
 			$array[] = array('id' => 0, 'nombre' => '-Seleccione-');
 			$data = $this->mtecnicos->tecnicos_bySupervisor($_POST['id'], $cargo);
