@@ -149,8 +149,7 @@ $img= base_url().'encuesta/img/falto.png';
 $img= base_url().'encuesta/img/falto.png'; 
 
 if (isset($val->asistencia) and isset($val->descanso))
-  if ($val->asistencia==1 or $val->descanso==1){
-    echo 'paso';
+  if ($val->asistencia==1 or $val->descanso==1){    
    $img=base_url().'encuesta/img/asistio.png';
   }
  
