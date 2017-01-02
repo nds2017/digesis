@@ -9,6 +9,7 @@ class Monedero extends CI_Controller {
            parent::__construct();
 		   $this->load->library('billetera');		   
 		   $this->load->model('mtecnicos');
+		   $this->load->model('msupervisores');		   
 		   is_logged_in() ? true : redirect('admin');
    }
 
@@ -26,6 +27,8 @@ class Monedero extends CI_Controller {
 
 		if (isset($_GET['fecha']))
 			$fecha=$_GET['fecha'];
+
+		$data['supervisores'] = $this->msupervisores->supervisores_combo();
 
 
 		$r_tecnicos=$this->mtecnicos->tecnicos_byCargoMonedero(($perfil=='all')? null:$perfil );

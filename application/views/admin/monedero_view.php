@@ -19,6 +19,14 @@
 
         <div class="form-group" style="margin-top: 15px;">
 
+      <label style="display: inline; float: left; width:6%" for="ejemplo_email_1">Supervisor:</label>
+              <select style="display: inline; float: left; width:12%" name="supid" id="supervisorid">
+                  <option value="0">-Seleccione-</option>
+                  <?php foreach ( $supervisores as $key => $supervisor ) { ?>
+                  <option <?=(@$data->supid==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$supervisor?></option>
+                  <?php } ?>
+                </select>
+
             <label style="display: inline; float: left; width:6%" for="ejemplo_email_1">Tecnico:</label>
             <select required id="tecnico1id" name="tecnico1id" style="float: left;width: 12%">                
                 <option <?php echo (empty($perfil))? 'selected':'' ?> value="all">Todos los Tecnicos </option>
