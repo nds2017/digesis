@@ -37,7 +37,7 @@ class Msolicitudes extends CI_Model
 		$this->db->join('estados e', 'e.id = s.estadoid', 'left');
 		$this->db->join('motivos m', 'm.id = s.motivoid', 'left');
 
-		date_default_timezone_set('America/Lima');
+		//date_default_timezone_set('America/Lima');
 		//date_default_timezone_set('UTC');
 		//date_default_timezone_set("GMT");
 		if ( $today ) {			
@@ -85,7 +85,7 @@ class Msolicitudes extends CI_Model
 		$this->db->join('estados e', 'e.id = s.estadoid', 'left');
 		$this->db->join('motivos m', 'm.id = s.motivoid', 'left');
 
-		date_default_timezone_set('America/Lima');  		
+		//date_default_timezone_set('America/Lima');  		
 		$this->db->where('month(FROM_UNIXTIME(s.fecha_instalacion))=',intval(date("m")));			
 		
 		
