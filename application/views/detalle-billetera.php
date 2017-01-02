@@ -49,7 +49,9 @@
 						<td data-label="Desc.Asist"><?php echo $value['desc_asistencia'] ?></td>
 						<td data-label="Desc.RF"><?php echo $value['desc_rf'] ?></td>
 						<td data-label="Monto"><?php echo $value['total'] ?></td>
+						<?php 
 						$mmonto = $mmonto+$value['total'];
+						?>
 					</tr>
 					<?php 
 						endforeach;
