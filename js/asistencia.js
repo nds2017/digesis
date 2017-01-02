@@ -22,8 +22,9 @@ $( "#frmmonedero" ).on( "click", "#btnbuscar", function() {
 
   $( "#frmasistencia" ).on( "click", "#btnbuscar", function() {
       var fecha = $('#frmasistencia #fecha').val();
-      console.log(fecha);
-      var url =  '/index.php/asistencia/buscar/' + fecha;
+      var dni = $('#frmasistencia #dni').val();
+      console.log(dni);
+      var url =  '/index.php/asistencia/buscar/' + fecha+'&dni='+dni;
       window.location.href = '/index.php/asistencia?fecha='+fecha;
     /*
       $.ajax({

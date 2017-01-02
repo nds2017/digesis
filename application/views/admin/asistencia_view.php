@@ -21,7 +21,7 @@
         <div class="form-group" style="margin-top: 15px;">
 
             <label style="display: inline; float: left; width:6%" for="ejemplo_email_1">DNI:</label>          
-            <input style="float: left;width: 12%" type="text" size="8" name="dni" value="">
+            <input style="float: left;width: 12%" type="text" size="8" id="dni" name="dni" value="">
           <label style="display: inline; float: left; width: 6%; margin-left:10px" for="ejemplo_email_1">Fecha:</label>
           <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" value="<?php echo $fecha?>" style="float: left;width: 12%">
 
@@ -34,6 +34,75 @@
       </fieldset>
       <br>
       <div style="padding-top:10px;" id="resultadoasistencia">
+<?php
+  if(!empty($result1)){    
+?>
+<table class="table table-bordered table-striped">      
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Nombres</th>
+                  <th>fecha</th>
+                  <th>Asistencia</th>
+                  <th>Descanso</th>
+                  <th>Motivo</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php                
+                
+                  $i=1;
+                  foreach ($result as $key => $val) {
+                    $asistencia = '';
+                    $descanso = '';
+                    $motivo = '';
+                    if(isset($val->asistencia) && isset($val->descanso) && isset($val->motivo)){
+                      $asistencia = ($val->asistencia == '1') ? 'checked="checked"' : '';
+                      $descanso = ($val->descanso == '1') ? 'checked="checked"' : '';
+                      $motivo = (trim($val->motivo) != '') ? $val->motivo : '';
+                    }
+                  ?>
+                  <tr>
+                    <td><?php echo $val->id ?></td>
+                    <input type="hidden" id="id-<?php echo $i ?>" name="id-<?php echo $i ?>" value="<?php echo $val->id ?>">
+                    <td><?php echo $val->nombres ?></td>
+                    <td><?php echo $val->fecha ?></td>
+                    <input type="hidden" id="result1" name="result1" value="result1">
+
+                    <td><input type="checkbox" class="form-control" id="asistencia-<?php echo $val->id ?>" name="asistencia-<?php echo $i ?>" <?php echo $asistencia ?> value="1"></td>
+
+                    <td><input type="checkbox" class="form-control" id="descanso-<?php echo $i ?>" name="descanso-<?php echo $i ?>" <?php echo $descanso ?> value="1" ></td>
+
+                    <td><input type="text" class="form-control" id="motivo-<?php echo $i ?>" name="motivo-<?php echo $i ?>" placeholder="Motivo" value="<?php echo $motivo ?>"></td>
+
+
+  <td align="center">  
+<?php 
+if ($val->asistencia==1 or $val->descanso==1)
+ $img=base_url().'encuesta/img/asistio.png';
+else
+$img= base_url().'encuesta/img/falto.png'; 
+
+?>
+
+  <img width="25px" height="30px" src="<?php echo $img; ?>"></td>
+
+                  </tr>
+                  <?php
+                  $i++;
+                  }
+                }
+              ?>
+                <tr>
+                  <td colspan="5">Total Registros: <?php echo count($result) ?></td>
+                </tr>
+                <input type="hidden" id="cantidad" name="cantidad" value="<?php echo count($result) ?>">
+              </tbody>
+            </table>
+<?php 
+  }else if(!empty($result2)){?>
+
       <table class="table table-bordered table-striped">      
               <thead>
                 <tr>
@@ -46,11 +115,8 @@
                 </tr>
               </thead>
               <tbody>
-                <?php
-                // echo '<pre>';
-                // var_dump($result);
-                // echo '</pre>';
-                if(!empty($result)){
+                <?php                
+                
                   $i=1;
                   foreach ($result as $key => $val) {
                     $asistencia = '';
@@ -97,6 +163,9 @@ $img= base_url().'encuesta/img/falto.png';
                 <input type="hidden" id="cantidad" name="cantidad" value="<?php echo count($result) ?>">
               </tbody>
             </table>
+            <?php 
+          }
+            ?>
             </div>
           <div class="divbuttons">
           <input class="btnsearch" type="button" value="Guardar Asistencia" id="grabar" >          

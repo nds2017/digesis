@@ -29,6 +29,25 @@ class Masistencia extends CI_Model
 		return $rows;
 	}
 
+function get_records_by_tecnico($dni=null,$fecha=null)
+    {
+
+            date_default_timezone_set('America/Lima');
+            $data=array();
+            $this->db->select('*');
+            $this->db->from('asistencia');
+            $this->db->join('tecnicos', 'tecnicos.id = asistencia.idtecnico');
+$this->db->where('month(FROM_UNIXTIME(fecha))=',date('m',strtotime($fecha)));
+            $this->db->where('dni',$dni);     
+            $this->db->order_by('fecha');            
+            $query = $this->db->get();            
+            if ( $query->num_rows() > 0 ) {
+                 $data = $query->result();
+            }            
+            
+            return $data;
+    }
+
 	function get_records($fecha = null)
       	{
             date_default_timezone_set('America/Lima');
