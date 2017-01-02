@@ -29,11 +29,11 @@ class Servicios extends CI_Controller {
 		
 		if ($this->input->server('REQUEST_METHOD') == 'GET'){
 
-
+			$categoria=null;
 			$id=$this->input->get('cat');
 			if (!empty($id)){
 
-		$categoria=null;
+		
 	if ($request['categoria']==self::SERVICIO_INSTALACIONES)
 		$categoria="instalacion";
 
