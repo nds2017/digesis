@@ -402,7 +402,7 @@ class Msolicitudes extends CI_Model
 	}
 
 	public function solicitudes_programadas($id) {
-		$this->db->insert('solicitudesprogramadas', array('sid' => $sid, 'fecha' => strtotime("now")));
+		$this->db->replace('solicitudesprogramadas', array('sid' => $sid, 'fecha' => strtotime("now")));
 	}
 
 	public function solicitudes_getID($sid) {
