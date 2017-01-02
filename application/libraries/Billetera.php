@@ -236,7 +236,6 @@ restore_error_handler();
                         $c=0;                        
                         $monto_desc_rf = $this->_ci->mpenalidades->getPenalidadesById(self::CODIGO_RF);   
                             foreach ($this->atendidos as $key => $value) {
-                                echo $key.'---';
                                 $rf=$this->_ci->msolicitudes->solicitudesByIdAndDate($key);
                                 if ($rf)
                                 echo 'reg'.$c++;
