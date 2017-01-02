@@ -96,7 +96,7 @@ $img= base_url().'encuesta/img/falto.png';
                 <tr>
                   <td colspan="5">Total Registros: <?php echo count($result1) ?></td>
                 </tr>
-                <input type="hidden" id="cantidad" name="cantidad" value="<?php echo count($result) ?>">
+                <input type="hidden" id="cantidad" name="cantidad" value="<?php echo count($result1) ?>">
               </tbody>
             </table>
 <?php 
@@ -159,7 +159,7 @@ $img= base_url().'encuesta/img/falto.png';
                 <tr>
                   <td colspan="5">Total Registros: <?php echo count($result2) ?></td>
                 </tr>
-                <input type="hidden" id="cantidad" name="cantidad" value="<?php echo count($result) ?>">
+                <input type="hidden" id="cantidad" name="cantidad" value="<?php echo count($result2) ?>">
               </tbody>
             </table>
             <?php 
