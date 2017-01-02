@@ -30,13 +30,13 @@
 			<?php
 				//$this->db->query("ALTER TABLE `horarios` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;");
 
-			$fields = $this->db->list_fields('solicitudesprogramadas');
+			/*$fields = $this->db->list_fields('solicitudesprogramadas');
 foreach ($fields as $field)
 {
    echo $field . '<br>';
 }
 				$query = $this->db->query("SELECT * FROM solicitudesprogramadas");
-				print_r($query->result());
+				print_r($query->result());*/
 			?>
 			<br>
 			<table class="table table-bordered table-striped">
