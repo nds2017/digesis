@@ -233,7 +233,7 @@ class Solicitudes extends CI_Controller {
 
 	public function edit($id) {
 		date_default_timezone_set('America/Lima');
-		date_default_timezone_set("GMT");
+		//date_default_timezone_set("GMT");
 		if ( $_POST ) {			
 			$fecha=$this->input->post('fecha_instalacion');			
 			securityAccess(array(1));
@@ -268,7 +268,7 @@ class Solicitudes extends CI_Controller {
 
 	public function add() {
 		date_default_timezone_set('America/Lima');
-		date_default_timezone_set("GMT");
+		//date_default_timezone_set("GMT");
 		if ( $_POST ) {
 			$session = get_session();
 			$fecha=$this->input->post('fecha_instalacion');			
