@@ -126,7 +126,7 @@ $this->db->where('month(FROM_UNIXTIME(fecha))=',date('m',strtotime($fecha)));
 
                 $idtecnico  = $output['id-' . $i];
 
-    $fecha = (isset($output['fecha-' . $i])? $output['fecha-' . $i] : date('Y-m-d'));
+    echo $fecha = !empty($output['fecha-' . $i])? $output['fecha-' . $i] : date('Y-m-d');
 
                 $asistio    = (isset($output['asistencia-' . $i])) ? $output['asistencia-' . $i] : '0';
                 $falto      = (isset($output['descanso-' . $i])) ? $output['descanso-' . $i] : '0';
