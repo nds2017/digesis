@@ -35,8 +35,8 @@ $this->load->view('admin/asistencia_view', $data);
 		 $data = $this->input->post('data');		 
 		 parse_str($data, $output);
 
-		 print_r($output);
-		 exit();
+		 //print_r($output);
+		 //exit();
 		 $datar['result'] = $this->masistencia->set_records($output);
 		 echo json_encode($datar);
    }

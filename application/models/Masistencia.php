@@ -107,7 +107,9 @@ $this->db->where('month(FROM_UNIXTIME(fecha))=',date('m',strtotime($fecha)));
                     'descanso'     => $falto,
                     'motivo'    => $motivo
                 );
-                $result = $this->db->insert('asistencia', $data);
+                print_r($data);
+
+                //$result = $this->db->insert('asistencia', $data);
 
             }
 
