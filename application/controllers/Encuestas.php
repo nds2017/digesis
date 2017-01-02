@@ -67,14 +67,15 @@ class Encuestas extends CI_Controller {
 
 	public function reprogramar() {
 		if ( isset($_POST) && count($_POST) ) {
-			if ( strtotime(date('Y-m-d')) < strtotime($_POST['fecha']) ) {
+			var_dump($_POST);
+			/*if ( strtotime(date('Y-m-d')) < strtotime($_POST['fecha']) ) {
 				$form = array('id' => $_POST['sid'], 'horario' => $_POST['tiempo'] , 'fecha_instalacion' => $_POST['fecha'], 'motivoid' => $_POST['motivoid'], 'estadoid' => 4);
 				$this->msolicitudes->solicitudes_update($form, $_POST['sid']);
 				$this->msolicitudes->solicitudes_programadas($_POST['sid']);
 				echo json_encode(array('status' => true));
 			}
 			else
-				echo json_encode(array('status' => false));
+				echo json_encode(array('status' => false));*/
 		}
 		else
 			redirect('welcome');
