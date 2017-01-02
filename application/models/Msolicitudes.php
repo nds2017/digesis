@@ -485,10 +485,10 @@ class Msolicitudes extends CI_Model
 		$this->db->where('s.rf', 2); // estado observado
 		$query = $this->db->get();		
 		//exit;		
-		if ( $query->num_rows() > 0 ) {			
+		if ( $query->num_rows() > 0 ) 
 			return 1;
-		}
-		return 0;		
+		else
+			return 0;		
 	}
 
 
