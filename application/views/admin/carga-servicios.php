@@ -11,7 +11,8 @@
  //$("div.toolbar").html('<b>Custom tool bar! Text/images etc.</b>');
 
 $('#sel_categoria').on( 'change', function () {
-	console.log($(this).val());
+	var id=$(this).val();
+	document.location.href="/index.php/servicios?cat="+id;
 });	
  
 

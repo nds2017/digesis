@@ -23,11 +23,15 @@ class Mservicios extends CI_Model
 		$this->db->insert('servicios', $data);
 	}
 
-	public function get()
+	public function get($id=null)
 	{
 
 	$this->db->select('s.*');
 	$this->db->from('servicios s');	
+
+	if (!empty($id))
+		$this->db->where('categoria', $id);
+
 	$query = $this->db->get();
 	if ( $query->num_rows() > 0 )
 		return $query->result();

@@ -29,9 +29,25 @@ class Servicios extends CI_Controller {
 		
 		if ($this->input->server('REQUEST_METHOD') == 'GET'){
 
+
+			$id=$this->input->get('cat');
+			if (!empty($id)){
+
+		$categoria=null;
+	if ($request['categoria']==self::SERVICIO_INSTALACIONES)
+		$categoria="instalacion";
+
+	if ($request['categoria']==self::SERVICIO_MANTENIMIENTO)
+		$categoria='mantenimiento';
+
+	if ($request['categoria']==self::SERVICIO_POST_VENTA)
+		$categoria='post instalacion';
+
+			}
+
 			$r_categoria=$this->mservicios->get_tipo_servicios();
-			$data['categorias']=$r_categoria;
-			$r_servicios=$this->mservicios->get();
+			$data['categorias']=$r_categoria;			
+			$r_servicios=$this->mservicios->get($categoria);
 			$data['servicios']=$r_servicios;
 	 		$this->load->view('admin/carga-servicios',$data);
 		}else if ($this->input->server('REQUEST_METHOD') == 'POST'){
