@@ -19,7 +19,7 @@ class Asistencia extends CI_Controller {
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'asistencia' ));
 
 $fecha = $this->input->get('fecha');
-echo 'ss'.$dni = $this->input->get('dni');
+$dni = $this->input->get('dni');
 $fecha=(!empty($fecha))? $fecha:date('Y-m-d');
 $data['fecha']= $fecha;
  if(!empty($dni))
