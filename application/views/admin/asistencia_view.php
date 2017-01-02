@@ -25,7 +25,8 @@
           <label style="display: inline; float: left; width: 6%; margin-left:10px" for="ejemplo_email_1">Fecha:</label>          
           <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" value="<?php echo $fecha?>" style="float: left;width: 12%">
 
-          <input type="hidden" class="form-control" id="date" name="date" value="<?php echo $fecha?>">
+<!--
+          <input type="hidden" class="form-control" id="date" name="date" value="<?php echo $fecha?>"> -->
           <button type="button" style="float:left;width:12%" class="btn btn-success" id="btnbuscar">Buscar</button>     
         </div>
 

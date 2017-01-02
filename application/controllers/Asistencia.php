@@ -29,7 +29,7 @@ class Asistencia extends CI_Controller {
 		  	$data['result'] 	= $this->masistencia->get_records($fecha);
 		}
 
-		$data['date']= $fecha;
+		$data['fecha']= $fecha;
 		$this->load->view('admin/asistencia_view', $data);
 	 }
 
