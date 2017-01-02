@@ -483,11 +483,12 @@ class Msolicitudes extends CI_Model
 		endif;	
 		$this->db->where('s.id LIKE "%' . $sid . '%"', NULL, FALSE);
 		$this->db->where('s.rf', 2); // estado observado
-		$query = $this->db->get();
-		//echo $this->db->last_query();
+		$query = $this->db->get();		
 		//exit;
 		$query->num_rows();
 		if ( $query->num_rows() > 0 ) {
+			echo $this->db->last_query();
+			exit;
 			return true;
 		}
 		return false;		
