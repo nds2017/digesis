@@ -82,6 +82,7 @@ private function getComisionDia($tid=null){
 /* pago por Sot validadas*/
 $this->atendidos =$this->_ci->msolicitudes->solicitudes_encuestas($tid, 2, true);
 print_r($this->atendidos);
+exit;
 $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($this->atendidos));
 if (!empty($rcosto)){
     $this->monto_sot=$rcosto[0]->monto;
