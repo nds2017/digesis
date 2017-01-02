@@ -56,8 +56,8 @@ $this->db->where('month(FROM_UNIXTIME(fecha))=',date('m',strtotime($fecha)));
             $this->db->join('tecnicos', 'tecnicos.id = asistencia.idtecnico');
         	$this->db->where('fecha', strtotime($fecha));
             $query = $this->db->get();
-            //echo $this->db->last_query();
-            //exit();
+            echo $this->db->last_query();
+            exit();
             //$data = $query->result();
             //
             if ( $query->num_rows() > 0 ) {
