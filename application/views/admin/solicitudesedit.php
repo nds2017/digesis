@@ -91,6 +91,17 @@ $(document).ready(function() {
 				<tr>
 					<td>Plano : </td><td><input required maxlength="20" type="text" name="plano" value="<?=@$data->plano?>"></td>
 				</tr>
+				<tr>
+					<td>Horario : </td>
+					<td>
+						<select name="horarioid">
+							<option value="0">-Seleccione-</option>
+							<?php foreach ( $horarios as $key => $horario ) { ?>
+								<option <?=(@$data->horario==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$horario?></option>
+							<?php } ?>
+						</select>
+					</td>
+				</tr>
 				<?php if ( @$data->id ) { ?>
 				<tr>
 					<td>Estado : </td>
@@ -109,17 +120,6 @@ $(document).ready(function() {
 							<option value="0">-Seleccione-</option>
 							<?php foreach ( $motivos as $key => $motivo ) { ?>
 								<option <?=(@$data->motivoid==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$motivo?></option>
-							<?php } ?>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td>Horario : </td>
-					<td>
-						<select name="horarioid">
-							<option value="0">-Seleccione-</option>
-							<?php foreach ( $horarios as $key => $horario ) { ?>
-								<option <?=(@$data->horario==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$horario?></option>
 							<?php } ?>
 						</select>
 					</td>
