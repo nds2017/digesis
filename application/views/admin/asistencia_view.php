@@ -154,7 +154,7 @@ if (!empty($val->asistencia))
    $img=base_url().'encuesta/img/asistio.png';
   }
  else
-  $img= base_url().'encuesta/img/falto.png'; 
+  echo $img= base_url().'encuesta/img/falto.png'; 
 ?>
 
   <img width="25px" height="30px" src="<?php echo $img; ?>"></td>
