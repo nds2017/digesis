@@ -27,6 +27,8 @@ $data['fecha']= $fecha;
  else
  	$data['result2']= $this->masistencia->get_records($fecha);
 
+print_r($data);
+exit();
 
 $this->load->view('admin/asistencia_view', $data);
 	 }
