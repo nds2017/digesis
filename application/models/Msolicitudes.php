@@ -401,6 +401,10 @@ class Msolicitudes extends CI_Model
 		$this->db->update('solicitudes', $data);
 	}
 
+	public function solicitudes_programadas($id) {
+		$this->db->insert('solicitudesprogramadas', array('sid' => $sid, 'fecha' => strtotime("now")));
+	}
+
 	public function solicitudes_getID($sid) {
 		$query = $this->db->query("SELECT id FROM solicitudes WHERE id = '$sid'");
 		return $query->num_rows();
