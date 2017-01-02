@@ -62,7 +62,7 @@ $( "#frmmonedero" ).on( "click", "#btnbuscar", function() {
         dataType : 'json',
         success : function(json) {
               alert('Asistencia guardada correctamente');
-            // window.location.href = url;
+              window.location.href = '/index.php/asistencia?fecha='+fecha;
             // history.pushState(null, "", url);
             // $('#frmasistencia #resultadoasistencia').html(json.result);
         },
