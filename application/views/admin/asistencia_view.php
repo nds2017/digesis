@@ -146,7 +146,7 @@ $img= base_url().'encuesta/img/falto.png';
 
   <td align="center">  
 <?php 
-
+echo $val->descanso;
 if (!empty($val->asistencia))
   if ($val->asistencia==1 or $val->descanso==1)
    $img=base_url().'encuesta/img/asistio.png';
