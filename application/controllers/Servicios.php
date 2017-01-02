@@ -30,17 +30,17 @@ class Servicios extends CI_Controller {
 		if ($this->input->server('REQUEST_METHOD') == 'GET'){
 
 			$categoria=null;
-			$id=$this->input->get('cat');
-			if (!empty($id)){
+			$cat=$this->input->get('cat');
+			if (!empty($cat)){
 
 		
-	if ($request['categoria']==self::SERVICIO_INSTALACIONES)
+	if ($cat==self::SERVICIO_INSTALACIONES)
 		$categoria="instalacion";
 
-	if ($request['categoria']==self::SERVICIO_MANTENIMIENTO)
+	if ($cat==self::SERVICIO_MANTENIMIENTO)
 		$categoria='mantenimiento';
 
-	if ($request['categoria']==self::SERVICIO_POST_VENTA)
+	if ($cat==self::SERVICIO_POST_VENTA)
 		$categoria='post instalacion';
 
 			}
