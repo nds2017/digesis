@@ -23,7 +23,7 @@
               <select style="display: inline; float: left; width:12%" name="supid" id="supervisorid">
                   <option value="0">-Seleccione-</option>
                   <?php foreach ( $supervisores as $key => $supervisor ) { ?>
-                  <option <?=(@$data->supid==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$supervisor?></option>
+                  <option <?=(@$supid==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$supervisor?></option>
                   <?php } ?>
                 </select>
 

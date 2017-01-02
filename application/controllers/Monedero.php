@@ -54,6 +54,7 @@ class Monedero extends CI_Controller {
 			'result'=>$result,
 			'fecha'=>$fecha,
 			'perfil'=>$perfil,
+			'supid'=>$supervisor,
 			'supervisores'=>$supervisores
 			);
 
