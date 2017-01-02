@@ -37,6 +37,8 @@
 <?php
   if(!empty($result1)){    
 ?>
+<input type="hidden" id="result" name="result" value="result1">
+
 <table class="table table-bordered table-striped">      
               <thead>
                 <tr>
@@ -67,9 +69,7 @@
                     <td><?php echo $val->id ?></td>
                     <input type="hidden" id="id-<?php echo $i ?>" name="id-<?php echo $i ?>" value="<?php echo $val->id ?>">
                     <td><?php echo $val->nombres ?></td>
-    <td><?php echo date('Y-m-d',$val->fecha) ?></td>
-                    <input type="hidden" id="result1" name="result1" value="result1">
-
+    <td><?php echo date('Y-m-d',$val->fecha) ?></td>                    
                     <td><input type="checkbox" class="form-control" id="asistencia-<?php echo $val->id ?>" name="asistencia-<?php echo $i ?>" <?php echo $asistencia ?> value="1"></td>
 
                     <td><input type="checkbox" class="form-control" id="descanso-<?php echo $i ?>" name="descanso-<?php echo $i ?>" <?php echo $descanso ?> value="1" ></td>
@@ -102,6 +102,7 @@ $img= base_url().'encuesta/img/falto.png';
 <?php 
   }else if(!empty($result2)) {?>
 
+<input type="hidden" id="result" name="result" value="result2">
       <table class="table table-bordered table-striped">      
               <thead>
                 <tr>
@@ -127,6 +128,7 @@ $img= base_url().'encuesta/img/falto.png';
                       $motivo = (trim($val->motivo) != '') ? $val->motivo : '';
                     }
                   ?>
+                  
                   <tr>
                     <td><?php echo $val->id ?></td>
                     <input type="hidden" id="id-<?php echo $i ?>" name="id-<?php echo $i ?>" value="<?php echo $val->id ?>">

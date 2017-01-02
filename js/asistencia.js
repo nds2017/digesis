@@ -53,7 +53,12 @@ $( "#frmmonedero" ).on( "click", "#btnbuscar", function() {
 
   $( "#grabar" ).on( "click", function() {
       var fecha = $('#fecha').val();
-      var url = '/index.php/asistencia/grabar';
+      var result = $('#result').val();
+
+      if (result=='result2')
+        var url = '/index.php/asistencia/grabar';
+      else
+        var url= '/index.php/asistencia/grabar_asistencia';
 
       var data = $('#frmasistencia').serialize();    
       $.ajax({
