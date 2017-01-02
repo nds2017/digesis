@@ -25,8 +25,9 @@
           <label style="display: inline; float: left; width: 6%; margin-left:10px" for="ejemplo_email_1">Fecha:</label>
           <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" value="<?php echo $fecha?>" style="float: left;width: 12%">
 
-<!--
-          <input type="hidden" class="form-control" id="date" name="date" value="<?php echo $fecha?>"> -->
+
+          <input type="hidden" class="form-control" id="date" name="date" value="<?php echo $fecha?>"> 
+          
           <button type="button" style="float:left;width:12%" class="btn btn-success" id="btnbuscar">Buscar</button>     
         </div>
 
@@ -128,7 +129,7 @@ $img= base_url().'encuesta/img/falto.png';
                       $motivo = (trim($val->motivo) != '') ? $val->motivo : '';
                     }
                   ?>
-                  
+
                   <tr>
                     <td><?php echo $val->id ?></td>
                     <input type="hidden" id="id-<?php echo $i ?>" name="id-<?php echo $i ?>" value="<?php echo $val->id ?>">
