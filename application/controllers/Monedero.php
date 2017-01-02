@@ -28,7 +28,7 @@ class Monedero extends CI_Controller {
 		if (isset($_GET['fecha']))
 			$fecha=$_GET['fecha'];
 
-		$data['supervisores'] = $this->msupervisores->supervisores_combo();
+		$supervisores = $this->msupervisores->supervisores_combo();
 
 
 		$r_tecnicos=$this->mtecnicos->tecnicos_byCargoMonedero(($perfil=='all')? null:$perfil );
@@ -49,7 +49,8 @@ class Monedero extends CI_Controller {
 		$data=array(
 			'result'=>$result,
 			'fecha'=>$fecha,
-			'perfil'=>$perfil
+			'perfil'=>$perfil,
+			'supervisores'=>$supervisores
 			);
 
 		$this->load->view('admin/monedero_view', $data);
