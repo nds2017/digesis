@@ -66,7 +66,7 @@
 							<th>%eficiencia</th>
 							<th>Monto Eficiencia</th>
 							<th>Monto SOT</th>
-							<th>Desc.Incidencia</th>
+							<!--<th>Desc.Incidencia</th>-->
 							<th>Pago del Mes</th>							
 						</tr>
 					</thead>
@@ -80,8 +80,9 @@
 
 	<!--
 	<td data-label="Desc.Incidencia"><?php echo $resumen['comision_mes']['desc_mes_insidencia']?></td>
-	<td data-label="Pago del Mes"><?php echo $resumen['comision_mes']['monto']?></td>
 	-->
+	<td data-label="Pago del Mes"><?php echo $resumen['comision_mes']['monto']?></td>
+	
 	</tr>
 					</tbody>
 					</table>	
