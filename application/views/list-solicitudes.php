@@ -125,7 +125,7 @@
 				<img src="<?=base_url()?>encuesta/img/logo.png"/>
 			</div>
 			<div class="cont_billetera">
-				<a  href="#" class="billetera">Billetera Digital</a>
+				<a  href="#" class="billetera">Monedero Digital</a>
 			</div>	
 			<div style="clear: both;"></div>
 			</header>
