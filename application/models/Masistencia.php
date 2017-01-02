@@ -126,7 +126,7 @@ $this->db->where('month(FROM_UNIXTIME(fecha))=',date('m',strtotime($fecha)));
 
                 $idtecnico  = $output['id-' . $i];
 
-    echo $fecha = !empty($output['fecha-' . $i])? $output['fecha-' . $i] : date('Y-m-d');
+$fecha = !empty($output['fecha-' . $i])? $output['fecha-' . $i] : date('Y-m-d');
 
                 $asistio    = (isset($output['asistencia-' . $i])) ? $output['asistencia-' . $i] : '0';
                 $falto      = (isset($output['descanso-' . $i])) ? $output['descanso-' . $i] : '0';
@@ -139,7 +139,10 @@ $this->db->where('month(FROM_UNIXTIME(fecha))=',date('m',strtotime($fecha)));
                     'descanso'     => $falto,
                     'motivo'    => $motivo
                 );
-                print_r($data);
+                
+        $this->db->where('idTecnico', $idtecnico);
+        $this->db->where('fecha', $fecha);
+      $result = $this->db->update('mytable', $data); 
     //$result = $this->db->update('asistencia', $data);
                 //$result = $this->db->insert('asistencia', $data);
 
