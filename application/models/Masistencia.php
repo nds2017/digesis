@@ -134,7 +134,7 @@ $this->db->where('month(FROM_UNIXTIME(fecha))=',date('m',strtotime($fecha)));
 
                 $data = array(
                     'idTecnico' => $idtecnico,
-                    'fecha'     =>strtotime($fecha),
+                    'fecha'     =>$fecha,
                     'asistencia'   => $asistio,
                     'descanso'     => $falto,
                     'motivo'    => $motivo
