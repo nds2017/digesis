@@ -58,7 +58,7 @@ $( "#frmmonedero" ).on( "click", "#btnbuscar", function() {
       if (result=='result2')
         var url = '/index.php/asistencia/grabar';
       else
-        var url= '/index.php/asistencia/grabar_asistencia';
+        var url= '/index.php/asistencia/grabar';
 
       var data = $('#frmasistencia').serialize();    
       $.ajax({
