@@ -474,7 +474,7 @@ class Msolicitudes extends CI_Model
 	}
 
 	/*JC*/
-	public function solicitudesByIdAndDate($sid,$flag=false){		
+	public function solicitudesByIdAndDate($sid,$flag=false,$r=false){		
 		$this->db->select('s.id,s.rf');
 		$this->db->from('solicitudes s');
 		if ($flag==false):
@@ -484,10 +484,12 @@ class Msolicitudes extends CI_Model
 		$this->db->where('s.id LIKE "%' . $sid . '%"', NULL, FALSE);
 		$this->db->where('s.rf', 2); // estado observado
 		$query = $this->db->get();		
-		//exit;		
-		echo $query->num_rows();
-		if ( $query->num_rows() > 0 ) 
+		if ($r)
+			echo $query->last_query();
+		
+		if ( $query->num_rows() > 0 ) {			
 			return 1;
+		}
 		else
 			return 0;		
 	}
