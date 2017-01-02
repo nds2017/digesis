@@ -28,22 +28,16 @@
 
 			<h1>Solicitudes Cargadas Desde <?=date('d-m-Y')?></h1>
 			<?php
-				$this->db->query("ALTER TABLE `solicitudes` ADD `modtime` INT NOT NULL AFTER `motivorf`, ADD `upload` TINYINT(1) NOT NULL DEFAULT '1' AFTER `modtime`, ADD `horario` TINYINT(1) NOT NULL DEFAULT '1' AFTER `upload`;");
-				$this->db->query("CREATE TABLE IF NOT EXISTS `horarios` (
-  `id` int(11) NOT NULL,
-  `nombreh` varchar(15) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;");
-			$this->db->query("INSERT INTO `horarios` (`id`, `nombreh`) VALUES
-(1, 'Mañana'),
-(2, 'Tarde');");
+				$this->db->query("ALTER TABLE `horarios` ADD PRIMARY KEY (`id`);");
+				$this->db->query("ALTER TABLE `horarios` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;");
 
-			$fields = $this->db->list_fields('horarios');
+			/*$fields = $this->db->list_fields('horarios');
 foreach ($fields as $field)
 {
    echo $field . '<br>';
-}
-				$query = $this->db->query("SELECT * FROM horarios");
-				print_r($query->result());
+}*/
+				//$query = $this->db->query("SELECT * FROM horarios");
+				//print_r($query->result());
 			?>
 			<br>
 			<table class="table table-bordered table-striped">
