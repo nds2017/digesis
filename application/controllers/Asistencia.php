@@ -36,8 +36,8 @@ $this->load->view('admin/asistencia_view', $data);
 		 $data = $this->input->post('data');		 
 		 parse_str($data, $output);
 
-		 //print_r($output);
-		 //exit();
+		 print_r($output);
+		 exit();
 		 if (!empty($output['dni']))
 		 		$datar['result'] = $this->masistencia->set_records2($output);
 		 else
