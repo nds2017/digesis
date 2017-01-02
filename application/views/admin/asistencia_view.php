@@ -91,8 +91,7 @@ $img= base_url().'encuesta/img/falto.png';
                   </tr>
                   <?php
                   $i++;
-                  }
-                }
+                  }                
               ?>
                 <tr>
                   <td colspan="5">Total Registros: <?php echo count($result) ?></td>
@@ -101,7 +100,7 @@ $img= base_url().'encuesta/img/falto.png';
               </tbody>
             </table>
 <?php 
-  }else if(!empty($result2)){?>
+  }else if(!empty($result2)) {?>
 
       <table class="table table-bordered table-striped">      
               <thead>
@@ -155,7 +154,7 @@ $img= base_url().'encuesta/img/falto.png';
                   <?php
                   $i++;
                   }
-                }
+                
               ?>
                 <tr>
                   <td colspan="5">Total Registros: <?php echo count($result) ?></td>
