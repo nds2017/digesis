@@ -149,9 +149,9 @@ if (!empty($eficiencia))
 /* descuento de inasistencias*/
 
 $r_asistencia=$this->_ci->masistencia->getAsistenciaByIdAndMonth($tid);
-
+$monto_desc_asistencia=0;
 if (!empty($r_asistencia)):
-  $monto_desc_asistencia=0;                            
+                              
   foreach ($r_asistencia as $key => $value) {  
     $fecha= gmdate("Y-m-d", $value->fecha);
     if ($value->asistencia==0){
