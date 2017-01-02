@@ -218,6 +218,7 @@ restore_error_handler();
     $r_data['desc_mes_insidencia']=$desc_mes_insidencia;
 
     $r_data['monto']=($comision_mes_sot + $comision_mes_eficiencia - ($desc_mes_inasistencia + $desc_mes_rf_no_validada +$desc_mes_insidencia));
+    
     return $r_data;
 
     return ($comision_mes_sot + $comision_mes_eficiencia - ($desc_mes_inasistencia + $desc_mes_rf_no_validada +$desc_mes_insidencia));

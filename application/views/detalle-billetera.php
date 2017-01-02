@@ -39,6 +39,7 @@
 					</thead>
 					<tbody>
 					<?php 
+					$mmonto=0;
 					foreach($detalle as $key=>$value):
 					?>
 					<tr>
@@ -48,6 +49,7 @@
 						<td data-label="Desc.Asist"><?php echo $value['desc_asistencia'] ?></td>
 						<td data-label="Desc.RF"><?php echo $value['desc_rf'] ?></td>
 						<td data-label="Monto"><?php echo $value['total'] ?></td>
+						$mmonto = $mmonto+$value['total'];
 					</tr>
 					<?php 
 						endforeach;
@@ -70,9 +72,14 @@
 	<tr>
 <td data-label="%eficiencia"><?php echo $resumen['comision_mes']['porcentaje']?></td>
 <td data-label="Monto Eficiencia"><?php echo $resumen['comision_mes']['comision_mes_eficiencia']?></td>
-	<td data-label="Monto SOT"><?php echo $resumen['comision_mes']['comision_mes_sot']?></td>
+
+
+	<td data-label="Monto SOT"><?php echo $mmonto //$resumen['comision_mes']['comision_mes_sot']?></td>
+
+	<!--
 	<td data-label="Desc.Incidencia"><?php echo $resumen['comision_mes']['desc_mes_insidencia']?></td>
 	<td data-label="Pago del Mes"><?php echo $resumen['comision_mes']['monto']?></td>
+	-->
 	</tr>
 					</tbody>
 					</table>	
