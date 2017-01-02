@@ -262,7 +262,8 @@ class Solicitudes extends CI_Controller {
 				'usuarioid' => $session->id,
 				'estadoid' => $this->input->post('estadoid'),
 				'motivoid' => $this->input->post('motivoid'),
-				'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($fecha) : strtotime('now')
+				'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($fecha) : strtotime('now'),
+				'modtime' => strtotime("now")
 			);
 			$this->msolicitudes->solicitudes_update($formdata, $id);
 			$formdata = array(
@@ -291,10 +292,12 @@ class Solicitudes extends CI_Controller {
 				'plano' => $this->input->post('plano'),
 				'cliente' => $this->input->post('cliente'),
 				'direccion' => $this->input->post('direccion'),
-				'regionid' => $this->input->post('regionid')
-	,			'distritoid' => $this->input->post('distritoid'),
+				'regionid' => $this->input->post('regionid'),
+				'distritoid' => $this->input->post('distritoid'),
 				'usuarioid' => $session->id,
-				'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($fecha) : strtotime('now')
+				'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($fecha) : strtotime('now'),
+				'horario' => 1,
+				'modtime' => strtotime("now")
 			);
 			$this->msolicitudes->solicitudes_create($formdata);
 			$formdata = array(
@@ -390,6 +393,7 @@ class Solicitudes extends CI_Controller {
 	}
 
 	public function carga() {
+		date_default_timezone_set('America/Lima');
 		$session = get_session();
 		securityAccess(array(1, 3));
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'solicitudesload' ));
@@ -416,7 +420,10 @@ class Solicitudes extends CI_Controller {
 							'direccion' => $datos[3],
 							'distritoid' => $this->mdepartamentos->distritos_getDistrito($datos[4], $datos[5], $datos[6]),
 							'usuarioid' => $session->id,
-							'fecha_instalacion' => empty($datos[8]) ? strtotime(date('d-m-Y')) : strtotime($fecha)
+							'fecha_instalacion' => empty($datos[8]) ? strtotime(date('d-m-Y')) : strtotime($fecha),
+							'upload' => 1,
+							'horario' => 1,
+							'modtime' => strtotime("now")
 						);
 						if ( $this->msolicitudes->solicitudes_getID($datos[0]) ) {
 							$updates++;

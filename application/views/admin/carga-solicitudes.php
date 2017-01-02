@@ -28,27 +28,22 @@
 
 			<h1>Solicitudes Cargadas Desde <?=date('d-m-Y')?></h1>
 			<?php
-				//$this->db->query("DELETE FROM `solicitudes` WHERE id = 2147483647");
-				//$this->db->query("DELETE FROM `solicitudestecnicos` WHERE sid = 't75r65'");
-			/*$this->db->query("CREATE TABLE IF NOT EXISTS `tblreseteopass` (
-`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-`userid` int(11) unsigned NOT NULL,
-`username` varchar(20) NOT NULL,
-`token` varchar(64) NOT NULL,
-`fecha` int(11) NOT NULL,
-`active` tinyint(1) NOT NULL,
-PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");
+				$this->db->query("ALTER TABLE `solicitudes` ADD `modtime` INT NOT NULL AFTER `motivorf`, ADD `upload` TINYINT(1) NOT NULL DEFAULT '1' AFTER `modtime`, ADD `horario` TINYINT(1) NOT NULL DEFAULT '1' AFTER `upload`;");
+				$this->db->query("CREATE TABLE IF NOT EXISTS `horarios` (
+  `id` int(11) NOT NULL,
+  `nombreh` varchar(15) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;");
+			$this->db->query("INSERT INTO `horarios` (`id`, `nombreh`) VALUES
+(1, 'Mañana'),
+(2, 'Tarde');");
 
-*/
-			/*$fields = $this->db->list_fields('solicitudestecnicos');
+			$fields = $this->db->list_fields('horarios');
 foreach ($fields as $field)
 {
    echo $field . '<br>';
 }
-				//$this->db->query("DELETE FROM logsolicitudesrf WHERE sid = ''");
-				/*$query = $this->db->query("SELECT preguntaid, respuesta FROM encuestas WHERE sid = '24233621'");
-				print_r($query->result());*/
+				$query = $this->db->query("SELECT * FROM horarios");
+				print_r($query->result());
 			?>
 			<br>
 			<table class="table table-bordered table-striped">
