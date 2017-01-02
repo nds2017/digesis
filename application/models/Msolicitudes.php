@@ -485,6 +485,7 @@ class Msolicitudes extends CI_Model
 		$this->db->where('s.rf', 2); // estado observado
 		$query = $this->db->get();		
 		//exit;		
+		echo $query->num_rows();
 		if ( $query->num_rows() > 0 ) 
 			return 1;
 		else
