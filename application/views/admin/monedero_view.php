@@ -31,7 +31,8 @@
 
           <input type="hidden" class="form-control" id="date" name="date" value="<?php echo $fecha?>">
           <button type="button" style="float:left;width:12%" class="btn btn-success" id="btnbuscar">Buscar</button>     
-        </div>      
+        </div>
+              
         </div>
      </form>
   </fieldset>

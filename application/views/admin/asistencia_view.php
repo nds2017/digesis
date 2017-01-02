@@ -1,3 +1,9 @@
+<script type="text/javascript">
+    $(function() {
+      $('#frmasistencia #fecha').val(<?php echo "'".$fecha."'"; ?>);                
+    });
+    </script>
+
       </div>
       <script src="<?=base_url()?>js/departamentos.js"></script>
 
@@ -12,12 +18,17 @@
         <div class="container_buscar_fecha"> 
           <span class="" style="margin-bottom: 15px;">Fecha: <?php echo date('l, j \of  F Y') ?></span>
 
-        <div class="form-group">
-          <label for="ejemplo_email_1">Fecha:</label>
-          <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" style="float: left;width: 40%" value="<?php echo $date ?>">
-          <input type="hidden" class="form-control" id="date" name="date" value="<?php echo $date ?>">
-          <button type="button" class="btn btn-success" id="btnbuscar">Buscar</button>     
-        </div>      
+        <div class="form-group" style="margin-top: 15px;">
+
+            <label style="display: inline; float: left; width:6%" for="ejemplo_email_1">DNI:</label>          
+            <input type="text" size="8" name="dni" value="">
+          <label style="display: inline; float: left; width: 6%; margin-left:10px" for="ejemplo_email_1">Fecha:</label>          
+          <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" value="<?php echo $fecha?>" style="float: left;width: 12%">
+
+          <input type="hidden" class="form-control" id="date" name="date" value="<?php echo $fecha?>">
+          <button type="button" style="float:left;width:12%" class="btn btn-success" id="btnbuscar">Buscar</button>     
+        </div>
+
         </div>
       </fieldset>
       <br>
