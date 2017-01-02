@@ -22,6 +22,9 @@ class Msolicitudes extends CI_Model
 			$this->db->where('s.distritoid', $distritoid);
 		if ( !empty($solicitudid) )
 			$this->db->where('s.id LIKE "%' . $solicitudid . '%"', NULL, FALSE);
+
+		$this->db->order_by("s.fecha_instalacion, s.horario, s.id");
+
 		$query = $this->db->get();
 		if ( $query->num_rows() > 0 ) {
 			return $query->result();
