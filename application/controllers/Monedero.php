@@ -28,10 +28,13 @@ class Monedero extends CI_Controller {
 		if (isset($_GET['fecha']))
 			$fecha=$_GET['fecha'];
 
+		if (isset($_GET['supervisor']))
+			$supervisor=$_GET['supervisor'];
+
 		$supervisores = $this->msupervisores->supervisores_combo();
 
 
-		$r_tecnicos=$this->mtecnicos->tecnicos_byCargoMonedero(($perfil=='all')? null:$perfil );
+		$r_tecnicos=$this->mtecnicos->tecnicos_byCargoMonedero(($perfil=='all')? null:$perfil,$supervisor);
 		
 		$result=array();
 		if (!empty($r_tecnicos)):

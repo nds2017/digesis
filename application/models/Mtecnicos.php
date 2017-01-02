@@ -49,12 +49,15 @@ class Mtecnicos extends CI_Model
 		return $rows;
 	}
 
-	public function tecnicos_byCargoMonedero($cargo = null) {
+	public function tecnicos_byCargoMonedero($cargo = null,$sup=null) {
 		$rows = array();
 		$this->db->select('id, CONCAT(nombres, " ", apellidos) AS tnombres,dni,cargo');
 		$this->db->from('tecnicos');
 		if (!empty($cargo))
 			$this->db->where('cargo', $cargo);
+		if (!empty($sup))
+			$this->db->where('supervisorid', $sup);
+
 		$this->db->where('publish', 1);
 
 		$query = $this->db->get();
