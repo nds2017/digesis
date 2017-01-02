@@ -239,9 +239,9 @@ restore_error_handler();
                                 echo $key.'---';
                                 $rf=$this->_ci->msolicitudes->solicitudesByIdAndDate($key);
                                 if ($rf)
-                                 $c++;
+                                echo 'reg'.$c++;
                               }      
-                          $desc_rf_no_validada=$monto_desc_rf*$c;
+                          echo 'monto'.$desc_rf_no_validada=$monto_desc_rf*$c;
 
                         $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($this->atendidos));
                         
