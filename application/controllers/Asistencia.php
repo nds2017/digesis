@@ -41,7 +41,7 @@ $this->load->view('admin/asistencia_view', $data);
 		 if (!empty($output['dni']))
 		 		$datar['result'] = $this->masistencia->set_records2($output);
 		 else
-		 	$datar['result'] = $this->masistencia->set_records1($output);
+		 	$datar['result'] = $this->masistencia->set_records($output);
 
 
 		 echo json_encode($datar);
