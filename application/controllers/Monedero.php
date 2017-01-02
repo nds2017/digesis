@@ -57,6 +57,7 @@ class Monedero extends CI_Controller {
 			'supid'=>$supervisor,
 			'supervisores'=>$supervisores
 			);
+		print_r($data);
 
 		$this->load->view('admin/monedero_view', $data);
 		
