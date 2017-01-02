@@ -37,7 +37,7 @@ class Monedero extends CI_Controller {
 			$resumen=$this->billetera->getresumen($params);
 			         
 			$result[$key]['nombres']=$value->tnombres;
-			$result[$key]['perfil']=($value->cargo==1)? 'perfil1':'perfil2';
+			$result[$key]['perfil']=($value->cargo==1)? 'Tecnico1':'Tecnico2';
 			$result[$key]['comidia']=$resumen['comision_dia'];
 			$result[$key]['comimes']=$resumen['comision_mes'];
 			$result[$key]['detalle']=array('dni'=>$value->dni,'fecha'=>$fecha);
