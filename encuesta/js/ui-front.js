@@ -391,7 +391,6 @@ if($(".cont-login.thanks").length!==0){
 				}
 				else if ( evento == 'reprogramar' ) {
 					date = $( "#datepicker1" ).datepicker().val();
-					alert(date);
 					vtiempo = $("#reprogramar .active").attr('value');
 					vmotivo = $(".reason .active").attr('value');
 					if ( date && vtiempo && vmotivo ) {
