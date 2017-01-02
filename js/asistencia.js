@@ -12,7 +12,7 @@ $( "#frmmonedero" ).on( "click", "#btnbuscar", function() {
       var perfil = $("#tecnico1id").val();
       var supervisor = $("#supervisorid").val();
       
-      window.location.href = '/index.php/monedero?perfil='+perfil+'&fecha='+fecha+'&supervidor='+supervisor;
+      window.location.href = '/index.php/monedero?perfil='+perfil+'&fecha='+fecha+'&supervisor='+supervisor;
 });
 /*
 $( "#frmmonedero" ).on( "click", "#btnbuscar", function() {      
