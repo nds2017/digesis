@@ -6,18 +6,21 @@ class Asistencia extends CI_Controller {
 	
 	 public function __construct()
    {
-           parent::__construct();
-					 $this->load->model('masistencia');
-   }
 
+    parent::__construct();
+	$this->load->model('masistencia');
+	is_logged_in() ? true : redirect('admin');
+	}
+			  
 	 public function index()
-	 {
+	 {	 	
+	 	securityAccess(array(1));
 	 	date_default_timezone_set('America/Lima');
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'asistencia' ));
 
  		$fecha = $this->input->get('fecha');
  		if (!empty($fecha)){
- 			
+
  			$data['result']= $this->masistencia->get_records($fecha);
  			//print_r($data['result']);
  		}

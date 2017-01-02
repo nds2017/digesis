@@ -9,11 +9,13 @@ class Monedero extends CI_Controller {
            parent::__construct();
 		   $this->load->library('billetera');		   
 		   $this->load->model('mtecnicos');
+		   is_logged_in() ? true : redirect('admin');
    }
 
    public function index()
 	 {	 	
-		date_default_timezone_set('America/Lima');		
+	 	securityAccess(array(1));
+		date_default_timezone_set('America/Lima');	
 		$perfil=null;
 		$fecha=date('Y-m-d');
 

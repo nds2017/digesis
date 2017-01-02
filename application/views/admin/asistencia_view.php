@@ -30,6 +30,7 @@
                   <th>Asistencia</th>
                   <th>Descanso</th>
                   <th>Motivo</th>
+                  <th>Estado</th>
                 </tr>
               </thead>
               <tbody>
@@ -59,6 +60,10 @@
                     <td><input type="checkbox" class="form-control" id="descanso-<?php echo $i ?>" name="descanso-<?php echo $i ?>" <?php echo $descanso ?> value="1" ></td>
 
                     <td><input type="text" class="form-control" id="motivo-<?php echo $i ?>" name="motivo-<?php echo $i ?>" placeholder="Motivo" value="<?php echo $motivo ?>"></td>
+
+
+  <td><img src="<?php ($asistencia==1)? base_url().'index.php/encuesta/img/asistio.png':base_url().'index.php/encuesta/img/falto.png' ?>"></td>
+
                   </tr>
                   <?php
                   $i++;
