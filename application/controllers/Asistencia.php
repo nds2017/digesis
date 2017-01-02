@@ -47,23 +47,19 @@ $this->load->view('admin/asistencia_view', $data);
 		 echo json_encode($datar);
    }
 
-	 public function buscar($fecha = null)
+	 public function buscar($fecha = null,$dni=null)
 	 {
 		 if($fecha == null){
 			 $fecha = date('Y-m-d');
 		 }
-
-		//  echo '<pre>';
-	 	// 	var_dump($fecha);
-	 	// 	echo '</pre>';
-	 	// 	die();
-
+		 if($dni == null){
+			 $dni = $dni;
+		 }
+		
 		$data['result'] 	= $this->masistencia->get_records($fecha);
-		$data['date'] 		= $fecha;
-		//  echo '<pre>';
-		//  var_dump($data['result']);
-		//  echo '</pre>';
-		//  die();
+		$data['date'] 		= $fecha;		
+		$data['dni'] 		= $dni;		
+		
 		$output['result'] = $this->load->view('admin/lista_view', $data, TRUE);
 		echo json_encode($output);
   }
