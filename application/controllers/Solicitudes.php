@@ -234,6 +234,7 @@ class Solicitudes extends CI_Controller {
 	public function edit($id) {
 		date_default_timezone_set('America/Lima');
 		//date_default_timezone_set("GMT");
+		date_default_timezone_set('UTC');
 		if ( $_POST ) {			
 			$fecha=$this->input->post('fecha_instalacion');			
 			securityAccess(array(1));
