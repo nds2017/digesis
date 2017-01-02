@@ -98,7 +98,7 @@ else
    $monto_desc_rf = $this->_ci->mpenalidades->getPenalidadesById(self::CODIGO_RF);   
     foreach ($this->atendidos as $key => $value) {
         $rf=$this->_ci->msolicitudes->solicitudesByIdAndDate($key);
-        if ($rf)
+        if ($rf==1)
          $c++;
       }      
   $desc_rf_no_validada=$monto_desc_rf*$c;
@@ -168,7 +168,7 @@ endif;
     $monto_desc_rf = $this->_ci->mpenalidades->getPenalidadesById(self::CODIGO_RF);
     foreach ($sot_atendidos as $key => $value) {
       $rf=$this->_ci->msolicitudes->solicitudesByIdAndDate($value['id'],true);
-        if ($rf)
+        if ($rf==1)
            $c++;
     }      
     $desc_mes_rf_no_validada=$monto_desc_rf*$c;
@@ -237,7 +237,7 @@ restore_error_handler();
                         echo $monto_desc_rf = $this->_ci->mpenalidades->getPenalidadesById(self::CODIGO_RF);   
                             foreach ($this->atendidos as $key => $value) {
                                 echo $rf=$this->_ci->msolicitudes->solicitudesByIdAndDate($key);
-                                if ($rf)
+                                if ($rf==1)
                                     $c++;
                               }      
                           echo 'monto'.$desc_rf_no_validada=$monto_desc_rf*$c;

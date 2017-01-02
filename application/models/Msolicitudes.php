@@ -487,9 +487,9 @@ class Msolicitudes extends CI_Model
 		//exit;
 		$query->num_rows();
 		if ( $query->num_rows() > 0 ) {			
-			return true;
+			return 1;
 		}
-		return false;		
+		return 0;		
 	}
 
 
