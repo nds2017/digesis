@@ -148,7 +148,19 @@ if (!empty($eficiencia))
 
 /* descuento de inasistencias*/
 
-    $desc_mes_inasistencia=0;
+$r_asistencia=$this->_ci->masistencia->getAsistenciaByIdAndMonth($tid);
+
+if (!empty($r_asistencia)):
+  $monto_desc_asistencia=0;                            
+  foreach ($r_asistencia as $key => $value) {  
+    $fecha= gmdate("Y-m-d", $value->fecha);
+    if ($value->asistencia==0){
+        $dia_semana = $this->dias[date('N', strtotime($fecha))];
+        $monto_desc_asistencia = $monto_desc_asistencia+$this->_ci->mpenalidades->getPenalidadesById(($dia_semana=='Domingo')? self::CODIGO_ASISTENCIA2 : self::CODIGO_ASISTENCIA1);   
+    }
+}
+endif;
+    $desc_mes_inasistencia=$monto_desc_asistencia;
 
 /* descuento por RF no validada*/
     $c=0;    
@@ -183,16 +195,7 @@ restore_error_handler();
     if (round($porcentaje,0)>=5)
         $desc_mes_insidencia=$desc_insidencia * $c_i;
 
-    echo $comision_mes_sot;
-    echo '-';
-    echo $comision_mes_eficiencia;
-    echo '-----';
-    echo $desc_mes_inasistencia;
-    echo '-';
-    echo $desc_mes_rf_no_validada;
-    echo '-';
-    echo $desc_mes_insidencia;
-
+    
     return ($comision_mes_sot + $comision_mes_eficiencia - ($desc_mes_inasistencia + $desc_mes_rf_no_validada +$desc_mes_insidencia));
 
 }
