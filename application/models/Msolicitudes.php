@@ -23,7 +23,7 @@ class Msolicitudes extends CI_Model
 		if ( !empty($solicitudid) )
 			$this->db->where('s.id LIKE "%' . $solicitudid . '%"', NULL, FALSE);
 
-		$this->db->order_by("s.fecha_instalacion, s.horario, s.id", "desc");
+		$this->db->order_by("s.fecha_instalacion, s.horario asc");
 
 		$query = $this->db->get();
 		if ( $query->num_rows() > 0 ) {
@@ -60,7 +60,7 @@ class Msolicitudes extends CI_Model
 			$this->db->where($where);
 		}
 
-		$this->db->order_by("s.fecha_instalacion, s.horario, s.id");
+		$this->db->order_by("s.fecha_instalacion, s.horario asc");
 
 		$query = $this->db->get();
 
