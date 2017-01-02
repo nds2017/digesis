@@ -142,7 +142,7 @@ $fecha = !empty($output['fecha-' . $i])? $output['fecha-' . $i] : date('Y-m-d');
                 
         $this->db->where('idTecnico', $idtecnico);
         $this->db->where('fecha', $fecha);
-      $result = $this->db->update('mytable', $data); 
+    $result = $this->db->update('asistencia', $data); 
     //$result = $this->db->update('asistencia', $data);
                 //$result = $this->db->insert('asistencia', $data);
 
