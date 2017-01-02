@@ -31,6 +31,7 @@ class Servicios extends CI_Controller {
 
 			$categoria=null;
 			$cat=$this->input->get('cat');
+			$data['cat']=$cat;
 			if (!empty($cat)){
 
 		

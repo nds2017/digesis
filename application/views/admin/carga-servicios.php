@@ -139,8 +139,14 @@ $('#sel_categoria').on( 'change', function () {
 			<div class="col-xs-2" style="margin-left: 15px;">		
 				<select id="sel_categoria" placeholder="categoria">
 					<option>Categoria</option>
-					<?php foreach($categorias as $key=>$row){ ?>
-<option value="<?php echo trim($row->id) ?>">
+					<?php $sel=null;?>
+					<?php foreach($categorias as $key=>$row){
+if ($cat==$row->id)
+	$sel="selected";
+else
+	$sel="";
+					 ?>
+<option <?php echo $sel; ?> value="<?php echo trim($row->id) ?>">
 <?php echo trim($row->nombre) ?>
 </option>
 					<?php } ?>
