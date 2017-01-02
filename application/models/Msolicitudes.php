@@ -484,8 +484,7 @@ class Msolicitudes extends CI_Model
 		$this->db->where('s.id LIKE "%' . $sid . '%"', NULL, FALSE);
 		$this->db->where('s.rf', 2); // estado observado
 		$query = $this->db->get();		
-		//exit;
-		$query->num_rows();
+		//exit;		
 		if ( $query->num_rows() > 0 ) {			
 			return 1;
 		}
