@@ -53,6 +53,7 @@ $( "#frmmonedero" ).on( "click", "#btnbuscar", function() {
 
   $( "#grabar" ).on( "click", function() {
       var fecha = $('#fecha').val();
+      var dni = $('#dni').val();
       var result = $('#result').val();
 
       if (result=='result2')
@@ -68,7 +69,7 @@ $( "#frmmonedero" ).on( "click", "#btnbuscar", function() {
         dataType : 'json',
         success : function(json) {
               alert('Asistencia guardada correctamente');
-              window.location.href = '/index.php/asistencia?fecha='+fecha;
+              window.location.href = '/index.php/asistencia?fecha='+fecha+'&dni='+dni;
             // history.pushState(null, "", url);
             // $('#frmasistencia #resultadoasistencia').html(json.result);
         },
