@@ -27,7 +27,7 @@
 
 
           <input type="hidden" class="form-control" id="date" name="date" value="<?php echo $fecha?>"> 
-                    
+
           <button type="button" style="float:left;width:12%" class="btn btn-success" id="btnbuscar">Buscar</button>     
         </div>
 
@@ -144,9 +144,10 @@ $img= base_url().'encuesta/img/falto.png';
 
   <td align="center">  
 <?php 
-if ($val->asistencia==1 or $val->descanso==1)
- $img=base_url().'encuesta/img/asistio.png';
-else
+if (!empty($val->asistencia))
+  if ($val->asistencia==1 or $val->descanso==1)
+   $img=base_url().'encuesta/img/asistio.png';
+
 $img= base_url().'encuesta/img/falto.png'; 
 
 ?>
