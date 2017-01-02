@@ -63,7 +63,15 @@
 
 
   <td align="center">  
-  <img width="25px" height="30px" src="<?php echo ($val->asistencia==1)? base_url().'encuesta/img/asistio.png':base_url().'encuesta/img/falto.png' ?>"></td>
+<?php 
+if ($val->asistencia==1 or $val->descanso==1)
+ $img=base_url().'encuesta/img/asistio.png';
+else
+$img= base_url().'encuesta/img/falto.png'; 
+
+?>
+
+  <img width="25px" height="30px" src="<?php echo $img; ?>"></td>
 
                   </tr>
                   <?php
