@@ -56,6 +56,7 @@ class Solicitudes extends CI_Controller {
 		$data['provincias'] = $this->mdepartamentos->provincias_entrys();
 		$data['departamentos'] = $this->mdepartamentos->departamentos_entrys();
 		$data['regiones'] = $this->msolicitudes->regiones_entrys();
+		$data['horarios'] = $this->msolicitudes->horarios_entrys();
 		$data['admin'] = ($session->rolid==1) ? TRUE : FALSE;
 		if ( isset($id) && is_numeric($id) && ( $id != "0" ) ) {
 			securityAccess(array(1));
@@ -263,6 +264,7 @@ class Solicitudes extends CI_Controller {
 				'estadoid' => $this->input->post('estadoid'),
 				'motivoid' => $this->input->post('motivoid'),
 				'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($fecha) : strtotime('now'),
+				'horario' => $this->input->post('horarioid'),
 				'modtime' => strtotime("now")
 			);
 			$this->msolicitudes->solicitudes_update($formdata, $id);
@@ -296,7 +298,7 @@ class Solicitudes extends CI_Controller {
 				'distritoid' => $this->input->post('distritoid'),
 				'usuarioid' => $session->id,
 				'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($fecha) : strtotime('now'),
-				'horario' => 1,
+				'horario' => $this->input->post('horarioid'),
 				'modtime' => strtotime("now")
 			);
 			$this->msolicitudes->solicitudes_create($formdata);

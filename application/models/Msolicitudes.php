@@ -57,7 +57,7 @@ class Msolicitudes extends CI_Model
 			$this->db->where($where);
 		}
 
-		$this->db->order_by("s.fecha_instalacion, s.id");
+		$this->db->order_by("s.fecha_instalacion, s.horario, s.id");
 
 		$query = $this->db->get();
 
@@ -365,6 +365,15 @@ class Msolicitudes extends CI_Model
 		return $rows;
 	}
 
+	public function horarios_entrys() {
+		$rows = array();
+		$query = $this->db->query("SELECT * FROM horarios");
+		foreach ($query->result() as $key=>$row) {
+			$rows[$row->id] = $row->nombreh;
+		}
+		return $rows;
+	}
+
 	public function tiposservicio_entrys() {
 		$rows = array();
 		$query = $this->db->query("SELECT * FROM tiposervicios");
@@ -402,7 +411,7 @@ class Msolicitudes extends CI_Model
 	}
 
 	public function solicitudes_programadas($id) {
-		$this->db->replace('solicitudesprogramadas', array('sid' => $sid, 'fecha' => strtotime("now")));
+		$this->db->replace('solicitudesprogramadas', array('sid' => $id, 'fecha' => strtotime("now")));
 	}
 
 	public function solicitudes_getID($sid) {

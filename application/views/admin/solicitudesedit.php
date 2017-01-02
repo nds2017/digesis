@@ -113,6 +113,17 @@ $(document).ready(function() {
 						</select>
 					</td>
 				</tr>
+				<tr>
+					<td>Horario : </td>
+					<td>
+						<select name="horarioid">
+							<option value="0">-Seleccione-</option>
+							<?php foreach ( $horarios as $key => $horario ) { ?>
+								<option <?=(@$data->horario==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$horario?></option>
+							<?php } ?>
+						</select>
+					</td>
+				</tr>
 				<?php } ?>
 				</table>
 				<fieldset class="fieldform">

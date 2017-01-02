@@ -28,19 +28,15 @@
 
 			<h1>Solicitudes Cargadas Desde <?=date('d-m-Y')?></h1>
 			<?php
-				$this->db->query("CREATE TABLE IF NOT EXISTS `solicitudesprogramadas` (
-  `sid` int(11) NOT NULL PRIMARY KEY,
-  `fecha` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
 				//$this->db->query("ALTER TABLE `horarios` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;");
 
-			$fields = $this->db->list_fields('solicitudesprogramadas');
+			/*$fields = $this->db->list_fields('solicitudesprogramadas');
 foreach ($fields as $field)
 {
    echo $field . '<br>';
 }
 				$query = $this->db->query("SELECT * FROM solicitudesprogramadas");
-				print_r($query->result());
+				print_r($query->result());*/
 			?>
 			<br>
 			<table class="table table-bordered table-striped">
