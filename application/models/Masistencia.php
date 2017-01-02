@@ -140,7 +140,7 @@ $this->db->where('month(FROM_UNIXTIME(fecha))=',date('m',strtotime($fecha)));
                     'motivo'    => $motivo
                 );
                 print_r($data);
-
+    //$result = $this->db->update('asistencia', $data);
                 //$result = $this->db->insert('asistencia', $data);
 
             }
