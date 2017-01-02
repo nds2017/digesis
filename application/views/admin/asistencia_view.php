@@ -21,8 +21,8 @@
         <div class="form-group" style="margin-top: 15px;">
 
             <label style="display: inline; float: left; width:6%" for="ejemplo_email_1">DNI:</label>          
-            <input type="text" size="8" name="dni" value="">
-          <label style="display: inline; float: left; width: 6%; margin-left:10px" for="ejemplo_email_1">Fecha:</label>          
+            <input style="float: left;width: 12%" type="text" size="8" name="dni" value="">
+          <label style="display: inline; float: left; width: 6%; margin-left:10px" for="ejemplo_email_1">Fecha:</label>
           <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" value="<?php echo $fecha?>" style="float: left;width: 12%">
 
 <!--
