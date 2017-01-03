@@ -8,7 +8,8 @@
       <fieldset class="search">
         <legend></legend>
          <form class="form-inline" role="form" id="frmasistencia">
-        <h4 class="form-signin-heading">Fecha: <?php echo date('l, j \of  F Y') ?></h4>
+        <span class="form-signin-heading">Fecha: <?php echo date('l, j \of  F Y') ?></span>
+        
         <div class="form-group">
           <label for="ejemplo_email_1">Fecha:</label>
           <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha">
