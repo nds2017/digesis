@@ -60,15 +60,13 @@ class Monedero extends CI_Controller {
 		$fecha = $this->input->get('fecha');	    
    	  if (isset($_GET['dni']) && ( !empty($_GET['dni']) ) ) {
    	  		$dni=$_GET['dni'];
-   	  		$r_tecnicos = $this->mtecnicos->tecnicobyDNI($dni);
-   	  		print_r($r_tecnicos);
-   	  		exit();
+   	  		$r_tecnicos = $this->mtecnicos->tecnicobyDNI($dni);   	  		
 			$params=array('dni'=>$dni,'fecha'=>(!empty($fecha)? $fecha:false));
 			$resumen=$this->billetera->getresumen($params);
 			$detalle=$this->billetera->getdetalle_comision($params);			
 
-			$data['nombre'] = $no;						
-			$data['perfil']=
+			$data['nombre'] = $r_tecnicos['nombres'];						
+			$data['perfil']=$r_tecnicos['perfil'];
 			$data['dni'] = $dni;			
 			$data['resumen'] = $resumen;
 			$data['detalle'] = $detalle;	
