@@ -65,9 +65,10 @@
                 <input type="hidden" id="cantidad" name="cantidad" value="<?php echo count($result) ?>">
               </tbody>
             </table>
-            <div style="text-align: center;width: 100%">
-              <button type="button" class="btn btn-primary" id="grabar">Grabar</button>
-             </div> 
+          <div class="divbuttons">
+          <input class="btnsearch" type="button" value="Regresar a Lista" onclick="window.location='<?=base_url()?>index.php/solicitudes/lista';">
+          <input class="btnsearch" type="submit" value="<?=(@$data? 'Guardar' : 'Crear')?>">
+          </div>            
             </form>
     </div>
   </div>
