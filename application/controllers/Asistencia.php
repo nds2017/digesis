@@ -17,9 +17,9 @@ class Asistencia extends CI_Controller {
 		 $fecha 					= date('Y-m-d');
 		 $data['result'] 	= $this->masistencia->get_records($fecha);
 		 $data['date'] 		= $fecha;
-		  echo '<pre>';
+		  /*echo '<pre>';
 		  var_dump($data['result']);
-		  echo '</pre>';
+		  echo '</pre>';*/
 		 $this->load->view('admin/asistencia_view', $data);
 	 }
 
