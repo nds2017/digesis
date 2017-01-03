@@ -13,8 +13,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <script type="text/javascript">
-	  $( "#fecha" ).datepicker();
-  	  $( "#fecha" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+	  $("#fecha").datepicker();
+  	  //$( "#fecha" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
 </script>
 </head>
 <body>
