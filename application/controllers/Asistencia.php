@@ -20,7 +20,7 @@ class Asistencia extends CI_Controller {
 		 // echo '<pre>';
 		 // var_dump($data['query']);
 		 // echo '</pre>';
-		 $this->load->view('asistencia_view', $data);
+		 $this->load->view('admin/asistencia_view', $data);
 	 }
 
 	 public function grabar()
