@@ -58,7 +58,7 @@ class Masistencia extends CI_Model
             date_default_timezone_set('America/Lima');
             $this->db->select('*');
             $this->db->from('asistencia');
-            $this->db->where('fecha', $output['date']);
+            $this->db->where('fecha',strtotime($output['date']));
             $query = $this->db->get();
             $dataa = $query->result();
 
@@ -81,7 +81,7 @@ class Masistencia extends CI_Model
 
                 $data = array(
                     'idTecnico' => $idtecnico,
-                    'fecha'     => $fecha,
+                    'fecha'     =>strtotime($fecha),
                     'asistencia'   => $asistio,
                     'descanso'     => $falto,
                     'motivo'    => $motivo
