@@ -14,19 +14,13 @@
 
         <div class="form-group" style="margin-top: 15px;">
 
-            <label style="display: inline; float: left; width:6%" for="ejemplo_email_1">Tecnico:</label>
-            <select required id="tecnico1id" name="tecnico1id" style="float: left;width: 20%">
-                <option value="">-Seleccione-</option>
-                <?php foreach ( @$tecnicos as $key => $tecnico1 ) { ?>
-                <option <?=(@$dni==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tecnico1?></option>
-                <?php } ?>
-              </select>
+            <label style="display: block; float: left; width:6%" for="ejemplo_email_1">Tecnico:</label>
+            
 
-          <label style="display: inline; float: left; width: 6%; margin-left:10px" for="ejemplo_email_1">Fecha:</label>          
-          <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" value="<?php echo $fecha?>" style="float: left;width: 20%">
+          <label style="display:block; float: left; width: 6%; margin-left:10px" for="ejemplo_email_1">DNI:</label>          
 
-          <input type="hidden" class="form-control" id="date" name="date" value="<?php echo $fecha?>">
-          <button type="button" class="btn btn-success" id="btnbuscar">Buscar</button>     
+          <label style="display:block; float: left; width: 6%; margin-left:10px" for="ejemplo_email_1">Perfil:</label>          
+          
         </div>      
         </div>
      </form>
