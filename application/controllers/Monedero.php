@@ -11,7 +11,41 @@ class Monedero extends CI_Controller {
 		   $this->load->model('mtecnicos');
    }
 
-	 public function index()
+   public function index()
+	 {	 	
+
+		date_default_timezone_set('America/Lima');		
+		$perfil=$_GET['perfil'];
+		$fecha=$_GET['fecha'];
+
+		$r_tecnicos=$this->mtecnicos->tecnicos_byCargo($perfil);
+
+		$result=array();
+		if (!empty($r_tecnicos)):
+			foreach ($r_tecnicos as $key => $value) {
+			$params=array('dni'=>$value->dni,'fecha'=>(!empty($fecha)? $fecha:date('Y-m-d')));
+			$resumen=$this->billetera->getresumen($params);
+			         
+			$result[$key]['nombres']=$value->tnombres;
+			$result[$key]['perfil']=$perfil;
+			$result[$key]['comidia']=$resumen['comision_dia'];
+			$result[$key]['comimes']=$resumen['comision_mes'];
+			$result[$key]['detalle']=array('id'=>$key,'fecha'=>$fecha);
+
+			}
+		endif;	
+
+		$data=array(
+			'result'=>$result,
+			'fecha'=>$fecha,
+			'perfil'=>$perfil
+			);
+
+		$this->load->view('admin/monedero_view', $data);
+		
+	 }
+
+	 public function detalle()
 	 {
 	 	date_default_timezone_set('America/Lima');
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'monedero' ));
