@@ -8,6 +8,7 @@ $(function() {
   // });
 
 $( "#frmmonedero" ).on( "click", "#btnbuscar", function() {      
+  alert('ss');
       var fecha = $('#frmmonedero #fecha').val();          
       var perfil = $("#tecnico1id").val();
       window.location.href = '/index.php/monedero?perfil='+perfil+'&fecha='+fecha;      
