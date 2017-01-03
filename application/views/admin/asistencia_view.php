@@ -37,12 +37,12 @@
                     }
                   ?>
                   <tr>
-                    <td><?php echo $val->idtecnico ?></td>
-                    <input type="hidden" id="idtecnico-<?php echo $val->idtecnico ?>" name="idtecnico-<?php echo $val->idtecnico ?>" value="<?php echo $val->idtecnico ?>">
+                    <td><?php echo $val->id ?></td>
+                    <input type="hidden" id="id-<?php echo $val->id ?>" name="id-<?php echo $val->id ?>" value="<?php echo $val->id ?>">
                     <td><?php echo $val->nombres ?></td>
-                    <td><input type="checkbox" class="form-control" id="asistencia-<?php echo $val->idTecnico ?>" name="asistencia-<?php echo $val->idtecnico ?>" <?php echo $asistio ?> value="1"></td>
-                    <td><input type="checkbox" class="form-control" id="descanso-<?php echo $val->idtecnico ?>" name="descanso-<?php echo $val->idtecnico ?>" <?php echo $falto ?> value="1" ></td>
-                    <td><input type="text" class="form-control" id="motivo-<?php echo $val->idtecnico ?>" name="motivo-<?php echo $val->idtecnico ?>" placeholder="Motivo" value="<?php echo $motivo ?>"></td>
+                    <td><input type="checkbox" class="form-control" id="asistencia-<?php echo $val->id ?>" name="asistencia-<?php echo $val->id ?>" <?php echo $asistio ?> value="1"></td>
+                    <td><input type="checkbox" class="form-control" id="descanso-<?php echo $val->id ?>" name="descanso-<?php echo $val->id ?>" <?php echo $falto ?> value="1" ></td>
+                    <td><input type="text" class="form-control" id="motivo-<?php echo $val->id ?>" name="motivo-<?php echo $val->id ?>" placeholder="Motivo" value="<?php echo $motivo ?>"></td>
                   </tr>
                   <?php
                   }
