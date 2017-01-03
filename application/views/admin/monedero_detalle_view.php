@@ -14,13 +14,16 @@
 
         <div class="form-group" style="margin-top: 15px;">
 
-            <label style="display: block; float: left; width:6%" for="ejemplo_email_1">Tecnico:</label>
-            
+        <div style="float: left;width:100% ">
+            <label style="display:inline-block; float: left; width:6%; margin-right: 10px;" for="ejemplo_email_1">Tecnico:</label>
+            <span style="width: 10%"><?php echo @$tecnico; ?></span>
+        </div>    
 
           <label style="display:block; float: left; width: 6%; margin-left:10px" for="ejemplo_email_1">DNI:</label>          
+          <span><?php echo @$dni; ?></span>
 
           <label style="display:block; float: left; width: 6%; margin-left:10px" for="ejemplo_email_1">Perfil:</label>          
-          
+          <span><?php echo @$perfil; ?></span>          
         </div>      
         </div>
      </form>
