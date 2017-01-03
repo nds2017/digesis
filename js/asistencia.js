@@ -34,7 +34,7 @@ $(function() {
 
   });
 
-  $( "#frmasistencia" ).on( "click", "#grabar", function() {
+  $( "#grabar" ).on( "click", function() {
       var fecha = $('#frmasistencia #fecha').val();
       var url = base_url + '/asistencia_controller/grabar';
 
