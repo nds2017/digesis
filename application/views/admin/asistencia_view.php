@@ -1,6 +1,11 @@
       </div>
       <script src="<?=base_url()?>js/departamentos.js"></script>
 
+<script type="text/javascript">
+    $( "#fecha" ).datepicker();
+      $( "#fecha" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+</script>
+
       <div class="list-mod-panel">
         <h1 style="float: left;"> Asistencia de Técnicos &nbsp;&nbsp;</h1>        
       </div>
