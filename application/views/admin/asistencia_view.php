@@ -1,63 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+      </div>
+      <script src="<?=base_url()?>js/departamentos.js"></script>
 
-    <title>Asistencia de T&eacute;cnicos</title>
+      <div class="list-mod-panel">
+        <h1 style="float: left;"> Lista de Solicitudes &nbsp;&nbsp;</h1>
+        <h2><a href="<?=base_url()?>index.php/solicitudes/form/add">Añadir Solicitud</a></h2>
+      </div>
+      <br>
+      <fieldset class="search">
+        <legend></legend>
+        <form id="form" method="post" action="<?=base_url()?>index.php/solicitudes/lista/<?=@$estadoid?>">
+          <nav class="top_menu">
+            <ul>
+              <li <?=(@$estadoid==0)?'class="active"':''?>><a href="<?=base_url()?>index.php/solicitudes/lista/0">Todos (<?=$cantidades[0]?>) &nbsp;&nbsp;|</a></li>
+              <?php foreach ( $estados as $id => $estado ) { ?>
+              <li <?=(@$estadoid==$id)?'class="active"':''?>><a href="<?=base_url()?>index.php/solicitudes/lista/<?=$id?>"><?=$estado?> (<?=isset($cantidades[$id]) ? $cantidades[$id] : 0?>) &nbsp;&nbsp;|</a></li>
+              <?php } ?>
+            </ul>
+          </nav>
 
-    <!-- Bootstrap core CSS -->
-    <link href="<?php echo base_url() ?>htdocs/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="<?php echo base_url() ?>htdocs/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="<?php echo base_url() ?>htdocs/signin.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="<?php echo base_url() ?>htdocs/assets/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-    <script src="<?php echo base_url() ?>htdocs/assets/js/asistencia.js"></script>
-
-    <script>
-    var base_url = '<?php echo base_url() ?>';
-    </script>
-
-  </head>
-
-  <body>
-
-    <div class="container">
-
-      <form class="form-inline" role="form" id="frmasistencia">
-        <h2 class="form-signin-heading">Asistencia de T&eacute;cnicos</h2>
-        <h4 class="form-signin-heading">Fecha: <?php echo date('l, j \of  F Y') ?></h4>
-        <div class="form-group">
-          <label for="ejemplo_email_1">Fecha:</label>
-          <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha">
-          <input type="hidden" class="form-control" id="date" name="date" value="<?php echo $date ?>">
-        </div>
-        <button type="button" class="btn btn-success" id="btnbuscar">Buscar</button>
-        <div>
-          <div style="padding-top:10px;" id="resultadoasistencia">
-            <table class="table table-bordered">
+          <input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>
+          Departamento :
+          <select id="dptoid">
+            <option value="0">-Seleccione-</option>
+            <?php foreach ($departamentos as $id => $departamento) { ?>
+            <option <?=(@$departamentoid==$id ? 'selected' : '')?> value=<?=$id?>><?=$departamento?></option>
+            <?php } ?>
+          </select>
+          Provincia
+          <select id="provinciaid" name="provinciaid">
+            <?php if ( @$distritoid ) { ?>
+            <?php foreach ($provincias as $id => $provincia) { ?>
+            <option <?=(@$provinciaid==$id ? 'selected' : '')?> value=<?=$id?>><?=$provincia?></option>
+            <?php } ?>
+            <?php } ?>
+          </select>
+          Distrito:
+          <select name="distritoid" id="distritoid">
+            <?php if ( @$distritoid ) { ?>
+            <?php foreach ($distritos as $id => $distrito) { ?>
+            <option <?=(@$distritoid==$id ? 'selected' : '')?> value=<?=$id?>><?=$distrito?></option>
+            <?php } ?>
+            <?php } ?>
+          </select>
+          <input type="submit" class="btnsearch" value="Filtrar"/>
+          <br>
+          N° SOT: <input type="text" size="10" name="solicitudid" value="<?=@$solicitudid?>"/>
+          <input type="submit" class="btnsearch" value="Buscar"/>
+        </form>
+      </fieldset>
+      <br>
+      <table class="table table-bordered table-striped">      
               <thead>
                 <tr>
                   <th>#</th>
@@ -101,14 +93,10 @@
                 <input type="hidden" id="cantidad" name="cantidad" value="<?php echo count($result) ?>">
               </tbody>
             </table>
-          </div>
-          <button type="button" class="btn btn-primary" id="grabar">Grabar</button>
-        </div>
-      </form>
-    </div> <!-- /container -->
-
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="<?php echo base_url() ?>htdocs/assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+    </div>
+  </div>
+</body>
 </html>
+
+
+
