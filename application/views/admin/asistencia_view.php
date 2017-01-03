@@ -65,6 +65,9 @@
                 <input type="hidden" id="cantidad" name="cantidad" value="<?php echo count($result) ?>">
               </tbody>
             </table>
+            <div style="text-align: center;width: 100%">
+              <button type="button" class="btn btn-primary" id="grabar">Grabar</button>
+             </div> 
             </form>
     </div>
   </div>
