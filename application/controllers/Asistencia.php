@@ -15,7 +15,7 @@ class Asistencia extends CI_Controller {
 	 	date_default_timezone_set('America/Lima');
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'perfiles' ));
 
-		 echo $fecha = date('Y-m-d');
+		 $fecha = date('Y-m-d');
 		 $data['result'] 	= $this->masistencia->get_records($fecha);
 		 $data['date'] 		= $fecha;
 		  /*echo '<pre>';
