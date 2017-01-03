@@ -12,10 +12,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-<script type="text/javascript">
-	  $("#fecha").datepicker();
-  	  //$( "#fecha" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
-</script>
 </head>
 <body>
 <?php $session = get_session(); ?>
