@@ -21,7 +21,7 @@ $(function() {
         success : function(json) {
             // window.location.href = url;
             // history.pushState(null, "", url);
-            alert('okk');
+            //alert('okk');
             $('#resultadoasistencia').html(json.result);
         },
         error : function(xhr, status) {
