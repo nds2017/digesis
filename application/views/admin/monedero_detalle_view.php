@@ -15,16 +15,16 @@
         <div class="form-group" style="margin-top: 15px;">
 
         <div style="float: left;width:100%;margin:7px;">
-            <label style="display:inline-block; float: left; width:6%; margin-right: 10px;" for="ejemplo_email_1">Tecnico:</label>
+            <label style="display:inline-block; float: left; width:6%; margin-right: 10px;" for="ejemplo_email_1"><b>Tecnico:</b></label>
             <span style="width: 10%"><?php echo @$tecnico; ?></span>
         </div>    
         <div style="float: left;width:100%;margin:7px;">
-          <label style="display:block; float: left; width: 6%; margin-left:10px" for="ejemplo_email_1">DNI:</label>          
+          <label style="display:block; float: left; width: 6%; margin-left:10px" for="ejemplo_email_1"><b>DNI:</b></label>          
           <span><?php echo @$dni; ?></span>
           </div>
 
         <div style="float: left;width:100%;margin:7px;">
-          <label style="display:block; float: left; width: 6%; margin-left:10px" for="ejemplo_email_1">Perfil:</label>          
+          <label style="display:block; float: left; width: 6%; margin-left:10px" for="ejemplo_email_1"><b>Perfil:</b></label>          
           <span><?php echo @$perfil; ?></span>          
           </div>
         </div>      
