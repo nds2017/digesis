@@ -39,12 +39,12 @@
                 if(!empty($result)){
                   $i=1;
                   foreach ($result as $key => $val) {
-                    $asistio = '';
-                    $falto = '';
+                    $asistencia = '';
+                    $descanso = '';
                     $motivo = '';
-                    if(isset($val->asistio) && isset($val->falto) && isset($val->motivo)){
-                      $asistio = ($val->asistio == '1') ? 'checked="checked"' : '';
-                      $falto = ($val->falto == '1') ? 'checked="checked"' : '';
+                    if(isset($val->asistencia) && isset($val->descanso) && isset($val->motivo)){
+                      $asistencia = ($val->asistencia == '1') ? 'checked="checked"' : '';
+                      $descanso = ($val->descanso == '1') ? 'checked="checked"' : '';
                       $motivo = (trim($val->motivo) != '') ? $val->motivo : '';
                     }
                   ?>
@@ -53,9 +53,9 @@
                     <input type="hidden" id="id-<?php echo $i ?>" name="id-<?php echo $i ?>" value="<?php echo $val->id ?>">
                     <td><?php echo $val->nombres ?></td>
 
-                    <td><input type="checkbox" class="form-control" id="asistencia-<?php echo $val->id ?>" name="asistencia-<?php echo $i ?>" <?php echo $asistio ?> value="1"></td>
+                    <td><input type="checkbox" class="form-control" id="asistencia-<?php echo $val->id ?>" name="asistencia-<?php echo $i ?>" <?php echo $asistencia ?> value="1"></td>
 
-                    <td><input type="checkbox" class="form-control" id="descanso-<?php echo $i ?>" name="descanso-<?php echo $i ?>" <?php echo $falto ?> value="1" ></td>
+                    <td><input type="checkbox" class="form-control" id="descanso-<?php echo $i ?>" name="descanso-<?php echo $i ?>" <?php echo $descanso ?> value="1" ></td>
 
                     <td><input type="text" class="form-control" id="motivo-<?php echo $i ?>" name="motivo-<?php echo $i ?>" placeholder="Motivo" value="<?php echo $motivo ?>"></td>
                   </tr>

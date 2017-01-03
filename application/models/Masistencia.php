@@ -42,9 +42,7 @@ class Masistencia extends CI_Model
               $data = $query->result();
             }
 
-            echo $this->db->last_query();
-            exit;
-
+            //echo $this->db->last_query();            
             if(!empty($data)){
               return $data;
             }
