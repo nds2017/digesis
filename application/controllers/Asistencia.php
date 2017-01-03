@@ -13,13 +13,13 @@ class Asistencia extends CI_Controller {
 	 public function index()
 	 {
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'perfiles' ));
-		
+
 		 $fecha 					= date('Y-m-d');
 		 $data['result'] 	= $this->masistencia->get_records($fecha);
 		 $data['date'] 		= $fecha;
-		 // echo '<pre>';
-		 // var_dump($data['query']);
-		 // echo '</pre>';
+		  echo '<pre>';
+		  var_dump($data['result']);
+		  echo '</pre>';
 		 $this->load->view('admin/asistencia_view', $data);
 	 }
 
