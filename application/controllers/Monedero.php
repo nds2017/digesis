@@ -16,13 +16,17 @@ class Monedero extends CI_Controller {
 		date_default_timezone_set('America/Lima');		
 		$perfil=null;
 		$fecha=null;
+
+		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'monedero' ));
+
 		if (isset($_GET['perfil']))
 			$perfil=$_GET['perfil'];
 
 		if (isset($_GET['fecha']))
-		$fecha=$_GET['fecha'];
+			$fecha=$_GET['fecha'];
 
-		$r_tecnicos=$this->mtecnicos->tecnicos_byCargo($perfil);
+		$r_tecnicos=$this->mtecnicos->tecnicos_byCargo2($perfil);
+		print_r($r_tecnicos);
 
 		$result=array();
 		if (!empty($r_tecnicos)):
