@@ -2,13 +2,21 @@
       <script src="<?=base_url()?>js/departamentos.js"></script>
 
       <div class="list-mod-panel">
-        <h1 style="float: left;"> Asistencia de Técnico &nbsp;&nbsp;</h1>
+        <h1 style="float: left;"> Asistencia de Técnicos &nbsp;&nbsp;</h1>
         <h2><a href="<?=base_url()?>index.php/solicitudes/form/add">Añadir Solicitud</a></h2>
       </div>
       <br>
       <fieldset class="search">
-        <legend></legend>        
-        
+        <legend></legend>
+         <form class="form-inline" role="form" id="frmasistencia">
+        <h2 class="form-signin-heading">Asistencia de T&eacute;cnicos</h2>
+        <h4 class="form-signin-heading">Fecha: <?php echo date('l, j \of  F Y') ?></h4>
+        <div class="form-group">
+          <label for="ejemplo_email_1">Fecha:</label>
+          <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha">
+          <input type="hidden" class="form-control" id="date" name="date" value="<?php echo $date ?>">
+        </div>
+        <button type="button" class="btn btn-success" id="btnbuscar">Buscar</button>     
       </fieldset>
       <br>
       <table class="table table-bordered table-striped">      
@@ -55,6 +63,7 @@
                 <input type="hidden" id="cantidad" name="cantidad" value="<?php echo count($result) ?>">
               </tbody>
             </table>
+            </form>
     </div>
   </div>
 </body>
