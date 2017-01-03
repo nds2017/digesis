@@ -13,9 +13,13 @@ class Monedero extends CI_Controller {
 
    public function index()
 	 {	 	
-
 		date_default_timezone_set('America/Lima');		
-		$perfil=$_GET['perfil'];
+		$perfil=null;
+		$fecha=null;
+		if (isset($_GET['perfil']))
+			$perfil=$_GET['perfil'];
+
+		if (isset($_GET['fecha']))
 		$fecha=$_GET['fecha'];
 
 		$r_tecnicos=$this->mtecnicos->tecnicos_byCargo($perfil);
