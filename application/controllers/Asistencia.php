@@ -27,7 +27,7 @@ class Asistencia extends CI_Controller {
 	 {
 		 $data = $this->input->post('data');
 		 parse_str($data, $output);
-		 $datar['result'] = $this->asistencia->set_records($output);
+		 $datar['result'] = $this->masistencia->set_records($output);
 		 echo json_encode($datar);
    }
 
@@ -42,7 +42,7 @@ class Asistencia extends CI_Controller {
 	 	// 	echo '</pre>';
 	 	// 	die();
 
-		$data['result'] 	= $this->asistencia->get_records($fecha);
+		$data['result'] 	= $this->masistencia->get_records($fecha);
 		$data['date'] 		= $fecha;
 		//  echo '<pre>';
 		//  var_dump($data['result']);
