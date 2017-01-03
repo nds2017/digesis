@@ -55,7 +55,6 @@
                 <input type="hidden" id="cantidad" name="cantidad" value="<?php echo count($result) ?>">
               </tbody>
             </table>
-          
     </div>
   </div>
 </body>
