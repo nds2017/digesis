@@ -10,7 +10,7 @@
         <legend></legend>        
          <form class="form-inline" role="form" id="frmasistencia">
         <div class="container_buscar_fecha"> 
-          <span class="form-signin-heading">Fecha: <?php echo date('l, j \of  F Y') ?></span>
+          <span class="" style="margin-bottom: 15px;">Fecha: <?php echo date('l, j \of  F Y') ?></span>
 
         <div class="form-group">
           <label for="ejemplo_email_1">Fecha:</label>
