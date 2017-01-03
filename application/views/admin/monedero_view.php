@@ -20,17 +20,17 @@
         <div class="form-group" style="margin-top: 15px;">
 
             <label style="display: inline; float: left; width:6%" for="ejemplo_email_1">Tecnico:</label>
-            <select required id="tecnico1id" name="tecnico1id" style="float: left;width: 20%">                
+            <select required id="tecnico1id" name="tecnico1id" style="float: left;width: 12%">                
                 <option <?php echo (empty($perfil))? 'selected':'' ?> value="all">Todos los Tecnicos </option>
                 <option <?php echo ($perfil==1)? 'selected':'' ?> value="1">Peril1</option>
                 <option <?php echo ($perfil==2)? 'selected':'' ?> value="2">Perfil2 </option>                
               </select>
 
           <label style="display: inline; float: left; width: 6%; margin-left:10px" for="ejemplo_email_1">Fecha:</label>          
-          <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" value="<?php echo $fecha?>" style="float: left;width: 20%">
+          <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" value="<?php echo $fecha?>" style="float: left;width: 12%">
 
           <input type="hidden" class="form-control" id="date" name="date" value="<?php echo $fecha?>">
-          <button type="button" class="btn btn-success" id="btnbuscar">Buscar</button>     
+          <button type="button" style="float:left;width:12%" class="btn btn-success" id="btnbuscar">Buscar</button>     
         </div>      
         </div>
      </form>
