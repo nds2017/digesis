@@ -1174,3 +1174,9 @@ li { margin: 5px; padding: 5px; }
 .tableprov {
 	max-width: 20%;
 }
+
+.container_buscar_fecha{
+  width: 100%;
+  float: left;
+  text-align: left;  
+}

@@ -5,7 +5,7 @@
         <h1 style="float: left;"> Asistencia de Técnicos &nbsp;&nbsp;</h1>        
       </div>
       <br>
-      <fieldset class="search">
+      <fieldset class="">
         <legend></legend>        
          <form class="form-inline" role="form" id="frmasistencia">
         <div class="container_buscar_fecha"> 
