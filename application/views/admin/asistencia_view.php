@@ -15,8 +15,8 @@
           <label for="ejemplo_email_1">Fecha:</label>
           <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha">
           <input type="hidden" class="form-control" id="date" name="date" value="<?php echo $date ?>">
-        </div>
-        <button type="button" class="btn btn-success" id="btnbuscar">Buscar</button>     
+          <button type="button" class="btn btn-success" id="btnbuscar">Buscar</button>     
+        </div>      
         </div>
       </fieldset>
       <br>
