@@ -65,8 +65,8 @@ class Monedero extends CI_Controller {
 			$resumen=$this->billetera->getresumen($params);
 			$detalle=$this->billetera->getdetalle_comision($params);			
 
-			$data['nombre'] = $r_tecnicos['nombres'];						
-			$data['perfil']=$r_tecnicos['perfil'];
+			$data['nombre'] = $r_tecnicos->nombres;						
+			$data['perfil']=($r_tecnicos->perfil==1)? 'perfil1':'perfil2';
 			$data['dni'] = $dni;			
 			$data['resumen'] = $resumen;
 			$data['detalle'] = $detalle;	
