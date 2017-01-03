@@ -46,15 +46,16 @@ $(function() {
         type : 'POST',
         dataType : 'json',
         success : function(json) {
+              alert('ok');
             // window.location.href = url;
             // history.pushState(null, "", url);
             // $('#frmasistencia #resultadoasistencia').html(json.result);
         },
         error : function(xhr, status) {
-            // alert('Disculpe, existió un problema');
+             alert('Disculpe, existió un problema');
         },
         complete : function(xhr, status) {
-            // alert('Petición realizada');
+             alert('Petición realizada');
         }
       });
   });
