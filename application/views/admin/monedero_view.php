@@ -1,7 +1,7 @@
     
     <script type="text/javascript">
     $(function() {
-      $('#frmmonedero #fecha').val('2017-01-01');                
+      $('#frmmonedero #fecha').val("'"+<?php echo $fecha; ?>+"'");                
     });
     </script>
     </div>
