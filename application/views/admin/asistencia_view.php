@@ -69,6 +69,10 @@
     </div>
   </div>
 </body>
+<script type="text/javascript">
+    $("#fecha").datepicker();
+    $( "#fecha" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+</script>
 </html>
 
 
