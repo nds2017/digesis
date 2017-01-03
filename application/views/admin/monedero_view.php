@@ -1,7 +1,7 @@
     
     <script type="text/javascript">
     $(function() {
-      $('#frmmonedero #fecha').attr('value','2017-01-01');                
+      $('#frmmonedero #fecha').val('2017-01-01');                
     });
     </script>
     </div>
