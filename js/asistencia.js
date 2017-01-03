@@ -7,11 +7,10 @@ $(function() {
   //   $( "#date" ).val($( "#fecha" ).val());
   // });
 
-$( "#frmmonedero" ).on( "click", "#btnbuscar", function() {      
-  alert('ss');
+$( "#frmmonedero" ).on( "click", "#btnbuscar", function() {        
       var fecha = $('#frmmonedero #fecha').val();          
       var perfil = $("#tecnico1id").val();
-      window.location.href = '/index.php/monedero?perfil='+perfil+'&fecha='+fecha;      
+      window.location.href = '/index.php/monedero?perfil='+perfil+'&fecha='+fecha;
 });
 /*
 $( "#frmmonedero" ).on( "click", "#btnbuscar", function() {      

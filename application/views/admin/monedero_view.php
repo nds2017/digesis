@@ -1,3 +1,8 @@
+    <script type="text/javascript">
+    $(function() {
+      $('#frmmonedero #fecha').val(<?php echo $fecha?>);                
+    });
+    </script>
     </div>
       <script src="<?=base_url()?>js/departamentos.js"></script>
       <div class="list-mod-panel">
