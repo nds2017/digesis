@@ -2,6 +2,7 @@
       <script src="<?=base_url()?>js/departamentos.js"></script>
       <div class="list-mod-panel">
         <h1 style="float: left;"> Monedero &nbsp;&nbsp;</h1>        
+        <h2><a href="/index.php/monedero">Regresar a Lista de resumen de cómision</a></h2>
       </div>
       <br>
 
