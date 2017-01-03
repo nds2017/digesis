@@ -70,7 +70,7 @@ class Monedero extends CI_Controller {
 			$data['detalle'] = $detalle;	
 		}
 	 $data['fecha'] = !empty($fecha)? $fecha:date('Y-m-d');	 
-	 $this->load->view('admin/monedero_view', $data);
+	 $this->load->view('admin/monedero_detalle_view', $data);
 	 }
 
 	}
