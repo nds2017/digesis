@@ -22,7 +22,7 @@ $(function() {
             // window.location.href = url;
             // history.pushState(null, "", url);
             alert('okk');
-            $('#frmasistencia #resultadoasistencia').html(json.result);
+            $('#resultadoasistencia').html(json.result);
         },
         error : function(xhr, status) {
              alert('Disculpe, existió un problema');
