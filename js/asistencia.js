@@ -10,7 +10,8 @@ $(function() {
 
   $( "#frmasistencia" ).on( "click", "#btnbuscar", function() {
       var fecha = $('#frmasistencia #fecha').val();
-      var url = base_url + '/asistencia_controller/buscar/' + fecha;
+      console.log(fecha);
+      var url =  '/index.php/asistencia/buscar/' + fecha;
 
       $.ajax({
         url : url,
@@ -46,7 +47,7 @@ $(function() {
         type : 'POST',
         dataType : 'json',
         success : function(json) {
-              alert('ok');
+              alert('Asistencia guardada correctamente');
             // window.location.href = url;
             // history.pushState(null, "", url);
             // $('#frmasistencia #resultadoasistencia').html(json.result);

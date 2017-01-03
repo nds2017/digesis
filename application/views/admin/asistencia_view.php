@@ -21,6 +21,7 @@
         </div>
       </fieldset>
       <br>
+      <div style="padding-top:10px;" id="resultadoasistencia">
       <table class="table table-bordered table-striped">      
               <thead>
                 <tr>
@@ -70,6 +71,7 @@
                 <input type="hidden" id="cantidad" name="cantidad" value="<?php echo count($result) ?>">
               </tbody>
             </table>
+            </div>
           <div class="divbuttons">
           <input class="btnsearch" type="button" value="Guardar Asistencia" id="grabar" >          
           </div>            

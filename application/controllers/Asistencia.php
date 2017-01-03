@@ -49,7 +49,7 @@ class Asistencia extends CI_Controller {
 		//  var_dump($data['result']);
 		//  echo '</pre>';
 		//  die();
-		$output['result'] = $this->load->view('lista_view', $data, TRUE);
+		$output['result'] = $this->load->view('admin/lista_view', $data, TRUE);
 		echo json_encode($output);
   }
 }
