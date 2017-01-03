@@ -1,6 +1,7 @@
+    <?php echo $fecha?>
     <script type="text/javascript">
     $(function() {
-      $('#frmmonedero #fecha').val(<?php echo $fecha?>);                
+      $('#frmmonedero #fecha').attr('value',<?php echo $fecha?>);                
     });
     </script>
     </div>
