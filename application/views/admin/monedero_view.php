@@ -50,7 +50,7 @@ if(!empty($result)):
             <td data-label="Fecha"><?php echo $value['nombres']; ?></td>
             <td data-label="Cant.SOT"><?php echo $value['perfil']; ?></td>
             <td data-label="Monto SOT"><?php echo $value['comidia'] ?></td>
-            <td data-label="Desc.Asist"><?php echo $value['comimes'] ?></td>
+            <td data-label="Desc.Asist"><?php echo $value['comimes']['monto'] ?></td>
             <td data-label="Desc.RF"><a href="<?php echo base_url().'index.php/monedero?id='.$value['detalle']['id'].'&fecha='.$value['detalle']['fecha']  ?>">ver detalle </a></td>            
           </tr>
           <?php 
