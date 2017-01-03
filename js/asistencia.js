@@ -55,7 +55,7 @@ $(function() {
              alert('Disculpe, existió un problema');
         },
         complete : function(xhr, status) {
-             alert('Petición realizada');
+            // alert('Petición realizada');
         }
       });
   });
