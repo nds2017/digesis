@@ -8,17 +8,7 @@
       <br>
       <fieldset class="search">
         <legend></legend>        
-        <form class="form-inline" role="form" id="frmasistencia">
-        <h2 class="form-signin-heading">Asistencia de T&eacute;cnicos</h2>
-        <h4 class="form-signin-heading">Fecha: <?php echo date('l, j \of  F Y') ?></h4>
-        <div class="form-group">
-          <label for="ejemplo_email_1">Fecha:</label>
-          <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha">
-          <input type="hidden" class="form-control" id="date" name="date" value="<?php echo $date ?>">
-        </div>
-        <button type="button" class="btn btn-success" id="btnbuscar">Buscar</button>
-        <div>
-
+        
       </fieldset>
       <br>
       <table class="table table-bordered table-striped">      
