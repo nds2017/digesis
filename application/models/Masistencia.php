@@ -51,9 +51,10 @@ class Masistencia extends CI_Model
         function set_records($output = array())
         {
 
-        	echo '<pre>';
+        	/*echo '<pre>';
         	print_r($output);
         	echo '</pre>';
+			*/
             date_default_timezone_set('America/Lima');
             $this->db->select('*');
             $this->db->from('asistencia');
@@ -67,7 +68,7 @@ class Masistencia extends CI_Model
 
             for ($i=1; $i <= $output['cantidad']; $i++) {
 
-                $idtecnico  = $output['idtecnico-' . $i];
+                $idtecnico  = $output['id-' . $i];
                 $fecha      = (isset($output['date']) && $output['date'] != '') ? $output['date'] : date('Y-m-d');
                 $asistio    = (isset($output['asistencia-' . $i])) ? $output['asistencia-' . $i] : '0';
                 $falto      = (isset($output['descanso-' . $i])) ? $output['descanso-' . $i] : '0';
