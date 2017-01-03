@@ -38,10 +38,8 @@ class Monedero extends CI_Controller {
 			$result[$key]['comidia']=$resumen['comision_dia'];
 			$result[$key]['comimes']=$resumen['comision_mes'];
 			$result[$key]['detalle']=array('id'=>$key,'fecha'=>$fecha);
-
 			}
 		endif;	
-
 		$data=array(
 			'result'=>$result,
 			'fecha'=>$fecha,
