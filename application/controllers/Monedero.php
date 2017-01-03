@@ -38,7 +38,7 @@ class Monedero extends CI_Controller {
 			$result[$key]['perfil']=($value->cargo==1)? 'perfil1':'perfil2';
 			$result[$key]['comidia']=$resumen['comision_dia'];
 			$result[$key]['comimes']=$resumen['comision_mes'];
-			$result[$key]['detalle']=array('id'=>$key,'fecha'=>$fecha);
+			$result[$key]['detalle']=array('dni'=>$value->dni,'fecha'=>$fecha);
 			}
 		endif;	
 		$data=array(
@@ -55,6 +55,8 @@ class Monedero extends CI_Controller {
 	 {
 	 	date_default_timezone_set('America/Lima');
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'monedero' ));
+
+
 		$fecha = $this->input->get('fecha');
 	    $data['tecnicos'] = $this->mtecnicos->tecnicos_combo2();
 
