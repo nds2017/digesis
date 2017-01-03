@@ -13,7 +13,7 @@
 
         <div class="form-group">
           <label for="ejemplo_email_1">Fecha:</label>
-          <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha">
+          <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" style="float: left;width: 40%">
           <input type="hidden" class="form-control" id="date" name="date" value="<?php echo $date ?>">
           <button type="button" class="btn btn-success" id="btnbuscar">Buscar</button>     
         </div>      
