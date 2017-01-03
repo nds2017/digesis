@@ -36,7 +36,7 @@ $(function() {
 
   $( "#grabar" ).on( "click", function() {
       var fecha = $('#fecha').val();
-      var url = base_url + '/index.php/asistencia/grabar';
+      var url = '/index.php/asistencia/grabar';
 
       var data = $('#frmasistencia').serialize();
 
