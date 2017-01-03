@@ -504,9 +504,11 @@ ul#listcomision li{
 ul#listcomision li b{
     color:#807d00;
 }
-
-
-
+.container_buscar_fecha{
+  width: 100%;
+  float: left;
+  text-align: left;  
+}
 
 table {
     border: 1px solid #ccc;
