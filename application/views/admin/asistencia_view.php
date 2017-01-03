@@ -66,8 +66,7 @@
               </tbody>
             </table>
           <div class="divbuttons">
-          <input class="btnsearch" type="button" value="Regresar a Lista" onclick="window.location='<?=base_url()?>index.php/solicitudes/lista';">
-          <input class="btnsearch" type="submit" value="<?=(@$data? 'Guardar' : 'Crear')?>">
+          <input class="btnsearch" type="button" value="Guardar Asistencia" id="grabar" >          
           </div>            
             </form>
     </div>
