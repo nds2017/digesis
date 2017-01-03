@@ -41,7 +41,7 @@ $(function() {
       var url = '/index.php/asistencia/grabar';
 
       var data = $('#frmasistencia').serialize();
-
+      alert(data);
       $.ajax({
         url : url,
         data : {data : data},
