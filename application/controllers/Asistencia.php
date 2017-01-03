@@ -26,6 +26,7 @@ class Asistencia extends CI_Controller {
 	 public function grabar()
 	 {
 		 $data = $this->input->post('data');
+		 print_r($data);
 		 parse_str($data, $output);
 		 $datar['result'] = $this->masistencia->set_records($output);
 		 echo json_encode($datar);
