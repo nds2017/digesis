@@ -173,8 +173,9 @@ if (!empty($r_asistencia)):
     if ($value->asistencia==0){
         $dia_semana = $this->dias[date('N', strtotime($fecha1))];
         echo $fecha1;
+        echo '---';
         echo date('N', strtotime($fecha1));
-        exit;
+        
         $monto_desc_asistencia = $monto_desc_asistencia+$this->_ci->mpenalidades->getPenalidadesById(($dia_semana=='Domingo')? self::CODIGO_ASISTENCIA2 : self::CODIGO_ASISTENCIA1);   
     }
 }
