@@ -186,6 +186,8 @@ public function supervisor($dni=null,$fecha=null) {
 
 $data=array();
 $acumulador=array('nuevos'=>0,'atendidos'=>0,'pendientes'=>0,'reprogramados'=>0,'rechazados'=>0);
+
+$data['fecha']=$fecha;
 foreach ($r_supervisor as $key => $value_sup) {
 
 	
