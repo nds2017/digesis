@@ -14,6 +14,7 @@ class Encuestas extends CI_Controller {
 		if ( isset($_GET['dni']) && ( !empty($_GET['dni']) ) ) {
 			$this->load->model('mtecnicos');
 			$datat = $this->mtecnicos->tecnicobyDNI($_GET['dni']);
+
 			if ( is_object($datat) ) {
 				$tid = $datat->id;
 				$data['nuevos'] = $this->msolicitudes->solicitudes_encuestas($tid, 1, true);
@@ -46,6 +47,7 @@ class Encuestas extends CI_Controller {
 			return $this->billetera->getresumen($params);
 
 	}
+
 	public function billetera_detalle($dni=null){
 			$params=array('dni'=>$dni);
 			return $this->billetera->getdetalle_comision($params);
@@ -168,5 +170,53 @@ class Encuestas extends CI_Controller {
 				redirect('welcome');	
 	}
 
+public function supervisor($dni=null) {
+
+	if ( isset($_GET['dni']) && ( !empty($_GET['dni']) ) ) {
+
+		$this->load->model('mtecnicos');
+		$this->load->model('msupervisores');
+
+		$r_supervisor=$this->msupervisores->supervisores_ByDni($_GET['dni']);
+
+$data=array();
+foreach ($r_supervisor as $key => $value_sup) {
+
+	$data[$value_sup->id]['nombre_sup']=$value_sup->nombres.' '.$value_sup->apellidos;
+
+	$r_tecnicos=$this->mtecnicos->tecnicos_bySupervisor2($value_sup->id);
+		
+	foreach ($r_tecnicos as $key => $value) {		
+		$datat = $this->mtecnicos->tecnicobyDNI($value->dni);
+		if ( is_object($datat) ) {
+			$tid = $datat->id;
+			
+			$data[$value_sup->id][$key]['nuevos']=$this->msolicitudes->solicitudes_encuestas($tid, 1, true);
+
+			$data[$value_sup->id][$key]['atendidos']=$this->msolicitudes->solicitudes_encuestas($tid, 2, true);
+			
+			$data[$value_sup->id][$key]['pendientes']= $this->msolicitudes->solicitudes_encuestas($tid, 3);
+
+			
+			$data[$value_sup->id][$key]['reprogramados']= $this->msolicitudes->solicitudes_encuestas($tid, 4, true);
+
+			$data[$value_sup->id][$key]['rechazados']=$this->msolicitudes->solicitudes_encuestas($tid, 5, true);	
+
+			$data[$value_sup->id][$key]['sinfotos']=$this->msolicitudes->solicitudesrf_encuestas($tid);
+
+
+			$data[$value_sup->id][$key]['estados']= $this->msolicitudes->estados_entrys();
+
+		}
+	}
+}
+				
+		print_r($data);
+		//$this->load->view('list-solicitudes', $data);
+	}
+			else
+				redirect('welcome');
+	
+	}	
 
 }

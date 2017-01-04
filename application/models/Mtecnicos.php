@@ -90,12 +90,26 @@ class Mtecnicos extends CI_Model
 		if ( is_numeric($cargo) && ( $cargo != 0 ) )
 			$query = $this->db->query("SELECT id, CONCAT(nombres, ' ', apellidos) AS tnombres FROM tecnicos WHERE cargo = $cargo AND publish = 1 AND supervisorid = $supervisorid");
 		else
-			$query = $this->db->query("SELECT id, CONCAT(nombres, ' ', apellidos) AS tnombres FROM tecnicos WHERE publish = 1 AND supervisorid = $supervisorid");
+			$query = $this->db->query("SELECT id, CONCAT(nombres, ' ', apellidos) AS tnombres,dni,cargo FROM tecnicos WHERE publish = 1 AND supervisorid = $supervisorid");
 		foreach ($query->result() as $key=>$row) {
 			$rows[$row->id] = $row->tnombres;
 		}
 		return $rows;
 	}
+
+
+public function tecnicos_bySupervisor2($supervisorid = 0) {
+		$rows = array();
+			$query = $this->db->query("SELECT id, CONCAT(nombres, ' ', apellidos) AS tnombres,dni,cargo FROM tecnicos WHERE publish = 1 AND supervisorid = $supervisorid");
+
+		foreach ($query->result() as $key=>$row) {
+			$rows[$row->id] = $row;
+		}
+
+		return $rows;
+	}
+
+
 
 	public function tecnicos_total() {
 		$query = $this->db->query("SELECT COUNT(id) AS cantidad FROM tecnicos");
