@@ -59,7 +59,6 @@ z-index: 3000;
 				<img src="<?=base_url()?>encuesta/img/logo.png"/>
 			</div>
 			<div class="cont_billetera">
-				<a  href="#" class="billetera">Monedero Digital</a>
 				<div style="width: 200px;float: left;"> 
 				<input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" value="<?php echo $fecha?>" style="float:right;  width: 12%">
 				</div>
