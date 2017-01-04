@@ -6,7 +6,7 @@
 					<div class="upload">
 						<input id="fileSelect" name="file" type="file" accept=".csv" />
 					</div>
-					&nbsp;&nbsp;&nbsp;<input class="btn" style="margin: 0px;" name="carga" type="submit" value="Cargar" />
+					<input class="btn" style="margin: 0px;" name="carga" type="submit" value="Cargar" />
 					<br><br>
 					<?php if ( @$error ) echo $error; ?>
 				</form>

@@ -50,6 +50,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<dt><a <?=($active=='reportes')?'class="active"':''?>href="#"><i class="fa fa-star"></i> Reportes </a></dt>
 					<dd><a <?=($active=='eficiencia')?'class="active"':''?>href="<?=base_url()?>index.php/reportes/eficiencia"><i class="fa fa-ticket"></i> Eficiencia </a></dd>
 					<dd><a <?=($active=='encuestas')?'class="active"':''?>href="<?=base_url()?>index.php/reportes/encuestas"><i class="fa fa-ticket"></i> Encuestas </a></dd>
+					<dd><a <?=($active=='rfotografico')?'class="active"':''?>href="<?=base_url()?>index.php/reportes/rfotografico"><i class="fa fa-ticket"></i> Registro F. </a></dd>
+					<dd><a <?=($active=='produccion')?'class="active"':''?>href="#"><i class="fa fa-ticket"></i> Produccion </a></dd>
 				<?php } else if ( $session->rolid == 2 ) { ?>
 				<dt><a <?=($active=='usuarios')?'class="active"':''?>href="<?=base_url()?>index.php/usuarios"><i class="fa fa-star"></i> Roles</a></dt>
 					<dd><a <?=($active=='usuarios')?'class="active"':''?> href="<?=base_url()?>index.php/usuarios"><i class="fa fa-ticket"></i> Todas Los Usuarios </a></dd>

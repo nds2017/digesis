@@ -7,7 +7,7 @@
 			<br><br><br><hr>
 			<fieldset class="search">
 				<legend></legend>
-				<form id="form" method="post" action="<?=base_url()?>index.php/reportes/eficiencia">
+				<form id="form" method="post" action="<?=base_url()?>index.php/reportes/rfotografico">
 					<h3>Seleccionar rango de fechas:</h3><br>
 					De : <input type="date" name="desde">
 					Hasta : <input type="date" name="hasta">
@@ -45,14 +45,12 @@
 						<th scope="col"><span>JEFE</span></th>
 						<th scope="col"><span>BASE</span></th>
 						<th scope="col"><span>SUPERVISOR</span></th>
-						<th scope="col"><span>Prog.</span></th>
-						<th scope="col"><span>Adic.</span></th>
-						<th scope="col"><span>Total P.</span></th>
-						<th scope="col"><span>Rech.</span></th>
-						<th scope="col"><span>Reprog.</span></th>
-						<th scope="col"><span>Pend.</span></th>
-						<th scope="col"><span>Valid.</span></th>
-						<th scope="col"><span>Sin E.</span></th>
+						<th scope="col"><span>Validado</span></th>
+						<th scope="col"><span>Pendiente</span></th>
+						<th scope="col"><span>Total</span></th>
+						<th scope="col"><span>Observado</span></th>
+						<th scope="col"><span>Sin RF</span></th>
+						<th scope="col"><span>Conforme</span></th>
 						<th scope="col"><span>%</span></th>
 					</tr>
 				</thead>
@@ -63,14 +61,12 @@
 					<td><strong><?=$jefes[$jefeid]?></strong></td>
 					<td><strong>-</strong></td>
 					<td><strong>-</strong></td>
-					<td><strong><?=$data_j['totalprogramadas']?></strong></td>
-					<td><strong><?=$data_j['totaladicionales']?></strong></td>
-					<td><strong><?=$data_j['totalsolicitudes']?></strong></td>
-					<td><strong><?=$data_j['totalrechazados']?></strong></td>
-					<td><strong><?=$data_j['totalreprogramados']?></strong></td>
-					<td><strong><?=$data_j['totalpendientes']?></strong></td>
 					<td><strong><?=$data_j['totalvalidados']?></strong></td>
-					<td><strong><?=$data_j['totalsinestado']?></strong></td>
+					<td><strong><?=$data_j['totalpendientes']?></strong></td>
+					<td><strong><?=$data_j['totalsolicitudes']?></strong></td>
+					<td><strong><?=$data_j['totalobservados']?></strong></td>
+					<td><strong><?=$data_j['totalsinrf']?></strong></td>
+					<td><strong><?=$data_j['totalconforme']?></strong></td>
 					<td><strong><?=$data_j['porcentaje'].'%'?></strong></td>
 				</tr>
 					<?php if ( isset($data_j['bases']) && count($data_j['bases']) ) { ?>
@@ -86,8 +82,6 @@
 						<td><strong>-</strong></td>
 						<td><strong>-</strong></td>
 						<td><strong>-</strong></td>
-						<td><strong>-</strong></td>
-						<td><strong>-</strong></td>
 					</tr>
 						<?php if ( isset($data_b) && count($data_b) ) { ?>
 						<?php foreach ( $data_b as $supid => $data_s ) { ?>
@@ -95,14 +89,12 @@
 							<td><strong>-</strong></td>
 							<td><strong>-</strong></td>
 							<td><strong><?=$supervisores[$supid]?></strong></td>
-							<td><strong><?=$data_s['programadas']?></strong></td>
-							<td><strong><?=$data_s['adicionales']?></strong></td>
-							<td><strong><?=$data_s['totalsolicitudes']?></strong></td>
-							<td><strong><?=$data_s['rechazados']?></strong></td>
-							<td><strong><?=$data_s['reprogramados']?></strong></td>
-							<td><strong><?=$data_s['pendientes']?></strong></td>
 							<td><strong><?=$data_s['validados']?></strong></td>
-							<td><strong><?=$data_s['sinestado']?></strong></td>
+							<td><strong><?=$data_s['pendientes']?></strong></td>
+							<td><strong><?=$data_s['totalsolicitudes']?></strong></td>
+							<td><strong><?=$data_s['observados']?></strong></td>
+							<td><strong><?=$data_s['sinrf']?></strong></td>
+							<td><strong><?=$data_s['conforme']?></strong></td>
 							<td><strong><?=$data_s['porcentaje'].'%'?></strong></td>
 						</tr>
 						<?php } ?>
