@@ -178,16 +178,19 @@ public function supervisor($dni=null,$fecha=null) {
 		$this->load->model('msupervisores');
 
 		$fecha=$this->input->get('fecha');
-		
+
 		if (!empty($fecha))
 			$fecha=date('Y-m-d');
 
 	$r_supervisor=$this->msupervisores->supervisores_ByDni($_GET['dni']);
 
 $data=array();
+$acumulador=array();
 foreach ($r_supervisor as $key => $value_sup) {
 
-	$data[$value_sup->id]['nombre_sup']=$value_sup->nombres.' '.$value_sup->apellidos;
+	$data['supervisor']=$value_sup->nombres.' '.$value_sup->apellidos;
+
+	$data[$value_sup->id]['supervisor']=$value_sup->nombres.' '.$value_sup->apellidos;
 
 	$r_tecnicos=$this->mtecnicos->tecnicos_bySupervisor2($value_sup->id);
 		
@@ -199,17 +202,28 @@ foreach ($r_supervisor as $key => $value_sup) {
 			$tid = $datat->id;
 			$data[$value_sup->id][$key]['nuevos']=$this->msolicitudes->solicitudes_encuestas($tid, 1, false,$fecha);
 
+			$acumulador['nuevos']=intval($acumulador['nuevos'])+count($data[$value_sup->id][$key]['nuevos']);
+
+
 			$data[$value_sup->id][$key]['atendidos']=$this->msolicitudes->solicitudes_encuestas($tid, 2, false,$fecha);
 
-			$data[$value_sup->id][$key]['pendientes']= $this->msolicitudes->solicitudes_encuestas($tid, 3);
+	$acumulador['atendidos']=intval($acumulador['atendidos']) + count($data[$value_sup->id][$key]['atendidos']);
+
+	$data[$value_sup->id][$key]['pendientes']= $this->msolicitudes->solicitudes_encuestas($tid, 3);
+
+	$acumulador['pendientes']=intval($acumulador['pendientes']) +count($data[$value_sup->id][$key]['pendientes']);
 
 			
 			$data[$value_sup->id][$key]['reprogramados']= $this->msolicitudes->solicitudes_encuestas($tid, 4, false,$fecha);
 
+			$acumulador['reprogramados']=intval($acumulador['reprogramados']) + count($data[$value_sup->id][$key]['reprogramados']);
+
+
 			$data[$value_sup->id][$key]['rechazados']=$this->msolicitudes->solicitudes_encuestas($tid, 5, false,$fecha);	
 
-			$data[$value_sup->id][$key]['sinfotos']=$this->msolicitudes->solicitudesrf_encuestas($tid);
+			$acumulador['rechazados']=intval($acumulador['rechazados']) + count($data[$value_sup->id][$key]['rechazados']);
 
+			$data[$value_sup->id][$key]['sinfotos']=$this->msolicitudes->solicitudesrf_encuestas($tid);
 
 			$data[$value_sup->id][$key]['estados']= $this->msolicitudes->estados_entrys();
 
@@ -217,8 +231,8 @@ foreach ($r_supervisor as $key => $value_sup) {
 	}
 }
 				
-		print_r($data);
-		//$this->load->view('list-solicitudes', $data);
+		$data['acumulador']=$acumulador;
+		$this->load->view('list-solicitudes-supervisor', $data);
 	}
 			else
 				redirect('welcome');
