@@ -93,6 +93,7 @@ else
 /* descuento de inasistencias*/
     $date=date('Y-m-d');
     $desc_inasistencia=0;
+    $monto_desc_asistencia=0;
     $r_asistencia=$this->_ci->masistencia->getAsistenciaByIdAndMonth($tid,$date);
 
     if(!empty($r_asistencia)){
