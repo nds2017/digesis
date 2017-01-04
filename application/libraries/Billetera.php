@@ -78,7 +78,7 @@ class Billetera
 }
 /* calculo de la comision por dia*/
 private function getComisionDia($tid=null){
-
+date_default_timezone_set('America/Lima');
 /* pago por Sot validadas*/
 $this->atendidos =$this->_ci->msolicitudes->solicitudes_encuestas($tid, 2, true);
 $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($this->atendidos));
@@ -91,7 +91,21 @@ else
 
 
 /* descuento de inasistencias*/
+    $date=date('Y-m-d');
     $desc_inasistencia=0;
+    $r_asistencia=$this->_ci->masistencia->getAsistenciaByIdAndMonth($tid,$date);
+
+    if(!empty($r_asistencia)){
+        foreach ($r_asistencia as $key => $value) {
+        if ($value->descanso==1){
+            $dia_semana = $this->dias[date('N', strtotime($date))];
+            $monto_desc_asistencia = $monto_desc_asistencia+$this->_ci->mpenalidades->getPenalidadesById(($dia_semana=='Domingo')? self::CODIGO_ASISTENCIA2 : self::CODIGO_ASISTENCIA1);   
+            }
+                    
+            }
+        }
+    $desc_inasistencia=$monto_desc_asistencia;
+    
 
 /* descuento por RF no validada*/
    $c=0;
