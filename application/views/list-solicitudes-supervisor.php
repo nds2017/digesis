@@ -32,6 +32,14 @@ $(function() {
 		z-index: 3000;
 		top: 100px;
 	}
+.ui-datepicker{
+		width: 200px;
+		float: left;
+		z-index: 3000;
+		top: 100px;
+}	
+.ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all
+
 .ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all{
 width: 100%;
 float: left;
