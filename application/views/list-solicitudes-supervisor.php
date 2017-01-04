@@ -58,10 +58,8 @@ z-index: 3000;
 			<div class="cont_logo">
 				<img src="<?=base_url()?>encuesta/img/logo.png"/>
 			</div>
-			<div class="cont_billetera">
-				<div style="width: 200px;float: left;"> 
-				<input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" value="<?php echo $fecha?>" style="float:right;  width: 12%">
-				</div>
+			<div class="cont_billetera">				
+				<input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" value="<?php echo $fecha?>" style="float:right;  width: 12%">				
 			</div>	
 			<div style="clear: both;"></div>
 			</header>
