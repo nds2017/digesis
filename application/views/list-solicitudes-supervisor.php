@@ -52,18 +52,19 @@ z-index: 3000;
 
 	<body>	
 	
-	<div class="wrapper">
-		<a href="<?=base_url()?>index.php/encuestas/supervisor?dni=<?=$_GET['dni']?>">
+	<div class="wrapper">		
 			<header>
+			<a href="<?=base_url()?>index.php/encuestas/supervisor?dni=<?=$_GET['dni']?>">
 			<div class="cont_logo">
 				<img src="<?=base_url()?>encuesta/img/logo.png"/>
 			</div>
+			</a>
 			<div class="cont_billetera">				
 				<input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" value="<?php echo $fecha?>" style="float:right;  width: 12%">				
 			</div>	
 			<div style="clear: both;"></div>
 			</header>
-		</a>
+		
 		<div class="body_w">
 			<div class="list-solicitud">
 				<div class="cont_time-s">
