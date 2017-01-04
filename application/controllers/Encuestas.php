@@ -170,14 +170,18 @@ class Encuestas extends CI_Controller {
 				redirect('welcome');	
 	}
 
-public function supervisor($dni=null) {
+public function supervisor($dni=null,$fecha=null) {
 
-	if ( isset($_GET['dni']) && ( !empty($_GET['dni']) ) ) {
-
+	if ( isset($_GET['dni']) && ( !empty($_GET['dni']))){
+		date_default_timezone_set('America/Lima');
 		$this->load->model('mtecnicos');
 		$this->load->model('msupervisores');
 
-		$r_supervisor=$this->msupervisores->supervisores_ByDni($_GET['dni']);
+		$fecha=$_GET['fecha'];
+		if (!empty($fecha))
+			$fecha=date('Y-m-d');
+
+	$r_supervisor=$this->msupervisores->supervisores_ByDni($_GET['dni']);
 
 $data=array();
 foreach ($r_supervisor as $key => $value_sup) {
@@ -188,19 +192,20 @@ foreach ($r_supervisor as $key => $value_sup) {
 		
 	foreach ($r_tecnicos as $key => $value) {		
 		$datat = $this->mtecnicos->tecnicobyDNI($value->dni);
-		if ( is_object($datat) ) {
+		if ( is_object($datat) )
+		{
+			
 			$tid = $datat->id;
-			
-			$data[$value_sup->id][$key]['nuevos']=$this->msolicitudes->solicitudes_encuestas($tid, 1, true);
+			$data[$value_sup->id][$key]['nuevos']=$this->msolicitudes->solicitudes_encuestas($tid, 1, false,$fecha);
 
-			$data[$value_sup->id][$key]['atendidos']=$this->msolicitudes->solicitudes_encuestas($tid, 2, true);
-			
+			$data[$value_sup->id][$key]['atendidos']=$this->msolicitudes->solicitudes_encuestas($tid, 2, false,$fecha);
+
 			$data[$value_sup->id][$key]['pendientes']= $this->msolicitudes->solicitudes_encuestas($tid, 3);
 
 			
-			$data[$value_sup->id][$key]['reprogramados']= $this->msolicitudes->solicitudes_encuestas($tid, 4, true);
+			$data[$value_sup->id][$key]['reprogramados']= $this->msolicitudes->solicitudes_encuestas($tid, 4, false,$fecha);
 
-			$data[$value_sup->id][$key]['rechazados']=$this->msolicitudes->solicitudes_encuestas($tid, 5, true);	
+			$data[$value_sup->id][$key]['rechazados']=$this->msolicitudes->solicitudes_encuestas($tid, 5, false,$fecha);	
 
 			$data[$value_sup->id][$key]['sinfotos']=$this->msolicitudes->solicitudesrf_encuestas($tid);
 
