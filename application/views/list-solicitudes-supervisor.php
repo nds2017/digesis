@@ -25,7 +25,15 @@ $(function() {
          });
 	
 </script>
+<style type="text/css">
+	.ui-datepicker-div{
+		width: 200px;
+		float: left;
+	}
+
+</style>
 	</head>
+
 
 	<body>	
 	
