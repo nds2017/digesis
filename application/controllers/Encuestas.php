@@ -189,7 +189,7 @@ $acumulador=array('nuevos'=>0,'atendidos'=>0,'pendientes'=>0,'reprogramados'=>0,
 foreach ($r_supervisor as $key => $value_sup) {
 
 	
-	$data['supervisor']=$value_sup->nombres.' '.$value_sup->apellidos;
+	$data['nom_supervisor']=$value_sup->nombres.' '.$value_sup->apellidos;
 
 	$r_tecnicos=$this->mtecnicos->tecnicos_bySupervisor2($value_sup->id);
 
@@ -199,13 +199,10 @@ foreach ($r_supervisor as $key => $value_sup) {
 
 		if ( is_object($datat) )
 		{
-		echo $tid = $datat->id;
-		echo $datat->nombres;
-		var_dump($key);
-		exit();
+		$tid = $datat->id;		
 		$data['supervisor'][$key]['tecnico']=$datat->nombres;
 
-			$data['supervisor'][$key]['nuevos']=$this->msolicitudes->solicitudes_encuestas($tid, 1, false,$fecha);
+		$data['supervisor'][$key]['nuevos']=$this->msolicitudes->solicitudes_encuestas($tid, 1, false,$fecha);
 
 			$acumulador['nuevos']=intval($acumulador['nuevos'])+count($data['supervisor'][$key]['nuevos']);
 
