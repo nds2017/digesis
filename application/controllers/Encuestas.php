@@ -177,7 +177,8 @@ public function supervisor($dni=null,$fecha=null) {
 		$this->load->model('mtecnicos');
 		$this->load->model('msupervisores');
 
-		$fecha=$_GET['fecha'];
+		$fecha=$this->input->get('fecha');
+		
 		if (!empty($fecha))
 			$fecha=date('Y-m-d');
 
@@ -194,7 +195,7 @@ foreach ($r_supervisor as $key => $value_sup) {
 		$datat = $this->mtecnicos->tecnicobyDNI($value->dni);
 		if ( is_object($datat) )
 		{
-			
+
 			$tid = $datat->id;
 			$data[$value_sup->id][$key]['nuevos']=$this->msolicitudes->solicitudes_encuestas($tid, 1, false,$fecha);
 
