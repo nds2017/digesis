@@ -33,7 +33,7 @@ $(function() {
 	}
 .ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all{
 width: 100%;
-position: absolute;
+float: left;
 
 }
 
