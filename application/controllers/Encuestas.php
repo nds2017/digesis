@@ -199,8 +199,11 @@ foreach ($r_supervisor as $key => $value_sup) {
 
 		if ( is_object($datat) )
 		{
-		$tid = $datat->id;
-		$data['supervisor'][$value->id]['tecnico']=$datat->nombres;
+		echo $tid = $datat->id;
+		echo $datat->nombres;
+		var_dump($key);
+		exit();
+		$data['supervisor'][$key]['tecnico']=$datat->nombres;
 
 			$data['supervisor'][$key]['nuevos']=$this->msolicitudes->solicitudes_encuestas($tid, 1, false,$fecha);
 
