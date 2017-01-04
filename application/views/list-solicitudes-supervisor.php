@@ -120,12 +120,12 @@
 	<td data-label="Tecnico">
 	<?php echo $value['tecnico']; ?></td>
 	<td data-label="SOT Atendidos">
-	<?php echo $value['atendidos'] ?></td>
+	<?php echo count($value['atendidos']) ?></td>
 	<td data-label="SOT pendientes">
-	<?php echo $value['pendientes'] ?></td>
+	<?php echo count($value['pendientes']) ?></td>
 
-	<td data-label="SOT reprogramados"><?php echo $value['reprogramados'] ?></td>
-	<td data-label="SOT rechazados"><?php echo $value['rechazados'] ?></td>
+	<td data-label="SOT reprogramados"><?php echo count($value['reprogramados']) ?></td>
+	<td data-label="SOT rechazados"><?php echo count($value['rechazados']) ?></td>
 						
 	</tr>
 	<?php 
