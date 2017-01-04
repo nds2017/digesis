@@ -69,8 +69,8 @@
 					<tbody>					
 	<tr>
 <td data-label="%eficiencia"><?php echo $resumen['comision_mes']['porcentaje']?></td>
-<td data-label="Monto Eficiencia"><?php echo $resumen['comision_mes']['comision_mes_sot']?></td>
-	<td data-label="Monto SOT"><?php echo $resumen['comision_mes']['comision_mes_eficiencia']?></td>
+<td data-label="Monto Eficiencia"><?php echo $resumen['comision_mes']['comision_mes_eficiencia']?></td>
+	<td data-label="Monto SOT"><?php echo $resumen['comision_mes']['comision_mes_sot']?></td>
 	<td data-label="Desc.Incidencia"><?php echo $resumen['comision_mes']['desc_mes_insidencia']?></td>
 	<td data-label="Pago del Mes"><?php echo $resumen['comision_mes']['monto']?></td>
 	</tr>
