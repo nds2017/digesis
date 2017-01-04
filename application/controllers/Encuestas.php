@@ -196,13 +196,10 @@ foreach ($r_supervisor as $key => $value_sup) {
 	$acumulador['nuevos']=0;		
 	foreach ($r_tecnicos as $key => $value) {		
 		$datat = $this->mtecnicos->tecnicobyDNI($value->dni);
-		print_r($datat);
-		exit();
+
 		if ( is_object($datat) )
 		{
-
-			$tid = $datat->id;
-
+		$tid = $datat->id;
 		$data['supervisor'][$key]['tecnico']=$datat->nombres;
 
 			$data['supervisor'][$key]['nuevos']=$this->msolicitudes->solicitudes_encuestas($tid, 1, false,$fecha);
