@@ -103,8 +103,7 @@
 
 				<table class="detalle-billetera">
 					<thead>
-						<tr>
-							<th>Fecha</th>
+						<tr>		
 							<th>Tecnico</th>
 							<th>SOT Atendidos</th>
 							<th>SOT pendientes</th>		
@@ -115,8 +114,7 @@
 	<?php 					
 	foreach($supervisor as $key=>$value):
 	?>
-	<tr>
-	<td data-label="Fecha"><?php echo $fecha; ?></td>
+	<tr>	
 	<td data-label="Tecnico">
 	<?php echo $value['tecnico']; ?></td>
 	<td data-label="SOT Atendidos">
