@@ -26,10 +26,15 @@ $(function() {
 	
 </script>
 <style type="text/css">
-	.ui-datepicker-div{
+	#ui-datepicker-div{
 		width: 200px;
 		float: left;
 	}
+.ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all{
+width: 100%;
+float: left;
+
+}
 
 </style>
 	</head>
