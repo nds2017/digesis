@@ -6,13 +6,13 @@
 		<link href="<?=base_url()?>encuesta/css/style.css?v=11" rel="stylesheet" type="text/css">
 		<link href="<?=base_url()?>encuesta/css/jquery-ui.css" rel="stylesheet" type="text/css">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">    
 
 		<script src="<?=base_url()?>encuesta/js/jquery-1.9.1.min.js"></script>
 		<script src="<?=base_url()?>encuesta/js/jquery-ui.js"></script>
 		<script src="<?=base_url()?>encuesta/js/ui-front.js" type="text/javascript"></script>
-
-    
+	    
 <script type="text/javascript">
 	$(function() {
 
@@ -113,9 +113,8 @@ $( "#fecha" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
 						<div class="tab-content-group ui-container-tab">
 							<div class="ui-tab-item active tab-content">
 								<div class="tab-title">RESUMEN POR TECNICO</div>
-
-		 <label style="display: inline; float: left; width: 6%; margin-left:10px" for="ejemplo_email_1">Fecha:</label>
-          <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" value="<?php echo $fecha?>" style="float: left;width: 12%">
+		 
+          <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" value="<?php echo $fecha?>" style="float:right;  width: 12%">
 
 
 				<table class="detalle-billetera">
