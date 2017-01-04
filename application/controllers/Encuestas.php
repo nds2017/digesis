@@ -193,7 +193,8 @@ foreach ($r_supervisor as $key => $value_sup) {
 	$data[$value_sup->id]['supervisor']=$value_sup->nombres.' '.$value_sup->apellidos;
 
 	$r_tecnicos=$this->mtecnicos->tecnicos_bySupervisor2($value_sup->id);
-		
+
+	$acumulador['nuevos']=0;		
 	foreach ($r_tecnicos as $key => $value) {		
 		$datat = $this->mtecnicos->tecnicobyDNI($value->dni);
 		if ( is_object($datat) )
