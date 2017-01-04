@@ -53,7 +53,7 @@ z-index: 3000;
 	<body>	
 	
 	<div class="wrapper">
-		<a href="<?=base_url()?>index.php/encuestas/supervisores?dni=<?=$_GET['dni']?>">
+		<a href="<?=base_url()?>index.php/encuestas/supervisor?dni=<?=$_GET['dni']?>">
 			<header>
 			<div class="cont_logo">
 				<img src="<?=base_url()?>encuesta/img/logo.png"/>
