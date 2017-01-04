@@ -7,7 +7,7 @@
 		<link href="<?=base_url()?>encuesta/css/style.css?v=11" rel="stylesheet" type="text/css">
 
 		<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
-		
+
 		<link href="<?=base_url()?>encuesta/css/jquery-ui.css" rel="stylesheet" type="text/css">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 				
@@ -40,6 +40,7 @@ $(function() {
 			</div>
 			<div class="cont_billetera">
 				<a  href="#" class="billetera">Monedero Digital</a>
+				<input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" value="<?php echo $fecha?>" style="float:right;  width: 12%">
 			</div>	
 			<div style="clear: both;"></div>
 			</header>
@@ -119,9 +120,7 @@ $(function() {
 						<div class="tab-content-group ui-container-tab">
 							<div class="ui-tab-item active tab-content">
 								<div class="tab-title">RESUMEN POR TECNICO</div>
-		 
-          <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" value="<?php echo $fecha?>" style="float:right;  width: 12%">
-
+		           
 
 				<table class="detalle-billetera">
 					<thead>
