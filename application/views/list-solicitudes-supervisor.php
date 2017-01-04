@@ -6,21 +6,25 @@
 		<link href="<?=base_url()?>encuesta/css/style.css?v=11" rel="stylesheet" type="text/css">
 		<link href="<?=base_url()?>encuesta/css/jquery-ui.css" rel="stylesheet" type="text/css">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">    
+		
+		<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
 
 		<script src="<?=base_url()?>encuesta/js/jquery-1.9.1.min.js"></script>
 		<script src="<?=base_url()?>encuesta/js/jquery-ui.js"></script>
 		<script src="<?=base_url()?>encuesta/js/ui-front.js" type="text/javascript"></script>
-	    
+
+    
 <script type="text/javascript">
-	$(function() {
 
-$( "#fecha" ).datepicker();
-$( "#fecha" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
-
-});
-
+$(function() {
+            $( "#fecha" ).datepicker({
+               appendText:"(yy-mm-dd)",
+               dateFormat:"yy-mm-dd",
+               altField: "#datepicker-4",
+               altFormat: "DD, d MM, yy"
+            });
+         });
+	
 </script>
 	</head>
 
