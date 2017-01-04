@@ -75,13 +75,14 @@
 					</div>
 				</div>
 				<div class="container-list" id="tab-ui">
+				<!--
 					<ul class="ui-tabs-links tab-links">
 						<li class="active">
 							<a href="#" class="check">
 								<span></span>	
 							</a>
 						</li>
-					<!--
+					
 						<li>
 							<a href="#"  class="alert">
 								<span>(<?=count($pendientes)?>)</span> 
@@ -92,8 +93,9 @@
 								<span>(<?=count($sinfotos)?>)</span>
 							</a>
 						</li>                        
-						-->
+						
 					</ul>
+					-->
 					<div class="wrap-ui-container-tab">
 						<div class="tab-content-group ui-container-tab">
 							<div class="ui-tab-item active tab-content">
