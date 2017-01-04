@@ -51,7 +51,7 @@
 								Pendiente de Validar
 							</h4>
 							<h3>
-								<?=$acumulador['$pendientes']?>
+								<?=$acumulador['pendientes']?>
 							</h3>
 						</div>
 					</div>
