@@ -7,8 +7,8 @@
 		<link href="<?=base_url()?>encuesta/css/style.css?v=11" rel="stylesheet" type="text/css">
 
 		<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+		
 
-		<link href="<?=base_url()?>encuesta/css/jquery-ui.css" rel="stylesheet" type="text/css">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 				
 		<script src="<?=base_url()?>encuesta/js/jquery-1.9.1.min.js"></script>
