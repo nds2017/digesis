@@ -28,11 +28,12 @@ $(function() {
 <style type="text/css">
 	#ui-datepicker-div{
 		width: 200px;
-		float: left;
+		position: relative;
+		top: 100px;
 	}
 .ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all{
 width: 100%;
-float: left;
+position: absolute;
 
 }
 
