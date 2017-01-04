@@ -19,12 +19,7 @@
 <script type="text/javascript">
 
 $(function() {
-            $( "#fecha" ).datepicker({
-               appendText:"(yy-mm-dd)",
-               dateFormat:"yy-mm-dd",
-               altField: "#datepicker-4",
-               altFormat: "DD, d MM, yy"
-            });
+            $( "#fecha" ).datepicker();
          });
 	
 </script>
