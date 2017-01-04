@@ -35,7 +35,9 @@ $(function() {
 			</div>
 			<div class="cont_billetera">
 				<a  href="#" class="billetera">Monedero Digital</a>
+				<div style="width: 200px;float: left;"> 
 				<input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" value="<?php echo $fecha?>" style="float:right;  width: 12%">
+				</div>
 			</div>	
 			<div style="clear: both;"></div>
 			</header>
