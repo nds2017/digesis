@@ -25,6 +25,7 @@ $(function() {
          });
 	
 </script>
+
 <style type="text/css">
 	#ui-datepicker-div{
 		width: 200px;
@@ -38,7 +39,6 @@ $(function() {
 		z-index: 3000;
 		top: 100px;
 }	
-.ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all
 
 .ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all{
 width: 100%;
