@@ -99,10 +99,43 @@
 					<div class="wrap-ui-container-tab">
 						<div class="tab-content-group ui-container-tab">
 							<div class="ui-tab-item active tab-content">
-								<div class="tab-title">BANDEJA DE ENTRADA</div>
+								<div class="tab-title">RESUMEN POR TECNICO</div>
 
-								
-								
+				<table class="detalle-billetera">
+					<thead>
+						<tr>
+							<th>Fecha</th>
+							<th>Tecnico</th>
+							<th>SOT Atendidos</th>
+							<th>SOT pendientes</th>		
+							<th>SOT reprogramados</th>	  <th>SOT rechazados</th>	
+						</tr>
+					</thead>
+					<tbody>
+	<?php 					
+	foreach($supervisor as $key=>$value):
+	?>
+	<tr>
+	<td data-label="Fecha"><?php echo $fecha; ?></td>
+	<td data-label="Tecnico">
+	<?php echo $value['tecnico']; ?></td>
+	<td data-label="SOT Atendidos">
+	<?php echo $value['atendidos'] ?></td>
+	<td data-label="SOT pendientes">
+	<?php echo $value['pendientes'] ?></td>
+
+	<td data-label="SOT reprogramados"><?php echo $value['reprogramados'] ?></td>
+	<td data-label="SOT rechazados"><?php echo $value['rechazados'] ?></td>
+						
+	</tr>
+	<?php 
+		endforeach;
+	?>	
+					</tbody>					  
+				</table>
+
+
+																
 							</div>
 													
 						</div>
