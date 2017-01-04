@@ -185,7 +185,7 @@ public function supervisor($dni=null,$fecha=null) {
 	$r_supervisor=$this->msupervisores->supervisores_ByDni($_GET['dni']);
 
 $data=array();
-$acumulador=array();
+$acumulador=array('nuevos','atendidos','pendientes','reprogramados','rechazados');
 foreach ($r_supervisor as $key => $value_sup) {
 
 	$data['supervisor']=$value_sup->nombres.' '.$value_sup->apellidos;
