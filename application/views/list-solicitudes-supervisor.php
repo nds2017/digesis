@@ -9,6 +9,20 @@
 		<script src="<?=base_url()?>encuesta/js/jquery-1.9.1.min.js"></script>
 		<script src="<?=base_url()?>encuesta/js/jquery-ui.js"></script>
 		<script src="<?=base_url()?>encuesta/js/ui-front.js" type="text/javascript"></script>
+
+
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">    
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+
+$( "#fecha" ).datepicker();
+$( "#fecha" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+
+});
+
+</script>
 	</head>
 
 	<body>	
@@ -100,6 +114,10 @@
 						<div class="tab-content-group ui-container-tab">
 							<div class="ui-tab-item active tab-content">
 								<div class="tab-title">RESUMEN POR TECNICO</div>
+
+		 <label style="display: inline; float: left; width: 6%; margin-left:10px" for="ejemplo_email_1">Fecha:</label>
+          <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" value="<?php echo $fecha?>" style="float: left;width: 12%">
+
 
 				<table class="detalle-billetera">
 					<thead>
