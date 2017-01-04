@@ -28,7 +28,7 @@ $(function() {
 <style type="text/css">
 	#ui-datepicker-div{
 		width: 200px;
-		position: relative;
+		position:absolute;
 		top: 100px;
 	}
 .ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all{
