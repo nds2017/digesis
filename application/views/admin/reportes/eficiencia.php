@@ -74,7 +74,7 @@
 					<td><strong>%</strong></td>
 				</tr>
 					<?php if ( isset($data_j['bases']) && count($data_j['bases']) ) { ?>
-					<?php foreach ( $data_j['bases'] as $baseid => $data_s ) { ?>
+					<?php foreach ( $data_j['bases'] as $baseid => $data_b ) { ?>
 					<tr>
 						<td><strong>-</strong></td>
 						<td><strong><?=$bases[$baseid]?></strong></td>
@@ -89,25 +89,29 @@
 						<td><strong>-</strong></td>
 						<td><strong>-</strong></td>
 					</tr>
-					<?php } ?>
 
 
-
-
-						<?php if ( isset($data_s['tecnicos']) && count($data_s['tecnicos']) ) { ?>
-						<?php foreach ( $data_s['tecnicos'] as $tid => $data_t ) { ?>
+						<?php if ( isset($data_b) && count($data_b) ) { ?>
+						<?php foreach ( $data_b as $supid => $data_s ) { ?>
 						<tr>
 							<td><strong>-</strong></td>
 							<td><strong>-</strong></td>
-							<td><strong><?=$tecnicos[$tid]?></strong></td>
-							<td><strong><?=isset($data_t['promedio'])?$data_t['promedio']:'-'?></strong></td>
-							<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/tecnico_encuestas/<?=$tid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
+							<td><strong><?=$supervisores[$supid]?></strong></td>
+							<td><strong><?=$data_s['programadas']?></strong></td>
+							<td><strong><?=$data_s['adicional']?></strong></td>
+							<td><strong><?=$data_s['programadas'] + $data_s['adicional']?></strong></td>
+							<td><strong><?=$data_s['rechazados']?></strong></td>
+							<td><strong><?=$data_s['reprogramados']?></strong></td>
+							<td><strong><?=$data_s['pendientes']?></strong></td>
+							<td><strong><?=$data_s['pendientes']?></strong></td>
+							<td><strong><?=$data_s['sinestado']?></strong></td>
+							<td><strong>-</strong></td>
 						</tr>
 						<?php } ?>
 						<?php } ?>
 
 
-
+					<?php } ?>
 					<?php } ?>
 				<?php } ?>
 				</tbody>
