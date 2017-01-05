@@ -44,7 +44,7 @@ $(function() {
 			</div>
 			</a>
 			<div class="cont_billetera">				
-				<p>Fecha: <input type="text" id="fecha" /></p>
+				<p>Fecha: <input style="color: #333" type="text" id="fecha" /></p>
 			</div>	
 			<div style="clear: both;"></div>
 			</header>
