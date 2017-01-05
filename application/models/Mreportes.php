@@ -121,7 +121,10 @@ class Mreportes extends CI_Model
 			$query = $this->db->get();
 			if ( $query->num_rows() > 0 ) {
 				foreach ( $query->result() as $key => $row ) {
-					$rows[$id]['solicitudes'][$row->upload] = $row->cantidad;
+					if ( $row->upload == 1 )
+						$rows[$id]['solicitudes']['programadas'] = $row->cantidad;
+					else if ( $row->upload == 0 )
+						$rows[$id]['solicitudes']['adicional'] = $row->cantidad;
 					$rows['total'] += $row->cantidad;
 				}
 				$rows[$id]['nombre'] = $supervisor;
