@@ -112,7 +112,7 @@ class Mreportes extends CI_Model
 	public function jefes_getTotalSolicitudes($supervisores) {
 		$rows = array();
 		$rows['total'] = 0;
-		foreach ( $supervisores as $key => $sup ) {
+		foreach ( $supervisores as $rkey => $sup ) {
 			$this->db->select('COUNT(st.sid) AS cantidad, s.upload');
 			$this->db->from('solicitudestecnicos st');
 			$this->db->join('solicitudes s', 'st.sid = s.id', 'left');
@@ -127,7 +127,7 @@ class Mreportes extends CI_Model
 						$rows[$sup->baseid][$sup->id]['solicitudes']['adicional'] = $row->cantidad;
 					$rows['total'] += $row->cantidad;
 				}
-				$rows[$id]['nombre'] = $supervisor;
+				$rows[$sup->baseid][$sup->id]['nombre'] = $supervisor;
 			}
 		}
 		return $rows;
