@@ -15,4 +15,13 @@ class Mbases extends CI_Model
 			return $query->result();
 	}
 
+	public function bases_combo() {
+		$rows = array();
+		$query = $this->db->query("SELECT * FROM bases");
+		foreach ( $query->result() as $key=>$row ) {
+			$rows[$row->id] = $row->nombre;
+		}
+		return $rows;
+	}
+
 }

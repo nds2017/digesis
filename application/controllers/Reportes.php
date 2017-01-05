@@ -21,7 +21,7 @@ class Reportes extends CI_Controller {
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'eficiencia' ));
 		$data['jefes'] = $this->mjefes->jefes_combo();
 		$data['supervisores'] = $this->msupervisores->supervisores_combo();
-		$data['bases'] = $this->mbases->bases_entrys();
+		$data['bases'] = $this->mbases->bases_combo();
 		$data['data'] = $this->mreportes->jefes_getEficiencia($data['jefes']);
 		$this->load->view('admin/reportes/eficiencia', $data);
 	}
