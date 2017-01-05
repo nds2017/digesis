@@ -2,7 +2,7 @@
 	box-sizing: border-box; }
 
 .jefetr td {
-	border-top-color: red;
+	border-top: 3px solid red;
 }
 
 div.upload {
