@@ -26,7 +26,7 @@ $(function() {
  $( "#fecha" ).datepicker({
       changeMonth: true,//this option for allowing user 
       changeYear: true ,
-      dateFormat:'d-m-y'
+      dateFormat:'d-mm-yyyy'
 
     });
     });         
