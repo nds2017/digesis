@@ -108,4 +108,10 @@ class Mreportes extends CI_Model
 		return $rows;
 	}
 
+
+
+	public function jefes_getEficiencia($jefes) {
+		var_dump($jefes); die();
+	}
+
 }
