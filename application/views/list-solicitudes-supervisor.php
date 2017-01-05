@@ -42,17 +42,14 @@ $(function() {
 			<div class="cont_logo">
 				<img src="<?=base_url()?>encuesta/img/logo.png"/>
 			</div>
-			</a>
-			<div class="cont_billetera">				
-				<p>Fecha: <input style="color: #333" type="text" id="fecha" /></p>
-			</div>	
+			</a>			
 			<div style="clear: both;"></div>
 			</header>
 		
 		<div class="body_w">
 			<div class="list-solicitud">
-				<div class="cont_time-s">
-					<h4>Fecha: <?=date('d/m/Y')?></h4>
+				<div class="cont_time-s">				
+					<h4>Fecha: <input style="color: #333" type="text" id="fecha" value="<?=date('d/m/Y')?>" /></h4>
 					<h4><em>Bienvenido <?=@$nom_supervisor?></em><br>
 					<a href="<?=base_url()?>">Cerrar Sesión</a></h4>
 				</div>
