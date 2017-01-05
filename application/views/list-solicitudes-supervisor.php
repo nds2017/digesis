@@ -42,7 +42,7 @@ function getParameterByName(name, url) {
 	onSelect: function () {
 		var dni = getParameterByName('dni');				  
 var url ='/index.php/encuestas/supervisor?dni='+dni+'&fecha='+$.datepicker.formatDate("yy-mm-dd", $(this).datepicker('getDate'));
-alert(url);
+
 
 window.location.href=url;
             //selectedDate = $.datepicker.formatDate("yy-mm-dd", $(this).datepicker('getDate'));
@@ -68,8 +68,7 @@ window.location.href=url;
 		
 		<div class="body_w">
 			<div class="list-solicitud">
-				<div class="cont_time-s">
-					<?=@$fecha?>				
+				<div class="cont_time-s">	
 					<h4>Fecha: <input style="color: #333" type="text" id="fecha" value="<?=@$fecha?>" /></h4>
 					<h4><em>Bienvenido <?=@$nom_supervisor?></em><br>
 					<a href="<?=base_url()?>">Cerrar Sesión</a></h4>
