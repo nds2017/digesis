@@ -125,7 +125,7 @@ class Mreportes extends CI_Model
 			$this->db->group_by("s.upload");
 			$query = $this->db->get();
 			if ( $query->num_rows() > 0 ) {
-				$rows['bases'][$sup->baseid][$sup->id]['adicional'] = $rows['bases'][$sup->baseid][$sup->id]['programadas'] = $rows['bases'][$sup->baseid][$sup->id]['totalsolicitudes'] = 0;
+				$rows['bases'][$sup->baseid][$sup->id]['adicionales'] = $rows['bases'][$sup->baseid][$sup->id]['programadas'] = $rows['bases'][$sup->baseid][$sup->id]['totalsolicitudes'] = 0;
 				foreach ( $query->result() as $key => $row ) {
 					if ( $row->upload == 1 ) {
 						$rows['bases'][$sup->baseid][$sup->id]['programadas'] = $row->cantidad;
