@@ -12,6 +12,7 @@
           <span class="" style="margin-bottom: 15px;">Fecha: <?php echo date('l, j \of  F Y') ?></span>
 
         <div class="form-group">
+            <label for="ejemplo_email_1">Tecnico:</label>
             <select required id="tecnico1id" name="tecnico1id">
                 <option value="">-Seleccione-</option>
                 <?php foreach ( @$tecnicos1 as $key => $tecnico1 ) { ?>
@@ -20,7 +21,7 @@
               </select>
 
           <label for="ejemplo_email_1">Fecha:</label>
-          <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" style="float: left;width: 40%">
+          <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" style="float: left;width: 20%">
           <input type="hidden" class="form-control" id="date" name="date" value="<?php echo $date ?>">
           <button type="button" class="btn btn-success" id="btnbuscar">Buscar</button>     
         </div>      
