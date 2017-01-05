@@ -27,7 +27,7 @@ class Monedero extends CI_Controller {
 			$data['resumen'] = $resumen;
 			$data['detalle'] = $detalle;	
 		}
-	 echo $data['fecha'] = !empty($fecha)? $fecha:date('Y-m-d');	 
+	 $data['fecha'] = !empty($fecha)? $fecha:date('Y-m-d');	 
 	 $this->load->view('admin/monedero_view', $data);
 	 }
 
