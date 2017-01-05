@@ -170,10 +170,11 @@ class Mreportes extends CI_Model
 						$rows['bases'][$sup->baseid][$sup->id]['rechazados'] = $row->cantidad;
 						$rows['totalrechazados'] += $row->cantidad;
 					}
-					$rows['bases'][$sup->baseid][$sup->id]['porcentaje'] = number_format(($rows['bases'][$sup->baseid][$sup->id]['validados'] / $rows['bases'][$sup->baseid][$sup->id]['totalsolicitudes']) * 100, 2);
+					$rows['bases'][$sup->baseid][$sup->id]['porcentaje'] = number_format(($rows['bases'][$sup->baseid][$sup->id]['validados'] / $rows['bases'][$sup->baseid][$sup->id]['totalsolicitudes']) * 100, 0);
 				}
 			}
-			$rows['porcentaje'] = number_format(($rows['totalvalidados'] / $rows['totalsolicitudes'] * 100), 2);
+			if ( $rows['totalsolicitudes'] )
+				$rows['porcentaje'] = number_format(($rows['totalvalidados'] / $rows['totalsolicitudes'] * 100), 0);
 		}
 		return $rows;
 	}
