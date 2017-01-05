@@ -20,6 +20,13 @@
 						<option <?=(@$jefeid==$id ? 'selected' : '')?> value=<?=$id?>><?=$jefe?></option>
 						<?php } ?>
 					</select>
+					Jefe :
+					<select id="rjefeid">
+						<option value="0">-Seleccione-</option>
+						<?php foreach ($bases as $id => $base) { ?>
+						<option <?=(@$baseid==$id ? 'selected' : '')?> value=<?=$id?>><?=$base?></option>
+						<?php } ?>
+					</select>
 					Supervisor :
 					<select id="rsupervisorid" name="supervisorid">
 						<?php if ( @$supervisorid ) { ?>
@@ -56,30 +63,32 @@
 					<td><strong><?=$jefes[$jefeid]?></strong></td>
 					<td><strong>-</strong></td>
 					<td><strong>-</strong></td>
-					<td><strong><?=isset($data_j['promedio'])?$data_j['promedio']:'-'?></strong></td>
-					<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/jefe_encuestas/<?=$jefeid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
+					<td><strong><?=$data_j['totalprogramadas']?></strong></td>
+					<td><strong><?=$data_j['totaladicionales']?></strong></td>
+					<td><strong><?=$data_j['totalsolicitudes']?></strong></td>
+					<td><strong><?=$data_j['totalrechazados']?></strong></td>
+					<td><strong><?=$data_j['totalreprogramados']?></strong></td>
+					<td><strong><?=$data_j['totalpendientes']?></strong></td>
+					<td><strong><?=$data_j['totalvalidados']?></strong></td>
+					<td><strong><?=$data_j['totalsinestado']?></strong></td>
+					<td><strong>%</strong></td>
 				</tr>
-					<?php if ( isset($data_j['supervisores']) && count($data_j['supervisores']) ) { ?>
-					<?php foreach ( $data_j['supervisores'] as $supid => $data_s ) { ?>
+					<?php if ( isset($data_j['bases']) && count($data_j['bases']) ) { ?>
+					<?php foreach ( $data_j['bases'] as $baseid => $data_s ) { ?>
 					<tr>
 						<td><strong>-</strong></td>
-						<td><strong><?=$supervisores[$supid]?></strong></td>
+						<td><strong><?=$bases[$baseid]?></strong></td>
 						<td><strong>-</strong></td>
-						<td><strong><?=isset($data_s['promedio'])?$data_s['promedio']:'-'?></strong></td>
-						<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/supervisor_encuestas/<?=$supid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
+						<td><strong>-</strong></td>
+						<td><strong>-</strong></td>
+						<td><strong>-</strong></td>
+						<td><strong>-</strong></td>
+						<td><strong>-</strong></td>
+						<td><strong>-</strong></td>
+						<td><strong>-</strong></td>
+						<td><strong>-</strong></td>
+						<td><strong>-</strong></td>
 					</tr>
-					<?php } ?>
-						<?php if ( isset($data_s['tecnicos']) && count($data_s['tecnicos']) ) { ?>
-						<?php foreach ( $data_s['tecnicos'] as $tid => $data_t ) { ?>
-						<tr>
-							<td><strong>-</strong></td>
-							<td><strong>-</strong></td>
-							<td><strong><?=$tecnicos[$tid]?></strong></td>
-							<td><strong><?=isset($data_t['promedio'])?$data_t['promedio']:'-'?></strong></td>
-							<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/tecnico_encuestas/<?=$tid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
-						</tr>
-						<?php } ?>
-						<?php } ?>
 					<?php } ?>
 				<?php } ?>
 				</tbody>
