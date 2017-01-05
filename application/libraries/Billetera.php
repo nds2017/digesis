@@ -164,6 +164,8 @@ if (!empty($eficiencia))
 /* descuento de inasistencias*/
 
 $r_asistencia=$this->_ci->masistencia->getAsistenciaByIdAndMonth($tid,$fecha);
+print_r($r_asistencia);
+exit;
 $monto_desc_asistencia=0;
 if (!empty($r_asistencia)):
                               
