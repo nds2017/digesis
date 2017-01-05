@@ -20,7 +20,7 @@
 						<option <?=(@$jefeid==$id ? 'selected' : '')?> value=<?=$id?>><?=$jefe?></option>
 						<?php } ?>
 					</select>
-					Jefe :
+					Base :
 					<select id="rjefeid">
 						<option value="0">-Seleccione-</option>
 						<?php foreach ($bases as $id => $base) { ?>

@@ -23,7 +23,6 @@ class Reportes extends CI_Controller {
 		$data['supervisores'] = $this->msupervisores->supervisores_combo();
 		$data['bases'] = $this->mbases->bases_entrys();
 		$data['data'] = $this->mreportes->jefes_getEficiencia($data['jefes']);
-		$data['bases'] = $this->mbases->bases_entrys();
 		$this->load->view('admin/reportes/eficiencia', $data);
 	}
 
