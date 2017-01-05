@@ -23,12 +23,26 @@
 
 $(function() {
 
+function getParameterByName(name, url) {
+    if (!url) {
+      url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
  $( "#fecha" ).datepicker({
     changeMonth: true,//this option for allowing user 
     changeYear: true ,
     dateFormat:'dd-mm-yy',
 	onSelect: function () {
-		alert('ss');
+		var dni = getParameterByName('dni');
+				  alert(dni);
+//var url ='index.php/encuestas/supervisor?dni='
             //selectedDate = $.datepicker.formatDate("yy-mm-dd", $(this).datepicker('getDate'));
         }
     });
