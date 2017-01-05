@@ -116,7 +116,7 @@ class Mreportes extends CI_Model
 			$this->db->select('COUNT(st.sid) AS cantidad, s.upload');
 			$this->db->from('solicitudestecnicos st');
 			$this->db->join('solicitudes s', 'st.sid = s.id', 'left');
-			$this->db->where('st.supid', $id);
+			$this->db->where('st.supid', $sup->id);
 			$this->db->group_by("s.upload");
 			$query = $this->db->get();
 			if ( $query->num_rows() > 0 ) {
