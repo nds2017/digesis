@@ -28,7 +28,7 @@ $(function() {
     changeYear: true ,
     dateFormat:'dd-mm-yy'
 	onSelect: function () {
-		alert($(this).datepicker('getDate'));
+		alert('ss');
             //selectedDate = $.datepicker.formatDate("yy-mm-dd", $(this).datepicker('getDate'));
         }
     });
