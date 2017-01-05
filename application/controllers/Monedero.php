@@ -24,7 +24,7 @@ class Monedero extends CI_Controller {
 			$data['resumen'] = $resumen;
 			$data['detalle'] = $detalle;	
 		}
-	 $data['fecha'] = $fecha;			
+	 $data['date'] = $fecha;			
 	 $this->load->view('admin/monedero_view', $data);
 	 }
 
