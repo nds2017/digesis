@@ -55,7 +55,7 @@
         </table>
         <br/><br/><br/>
 
-        <table class="detalle-billetera">
+        <table class="table table-bordered table-striped">
           <thead>
             <tr>
               <th>%eficiencia</th>
