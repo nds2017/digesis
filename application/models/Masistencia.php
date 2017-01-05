@@ -37,6 +37,8 @@ class Masistencia extends CI_Model
             $this->db->join('tecnicos', 'tecnicos.id = asistencia.idtecnico');
         	$this->db->where('fecha', strtotime($fecha));
             $query = $this->db->get();
+            echo $this->db->last_query();
+            exit();
             //$data = $query->result();
             //
             if ( $query->num_rows() > 0 ) {
