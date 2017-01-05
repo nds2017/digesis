@@ -26,7 +26,7 @@ $(function() {
  $( "#fecha" ).datepicker({
     changeMonth: true,//this option for allowing user 
     changeYear: true ,
-    dateFormat:'dd-mm-yy'
+    dateFormat:'dd-mm-yy',
 	onSelect: function () {
 		alert('ss');
             //selectedDate = $.datepicker.formatDate("yy-mm-dd", $(this).datepicker('getDate'));
