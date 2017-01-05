@@ -127,7 +127,7 @@ class Mreportes extends CI_Model
 						$rows[$sup->baseid][$sup->id]['solicitudes']['adicional'] = $row->cantidad;
 					$rows['total'] += $row->cantidad;
 				}
-				$rows[$sup->baseid][$sup->id]['nombre'] = $sup->nombres;
+				$rows[$sup->baseid][$sup->id]['nombre'] = $sup->nombres . ' ' . $sup->apellidos;
 			}
 		}
 		return $rows;
