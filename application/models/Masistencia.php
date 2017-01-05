@@ -6,13 +6,13 @@ class Masistencia extends CI_Model
 	{
 		parent::__construct();		
 	}
-	public function getAsistenciaByIdAndMonth($id=null,$date=false){		
-
+	public function getAsistenciaByIdAndMonth($id=null,$date=false,$month=false){		
+        $month=($month==false)?  intval(date('m')): date('m',strtotime($month));
 		$rows = array();
 		$this->db->select('a.*');
 		$this->db->from('asistencia a');
         if ($date==false)
-		  $this->db->where('month(FROM_UNIXTIME(a.fecha))=',intval(date('m')));
+		  $this->db->where('month(FROM_UNIXTIME(a.fecha))=',$month);
         else
           $this->db->where('a.fecha=',strtotime($date));
 
