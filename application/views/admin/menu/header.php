@@ -34,6 +34,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				<dt><a <?=($active=='asistencia')?'class="active"':''?>href="<?=base_url()?>index.php/asistencia"><i class="fa fa-star"></i> Asistencia de Técnicos</a></dt>
 
+				<dt><a <?=($active=='monedero')?'class="active"':''?>href="<?=base_url()?>index.php/monedero"><i class="fa fa-star"></i> Monedero</a></dt>
+
 				<dt><a <?=($active=='usuarios')?'class="active"':''?>href="<?=base_url()?>index.php/usuarios"><i class="fa fa-star"></i> Roles</a></dt>
 
 					<dd><a <?=($active=='usuarios')?'class="active"':''?> href="<?=base_url()?>index.php/usuarios"><i class="fa fa-ticket"></i> Todas Los Usuarios </a></dd>

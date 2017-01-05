@@ -69,18 +69,19 @@ class Billetera
         $this->rechazados = $this->_ci->msolicitudes->solicitudes_encuestas_all($tid, 5);
         $this->pendientes = $this->_ci->msolicitudes->solicitudes_encuestas_all($tid, 3);              
         
-        $data['comision_dia']=$this->getComisionDia($tid);
-        $data['comision_mes']=$this->getComisionMes($tid);                                            
+        $fecha=!empty($params['fecha'])? $params['fecha']:false;
+        $data['comision_dia']=$this->getComisionDia($tid,$fecha);
+        $data['comision_mes']=$this->getComisionMes($tid,$fecha);                                            
         return $data;
     }
     
     }
 }
 /* calculo de la comision por dia*/
-private function getComisionDia($tid=null){
+private function getComisionDia($tid=null,$fecha=false){
 date_default_timezone_set('America/Lima');
 /* pago por Sot validadas*/
-$this->atendidos =$this->_ci->msolicitudes->solicitudes_encuestas($tid, 2, true);
+$this->atendidos =$this->_ci->msolicitudes->solicitudes_encuestas($tid, 2, false,$fecha);
 $rcosto=$this->_ci->mcostosot->getSotByType(self::id_tipo,count($this->atendidos));
 if (!empty($rcosto)){
     $this->monto_sot=$rcosto[0]->monto;
@@ -89,9 +90,8 @@ if (!empty($rcosto)){
 else
     $pago_sot_validado=0;
 
-
 /* descuento de inasistencias*/
-    $date=date('Y-m-d');
+    $date=($fecha==false)? date('Y-m-d'):$fecha;
     $desc_inasistencia=0;
     $monto_desc_asistencia=0;
     $r_asistencia=$this->_ci->masistencia->getAsistenciaByIdAndMonth($tid,$date);
@@ -121,7 +121,7 @@ else
   return $pago_sot_validado - $desc_inasistencia - $desc_rf_no_validada;
 }
 
-private function getComisionMes($tid=null){
+private function getComisionMes($tid=null,$fecha=false){
 
 $comision_mes_sot=0;
 $comision_mes_eficiencia=0;
@@ -130,7 +130,7 @@ $desc_mes_rf_no_validada=0;
 $desc_mes_insidencia=0;
 
 /* comision por sot mes */
-$r_sot_validadas=$this->_ci->msolicitudes->solicitudesByMonthCount($tid);
+$r_sot_validadas=$this->_ci->msolicitudes->solicitudesByMonthCount($tid,$fecha);
 
 if (!empty($r_sot_validadas))
 {
@@ -163,14 +163,14 @@ if (!empty($eficiencia))
 
 /* descuento de inasistencias*/
 
-$r_asistencia=$this->_ci->masistencia->getAsistenciaByIdAndMonth($tid);
+$r_asistencia=$this->_ci->masistencia->getAsistenciaByIdAndMonth($tid,$fecha);
 $monto_desc_asistencia=0;
 if (!empty($r_asistencia)):
                               
   foreach ($r_asistencia as $key => $value) {  
-    $fecha= gmdate("Y-m-d", $value->fecha);
+    $fecha1= gmdate("Y-m-d", $value->fecha);
     if ($value->asistencia==0){
-        $dia_semana = $this->dias[date('N', strtotime($fecha))];
+        $dia_semana = $this->dias[date('N', strtotime($fecha1))];
         $monto_desc_asistencia = $monto_desc_asistencia+$this->_ci->mpenalidades->getPenalidadesById(($dia_semana=='Domingo')? self::CODIGO_ASISTENCIA2 : self::CODIGO_ASISTENCIA1);   
     }
 }
@@ -179,7 +179,7 @@ endif;
 
 /* descuento por RF no validada*/
     $c=0;    
-    $sot_atendidos=$this->_ci->msolicitudes->solicitudesByMonth($tid);    
+    $sot_atendidos=$this->_ci->msolicitudes->solicitudesByMonth($tid,$fecha);    
     $monto_desc_rf = $this->_ci->mpenalidades->getPenalidadesById(self::CODIGO_RF);
     foreach ($sot_atendidos as $key => $value) {
       $rf=$this->_ci->msolicitudes->solicitudesByIdAndDate($value['id'],true);

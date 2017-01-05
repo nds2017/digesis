@@ -12,7 +12,8 @@ $(function() {
       var fecha = $('#frmasistencia #fecha').val();
       console.log(fecha);
       var url =  '/index.php/asistencia/buscar/' + fecha;
-
+      window.location.href = '/index.php/asistencia?fecha='+fecha;
+    /*
       $.ajax({
         url : url,
         data : {fecha : fecha},
@@ -22,7 +23,8 @@ $(function() {
             // window.location.href = url;
             // history.pushState(null, "", url);
             //alert('okk');
-            $('#resultadoasistencia').html(json.result);
+            window.location.href = '/index.php/asistencia?fecha='+fecha;
+            //$('#resultadoasistencia').html(json.result);
         },
         error : function(xhr, status) {
              alert('Disculpe, existió un problema');
@@ -30,9 +32,9 @@ $(function() {
         complete : function(xhr, status) {
             // alert('Petición realizada');
         }
-      });
+      });*/
 
-      $( "#date" ).val($( "#fecha" ).val());
+    $( "#date" ).val($( "#fecha" ).val());
 
   });
 

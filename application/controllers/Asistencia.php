@@ -15,13 +15,17 @@ class Asistencia extends CI_Controller {
 	 	date_default_timezone_set('America/Lima');
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'asistencia' ));
 
-		 $fecha = date('Y-m-d');
-		 $data['result'] 	= $this->masistencia->get_records($fecha);
-		 $data['date'] 		= $fecha;
-		  /*echo '<pre>';
-		  var_dump($data['result']);
-		  echo '</pre>';*/
-		 $this->load->view('admin/asistencia_view', $data);
+ 		$fecha = $this->input->get('fecha');
+ 		if (!empty($fecha)){
+ 			$data['result'] 	= $this->masistencia->get_records($fecha);
+ 		}
+		else{
+		 	$fecha = date('Y-m-d');
+		  	$data['result'] 	= $this->masistencia->get_records($fecha);
+		}
+
+		$data['date']= $fecha;
+		$this->load->view('admin/asistencia_view', $data);
 	 }
 
 	 public function grabar()
