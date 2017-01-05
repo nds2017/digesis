@@ -56,8 +56,7 @@ class Masistencia extends CI_Model
         }
 
         function set_records($output = array())
-        {
-        			
+        {        			
             date_default_timezone_set('America/Lima');
             $this->db->select('*');
             $this->db->from('asistencia');
