@@ -505,7 +505,7 @@ ul#listcomision li b{
     color:#807d00;
 }
 
-/*
+
 table {
     border: 1px solid #ccc;
     width: 100%;
@@ -570,7 +570,7 @@ table {
     }
   }
 
-*/
+
 @media only screen and (max-device-width: 800px){
     .wrapper {
         max-width: 100%; margin: 0 auto; display: inline-block; width:100%
