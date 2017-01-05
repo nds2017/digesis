@@ -10,10 +10,20 @@ class Reportes extends CI_Controller {
 		$this->load->model('mtecnicos');
 		$this->load->model('msupervisores');
 		$this->load->model('mjefes');
+		$this->load->model('mbases');
 	}
 
 	public function index() {
 		redirect('reportes/encuestas');
+	}
+
+	public function eficiencia() {
+		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'eficiencia' ));
+		$data['jefes'] = $this->mjefes->jefes_combo();
+		$data['supervisores'] = $this->msupervisores->supervisores_combo();
+		$data['bases'] = $this->mbases->bases_combo();
+		$data['data'] = $this->mreportes->jefes_getEficiencia($data['jefes']);
+		$this->load->view('admin/reportes/eficiencia', $data);
 	}
 
 	public function encuestas() {

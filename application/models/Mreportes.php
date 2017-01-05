@@ -5,6 +5,8 @@ class Mreportes extends CI_Model
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('msupervisores');
+		$this->load->model('mtecnicos');
 	}
 
 	public function tecnico_getEncuestas($tid = null) {
@@ -76,7 +78,6 @@ class Mreportes extends CI_Model
 		$rows = array();
 		$rows['promedio'] = 0;
 		if ( is_array($supervisores) && count($supervisores) ) {
-			$this->load->model('mtecnicos');
 			foreach ( $supervisores as $id => $supervisor ) {
 				$tecnicos = $this->mtecnicos->tecnicos_bySupervisor($id);
 				if ( count($tecnicos) ) {
@@ -98,11 +99,92 @@ class Mreportes extends CI_Model
 	public function jefes_getEncuestas($jefes) {
 		$rows = array();
 		if ( is_array($jefes) && count($jefes) ) {
-			$this->load->model('msupervisores');
 			foreach ( $jefes as $id => $jefe ) {
 				$supervisores = $this->msupervisores->supervisores_combo($id);
 				if ( count($supervisores) )
 					$rows[$id] = $this->mreportes->jefe_getEncuestas($supervisores, $id);
+			}
+		}
+		return $rows;
+	}
+
+
+	public function solicitudes_estadosbySupervisor($supid = null, $estado = null) {
+
+	}
+
+	public function jefes_getTotalSolicitudes($supervisores) {
+		$rows = array();
+		$rows['totalprogramadas'] = $rows['totaladicionales'] = $rows['totalsolicitudes'] = 0;
+		$rows['totalsinestado'] = $rows['totalreprogramados'] = $rows['totalrechazados'] = $rows['totalvalidados'] = $rows['totalpendientes'] = $rows['porcentaje'] = 0;
+		foreach ( $supervisores as $rkey => $sup ) {
+			$this->db->select('COUNT(st.sid) AS cantidad, s.upload');
+			$this->db->from('solicitudestecnicos st');
+			$this->db->join('solicitudes s', 'st.sid = s.id', 'left');
+			$this->db->where('st.supid', $sup->id);
+			$this->db->group_by("s.upload");
+			$query = $this->db->get();
+			if ( $query->num_rows() > 0 ) {
+				$rows['bases'][$sup->baseid][$sup->id]['adicionales'] = $rows['bases'][$sup->baseid][$sup->id]['programadas'] = $rows['bases'][$sup->baseid][$sup->id]['totalsolicitudes'] = 0;
+				foreach ( $query->result() as $key => $row ) {
+					if ( $row->upload == 1 ) {
+						$rows['bases'][$sup->baseid][$sup->id]['programadas'] = $row->cantidad;
+						$rows['totalprogramadas'] += $row->cantidad;
+					}
+					else if ( $row->upload == 0 ) {
+						$rows['bases'][$sup->baseid][$sup->id]['adicionales'] = $row->cantidad;
+						$rows['totaladicionales'] += $row->cantidad;
+					}
+					$rows['bases'][$sup->baseid][$sup->id]['totalsolicitudes'] = $rows['bases'][$sup->baseid][$sup->id]['adicionales'] + $rows['bases'][$sup->baseid][$sup->id]['programadas'];
+					$rows['totalsolicitudes'] += $row->cantidad;
+				}
+				$rows['bases'][$sup->baseid][$sup->id]['nombre'] = $sup->nombres . ' ' . $sup->apellidos;
+			}
+
+			$this->db->select('COUNT(st.sid) AS cantidad, s.estadoid');
+			$this->db->from('solicitudestecnicos st');
+			$this->db->join('solicitudes s', 'st.sid = s.id', 'left');
+			$this->db->where('st.supid', $sup->id);
+			$this->db->group_by("s.estadoid");
+			$query = $this->db->get();
+			if ( $query->num_rows() > 0 ) {
+				$rows['bases'][$sup->baseid][$sup->id]['sinestado'] = $rows['bases'][$sup->baseid][$sup->id]['validados'] = $rows['bases'][$sup->baseid][$sup->id]['pendientes'] = $rows['bases'][$sup->baseid][$sup->id]['reprogramados'] = $rows['bases'][$sup->baseid][$sup->id]['rechazados'] = $rows['bases'][$sup->baseid][$sup->id]['porcentaje']  = 0;
+				foreach ( $query->result() as $key => $row ) {
+					if ( $row->estadoid == 1 ) {
+						$rows['bases'][$sup->baseid][$sup->id]['sinestado'] = $row->cantidad;
+						$rows['totalsinestado'] += $row->cantidad;
+					}
+					else if ( $row->estadoid == 2 ) {
+						$rows['bases'][$sup->baseid][$sup->id]['validados'] = $row->cantidad;
+						$rows['totalvalidados'] += $row->cantidad;
+					}
+					else if ( $row->estadoid == 3 ) {
+						$rows['bases'][$sup->baseid][$sup->id]['pendientes'] = $row->cantidad;
+						$rows['totalpendientes'] += $row->cantidad;
+					}
+					else if ( $row->estadoid == 4 ) {
+						$rows['bases'][$sup->baseid][$sup->id]['reprogramados'] = $row->cantidad;
+						$rows['totalreprogramados'] += $row->cantidad;
+					}
+					else if ( $row->estadoid == 5 ) {
+						$rows['bases'][$sup->baseid][$sup->id]['rechazados'] = $row->cantidad;
+						$rows['totalrechazados'] += $row->cantidad;
+					}
+					$rows['bases'][$sup->baseid][$sup->id]['porcentaje'] = number_format(($rows['bases'][$sup->baseid][$sup->id]['validados'] / $rows['bases'][$sup->baseid][$sup->id]['totalsolicitudes']) * 100, 0);
+				}
+			}
+			if ( $rows['totalsolicitudes'] )
+				$rows['porcentaje'] = number_format(($rows['totalvalidados'] / $rows['totalsolicitudes'] * 100), 0);
+		}
+		return $rows;
+	}
+
+	public function jefes_getEficiencia($jefes) {
+		$rows = array();
+		foreach ( $jefes as $id => $jefe ) {
+			$supervisores = $this->msupervisores->supervisores_byJefe($id);
+			if ( count($supervisores) ) {
+				$rows[$id] = $this->mreportes->jefes_getTotalSolicitudes($supervisores);
 			}
 		}
 		return $rows;

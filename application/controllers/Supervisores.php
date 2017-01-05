@@ -34,7 +34,7 @@ class Supervisores extends CI_Controller {
 		$this->load->model('mjefes');
 		$data['data'] = $this->msupervisores->supervisores_entrys($id);
 		$data['jefes'] = $this->mjefes->jefes_entrys(FALSE, 1);
-		$data['bases'] = $this->mbases->bases_entrys(FALSE, 1);
+		$data['bases'] = $this->mbases->bases_entrys();
 		if ( !$id )
 			unset($data['data']);
 		$this->load->view('admin/supervisoresedit', $data);

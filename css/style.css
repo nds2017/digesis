@@ -1,6 +1,9 @@
 * {
 	box-sizing: border-box; }
 
+#jefetr td {
+	border-top: 3px solid red;
+}
 
 div.upload {
 	width: 130px;

@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<dd><a <?=($active=='supervisores')?'class="active"':''?>href="<?=base_url()?>index.php/supervisores/form"><i class="fa fa-ticket"></i> Crear Supervisor </a></dd>
 					<dd><a <?=($active=='tecnicos')?'class="active"':''?>href="<?=base_url()?>index.php/tecnicos/form"><i class="fa fa-ticket"></i> Crear Tecnico </a></dd>
 				<dt><a <?=($active=='reportes')?'class="active"':''?>href="#"><i class="fa fa-star"></i> Reportes </a></dt>
-					<dd><a <?=($active=='reportes')?'class="active"':''?>href="#"><i class="fa fa-ticket"></i> Eficiencia </a></dd>
+					<dd><a <?=($active=='eficiencia')?'class="active"':''?>href="<?=base_url()?>index.php/reportes/eficiencia"><i class="fa fa-ticket"></i> Eficiencia </a></dd>
 					<dd><a <?=($active=='encuestas')?'class="active"':''?>href="<?=base_url()?>index.php/reportes/encuestas"><i class="fa fa-ticket"></i> Encuestas </a></dd>
 				<?php } else if ( $session->rolid == 2 ) { ?>
 				<dt><a <?=($active=='usuarios')?'class="active"':''?>href="<?=base_url()?>index.php/usuarios"><i class="fa fa-star"></i> Roles</a></dt>

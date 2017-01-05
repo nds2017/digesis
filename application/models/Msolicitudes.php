@@ -31,7 +31,7 @@ class Msolicitudes extends CI_Model
 		}
 	}
 
-	public function solicitudes_encuestas($tid = false, $estado = false, $today = false,$date=false) {
+	public function solicitudes_encuestas($tid = false, $estado = false, $today = false, $date=false) {
 		$rows = array();
 		$this->db->select('s.*, ts.nombre AS tsnombre, e.nombre AS enombre, m.motivo');
 		$this->db->from('solicitudes s');
