@@ -7,7 +7,7 @@
 
   <fieldset class="search">
         <legend></legend>        
-    <form class="form-inline" role="form" id="frmasistencia">
+    <form class="form-inline" role="form" id="frmmonedero">
         <div class="container_buscar_fecha"> 
           <span class="" style="margin-bottom: 25px;">Fecha: <?php echo date('l, j \of  F Y') ?></span>
 
@@ -16,8 +16,8 @@
             <label style="display: inline; float: left; width:6%" for="ejemplo_email_1">Tecnico:</label>
             <select required id="tecnico1id" name="tecnico1id" style="float: left;width: 20%">
                 <option value="">-Seleccione-</option>
-                <?php foreach ( @$tecnicos1 as $key => $tecnico1 ) { ?>
-                <option <?=(@$data->t1id==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tecnico1?></option>
+                <?php foreach ( @$tecnicos as $key => $tecnico1 ) { ?>
+                <option <?=(@$data->dni==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tecnico1?></option>
                 <?php } ?>
               </select>
 

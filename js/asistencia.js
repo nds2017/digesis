@@ -7,6 +7,13 @@ $(function() {
   //   $( "#date" ).val($( "#fecha" ).val());
   // });
 
+$( "#frmmonedero" ).on( "click", "#btnbuscar", function() {
+      alert('ok');
+      var fecha = $('#frmmonedero #fecha').val();          
+      var dni = $("#tecnico1id").val();
+      window.location.href = '/index.php/monedero?dni='+dni+'&fecha='+fecha;
+});
+
 
   $( "#frmasistencia" ).on( "click", "#btnbuscar", function() {
       var fecha = $('#frmasistencia #fecha').val();
