@@ -17,12 +17,12 @@
             <select required id="tecnico1id" name="tecnico1id" style="float: left;width: 20%">
                 <option value="">-Seleccione-</option>
                 <?php foreach ( @$tecnicos as $key => $tecnico1 ) { ?>
-                <option <?=(@$data->dni==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tecnico1?></option>
+                <option <?=(@$dni==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tecnico1?></option>
                 <?php } ?>
               </select>
 
           <label style="display: inline; float: left; width: 6%; margin-left:10px" for="ejemplo_email_1">Fecha:</label>
-          <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" style="float: left;width: 20%">
+          <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" value="<?php echo $fecha?>" style="float: left;width: 20%">
           <input type="hidden" class="form-control" id="date" name="date" value="<?php echo $date ?>">
           <button type="button" class="btn btn-success" id="btnbuscar">Buscar</button>     
         </div>      

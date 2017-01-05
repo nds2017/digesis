@@ -22,12 +22,12 @@ class Monedero extends CI_Controller {
    	  		$dni=$_GET['dni'];
 			$params=array('dni'=>$dni,'fecha'=>(!empty($fecha)? $fecha:false));
 			$resumen=$this->billetera->getresumen($params);
-			$detalle=$this->billetera->getdetalle_comision($params);			
-			$fecha=strftime("%A %d de %B del %Y");
+			$detalle=$this->billetera->getdetalle_comision($params);						
+			$data['dni'] = $dni;			
 			$data['resumen'] = $resumen;
 			$data['detalle'] = $detalle;	
 		}
-	 $data['date'] = $fecha;			
+	 $data['fecha'] = !empty($fecha)? $fecha:date('Y-m-d');	 
 	 $this->load->view('admin/monedero_view', $data);
 	 }
 
