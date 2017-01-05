@@ -5,6 +5,8 @@ class Mreportes extends CI_Model
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('msupervisores');
+		$this->load->model('mtecnicos');
 	}
 
 	public function tecnico_getEncuestas($tid = null) {
@@ -76,7 +78,6 @@ class Mreportes extends CI_Model
 		$rows = array();
 		$rows['promedio'] = 0;
 		if ( is_array($supervisores) && count($supervisores) ) {
-			$this->load->model('mtecnicos');
 			foreach ( $supervisores as $id => $supervisor ) {
 				$tecnicos = $this->mtecnicos->tecnicos_bySupervisor($id);
 				if ( count($tecnicos) ) {
@@ -98,7 +99,6 @@ class Mreportes extends CI_Model
 	public function jefes_getEncuestas($jefes) {
 		$rows = array();
 		if ( is_array($jefes) && count($jefes) ) {
-			$this->load->model('msupervisores');
 			foreach ( $jefes as $id => $jefe ) {
 				$supervisores = $this->msupervisores->supervisores_combo($id);
 				if ( count($supervisores) )
@@ -112,7 +112,7 @@ class Mreportes extends CI_Model
 	public function jefes_getTotalSolicitudes($supervisores) {
 		$rows = array();
 		$rows['total'] = 0;
-		foreach ( $supervisores as $id => $supervisor ) {
+		foreach ( $supervisores as $key => $sup ) {
 			$this->db->select('COUNT(st.sid) AS cantidad, s.upload');
 			$this->db->from('solicitudestecnicos st');
 			$this->db->join('solicitudes s', 'st.sid = s.id', 'left');
@@ -122,9 +122,9 @@ class Mreportes extends CI_Model
 			if ( $query->num_rows() > 0 ) {
 				foreach ( $query->result() as $key => $row ) {
 					if ( $row->upload == 1 )
-						$rows[$id]['solicitudes']['programadas'] = $row->cantidad;
+						$rows[$sup->baseid][$sup->id]['solicitudes']['programadas'] = $row->cantidad;
 					else if ( $row->upload == 0 )
-						$rows[$id]['solicitudes']['adicional'] = $row->cantidad;
+						$rows[$sup->baseid][$sup->id]['solicitudes']['adicional'] = $row->cantidad;
 					$rows['total'] += $row->cantidad;
 				}
 				$rows[$id]['nombre'] = $supervisor;
@@ -136,7 +136,7 @@ class Mreportes extends CI_Model
 	public function jefes_getEficiencia($jefes) {
 		$rows = array();
 		foreach ( $jefes as $id => $jefe ) {
-			$supervisores = $this->msupervisores->supervisores_combo($id);
+			$supervisores = $this->msupervisores->supervisores_byJefe($id);
 			if ( count($supervisores) ) {
 				$rows[$id] = $this->mreportes->jefes_getTotalSolicitudes($supervisores);
 			}

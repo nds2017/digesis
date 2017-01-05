@@ -28,14 +28,6 @@
 						<?php } ?>
 						<?php } ?>
 					</select>
-					Técnico :
-					<select name="tecnicoid" id="rtecnicoid">
-						<?php if ( @$tecnicoid ) { ?>
-						<?php foreach ($tecnicos as $id => $tecnico) { ?>
-						<option <?=(@$tecnicoid==$id ? 'selected' : '')?> value=<?=$id?>><?=$tecnico?></option>
-						<?php } ?>
-						<?php } ?>
-					</select>
 					<input type="submit" class="btnsearch" value="Filtrar"/>
 				</form>
 			</fieldset>
