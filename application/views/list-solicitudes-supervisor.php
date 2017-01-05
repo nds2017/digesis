@@ -25,7 +25,10 @@ $(function() {
 
  $( "#fecha" ).datepicker({
       changeMonth: true,//this option for allowing user 
-      changeYear: true //this option for allowing user to select from year range
+      changeYear: true ,
+      dateFormat:'d-m-yyyy'
+
+    });
     });
 
          });
