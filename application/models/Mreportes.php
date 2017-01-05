@@ -119,11 +119,13 @@ class Mreportes extends CI_Model
 			$this->db->where('st.supid', $id);
 			$this->db->group_by("s.upload");
 			$query = $this->db->get();
-			foreach ( $query->result() as $key => $row ) {
-				$rows[$id]['solicitudes'][$row->upload] = $row->cantidad;
+			if ( $query->num_rows() > 0 ) {
+				foreach ( $query->result() as $key => $row ) {
+					$rows[$id]['solicitudes'][$row->upload] = $row->cantidad;
+				}
+				$rows[$id]['nombre'] = $supervisor;
+				$rows['total'] += $rows[$id]['solicitudes'][0] + $rows[$id]['solicitudes'][1];
 			}
-			$rows[$id]['nombre'] = $supervisor;
-			$rows['total'] += $rows[$id]['solicitudes'][0] + $rows[$id]['solicitudes'][1];
 		}
 		return $rows;
 	}
