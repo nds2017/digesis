@@ -90,6 +90,7 @@
 						<td><strong>-</strong></td>
 					</tr>
 					<?php } ?>
+					<?php } ?>
 				<?php } ?>
 				</tbody>
 				<?php } ?>
