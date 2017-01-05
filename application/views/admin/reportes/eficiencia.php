@@ -71,7 +71,7 @@
 					<td><strong><?=$data_j['totalpendientes']?></strong></td>
 					<td><strong><?=$data_j['totalvalidados']?></strong></td>
 					<td><strong><?=$data_j['totalsinestado']?></strong></td>
-					<td><strong>%</strong></td>
+					<td><strong><?=$data_j['porcentaje']?></strong></td>
 				</tr>
 					<?php if ( isset($data_j['bases']) && count($data_j['bases']) ) { ?>
 					<?php foreach ( $data_j['bases'] as $baseid => $data_b ) { ?>
@@ -98,14 +98,14 @@
 							<td><strong>-</strong></td>
 							<td><strong><?=$supervisores[$supid]?></strong></td>
 							<td><strong><?=$data_s['programadas']?></strong></td>
-							<td><strong><?=$data_s['adicional']?></strong></td>
-							<td><strong><?=$data_s['programadas'] + $data_s['adicional']?></strong></td>
+							<td><strong><?=$data_s['adicionales']?></strong></td>
+							<td><strong><?=$data_s['totalsolicitudes']?></strong></td>
 							<td><strong><?=$data_s['rechazados']?></strong></td>
 							<td><strong><?=$data_s['reprogramados']?></strong></td>
 							<td><strong><?=$data_s['pendientes']?></strong></td>
-							<td><strong><?=$data_s['pendientes']?></strong></td>
+							<td><strong><?=$data_s['validados']?></strong></td>
 							<td><strong><?=$data_s['sinestado']?></strong></td>
-							<td><strong>-</strong></td>
+							<td><strong><?=$data_s['porcentaje']?></strong></td>
 						</tr>
 						<?php } ?>
 						<?php } ?>

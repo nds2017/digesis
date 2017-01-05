@@ -116,7 +116,7 @@ class Mreportes extends CI_Model
 	public function jefes_getTotalSolicitudes($supervisores) {
 		$rows = array();
 		$rows['totalprogramadas'] = $rows['totaladicionales'] = $rows['totalsolicitudes'] = 0;
-		$rows['totalsinestado'] = $rows['totalreprogramados'] = $rows['totalrechazados'] = $rows['totalvalidados'] = $rows['totalpendientes'] = 0;
+		$rows['totalsinestado'] = $rows['totalreprogramados'] = $rows['totalrechazados'] = $rows['totalvalidados'] = $rows['totalpendientes'] = $rows['porcentaje'] = 0;
 		foreach ( $supervisores as $rkey => $sup ) {
 			$this->db->select('COUNT(st.sid) AS cantidad, s.upload');
 			$this->db->from('solicitudestecnicos st');
@@ -125,16 +125,17 @@ class Mreportes extends CI_Model
 			$this->db->group_by("s.upload");
 			$query = $this->db->get();
 			if ( $query->num_rows() > 0 ) {
-				$rows['bases'][$sup->baseid][$sup->id]['adicional'] = $rows['bases'][$sup->baseid][$sup->id]['programadas'] = 0;
+				$rows['bases'][$sup->baseid][$sup->id]['adicional'] = $rows['bases'][$sup->baseid][$sup->id]['programadas'] = $rows['bases'][$sup->baseid][$sup->id]['totalsolicitudes'] = 0;
 				foreach ( $query->result() as $key => $row ) {
 					if ( $row->upload == 1 ) {
 						$rows['bases'][$sup->baseid][$sup->id]['programadas'] = $row->cantidad;
 						$rows['totalprogramadas'] += $row->cantidad;
 					}
 					else if ( $row->upload == 0 ) {
-						$rows['bases'][$sup->baseid][$sup->id]['adicional'] = $row->cantidad;
+						$rows['bases'][$sup->baseid][$sup->id]['adicionales'] = $row->cantidad;
 						$rows['totaladicionales'] += $row->cantidad;
 					}
+					$rows['bases'][$sup->baseid][$sup->id]['totalsolicitudes'] = $rows['bases'][$sup->baseid][$sup->id]['adicionales'] + $rows['bases'][$sup->baseid][$sup->id]['programadas'];
 					$rows['totalsolicitudes'] += $row->cantidad;
 				}
 				$rows['bases'][$sup->baseid][$sup->id]['nombre'] = $sup->nombres . ' ' . $sup->apellidos;
@@ -147,7 +148,7 @@ class Mreportes extends CI_Model
 			$this->db->group_by("s.estadoid");
 			$query = $this->db->get();
 			if ( $query->num_rows() > 0 ) {
-				$rows['bases'][$sup->baseid][$sup->id]['sinestado'] = $rows['bases'][$sup->baseid][$sup->id]['validados'] = $rows['bases'][$sup->baseid][$sup->id]['pendientes'] = $rows['bases'][$sup->baseid][$sup->id]['reprogramados'] = $rows['bases'][$sup->baseid][$sup->id]['rechazados'] = 0;
+				$rows['bases'][$sup->baseid][$sup->id]['sinestado'] = $rows['bases'][$sup->baseid][$sup->id]['validados'] = $rows['bases'][$sup->baseid][$sup->id]['pendientes'] = $rows['bases'][$sup->baseid][$sup->id]['reprogramados'] = $rows['bases'][$sup->baseid][$sup->id]['rechazados'] = $rows['bases'][$sup->baseid][$sup->id]['porcentaje']  = 0;
 				foreach ( $query->result() as $key => $row ) {
 					if ( $row->estadoid == 1 ) {
 						$rows['bases'][$sup->baseid][$sup->id]['sinestado'] = $row->cantidad;
@@ -169,10 +170,10 @@ class Mreportes extends CI_Model
 						$rows['bases'][$sup->baseid][$sup->id]['rechazados'] = $row->cantidad;
 						$rows['totalrechazados'] += $row->cantidad;
 					}
+					$rows['bases'][$sup->baseid][$sup->id]['porcentaje'] = number_format(($rows['bases'][$sup->baseid][$sup->id]['validados'] / $rows['bases'][$sup->baseid][$sup->id]['totalsolicitudes']) * 100, 2);
 				}
 			}
-
-
+			$rows['porcentaje'] = number_format(($rows['totalvalidados'] / $rows['totalsolicitudes'] * 100), 2);
 		}
 		return $rows;
 	}
