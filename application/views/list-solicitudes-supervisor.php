@@ -41,7 +41,7 @@ function getParameterByName(name, url) {
     dateFormat:'dd-mm-yy',
 	onSelect: function () {
 		var dni = getParameterByName('dni');				  
-var url ='index.php/encuestas/supervisor?dni='+dni+'fecha='+$(this).datepicker('getDate');
+var url ='index.php/encuestas/supervisor?dni='+dni+'fecha='+$(this).val();
 alert(url);
 
 window.location.href=url;
