@@ -122,6 +122,7 @@ class Mreportes extends CI_Model
 			foreach ( $query->result() as $key => $row ) {
 				$rows[$id]['solicitudes'][$row->upload] = $row->cantidad;
 			}
+			$rows[$id]['nombre'] = $supervisor;
 			$rows['total'] += $rows[$id]['solicitudes'][0] + $rows[$id]['solicitudes'][1];
 		}
 		return $rows;
