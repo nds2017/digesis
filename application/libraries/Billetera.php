@@ -216,9 +216,9 @@ restore_error_handler();
     $r_data['desc_mes_insidencia']=$desc_mes_insidencia;
 
     echo $desc_mes_inasistencia;     
-    echo '---'
+    echo '---';
     echo $desc_mes_rf_no_validada; 
-    echo '---'
+    echo '---';
     echo $desc_mes_insidencia;    
     exit;
 
