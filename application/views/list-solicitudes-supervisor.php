@@ -40,9 +40,10 @@ function getParameterByName(name, url) {
     changeYear: true ,
     dateFormat:'dd-mm-yy',
 	onSelect: function () {
-		var dni = getParameterByName('dni');
-				  alert(dni);
-//var url ='index.php/encuestas/supervisor?dni='
+		var dni = getParameterByName('dni');				  
+var url ='index.php/encuestas/supervisor?dni='+dni+'fecha='+$(this).datepicker('getDate');
+
+window.location.href=url;
             //selectedDate = $.datepicker.formatDate("yy-mm-dd", $(this).datepicker('getDate'));
         }
     });
