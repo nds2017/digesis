@@ -38,7 +38,7 @@ function getParameterByName(name, url) {
  $( "#fecha" ).datepicker({
     changeMonth: true,//this option for allowing user 
     changeYear: true ,
-    dateFormat:'dd-mm-yy',
+    dateFormat:'yy-mm-dd',
 	onSelect: function () {
 		var dni = getParameterByName('dni');				  
 var url ='/index.php/encuestas/supervisor?dni='+dni+'&fecha='+$.datepicker.formatDate("dd-mm-yy", $(this).datepicker('getDate'));

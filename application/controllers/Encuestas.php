@@ -179,7 +179,7 @@ public function supervisor($dni=null,$fecha=null) {
 
 		$fecha=$this->input->get('fecha');
 
-		if (!empty($fecha))
+		if (empty($fecha))
 			$fecha=date('Y-m-d');
 
 	$r_supervisor=$this->msupervisores->supervisores_ByDni($_GET['dni']);
