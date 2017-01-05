@@ -24,7 +24,7 @@
 $(function() {
 
  $( "#fecha" ).datepicker({
-      changeMonth: true,//this option for allowing user to select month
+      changeMonth: true,//this option for allowing user 
       changeYear: true //this option for allowing user to select from year range
     });
 
@@ -44,7 +44,7 @@ $(function() {
 			</div>
 			</a>
 			<div class="cont_billetera">				
-				<input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" value="<?php echo $fecha?>" style="float:right;  width: 30%">				
+				<p>Fecha: <input type="text" id="fecha" /></p>
 			</div>	
 			<div style="clear: both;"></div>
 			</header>
