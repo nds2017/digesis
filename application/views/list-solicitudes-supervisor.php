@@ -24,10 +24,13 @@
 $(function() {
 
  $( "#fecha" ).datepicker({
-      changeMonth: true,//this option for allowing user 
-      changeYear: true ,
-      dateFormat:'dd-mm-yy'
-
+    changeMonth: true,//this option for allowing user 
+    changeYear: true ,
+    dateFormat:'dd-mm-yy'
+	onSelect: function () {
+		alert($(this).datepicker('getDate'));
+            //selectedDate = $.datepicker.formatDate("yy-mm-dd", $(this).datepicker('getDate'));
+        }
     });
     });         
 	
