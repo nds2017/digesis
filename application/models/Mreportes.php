@@ -109,7 +109,7 @@ class Mreportes extends CI_Model
 	}
 
 
-	public jefes_getTotalSolicitudes($supervisores) {
+	public function jefes_getTotalSolicitudes($supervisores) {
 		$rows = array();
 		$rows['total'] = 0;
 		foreach ( $supervisores as $id => $supervisor ) {
