@@ -16,8 +16,8 @@ class Monedero extends CI_Controller {
 	 	date_default_timezone_set('America/Lima');
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'monedero' ));
 		$fecha = $this->input->get('fecha');
-	    $data['tecnicos'] = $this->mtecnicos->tecnicos_combo();
-	    
+	    $data['tecnicos'] = $this->mtecnicos->tecnicos_combo2();
+
    	  if (isset($_GET['dni']) && ( !empty($_GET['dni']) ) ) {
 			$params=array('dni'=>$dni,'fecha'=>(!empty($fecha)? $fecha:false));
 			$detalle=$this->billetera->getresumen($params);
