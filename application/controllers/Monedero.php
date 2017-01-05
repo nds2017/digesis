@@ -21,8 +21,8 @@ class Monedero extends CI_Controller {
    	  if (isset($_GET['dni']) && ( !empty($_GET['dni']) ) ) {
    	  		$dni=$_GET['dni'];
 			$params=array('dni'=>$dni,'fecha'=>(!empty($fecha)? $fecha:false));
-			$detalle=$this->billetera->getresumen($params);
-			$this->billetera->getdetalle_comision($params);						
+			$resumen=$this->billetera->getresumen($params);
+			$detalle=$this->billetera->getdetalle_comision($params);			
 			$fecha=strftime("%A %d de %B del %Y");
 			$data['resumen'] = $resumen;
 			$data['detalle'] = $detalle;	
