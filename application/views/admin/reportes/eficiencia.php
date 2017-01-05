@@ -59,7 +59,7 @@
 				<?php if ( isset($data) && count($data) ) { ?>
 				<tbody>
 				<?php foreach ( $data as $jefeid => $data_j ) { ?>
-				<tr class="jefetr">
+				<tr id="jefetr">
 					<td><strong><?=$jefes[$jefeid]?></strong></td>
 					<td><strong>-</strong></td>
 					<td><strong>-</strong></td>
@@ -89,8 +89,6 @@
 						<td><strong>-</strong></td>
 						<td><strong>-</strong></td>
 					</tr>
-
-
 						<?php if ( isset($data_b) && count($data_b) ) { ?>
 						<?php foreach ( $data_b as $supid => $data_s ) { ?>
 						<tr>
@@ -109,8 +107,6 @@
 						</tr>
 						<?php } ?>
 						<?php } ?>
-
-
 					<?php } ?>
 					<?php } ?>
 				<?php } ?>
