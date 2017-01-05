@@ -137,7 +137,6 @@ class Mreportes extends CI_Model
 		$rows = array();
 		foreach ( $jefes as $id => $jefe ) {
 			$supervisores = $this->msupervisores->supervisores_byJefe($id);
-			var_dump($supervisores); die();
 			if ( count($supervisores) ) {
 				$rows[$id] = $this->mreportes->jefes_getTotalSolicitudes($supervisores);
 			}
