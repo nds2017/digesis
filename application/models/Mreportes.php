@@ -109,9 +109,14 @@ class Mreportes extends CI_Model
 	}
 
 
+	public function solicitudes_estadosbySupervisor($supid = null, $estado = null) {
+
+	}
+
 	public function jefes_getTotalSolicitudes($supervisores) {
 		$rows = array();
-		$rows['total'] = 0;
+		$rows['totalprogramadas'] = $rows['totaladicionales'] = $rows['totalsolicitudes'] = 0;
+		$rows['totalsinestado'] = $rows['totalreprogramados'] = $rows['totalrechazados'] = $rows['totalvalidados'] = $rows['totalpendientes'] = 0;
 		foreach ( $supervisores as $rkey => $sup ) {
 			$this->db->select('COUNT(st.sid) AS cantidad, s.upload');
 			$this->db->from('solicitudestecnicos st');
@@ -120,15 +125,54 @@ class Mreportes extends CI_Model
 			$this->db->group_by("s.upload");
 			$query = $this->db->get();
 			if ( $query->num_rows() > 0 ) {
+				$rows['bases'][$sup->baseid][$sup->id]['adicional'] = $rows['bases'][$sup->baseid][$sup->id]['programadas'] = 0;
 				foreach ( $query->result() as $key => $row ) {
-					if ( $row->upload == 1 )
-						$rows[$sup->baseid][$sup->id]['solicitudes']['programadas'] = $row->cantidad;
-					else if ( $row->upload == 0 )
-						$rows[$sup->baseid][$sup->id]['solicitudes']['adicional'] = $row->cantidad;
-					$rows['total'] += $row->cantidad;
+					if ( $row->upload == 1 ) {
+						$rows['bases'][$sup->baseid][$sup->id]['programadas'] = $row->cantidad;
+						$rows['totalprogramadas'] += $row->cantidad;
+					}
+					else if ( $row->upload == 0 ) {
+						$rows['bases'][$sup->baseid][$sup->id]['adicional'] = $row->cantidad;
+						$rows['totaladicionales'] += $row->cantidad;
+					}
+					$rows['totalsolicitudes'] += $row->cantidad;
 				}
-				$rows[$sup->baseid][$sup->id]['nombre'] = $sup->nombres . ' ' . $sup->apellidos;
+				$rows['bases'][$sup->baseid][$sup->id]['nombre'] = $sup->nombres . ' ' . $sup->apellidos;
 			}
+
+			$this->db->select('COUNT(st.sid) AS cantidad, s.estadoid');
+			$this->db->from('solicitudestecnicos st');
+			$this->db->join('solicitudes s', 'st.sid = s.id', 'left');
+			$this->db->where('st.supid', $sup->id);
+			$this->db->group_by("s.estadoid");
+			$query = $this->db->get();
+			if ( $query->num_rows() > 0 ) {
+				$rows['bases'][$sup->baseid][$sup->id]['sinestado'] = $rows['bases'][$sup->baseid][$sup->id]['validados'] = $rows['bases'][$sup->baseid][$sup->id]['pendientes'] = $rows['bases'][$sup->baseid][$sup->id]['reprogramados'] = $rows['bases'][$sup->baseid][$sup->id]['rechazados'] = 0;
+				foreach ( $query->result() as $key => $row ) {
+					if ( $row->estadoid == 1 ) {
+						$rows['bases'][$sup->baseid][$sup->id]['sinestado'] = $row->cantidad;
+						$rows['totalsinestado'] += $row->cantidad;
+					}
+					else if ( $row->upload == 2 ) {
+						$rows['bases'][$sup->baseid][$sup->id]['validados'] = $row->cantidad;
+						$rows['totalvalidados'] += $row->cantidad;
+					}
+					else if ( $row->upload == 3 ) {
+						$rows['bases'][$sup->baseid][$sup->id]['pendientes'] = $row->cantidad;
+						$rows['totalpendientes'] += $row->cantidad;
+					}
+					else if ( $row->upload == 4 ) {
+						$rows['bases'][$sup->baseid][$sup->id]['reprogramados'] = $row->cantidad;
+						$rows['totalreprogramados'] += $row->cantidad;
+					}
+					else if ( $row->upload == 5 ) {
+						$rows['bases'][$sup->baseid][$sup->id]['rechazados'] = $row->cantidad;
+						$rows['totalrechazados'] += $row->cantidad;
+					}
+				}
+			}
+
+
 		}
 		return $rows;
 	}
