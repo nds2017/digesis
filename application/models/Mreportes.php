@@ -153,19 +153,19 @@ class Mreportes extends CI_Model
 						$rows['bases'][$sup->baseid][$sup->id]['sinestado'] = $row->cantidad;
 						$rows['totalsinestado'] += $row->cantidad;
 					}
-					else if ( $row->upload == 2 ) {
+					else if ( $row->estadoid == 2 ) {
 						$rows['bases'][$sup->baseid][$sup->id]['validados'] = $row->cantidad;
 						$rows['totalvalidados'] += $row->cantidad;
 					}
-					else if ( $row->upload == 3 ) {
+					else if ( $row->estadoid == 3 ) {
 						$rows['bases'][$sup->baseid][$sup->id]['pendientes'] = $row->cantidad;
 						$rows['totalpendientes'] += $row->cantidad;
 					}
-					else if ( $row->upload == 4 ) {
+					else if ( $row->estadoid == 4 ) {
 						$rows['bases'][$sup->baseid][$sup->id]['reprogramados'] = $row->cantidad;
 						$rows['totalreprogramados'] += $row->cantidad;
 					}
-					else if ( $row->upload == 5 ) {
+					else if ( $row->estadoid == 5 ) {
 						$rows['bases'][$sup->baseid][$sup->id]['rechazados'] = $row->cantidad;
 						$rows['totalrechazados'] += $row->cantidad;
 					}
