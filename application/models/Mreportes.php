@@ -109,9 +109,33 @@ class Mreportes extends CI_Model
 	}
 
 
+	public jefes_getTotalSolicitudes($supervisores) {
+		$rows = array();
+		$rows['total'] = 0;
+		foreach ( $supervisores as $id => $supervisor ) {
+			$this->db->select('COUNT(st.sid) AS cantidad, s.upload');
+			$this->db->from('solicitudestecnicos st');
+			$this->db->join('solicitudes s', 'st.sid = s.id', 'left');
+			$this->db->where('st.supid', $id);
+			$this->db->group_by("s.upload");
+			$query = $this->db->get();
+			foreach ( $query->result() as $key => $row ) {
+				$rows[$id]['solicitudes'][$row->upload] = $row->cantidad;
+			}
+			$rows['total'] += $rows[$id]['solicitudes'][0] + $rows[$id]['solicitudes'][1];
+		}
+		return $rows;
+	}
 
 	public function jefes_getEficiencia($jefes) {
-		var_dump($jefes); die();
+		$rows = array();
+		foreach ( $jefes as $id => $jefe ) {
+			$supervisores = $this->msupervisores->supervisores_combo($id);
+			if ( count($supervisores) ) {
+				$rows[$id] = $this->mreportes->jefes_getTotalSolicitudes($supervisores);
+			}
+		}
+		var_dump($rows); die();
 	}
 
 }
