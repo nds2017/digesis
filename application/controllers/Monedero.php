@@ -22,9 +22,9 @@ class Monedero extends CI_Controller {
 			$this->billetera->getdetalle_comision($params);			
 			$fecha=strftime("%A %d de %B del %Y");
 			$data['resumen'] = $resumen;
-			$data['detalle'] = $detalle;
-			$data['fecha'] = $fecha;			
-			$this->load->view('admin/monedero_view', $data);
+			$data['detalle'] = $detalle;	
 		}
 	 }
+	 $data['fecha'] = $fecha;			
+	 $this->load->view('admin/monedero_view', $data);
 	}
