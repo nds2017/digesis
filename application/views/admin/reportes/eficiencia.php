@@ -59,7 +59,7 @@
 				<?php if ( isset($data) && count($data) ) { ?>
 				<tbody>
 				<?php foreach ( $data as $jefeid => $data_j ) { ?>
-				<tr>
+				<tr style="color: red">
 					<td><strong><?=$jefes[$jefeid]?></strong></td>
 					<td><strong>-</strong></td>
 					<td><strong>-</strong></td>
