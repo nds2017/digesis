@@ -47,6 +47,8 @@ border: 1px solid red;
 
 .search {
 	border: none;
+	width: 100%;
+	float:left;
 }
 
 .fieldform {
@@ -427,11 +429,13 @@ input[type="checkbox"]:focus {
 }
 
 .btn {
-	display: inline-block;
+	/*display: inline-block;*/
 	*display: inline;
 	padding: 4px 12px;
 	margin-bottom: 0;
-	margin-left: 50%;
+	/*margin-left: 50%;*/
+	margin-left: 20px;
+	float: left;
 	font-size: 14px;
 	line-height: 20px;
 	color: #ffffff;
@@ -1148,7 +1152,7 @@ header h1{ font-size: 15px;}
 
 
 .right-content{ overflow: auto; background: #f1f1f1; padding: 15px; height: 100%;}
-.list-mod-panel{ margin-bottom: 20px;}
+.list-mod-panel{ margin-bottom: 20px; width: 100%}
 .list-mod-panel > h2{ display: inline-block; font-size: 14px;  padding: 5px 8px; background: #00008B; border-radius: 3px; color: #fff;}
 .list-mod-panel > h2 a{color: #fff;}
 .list-mod-panel > h2 a:hover {color: gray;}
@@ -1173,4 +1177,10 @@ li { margin: 5px; padding: 5px; }
 
 .tableprov {
 	max-width: 20%;
+}
+
+.container_buscar_fecha{
+  width: 100%;
+  float: left;
+  text-align: left;  
 }

@@ -510,8 +510,8 @@ class Msolicitudes extends CI_Model
 	}
 
 
-public function solicitudesByMonthCount($tid=null){
-	$date=date('m');
+public function solicitudesByMonthCount($tid=null,$fecha=false){
+	$date=($fecha==false)? date('m'): date('m',strtotime($fecha)) ;
 	$sql="SELECT
 	DATE_FORMAT(FROM_UNIXTIME(solicitudes.fecha_instalacion), '%Y-%m-%d') as fecha,
 	count(solicitudes.id) as cantidad
@@ -531,8 +531,8 @@ public function solicitudesByMonthCount($tid=null){
 
 }
 
-public function solicitudesByMonth($tid=null){
-	$date=date('m');
+public function solicitudesByMonth($tid=null,$fecha=null){
+	$date=($fecha==false)? date('m'): date('m',strtotime($fecha)) ;
 	$sql="SELECT
 		solicitudes.id,
 		DATE_FORMAT(FROM_UNIXTIME(solicitudes.fecha_instalacion), '%Y-%m-%d') as fecha

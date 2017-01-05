@@ -24,7 +24,7 @@
 			<span class="date_billetera"><?php echo $fecha ?></span>
 				<ul id="listcomision">
 					<li>Comisión del día: <b>S/.<?php echo round($resumen['comision_dia'],2)?></b></li>
-					<li>Comisión del mes: <b>S/.<?php echo round($resumen['comision_mes'],2)?></b></li>
+					<li>Comisión del mes: <b>S/.<?php echo round($resumen['comision_mes']['monto'],2)?></b></li>
 				</ul>
 				<table class="detalle-billetera">
 					<thead>
@@ -67,13 +67,13 @@
 						</tr>
 					</thead>
 					<tbody>					
-					<tr>
-						<td data-label="%eficiencia"></td>
-						<td data-label="Monto Eficiencia"></td>
-						<td data-label="Monto SOT"></td>
-						<td data-label="Desc.Incidencia"></td>
-						<td data-label="Pago del Mes"></td>
-					</tr>
+	<tr>
+<td data-label="%eficiencia"><?php echo $resumen['comision_mes']['porcentaje']?></td>
+<td data-label="Monto Eficiencia"><?php echo $resumen['comision_mes']['comision_mes_eficiencia']?></td>
+	<td data-label="Monto SOT"><?php echo $resumen['comision_mes']['comision_mes_sot']?></td>
+	<td data-label="Desc.Incidencia"><?php echo $resumen['comision_mes']['desc_mes_insidencia']?></td>
+	<td data-label="Pago del Mes"><?php echo $resumen['comision_mes']['monto']?></td>
+	</tr>
 					</tbody>
 					</table>	
 

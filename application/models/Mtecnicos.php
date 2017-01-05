@@ -57,6 +57,14 @@ class Mtecnicos extends CI_Model
 		}
 		return $rows;
 	}
+	public function tecnicos_combo2() {
+		$rows = array();
+		$query = $this->db->query("SELECT id, CONCAT(nombres, ' ', apellidos) AS tnombres,dni FROM tecnicos WHERE publish = 1");
+		foreach ( $query->result() as $key=>$row ) {
+			$rows[$row->dni] = $row->tnombres;
+		}
+		return $rows;
+	}
 
 	public function tecnicos_bySupervisor($supervisorid = 0, $cargo = 0) {
 		$rows = array();
