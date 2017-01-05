@@ -29,9 +29,7 @@ $(function() {
       dateFormat:'d-m-y'
 
     });
-    });
-
-         });
+    });         
 	
 </script>
 	</head>
