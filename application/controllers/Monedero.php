@@ -27,3 +27,4 @@ class Monedero extends CI_Controller {
 			$this->load->view('admin/monedero_view', $data);
 		}
 	 }
+	}
