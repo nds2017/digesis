@@ -17,6 +17,7 @@ class Asistencia extends CI_Controller {
 
  		$fecha = $this->input->get('fecha');
  		if (!empty($fecha)){
+ 			echo strtotime($fecha);
  			$data['result']= $this->masistencia->get_records($fecha);
  			//print_r($data['result']);
  		}
