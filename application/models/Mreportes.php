@@ -220,15 +220,15 @@ class Mreportes extends CI_Model
 			if ( $query->num_rows() > 0 ) {
 				$rows['bases'][$sup->baseid][$sup->id]['sinrf'] = $rows['bases'][$sup->baseid][$sup->id]['observados'] = $rows['bases'][$sup->baseid][$sup->id]['conforme'] = $rows['bases'][$sup->baseid][$sup->id]['porcentaje'] = 0;
 				foreach ( $query->result() as $key => $row ) {
-					if ( $row->estadoid == 1 ) {
+					if ( $row->rf == 1 ) {
 						$rows['bases'][$sup->baseid][$sup->id]['sinrf'] = $row->cantidad;
 						$rows['totalsinrf'] += $row->cantidad;
 					}
-					else if ( $row->estadoid == 2 ) {
+					else if ( $row->rf == 2 ) {
 						$rows['bases'][$sup->baseid][$sup->id]['observados'] = $row->cantidad;
 						$rows['totalobservados'] += $row->cantidad;
 					}
-					else if ( $row->estadoid == 3 ) {
+					else if ( $row->rf == 3 ) {
 						$rows['bases'][$sup->baseid][$sup->id]['conforme'] = $row->cantidad;
 						$rows['totalconforme'] += $row->cantidad;
 					}
