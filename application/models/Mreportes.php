@@ -203,7 +203,7 @@ class Mreportes extends CI_Model
 						$rows['bases'][$sup->baseid][$sup->id]['pendientes'] = $row->cantidad;
 						$rows['totalpendientes'] += $row->cantidad;
 					}
-					$rows['bases'][$sup->baseid][$sup->id]['totalsolicitudes'] = $rows['bases'][$sup->baseid][$sup->id]['totalvalidados'] + $rows['bases'][$sup->baseid][$sup->id]['totalpendientes'];
+					$rows['bases'][$sup->baseid][$sup->id]['totalsolicitudes'] = $rows['bases'][$sup->baseid][$sup->id]['validados'] + $rows['bases'][$sup->baseid][$sup->id]['pendientes'];
 					$rows['totalsolicitudes'] += $row->cantidad;
 				}
 				$rows['bases'][$sup->baseid][$sup->id]['nombre'] = $sup->nombres . ' ' . $sup->apellidos;
