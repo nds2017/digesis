@@ -192,7 +192,7 @@ class Mreportes extends CI_Model
 			$where = "(s.estadoid = 2 OR s.estadoid = 3)";
 			$this->db->where($where);
 
-			$this->db->group_by("s.rf");
+			$this->db->group_by("s.estadoid");
 			$query = $this->db->get();
 			if ( $query->num_rows() > 0 ) {
 				$rows['bases'][$sup->baseid][$sup->id]['validados'] = $rows['bases'][$sup->baseid][$sup->id]['pendientes'] = $rows['bases'][$sup->baseid][$sup->id]['totalsolicitudes'] = 0;
