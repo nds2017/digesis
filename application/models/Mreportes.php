@@ -232,7 +232,7 @@ class Mreportes extends CI_Model
 						$rows['bases'][$sup->baseid][$sup->id]['conforme'] = $row->cantidad;
 						$rows['totalconforme'] += $row->cantidad;
 					}
-					$rows['bases'][$sup->baseid][$sup->id]['porcentaje'] = number_format(($rows['bases'][$sup->baseid][$sup->id]['conforme'] / $rows['bases'][$sup->baseid][$sup->id]['totalsolicitudes']) * 100, 0);
+					//$rows['bases'][$sup->baseid][$sup->id]['porcentaje'] = number_format(($rows['bases'][$sup->baseid][$sup->id]['conforme'] / $rows['bases'][$sup->baseid][$sup->id]['totalsolicitudes']) * 100, 0);
 				}
 			}
 			if ( $rows['totalsolicitudes'] )
