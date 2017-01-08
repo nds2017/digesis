@@ -188,10 +188,8 @@ class Mreportes extends CI_Model
 			$this->db->from('solicitudestecnicos st');
 			$this->db->join('solicitudes s', 'st.sid = s.id', 'left');
 			$this->db->where('st.supid', $sup->id);
-
 			$where = "(s.estadoid = 2 OR s.estadoid = 3)";
 			$this->db->where($where);
-
 			$this->db->group_by("s.estadoid");
 			$query = $this->db->get();
 			if ( $query->num_rows() > 0 ) {
@@ -215,6 +213,8 @@ class Mreportes extends CI_Model
 			$this->db->from('solicitudestecnicos st');
 			$this->db->join('solicitudes s', 'st.sid = s.id', 'left');
 			$this->db->where('st.supid', $sup->id);
+			$where = "(s.estadoid = 2 OR s.estadoid = 3)";
+			$this->db->where($where);
 			$this->db->group_by("s.rf");
 			$query = $this->db->get();
 			if ( $query->num_rows() > 0 ) {
@@ -232,7 +232,7 @@ class Mreportes extends CI_Model
 						$rows['bases'][$sup->baseid][$sup->id]['conforme'] = $row->cantidad;
 						$rows['totalconforme'] += $row->cantidad;
 					}
-					//$rows['bases'][$sup->baseid][$sup->id]['porcentaje'] = number_format(($rows['bases'][$sup->baseid][$sup->id]['conforme'] / $rows['bases'][$sup->baseid][$sup->id]['totalsolicitudes']) * 100, 0);
+					$rows['bases'][$sup->baseid][$sup->id]['porcentaje'] = number_format(($rows['bases'][$sup->baseid][$sup->id]['conforme'] / $rows['bases'][$sup->baseid][$sup->id]['totalsolicitudes']) * 100, 0);
 				}
 			}
 			if ( $rows['totalsolicitudes'] )
@@ -261,7 +261,6 @@ class Mreportes extends CI_Model
 				$rows[$id] = $this->mreportes->jefes_getTotalSolicitudesRF($supervisores);
 			}
 		}
-		var_dump($rows); die();
 		return $rows;
 	}
 
