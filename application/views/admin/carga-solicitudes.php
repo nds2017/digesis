@@ -3,7 +3,8 @@
 			<fieldset class="search">
 				<legend></legend>
 				<form method="post" enctype="multipart/form-data">
-					<div class="upload">
+					<!--<div class="upload">-->
+					<div style="float: left;">
 						<input id="fileSelect" name="file" type="file" accept=".csv" />
 					</div>
 					&nbsp;&nbsp;&nbsp;<input class="btn" style="margin: 0px;" name="carga" type="submit" value="Cargar" />
