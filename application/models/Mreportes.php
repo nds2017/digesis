@@ -261,6 +261,7 @@ class Mreportes extends CI_Model
 				$rows[$id] = $this->mreportes->jefes_getTotalSolicitudesRF($supervisores);
 			}
 		}
+		var_dump($rows); die();
 		return $rows;
 	}
 
