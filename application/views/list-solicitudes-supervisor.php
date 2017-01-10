@@ -36,8 +36,8 @@ function getParameterByName(name, url) {
 }
 
  $( "#fecha" ).datepicker({
-    changeMonth: true,//this option for allowing user 
-    changeYear: true ,
+    //changeMonth: true,//this option for allowing user 
+    //changeYear: true ,
     dateFormat:'yy-mm-dd',
 	onSelect: function () {
 		var dni = getParameterByName('dni');				  
