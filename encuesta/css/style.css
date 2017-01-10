@@ -574,3 +574,9 @@ table {
     }
 
 }
+
+@media (max-width: 480px) {    
+   #ui-datepicker-div{ width:70%!important;}
+  .ui-datepicker-multi, .ui-datepicker-group {float: none!important;}
+  .ui-datepicker-multi-2 .ui-datepicker-group{width:100%!important;}
+}
