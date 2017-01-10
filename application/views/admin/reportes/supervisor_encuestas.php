@@ -1,10 +1,11 @@
 			</div>
-
+			<script src="<?=base_url()?>js/exportar.js"></script>
 			<div class="list-mod-panel">
 				<h1 style="float: left;"> Reportes / Encuestas / SUPERVISOR &nbsp;&nbsp;</h1>
+				<a href="#" id="exportar"><img style="width: 25px;height: 25px;" src="/img/excel.png"></a>	
 			</div>
 			<br><br><br>
-			<table class="table tableseg table-bordered table-striped">
+			<table id="tbl_exportar" class="table tableseg table-bordered table-striped">
 				<thead>
 					<tr>
 						<th scope="col"><span>SUPERVISOR</span></th>

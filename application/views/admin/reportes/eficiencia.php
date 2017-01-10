@@ -1,28 +1,8 @@
 			</div>
 			<script src="<?=base_url()?>js/departamentos.js"></script>
 
-<script type="text/javascript">
+			<script src="<?=base_url()?>js/exportar.js"></script>
 
-function ExportToExcel(){
-   var htmltable= document.getElementById('tbl_exportar');
-   var html = htmltable.outerHTML;
-   window.open('data:application/vnd.ms-excel,' + encodeURIComponent(html));
-    }
-
-$(document).ready(function() {
-  $("#exportar").on( "click", function() {
-    //ExportToExcel();
-  var a = document.createElement('a');    
-  var data_type = 'data:application/vnd.ms-excel';
-  var table_div = document.getElementById('tbl_exportar');
-  var table_html = table_div.outerHTML.replace(/ /g, '%20');
-    a.href = data_type + ', ' + table_html;    
-    a.download = 'reporte_eficiencia.xls';    
-    a.click();    
-    e.preventDefault();
-});
-});
-</script>
 			<div class="list-mod-panel">
 				<h1 style="float: left;"> Reportes / Eficiencia &nbsp;&nbsp;</h1>
 				<a href="#" id="exportar"><img style="width: 25px;height: 25px;" src="/img/excel.png"></a>	
@@ -33,8 +13,7 @@ $(document).ready(function() {
 				<form id="form" method="post" action="<?=base_url()?>index.php/reportes/eficiencia">
 					<h3>Seleccionar rango de fechas:</h3><br>
 					De : <input type="date" name="desde">
-					Hasta : <input type="date" name="hasta">
-					<a href="#" id="exportar"><img style="width: 25px;height: 25px;" src="/img/excel.png"></a>
+					Hasta : <input type="date" name="hasta">					
 					<br>
 					<input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>
 					Jefe :
