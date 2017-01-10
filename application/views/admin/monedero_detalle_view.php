@@ -34,7 +34,7 @@
 
       <br>
       <div style="padding-top:10px;" id="resultadoasistencia">      
-      <table class="table table-bordered table-striped">
+      <table id="tbmonedero" class="table table-bordered table-striped">
           <thead>
             <tr>
               <th>Fecha</th>
@@ -66,7 +66,7 @@
         </table>
         <br/><br/><br/>
 
-        <table class="table table-bordered table-striped">
+        <table id="tbmonedero" class="table table-bordered table-striped">
           <thead>
             <tr>
               <th>%eficiencia</th>

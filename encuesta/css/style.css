@@ -503,6 +503,70 @@ ul#listcomision li b{
 }
 
 
+table#tbmonedero {
+    border: 1px solid #ccc;
+    width: 100%;
+    margin:0;
+    padding:0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background: #ffffff;
+    color: #000000;
+  }
+
+  table#tbmonedero tr {
+    border: 1px solid #ddd;
+    padding: 5px;
+  }
+
+  table#tbmonedero th, table td {
+    padding: 10px;
+    text-align: center;        
+  }
+
+  table#tbmonedero th {
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background:#01558E;
+    color: #ffffff;
+  }
+
+  @media screen and (max-width: 600px) {
+
+    table#tbmonedero {
+      border: 0;
+    }
+
+    table#tbmonedero thead {
+      display: none;
+    }
+
+    table#tbmonedero tr {
+      margin-bottom: 10px;
+      display: block;
+      border-bottom: 2px solid #ddd;
+    }
+
+    table#tbmonedero td {
+      display: block;
+      text-align: right;
+      font-size: 13px;
+      border-bottom: 1px dotted #ccc;
+    }
+
+    table#tbmonedero td:last-child {
+      border-bottom: 0;
+    }
+
+    table#tbmonedero td:before {
+      content: attr(data-label);
+      float: left;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+
 
 @media only screen and (max-device-width: 800px){
     .wrapper {

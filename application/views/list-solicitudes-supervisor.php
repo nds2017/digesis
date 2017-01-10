@@ -143,7 +143,7 @@ window.location.href=url;
 								<div class="tab-title">RESUMEN POR TECNICO</div>
 		           
 
-				<table class="detalle-billetera">
+				<table id="tbmonedero" class="detalle-billetera">
 					<thead>
 						<tr>		
 							<th>Tecnico</th>
