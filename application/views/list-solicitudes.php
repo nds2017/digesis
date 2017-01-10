@@ -101,7 +101,7 @@
 		<div class="ui-popup-options-wrapper billetera">
 			<input type="hidden" id="test-sid" name="test-sid" value="empty-sid">
 			<div class="ui-popup-options-contenido" id="encuestar">
-			<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#">MONEDERO DIGITAL</span></div>
+			<div class="ui-popup-options-titulo"><span class="icon-titulo" href="#"><img src="/encuesta/img/monedero.png"></span></div>
 				<ul class="ui-popup-options-list">
 					<li>
 						<span>Comision del Dia <b>S/.<?php echo round($resumen['comision_dia'],2)?></b></span>
