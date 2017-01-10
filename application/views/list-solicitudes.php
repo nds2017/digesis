@@ -125,7 +125,7 @@
 				<img src="<?=base_url()?>encuesta/img/logo.png"/>
 			</div>
 			<div class="cont_billetera">
-				<a  href="#" class="billetera">
+				<a  href="#" class="billetera" style="margin-right: 15px;">
 					<img style="width: 40px;height: 45px;" src="/encuesta/img/monedero.png">
 				</a>
 			</div>	
