@@ -1,8 +1,25 @@
 			</div>
 			<script src="<?=base_url()?>js/departamentos.js"></script>
 
+<script type="text/javascript">
+
+function ExportToExcel(){
+   var htmltable= document.getElementById('tbl_exportar');
+   var html = htmltable.outerHTML;
+   window.open('data:application/vnd.ms-excel,' + encodeURIComponent(html));
+    }
+
+$(document).ready(function() {
+  $("#exportar").on( "click", function() {
+    ExportToExcel();
+});
+
+});
+
+</script>
 			<div class="list-mod-panel">
 				<h1 style="float: left;"> Reportes / Eficiencia &nbsp;&nbsp;</h1>
+				<h4 id="exportar">Exportar a excel</h4>
 			</div>
 			<br><br><br><hr>
 			<fieldset class="search">
@@ -39,7 +56,7 @@
 				</form>
 			</fieldset>
 			<br>
-			<table class="table table-bordered table-striped">
+			<table id="tbl_exportar" class="table table-bordered table-striped">
 				<thead>
 					<tr>
 						<th scope="col"><span>JEFE</span></th>
