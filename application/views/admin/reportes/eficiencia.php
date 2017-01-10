@@ -20,7 +20,7 @@ $(document).ready(function() {
   var table_html = table_div.outerHTML.replace(/ /g, '%20');
     a.href = data_type + ', ' + table_html;
     //setting the file name
-    a.download = 'reporte_eficiencia.xlsx';
+    a.download = 'reporte_eficiencia.xls';
     //triggering the function
     a.click();
     //just in case, prevent default behaviour
