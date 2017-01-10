@@ -126,7 +126,7 @@
 			</div>
 			<div class="cont_billetera">
 				<a  href="#" class="billetera" style="margin-right: 15px;">
-					<img style="width: 40px;height: 45px;" src="/encuesta/img/monedero.png">
+					<img style="width: 40px;height: 40px;" src="/encuesta/img/monedero.png">
 				</a>
 			</div>	
 			<div style="clear: both;"></div>
