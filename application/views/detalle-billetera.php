@@ -26,7 +26,7 @@
 					<li>Comisión del día: <b>S/.<?php echo round($resumen['comision_dia'],2)?></b></li>
 					<li>Comisión del mes: <b>S/.<?php echo round($resumen['comision_mes']['monto'],2)?></b></li>
 				</ul>
-				<table class="detalle-billetera">
+				<table id="tbmonedero" class="detalle-billetera">
 					<thead>
 						<tr>
 							<th>Fecha</th>
@@ -60,7 +60,7 @@
 				</table>
 				<br/><br/><br/>
 
-				<table class="detalle-billetera">
+				<table id="tbmonedero" class="detalle-billetera">
 					<thead>
 						<tr>
 							<th>%eficiencia</th>
