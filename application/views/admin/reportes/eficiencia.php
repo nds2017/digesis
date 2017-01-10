@@ -19,7 +19,9 @@ $(document).ready(function() {
 </script>
 			<div class="list-mod-panel">
 				<h1 style="float: left;"> Reportes / Eficiencia &nbsp;&nbsp;</h1>
-				<h4 id="exportar">Exportar a excel</h4>
+
+		<a href="#" id="exportar">Exportar a excel</a>
+		
 			</div>
 			<br><br><br><hr>
 			<fieldset class="search">
