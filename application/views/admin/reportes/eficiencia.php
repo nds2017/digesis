@@ -12,30 +12,20 @@ function ExportToExcel(){
 $(document).ready(function() {
   $("#exportar").on( "click", function() {
     //ExportToExcel();
-
-	var a = document.createElement('a');
-    //getting data from our div that contains the HTML table
+  var a = document.createElement('a');    
   var data_type = 'data:application/vnd.ms-excel';
   var table_div = document.getElementById('tbl_exportar');
   var table_html = table_div.outerHTML.replace(/ /g, '%20');
-    a.href = data_type + ', ' + table_html;
-    //setting the file name
-    a.download = 'reporte_eficiencia.xls';
-    //triggering the function
-    a.click();
-    //just in case, prevent default behaviour
+    a.href = data_type + ', ' + table_html;    
+    a.download = 'reporte_eficiencia.xls';    
+    a.click();    
     e.preventDefault();
-
 });
-
 });
-
 </script>
 			<div class="list-mod-panel">
 				<h1 style="float: left;"> Reportes / Eficiencia &nbsp;&nbsp;</h1>
-
-		<a href="#" id="exportar">Exportar a excel</a>
-
+				<a href="#" id="exportar"><img style="width: 25px;height: 25px;" src="/img/excel.png"></a>	
 			</div>
 			<br><br><br><hr>
 			<fieldset class="search">
@@ -44,6 +34,7 @@ $(document).ready(function() {
 					<h3>Seleccionar rango de fechas:</h3><br>
 					De : <input type="date" name="desde">
 					Hasta : <input type="date" name="hasta">
+					<a href="#" id="exportar"><img style="width: 25px;height: 25px;" src="/img/excel.png"></a>
 					<br>
 					<input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>
 					Jefe :
