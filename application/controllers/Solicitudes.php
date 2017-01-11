@@ -401,6 +401,7 @@ class Solicitudes extends CI_Controller {
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'solicitudesload' ));
 		$data['bnombres'] = isset($_POST['bnombres']) ? $_POST['bnombres'] : '';
 		if ( @$_POST['carga'] ) {
+			var_dump($_FILES); die();
 			$file = $_FILES['file']['tmp_name'];
 			if ( !empty($file) ) {
 				$handle = fopen($file, "r");
