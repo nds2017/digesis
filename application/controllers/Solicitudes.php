@@ -440,7 +440,7 @@ class Solicitudes extends CI_Controller {
 						}
 					}
 					else
-						$data['error'] = '<p style="color: red;"><b>Error en el Archivo, Son 8 Columnas</b></p>';
+						$data['error'] = '<p style="color: red;"><b>Error en el Archivo, El archivo CSV debe tener 9 Columnas</b></p>';
 				}
 				$data['info'] = (object)array('filas' => $i-1, 'add' => $inserts, 'update' => $updates);
 				$this->msolicitudes->solicitudes_cargalog(array(
