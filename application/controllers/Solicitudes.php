@@ -409,34 +409,34 @@ class Solicitudes extends CI_Controller {
 				$datos = array();
 				$i = $inserts = $updates = 0;
 				while ( ($datos = fgetcsv($handle)) !== false ) {
-					$numero = count($datos);
-					var_dump($datos); die();
-					$i++;
-					if ( $i == 1 )
-						continue;
-					if ( !empty($datos[0]) ) {
-						$fecha = str_replace('/', '-', $datos[8]);
-						$formdata = array(
-							'id' => $datos[0],
-							'tiposervicioid' => $this->msolicitudes->solicitudes_getTipoServicio($datos[1]),
-							'plano' => $datos[7],
-							'cliente' => $datos[2],
-							'direccion' => $datos[3],
-							'distritoid' => $this->mdepartamentos->distritos_getDistrito($datos[4], $datos[5], $datos[6]),
-							'usuarioid' => $session->id,
-							'fecha_instalacion' => empty($datos[8]) ? strtotime(date('d-m-Y')) : strtotime($fecha),
-							'upload' => 1,
-							'horario' => 1,
-							'modtime' => strtotime("now")
-						);
-						if ( $this->msolicitudes->solicitudes_getID($datos[0]) ) {
-							$updates++;
-							$this->msolicitudes->solicitudes_update($formdata, $datos[0]);
-						}
-						else {
-							$inserts++;
-							$this->msolicitudes->solicitudes_create($formdata);
-							$this->msolicitudes->solicitudes_addtecnicos(array('sid' => $datos[0], 't1id' => 0, 't2id' => 0, 'aid' => 0));
+					if ( count($datos) > 7 ) {
+						$i++;
+						if ( $i == 1 )
+							continue;
+						if ( !empty($datos[0]) ) {
+							$fecha = str_replace('/', '-', $datos[8]);
+							$formdata = array(
+								'id' => $datos[0],
+								'tiposervicioid' => $this->msolicitudes->solicitudes_getTipoServicio($datos[1]),
+								'plano' => $datos[7],
+								'cliente' => $datos[2],
+								'direccion' => $datos[3],
+								'distritoid' => $this->mdepartamentos->distritos_getDistrito($datos[4], $datos[5], $datos[6]),
+								'usuarioid' => $session->id,
+								'fecha_instalacion' => empty($datos[8]) ? strtotime(date('d-m-Y')) : strtotime($fecha),
+								'upload' => 1,
+								'horario' => 1,
+								'modtime' => strtotime("now")
+							);
+							if ( $this->msolicitudes->solicitudes_getID($datos[0]) ) {
+								$updates++;
+								$this->msolicitudes->solicitudes_update($formdata, $datos[0]);
+							}
+							else {
+								$inserts++;
+								$this->msolicitudes->solicitudes_create($formdata);
+								$this->msolicitudes->solicitudes_addtecnicos(array('sid' => $datos[0], 't1id' => 0, 't2id' => 0, 'aid' => 0));
+							}
 						}
 					}
 				}
