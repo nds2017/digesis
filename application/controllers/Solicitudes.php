@@ -410,7 +410,6 @@ class Solicitudes extends CI_Controller {
 				$i = $inserts = $updates = 0;
 				while ( ($datos = fgetcsv($handle)) !== false ) {
 					if ( count($datos) > 8 ) {
-						var_dump(count($datos)); die();
 						$i++;
 						if ( $i == 1 )
 							continue;
