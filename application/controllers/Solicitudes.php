@@ -410,6 +410,7 @@ class Solicitudes extends CI_Controller {
 				$i = $inserts = $updates = 0;
 				while ( ($datos = fgetcsv($handle)) !== false ) {
 					if ( count($datos) > 7 ) {
+						var_dump(count($datos)); die();
 						$i++;
 						if ( $i == 1 )
 							continue;
@@ -439,6 +440,8 @@ class Solicitudes extends CI_Controller {
 							}
 						}
 					}
+					else
+						$data['error'] = '<p style="color: red;"><b>Error en el Archivo, Son 8 Columnas</b></p>';
 				}
 				$data['info'] = (object)array('filas' => $i-1, 'add' => $inserts, 'update' => $updates);
 				$this->msolicitudes->solicitudes_cargalog(array(
