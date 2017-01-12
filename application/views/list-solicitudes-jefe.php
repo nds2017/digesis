@@ -167,21 +167,20 @@ window.location.href=url;
 	<?php echo $sum_sup[$key]['rechazados'] ?></td>	
 	</td>						
 	</tr>
-	<?php foreach($value as $key=>$row):
-		print_r($row);
-		?>
+	<?php foreach($value as $key=>$row):		
+	?>
 
 	<tr style="background: #354657">	
 		<td data-label="Tecnico">
-		<?php echo $row['nom_supervisor']; ?></td>
+		<?php echo $row['tecnico']; ?></td>
 		<td data-label="SOT Atendidos">
-		<?php echo $row['atendidos'] ?></td>
+		<?php echo count($row['atendidos']) ?></td>
 		<td data-label="SOT pendientes">
-		<?php echo $row['pendientes'] ?></td>
+		<?php echo count($row['pendientes']) ?></td>
 		<td data-label="SOT reprogramados">
-		<?php echo $row['reprogramados'] ?></td>
+		<?php echo count($row['reprogramados']) ?></td>
 		<td data-label="SOT rechazados">
-		<?php echo $row['rechazados'] ?></td>	
+		<?php echo count($row['rechazados']) ?></td>	
 		</td>						
 	</tr>
 	<?php 
