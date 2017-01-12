@@ -96,7 +96,7 @@ window.location.href=url;
 						Total Programados: <?php echo @$acumulador['nuevos'] + @$acumulador['reprogramados'] + @$acumulador['atendidos'] + @$acumulador['pendientes'] + @$acumulador['rechazados']						
 						?>
 					</div>
-					<div class="total_e">
+					<div class="total_e" style="background: #c4e5fa">
 						Pendiente de asignar: <?php echo @$acumulador['nuevos']			
 						?>
 					</div>
@@ -106,7 +106,7 @@ window.location.href=url;
 								Validado
 							</h4>
 							<h3>
-								<?=$acumulador['atendidos']?>
+								<?=@$acumulador['atendidos']?>
 							</h3>
 						</div>
 						<div class="cont-1 cont2">
@@ -114,7 +114,7 @@ window.location.href=url;
 								Pendiente de Validar
 							</h4>
 							<h3>
-								<?=$acumulador['pendientes']?>
+								<?=@$acumulador['pendientes']?>
 							</h3>
 						</div>
 					</div>
@@ -124,7 +124,7 @@ window.location.href=url;
 								Reprogramado
 							</h4>
 							<h3>
-								<?=$acumulador['reprogramados']?>
+								<?=@$acumulador['reprogramados']?>
 							</h3>
 						</div>
 						<div class="cont-1 cont4">
@@ -132,7 +132,7 @@ window.location.href=url;
 							   Rechazado
 							</h4>
 							<h3>
-								<?=$acumulador['rechazados']?>
+								<?=@$acumulador['rechazados']?>
 							</h3>
 						</div>
 					</div>
@@ -171,11 +171,14 @@ window.location.href=url;
 							<th>Tecnico</th>
 							<th>SOT Atendidos</th>
 							<th>SOT pendientes</th>		
-							<th>SOT reprogramados</th>	  <th>SOT rechazados</th>	
+							<th>SOT reprogramados</th>	  
+							<th>SOT rechazados</th>	
+							<th>Pend. asignar</th>
 						</tr>
 					</thead>
 					<tbody>
-	<?php 					
+	<?php 	
+	if (!empty($supervisor)):				
 	foreach($supervisor as $key=>$value):
 	?>
 	<tr>	
@@ -188,10 +191,12 @@ window.location.href=url;
 
 	<td data-label="SOT reprogramados"><?php echo count($value['reprogramados']) ?></td>
 	<td data-label="SOT rechazados"><?php echo count($value['rechazados']) ?></td>
-						
+
+	<td data-label="Pend. asignar"><?php echo count($value['nuevos']) ?></td>						
 	</tr>
 	<?php 
 		endforeach;
+		endif;
 	?>	
 					</tbody>					  
 				</table>
