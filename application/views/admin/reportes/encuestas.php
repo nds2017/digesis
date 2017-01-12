@@ -22,7 +22,7 @@
 						<option <?=(@$jefeid==$id ? 'selected' : '')?> value=<?=$id?>><?=$jefe?></option>
 						<?php } ?>
 					</select>
-					Supervisor :
+					Supervisor : <?=var_dump($jefeid)?>
 					<select id="rsupervisorid" name="supervisorid">
 						<?php if ( @$supervisorid ) { ?>
 						<?php foreach ($supervisores as $id => $supervisor) { ?>
