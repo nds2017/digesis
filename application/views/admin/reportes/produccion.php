@@ -80,7 +80,7 @@
 							<td><strong>-</strong></td>
 							<td><strong><?=$supervisores[$supid]?></strong></td>
 							<td><strong><?=$data_s['totalcuadrillas']?></strong></td>
-							<td><strong><?=$data_s['totalvalidados']?></strong></td>
+							<td><strong><?=isset($data_s['totalvalidados'])?$data_s['totalvalidados']:0?></strong></td>
 							<td><strong>-</strong></td>
 						</tr>
 						<?php } ?>
