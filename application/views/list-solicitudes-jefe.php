@@ -140,7 +140,7 @@ window.location.href=url;
 								<div class="tab-title">RESUMEN POR SUPERVISOR</div>
 		           
 
-				<table id="tbmonedero" class="detalle-billetera">
+		<table id="tbmonedero" class="detalle-billetera">
 					<thead>
 						<tr>		
 							<th>Supervisor</th>
