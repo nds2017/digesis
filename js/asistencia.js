@@ -89,12 +89,12 @@ $("#tbmonedero  a.supervisor_detalle" ).on( "click", function() {
     var id=$(this).attr('data-id');
   
   if($(".detalle_jefe-"+id).hasClass('hidden')){
-      alert('1');
+      
       $(".detalle_jefe-"+id).fadeIn();
       $(".detalle_jefe-"+id).removeClass('hidden');
 
   }else{
-      alert('2');
+
       $(".detalle_jefe-"+id).fadeOut();
       $(".detalle_jefe-"+id).addClass('hidden');      
     }
