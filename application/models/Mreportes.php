@@ -119,7 +119,7 @@ class Mreportes extends CI_Model
 			$this->db->group_by(array("supid", "t1id", "t2id"));
 			$query = $this->db->get();
 			if ( $query->num_rows() > 0 ) {
-				//var_dump($query->num_rows());
+				var_dump($query->num_rows());
 				foreach ( $query->result() as $key => $row ) {
 					var_dump($row);
 				}
