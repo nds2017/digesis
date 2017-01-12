@@ -113,7 +113,7 @@ class Mreportes extends CI_Model
 		$rows = array();
 		$rows['totalcuadrillas'] = $rows['totalvalidados'] = 0;
 		foreach ( $supervisores as $rkey => $sup ) {
-			$this->db->select('COUNT(supid) AS cantidad');
+			$this->db->select('COUNT(supid) AS cantidad, supid, t1id, t2id');
 			$this->db->from('solicitudestecnicos');
 			//$this->db->where('supid', $sup->id);
 			$this->db->group_by(array("supid", "t1id", "t2id"));
