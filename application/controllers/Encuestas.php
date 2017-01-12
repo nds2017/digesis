@@ -258,7 +258,7 @@ public function jefe($dni=null,$fecha=null) {
 			$fecha=date('Y-m-d');
 
 $r_jefes=$this->mjefes->jefes_ByDni($_GET['dni']);
-
+$sum_sup=array();
 $data=array();
 $data['fecha']=$fecha;
 if (!empty($r_jefes)){
