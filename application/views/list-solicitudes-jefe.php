@@ -119,7 +119,7 @@ window.location.href=url;
 						?>
 					</div>
 					<div class="total_e">
-						Pendiente de asignar: <?php echo @$acumulador['nuevos']			
+						Pendiente de asignar: <?php echo intval(@$acumulador['nuevos'])			
 						?>
 					</div>
 					<div class="cont_e">
