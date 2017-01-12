@@ -172,7 +172,7 @@ window.location.href=url;
 
 	<tr style="background: #354657">	
 		<td data-label="Tecnico">
-		<?php echo $row['tecnico']; ?></td>
+		<?php echo $row[$key]['tecnico']; ?></td>
 		<td data-label="SOT Atendidos">
 		<?php echo count($row['atendidos']) ?></td>
 		<td data-label="SOT pendientes">
