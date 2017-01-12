@@ -121,9 +121,9 @@ $(document).ready(function() {
 	});
 
 	$("#rjefeid").change(function() {
-		var tecnicos = $("#rtecnicoid");
-		tecnicos.find('option').remove();
-		tecnicos.append('<option value="0">-Seleccione-</option>')
+		//var tecnicos = $("#rtecnicoid");
+		//tecnicos.find('option').remove();
+		//tecnicos.append('<option value="0">-Seleccione-</option>')
 		var supervisores = $("#rsupervisorid");
 		var jefes = $(this)
 		if($(this).val() != '' && $(this).val() != 0) {
