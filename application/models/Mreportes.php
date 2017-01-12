@@ -82,7 +82,7 @@ class Mreportes extends CI_Model
 			foreach ( $supervisores as $id => $supervisor ) {
 				$tecnicos = $this->mtecnicos->tecnicos_bySupervisor($id);
 				if ( count($tecnicos) ) {
-					$data_sup = $this->mreportes->supervisor_getEncuestas($tecnicos, array('supid' => $id, 'nombres' => $supervisor);
+					$data_sup = $this->mreportes->supervisor_getEncuestas($tecnicos, array('supid' => $id, 'nombres' => $supervisor));
 					if ( isset($data_sup['tecnicos']) && count($data_sup['tecnicos']) ) {
 						$rows['promedio'] += $data_sup['promedio'];
 						$rows['supervisores'][$id] = $data_sup;
