@@ -16,8 +16,10 @@ class Welcome extends CI_Controller {
 					redirect('encuestas?dni=' . $_GET['dni']);
 		else if ($this->madmin->supervisores_login($_GET['dni']))
 		redirect('encuestas/supervisor?dni=' . $_GET['dni']);
+		else if ($this->madmin->jefes_login($_GET['dni']))
+		redirect('encuestas/jefe?dni=' . $_GET['dni']
 		else
-		$this->load->view('index', array('error' => 1));
+			$this->load->view('index', array('error' => 1));
 		}
 		else
 			$this->load->view('index');

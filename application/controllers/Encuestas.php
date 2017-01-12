@@ -243,4 +243,89 @@ foreach ($r_supervisor as $key => $value_sup) {
 	
 	}	
 
+
+public function jefe($dni=null,$fecha=null) {
+
+	if ( isset($_GET['dni']) && ( !empty($_GET['dni']))){
+		date_default_timezone_set('America/Lima');
+		$this->load->model('mtecnicos');
+		$this->load->model('msupervisores');
+		$this->load->model('mjefes');
+
+		$fecha=$this->input->get('fecha');
+
+		if (empty($fecha))
+			$fecha=date('Y-m-d');
+
+$r_jefes=$this->mjefes->jefes_ByDni($_GET['dni']);
+
+$data=array();
+$data['fecha']=$fecha;
+
+foreach ($r_jefes as $key => $value_jefes) {
+
+	$r_supervisor=$this->msupervisores->supervisores_byJefe($value_jefes->id);
+
+	foreach ($r_supervisor as $key_sup => $value_sup) {
+		
+	$data['jefe']['supervisor'][$key_sup]['nom_supervisor']=$value_sup->nombres.' '.$value_sup->apellidos;
+
+
+	$r_tecnicos=$this->mtecnicos->tecnicos_bySupervisor2($value_sup->id);
+
+
+$acumulador=array('nuevos'=>0,'atendidos'=>0,'pendientes'=>0,'reprogramados'=>0,'rechazados'=>0);
+
+	foreach ($r_tecnicos as $key_tecnico => $value)	{
+		$datat = $this->mtecnicos->tecnicobyDNI($value->dni);
+
+		if ( is_object($datat) )
+		{
+		$tid = $datat->id;		
+$data['jefe']['supervisor'][$key_sup][$key_tecnico]['tecnico']=$datat->nombres;
+
+$data['jefe']['supervisor'][$key_sup][$key_tecnico]['nuevos']=$this->msolicitudes->solicitudes_encuestas($tid, 1, false,$fecha);
+
+$acumulador['nuevos']=intval($acumulador['nuevos'])+count($data['jefe']['supervisor'][$key_sup][$key_tecnico]['nuevos']);
+
+
+$data['jefe']['supervisor'][$key_sup][$key_tecnico]['atendidos']=$this->msolicitudes->solicitudes_encuestas($tid, 2, false,$fecha);
+
+	$acumulador['atendidos']=intval($acumulador['atendidos']) + count($data['jefe']['supervisor'][$key_sup][$key_tecnico]['atendidos']);
+
+	$data['jefe']['supervisor'][$key_sup][$key_tecnico]['pendientes']= $this->msolicitudes->solicitudes_encuestas($tid, 3);
+
+	$acumulador['pendientes']=intval($acumulador['pendientes']) +count($data['jefe']['supervisor'][$key_sup][$key_tecnico]['pendientes']);
+
+			
+			$data['jefe']['supervisor'][$key_sup][$key_tecnico]['reprogramados']= $this->msolicitudes->solicitudes_encuestas($tid, 4, false,$fecha);
+
+			$acumulador['reprogramados']=intval($acumulador['reprogramados']) + count($data['jefe']['supervisor'][$key_sup][$key_tecnico]['reprogramados']);
+
+
+			$data['jefe']['supervisor'][$key_sup][$key_tecnico]['rechazados']=$this->msolicitudes->solicitudes_encuestas($tid, 5, false,$fecha);	
+
+			$acumulador['rechazados']=intval($acumulador['rechazados']) + count($data['jefe']['supervisor'][$key_sup][$key_tecnico]['rechazados']);
+
+			$data['jefe']['supervisor'][$key_sup][$key_tecnico]['sinfotos']=$this->msolicitudes->solicitudesrf_encuestas($tid);
+
+			$data['jefe']['supervisor'][$key_sup][$key_tecnico]['estados']= $this->msolicitudes->estados_entrys();
+
+		}
+	}
+
+}
+}
+				
+		$data['acumulador']=$acumulador;
+		print_r($data);
+		exit();
+			
+		$this->load->view('list-solicitudes-supervisor', $data);
+	}
+			else
+				redirect('welcome');
+	
+	}		
+
 }

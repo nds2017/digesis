@@ -28,6 +28,16 @@ class Mjefes extends CI_Model
 			return $query->result();
 	}
 
+public function jefes_ByDni($dni=null)
+	{
+
+		$this->db->select('c.*');
+		$this->db->from('jefes c');
+		$this->db->where('dni',$dni);
+		if ( $query->num_rows() > 0 )
+			return $query->result();
+	}
+
 	public function jefes_create($data) {
 		$this->db->insert('jefes', $data);
 	}
