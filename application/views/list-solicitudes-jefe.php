@@ -173,7 +173,7 @@ window.location.href=url;
 		foreach($value['tec'] as $key=>$row):		
 	?>
 
-	<tr style="background: #354657">	  
+	<tr style="background: #c4e5fa">	  
 		<td data-label="Tecnico">
 		<?php echo @$row['tecnico']; ?></td>
 		<td data-label="SOT Atendidos">
