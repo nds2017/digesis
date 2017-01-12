@@ -46,6 +46,13 @@ class Reportes extends CI_Controller {
 
 	public function encuestas() {
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'encuestas' ));
+
+		$data['desde'] = isset($_POST['desde']) ? $_POST['desde'] : null;
+		$data['hasta'] = isset($_POST['hasta']) ? $_POST['hasta'] : null;
+		$data['jefeid'] = isset($_POST['jefeid']) ? $_POST['jefeid'] : null;
+		$data['supervisorid'] = isset($_POST['supervisorid']) ? $_POST['supervisorid'] : null;
+		$data['tecnicoid'] = isset($_POST['tecnicoid']) ? $_POST['tecnicoid'] : null;
+
 		$data['jefes'] = $this->mjefes->jefes_combo();
 		$data['supervisores'] = $this->msupervisores->supervisores_combo();
 		$data['tecnicos'] = $this->mtecnicos->tecnicos_combo();
