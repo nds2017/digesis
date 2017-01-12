@@ -261,7 +261,7 @@ $r_jefes=$this->mjefes->jefes_ByDni($_GET['dni']);
 
 $data=array();
 $data['fecha']=$fecha;
-if (!empty($r_jefes)):
+if (!empty($r_jefes)){
 foreach ($r_jefes as $key => $value_jefes) {
 
 	$r_supervisor=$this->msupervisores->supervisores_byJefe($value_jefes->id);
@@ -332,13 +332,12 @@ $data['jefe']['supervisor'][$key_sup]['tec'][$key_tecnico]['atendidos']=$this->m
 	}
 
 }
-}	
-
+}
+}				
 		$data['sum_sup']=$sum_sup;
 		$data['acumulador']=$acumulador;					
 		$this->load->view('list-solicitudes-jefe', $data);
 	}
-}
 			else
 				redirect('welcome');
 	
