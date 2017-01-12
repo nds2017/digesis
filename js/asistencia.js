@@ -85,7 +85,7 @@ $( "#frmmonedero" ).on( "click", "#btnbuscar", function() {
   });
 
 
-$( ".detalle-billetera a#idsupervisor.supervisor_detalle" ).on( "click", function() {
+$( "a#idsupervisor.supervisor_detalle" ).on( "click", function() {
   alert("xxx");
 });
 
