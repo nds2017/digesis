@@ -120,9 +120,12 @@ class Mreportes extends CI_Model
 			$query = $this->db->get();
 			if ( $query->num_rows() > 0 ) {
 				var_dump($query->num_rows());
+				foreach ( $query->result() as $key => $row ) {
+					var_dump($row);
+				}
 			}
 		}
-		die('test');
+		die('test2');
 	}
 
 	public function jefes_getTotalSolicitudes($supervisores) {
