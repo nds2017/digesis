@@ -266,15 +266,23 @@ foreach ($r_jefes as $key => $value_jefes) {
 
 	$r_supervisor=$this->msupervisores->supervisores_byJefe($value_jefes->id);
 
+	$data['jefe']['nom_jefe']=$value_jefes->nombres.' '.$value_jefes->apellidos;
+
+	$acumulador=array('nuevos'=>0,'atendidos'=>0,'pendientes'=>0,'reprogramados'=>0,'rechazados'=>0);
+
 	foreach ($r_supervisor as $key_sup => $value_sup) {
 		
+	$key_sup=$value_sup->id;	
 	$data['jefe']['supervisor'][$key_sup]['nom_supervisor']=$value_sup->nombres.' '.$value_sup->apellidos;
 
 
 	$r_tecnicos=$this->mtecnicos->tecnicos_bySupervisor2($value_sup->id);
 
-
-$acumulador=array('nuevos'=>0,'atendidos'=>0,'pendientes'=>0,'reprogramados'=>0,'rechazados'=>0);
+	$sum_sup[$key_sup]['nuevos']=0;
+	$sum_sup[$key_sup]['atendidos']=0;
+	$sum_sup[$key_sup]['pendientes']=0;
+	$sum_sup[$key_sup]['reprogramados']=0;
+	$sum_sup[$key_sup]['rechazados']=0;
 
 	foreach ($r_tecnicos as $key_tecnico => $value)	{
 		$datat = $this->mtecnicos->tecnicobyDNI($value->dni);
@@ -286,26 +294,35 @@ $data['jefe']['supervisor'][$key_sup][$key_tecnico]['tecnico']=$datat->nombres;
 
 $data['jefe']['supervisor'][$key_sup][$key_tecnico]['nuevos']=$this->msolicitudes->solicitudes_encuestas($tid, 1, false,$fecha);
 
+
 $acumulador['nuevos']=intval($acumulador['nuevos'])+count($data['jefe']['supervisor'][$key_sup][$key_tecnico]['nuevos']);
+
+$sum_sup[$key_sup]['nuevos']=intval($sum_sup[$key_sup]['nuevos'])+count($data['jefe']['supervisor'][$key_sup][$key_tecnico]['nuevos']);
 
 
 $data['jefe']['supervisor'][$key_sup][$key_tecnico]['atendidos']=$this->msolicitudes->solicitudes_encuestas($tid, 2, false,$fecha);
 
 	$acumulador['atendidos']=intval($acumulador['atendidos']) + count($data['jefe']['supervisor'][$key_sup][$key_tecnico]['atendidos']);
 
+	$sum_sup[$key_sup]['atendidos']=intval($sum_sup[$key_sup]['atendidos'])+count($data['jefe']['supervisor'][$key_sup][$key_tecnico]['atendidos']);
+
 	$data['jefe']['supervisor'][$key_sup][$key_tecnico]['pendientes']= $this->msolicitudes->solicitudes_encuestas($tid, 3);
 
 	$acumulador['pendientes']=intval($acumulador['pendientes']) +count($data['jefe']['supervisor'][$key_sup][$key_tecnico]['pendientes']);
 
-			
-			$data['jefe']['supervisor'][$key_sup][$key_tecnico]['reprogramados']= $this->msolicitudes->solicitudes_encuestas($tid, 4, false,$fecha);
+	$sum_sup[$key_sup]['pendientes']=intval($sum_sup[$key_sup]['pendientes']) +count($data['jefe']['supervisor'][$key_sup][$key_tecnico]['pendientes']);
+
+	$data['jefe']['supervisor'][$key_sup][$key_tecnico]['reprogramados']= $this->msolicitudes->solicitudes_encuestas($tid, 4, false,$fecha);
 
 			$acumulador['reprogramados']=intval($acumulador['reprogramados']) + count($data['jefe']['supervisor'][$key_sup][$key_tecnico]['reprogramados']);
 
+	$sum_sup[$key_sup]['reprogramados']=intval($sum_sup[$key_sup]['reprogramados'])+ count($data['jefe']['supervisor'][$key_sup][$key_tecnico]['reprogramados']);
 
 			$data['jefe']['supervisor'][$key_sup][$key_tecnico]['rechazados']=$this->msolicitudes->solicitudes_encuestas($tid, 5, false,$fecha);	
 
-			$acumulador['rechazados']=intval($acumulador['rechazados']) + count($data['jefe']['supervisor'][$key_sup][$key_tecnico]['rechazados']);
+	$acumulador['rechazados']=intval($acumulador['rechazados']) + count($data['jefe']['supervisor'][$key_sup][$key_tecnico]['rechazados']);
+
+	$sum_sup[$key_sup]['rechazados']=intval($sum_sup[$key_sup]['rechazados'])+ count($data['jefe']['supervisor'][$key_sup][$key_tecnico]['rechazados']);
 
 			$data['jefe']['supervisor'][$key_sup][$key_tecnico]['sinfotos']=$this->msolicitudes->solicitudesrf_encuestas($tid);
 
@@ -315,13 +332,10 @@ $data['jefe']['supervisor'][$key_sup][$key_tecnico]['atendidos']=$this->msolicit
 	}
 
 }
-}
-				
-		$data['acumulador']=$acumulador;
-		print_r($data);
-		exit();
-			
-		$this->load->view('list-solicitudes-supervisor', $data);
+}				
+		$data['sum_sup']=$sum_sup;
+		$data['acumulador']=$acumulador;					
+		$this->load->view('list-solicitudes-jefes', $data);
 	}
 			else
 				redirect('welcome');
