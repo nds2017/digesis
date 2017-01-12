@@ -175,15 +175,15 @@ window.location.href=url;
 
 	<tr style="background: #354657">	
 		<td data-label="Tecnico">
-		<?php echo $row[$key]['tecnico']; ?></td>
+		<?php echo $row['tecnico']; ?></td>
 		<td data-label="SOT Atendidos">
-		<?php echo count($row[$key]['atendidos']) ?></td>
+		<?php echo count($row['atendidos']) ?></td>
 		<td data-label="SOT pendientes">
-		<?php echo count($row[$key]['pendientes']) ?></td>
+		<?php echo count($row['pendientes']) ?></td>
 		<td data-label="SOT reprogramados">
-		<?php echo count($row[$key]['reprogramados']) ?></td>
+		<?php echo count($row['reprogramados']) ?></td>
 		<td data-label="SOT rechazados">
-		<?php echo count($row[$key]['rechazados']) ?></td>	
+		<?php echo count($row['rechazados']) ?></td>	
 		</td>						
 	</tr>
 	<?php 
