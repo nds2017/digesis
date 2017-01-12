@@ -168,6 +168,8 @@ window.location.href=url;
 	</td>						
 	</tr>
 	<?php foreach($value as $key=>$row):		
+		print_r($row);
+		exit;
 	?>
 
 	<tr style="background: #354657">	
