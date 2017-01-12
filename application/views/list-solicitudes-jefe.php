@@ -167,7 +167,7 @@ window.location.href=url;
 	<?php echo $sum_sup[$key]['rechazados'] ?></td>	
 	</td>						
 	</tr>
-	<?php foreach($value as key=>$row):
+	<?php foreach($value as $key=>$row):
 		print_r($row);
 		?>
 
