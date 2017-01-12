@@ -218,7 +218,9 @@ window.location.href=url;
 		<?php echo @intval(count($row['reprogramados'])) ?></td>
 		<td data-label="SOT rechazados">
 		<?php echo @intval(count($row['rechazados'])) ?></td>	
-		</td>						
+		<td data-label="Pend. asignar">
+		<?php echo @intval(count($row['nuevos'])) ?></td>	
+		
 </tr>
 	<?php 
 		endforeach;
