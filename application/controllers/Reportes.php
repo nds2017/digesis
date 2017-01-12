@@ -54,14 +54,14 @@ class Reportes extends CI_Controller {
 		$data['tecnicoid'] = isset($_POST['tecnicoid']) ? $_POST['tecnicoid'] : null;
 
 		$data['jefes'] = $this->mjefes->jefes_combo();
-
 		if ( $data['jefeid'] )
 			$data['supervisores'] = $this->msupervisores->supervisores_combo($data['jefeid']);
-
 		if ( $data['supervisorid'] )
 			$data['tecnicos'] = $this->mtecnicos->tecnicos_bySupervisor($data['supervisorid']);
 
-		$data['data'] = $this->mreportes->jefes_getEncuestas($data['jefes']);
+		$params = array('desde' => $data['desde'], 'hasta' => $data['hasta'], 'jefeid' => $data['jefeid'], 'supervisorid' => $data['supervisorid'], 'tecnicoid' => $data['tecnicoid']);
+
+		$data['data'] = $this->mreportes->jefes_getEncuestas($data['jefes'], $params);
 		$this->load->view('admin/reportes/encuestas', $data);
 	}
 

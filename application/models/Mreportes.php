@@ -97,9 +97,16 @@ class Mreportes extends CI_Model
 		return $rows;
 	}
 
-	public function jefes_getEncuestas($jefes) {
+	public function jefes_getEncuestas($jefes, $params = null) {
 		$rows = array();
 		if ( is_array($jefes) && count($jefes) ) {
+
+			if ( $params['jefeid'] ) {
+				$jefes2[$params['jefeid']] = $jefes[$params['jefeid']];
+				unset($jefes);
+				$jefes[$params['jefeid']] = $jefes2[$params['jefeid']];
+			}
+
 			foreach ( $jefes as $id => $jefe ) {
 				$supervisores = $this->msupervisores->supervisores_combo($id);
 				if ( count($supervisores) )
