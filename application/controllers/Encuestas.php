@@ -259,6 +259,7 @@ public function jefe($dni=null,$fecha=null) {
 
 $r_jefes=$this->mjefes->jefes_ByDni($_GET['dni']);
 $sum_sup=array();
+$acumulador=array();
 $data=array();
 $data['fecha']=$fecha;
 if (!empty($r_jefes)){
