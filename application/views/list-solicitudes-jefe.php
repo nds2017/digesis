@@ -70,6 +70,11 @@ window.location.href=url;
     });         
 	
 </script>
+<style type="text/css">
+	.hidden {
+	  display: none;
+	}		
+</style>
 	</head>
 
 
