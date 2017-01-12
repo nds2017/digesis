@@ -20,22 +20,32 @@
 				<h2>INDICACIONES</h2>
 				<p>Para la calificar el servicio de NPS se ha considerado las siguientes 6 preguntas
 las cuales se calificaran en el rango del 0 a 9 donde 0 indica completa insatisfacción con la instalación  y 9 completa satisfacción</p>
-
-				<ul>
-					<li class="l0"><a href="">0</a></li>
-					<li class="l1"><a href="">1</a></li>
-					<li class="l2"><a href="">2</a></li>
-					<li class="l3"><a href="">3</a></li>
-					<li class="l4"><a href="">4</a></li>
-					<li class="l5"><a href="">5</a></li>
-					<li class="l6"><a href="">6</a></li>
-					<li class="l7"><a href="">7</a></li>
-					<li class="l8"><a href="">8</a></li>
-					<li class="l9"><a href="">9</a></li>
-				</ul>
+				<p>Ejemplo:</p>
+				<p><span class="number">0</span>¿Con cuanto calificarias el servicio prestado?</p>
+				<div class="ui-question">
+				    <ul class="question-level">
+				        <li>
+				            <a href="#" class="minimal">0-4</a>
+				        </li>
+				        <li>
+				            <a href="#" class="medium">5</a>
+				        </li>
+				        <li>
+				            <a href="#" class="maximal">6-10</a>
+				        </li>
+				    </ul>
+				    <p class="extreme">
+				        <span class="negative-level">Insatisfecho</span>
+				        <span class="positive-level">Satisfecho</span>    
+				    </p>
+				    
+				    <input type="hidden" class="answer1 answer" value=""  />
+				</div>
 				<div class="cont-btn">
-					<?php $url = base_url() . 'index.php/encuestas/preguntas/' . $sid . '?dni=' . $_GET['dni']; ?>
-					<input type="button" value="ACEPTAR" onclick="window.location='<?=$url?>';">
+					<?php $urli = base_url() . 'index.php/encuestas/preguntas/' . $sid . '?dni=' . $_GET['dni']; ?>
+					<?php $urld = base_url() . 'index.php/encuestas?dni=' . $_GET['dni']; ?>
+					<input type="button" value="INICIAR ENCUESTA" onclick="window.location='<?=$urli?>';">
+					<input class="denegar" type="button" value="DENEGAR ENCUESTA" onclick="window.location='<?=$urld?>';">
 				</div>
 			</div>
 		</div>
