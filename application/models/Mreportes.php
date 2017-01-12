@@ -85,7 +85,7 @@ class Mreportes extends CI_Model
 					if ( isset($data_sup['tecnicos']) && count($data_sup['tecnicos']) ) {
 						$rows['promedio'] += $data_sup['promedio'];
 						$rows['supervisores'][$id] = $data_sup;
-						$rows['supervisores']['nombres'] = $supervisor;
+						$rows['nombres'] = $supervisor;
 					}
 				}
 			}
