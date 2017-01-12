@@ -32,6 +32,12 @@ public function supervisores_login($dni = null) {
 	}
 
 
+public function jefes_login($dni = null) {
+		return $this->db->get_where('jefes', array('dni' => $dni, 'publish' => 1))->row();
+	}
+
+
+
 	public function admin_inactivo($user = null) {
 		return $this->db->get_where('usuarios', array('user' => $user, 'publish' => 0))->row();
 	}
