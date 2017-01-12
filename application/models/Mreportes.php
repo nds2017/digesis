@@ -112,19 +112,17 @@ class Mreportes extends CI_Model
 	public function jefes_getReporteProduccion($supervisores) {
 		$rows = array();
 		$rows['totalcuadrillas'] = $rows['totalvalidados'] = 0;
-		//foreach ( $supervisores as $rkey => $sup ) {
+		foreach ( $supervisores as $rkey => $sup ) {
 			$this->db->select('COUNT(supid) AS cantidad, supid, t1id, t2id');
 			$this->db->from('solicitudestecnicos');
 			$this->db->where('supid', 17);
 			$this->db->group_by(array("supid", "t1id", "t2id"));
 			$query = $this->db->get();
 			if ( $query->num_rows() > 0 ) {
+				//$rows['bases'][$sup->baseid][$sup->id]['adicionales'] = $rows['bases'][$sup->baseid][$sup->id]['programadas'] = $rows['bases'][$sup->baseid][$sup->id]['totalsolicitudes'] = 0;
 				var_dump($query->num_rows());
-				foreach ( $query->result() as $key => $row ) {
-					var_dump($row);
-				}
 			}
-		//}
+		}
 		die('test2');
 	}
 
