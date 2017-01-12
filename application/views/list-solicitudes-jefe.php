@@ -152,9 +152,7 @@ window.location.href=url;
 					</thead>
 					<tbody>
 	<?php 	
-	print_r($jefe['supervisor']);				
 	foreach($jefe['supervisor'] as $key=>$value):
-
 	?>
 	<tr>	
 	<td data-label="Supervisor">
@@ -169,26 +167,28 @@ window.location.href=url;
 	<?php echo $sum_sup[$key]['rechazados'] ?></td>	
 	</td>						
 	</tr>
-	<?php foreach($value as $key=>$row):		
-		print_r($row);
-		exit;
+
+	<?php 
+	if(!empty($value)):
+		foreach($value as $key=>$row):				
 	?>
 
 	<tr style="background: #354657">	
 		<td data-label="Tecnico">
 		<?php echo $row[$key]['tecnico']; ?></td>
 		<td data-label="SOT Atendidos">
-		<?php echo count($row['atendidos']) ?></td>
+		<?php echo count($row[$key]['atendidos']) ?></td>
 		<td data-label="SOT pendientes">
-		<?php echo count($row['pendientes']) ?></td>
+		<?php echo count($row[$key]['pendientes']) ?></td>
 		<td data-label="SOT reprogramados">
-		<?php echo count($row['reprogramados']) ?></td>
+		<?php echo count($row[$key]['reprogramados']) ?></td>
 		<td data-label="SOT rechazados">
-		<?php echo count($row['rechazados']) ?></td>	
+		<?php echo count($row[$key]['rechazados']) ?></td>	
 		</td>						
 	</tr>
 	<?php 
 		endforeach;
+		endif;
 	endforeach;
 	?>	
 					</tbody>					  
