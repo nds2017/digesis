@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
 
-		<link href="<?=base_url()?>encuesta/css/style.css?v=11" rel="stylesheet" type="text/css">
+		<link href="<?=base_url()?>encuesta/css/style.css?v=13" rel="stylesheet" type="text/css">
 
 		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     
@@ -16,8 +16,6 @@
 
     <!-- Load jQuery UI Main JS  -->
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-    <script src="<?=base_url()?>js/asistencia.js"></script>
-									
 
     
 <script type="text/javascript">
@@ -67,7 +65,25 @@ window.location.href=url;
             //selectedDate = $.datepicker.formatDate("yy-mm-dd", $(this).datepicker('getDate'));
         }
     });
-    });         
+
+
+ $("#tbmonedero  a.supervisor_detalle" ).on( "click", function() {
+    var id=$(this).attr('data-id');
+  
+  if($(".detalle_jefe-"+id).hasClass('hidden')){
+      
+      $(".detalle_jefe-"+id).fadeIn();
+      $(".detalle_jefe-"+id).removeClass('hidden');
+
+  }else{
+
+      $(".detalle_jefe-"+id).fadeOut();
+      $(".detalle_jefe-"+id).addClass('hidden');      
+    }
+
+});
+
+    });
 	
 </script>
 <style type="text/css">
