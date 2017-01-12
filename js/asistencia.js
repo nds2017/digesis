@@ -84,4 +84,11 @@ $( "#frmmonedero" ).on( "click", "#btnbuscar", function() {
       });
   });
 
+
+$( "table.detalle-billetera tr td .supervisor_detalle" ).on( "click", function() {
+  alert("xxx");
+});
+
+
+
 });

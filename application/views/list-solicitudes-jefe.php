@@ -152,19 +152,21 @@ window.location.href=url;
 					</thead>
 					<tbody>
 	<?php 	
-	foreach($jefe['supervisor'] as $key=>$value):
+	foreach($jefe['supervisor'] as $key_sup=>$value):
 	?>
 	<tr>	
 	<td data-label="Supervisor">
+	<a href="#" id="idsupervidor" class="supervisor_detalle">
 	<?php echo $value['nom_supervisor']; ?></td>
+	</a>
 	<td data-label="SOT Atendidos">
-	<?php echo $sum_sup[$key]['atendidos'] ?></td>
+	<?php echo $sum_sup[$key_sup]['atendidos'] ?></td>
 	<td data-label="SOT pendientes">
-	<?php echo $sum_sup[$key]['pendientes'] ?></td>
+	<?php echo $sum_sup[$key_sup]['pendientes'] ?></td>
 	<td data-label="SOT reprogramados">
-	<?php echo $sum_sup[$key]['reprogramados'] ?></td>
+	<?php echo $sum_sup[$key_sup]['reprogramados'] ?></td>
 	<td data-label="SOT rechazados">
-	<?php echo $sum_sup[$key]['rechazados'] ?></td>	
+	<?php echo $sum_sup[$key_sup]['rechazados'] ?></td>	
 	</td>						
 	</tr>
 
@@ -173,7 +175,7 @@ window.location.href=url;
 		foreach($value['tec'] as $key=>$row):		
 	?>
 
-	<tr style="background: #c4e5fa">	  
+<tr style="background: #c4e5fa" id="<?php echo $key_sup?>">	  
 		<td style="text-align: right;" data-label="Tecnico">
 		<?php echo @$row['tecnico']; ?></td>
 		<td data-label="SOT Atendidos">
@@ -185,7 +187,7 @@ window.location.href=url;
 		<td data-label="SOT rechazados">
 		<?php echo @intval(count($row['rechazados'])) ?></td>	
 		</td>						
-	</tr>
+</tr>
 	<?php 
 		endforeach;
 		endif;
