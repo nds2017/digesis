@@ -176,15 +176,15 @@ window.location.href=url;
 
 	<tr style="background: #354657">	  
 		<td data-label="Tecnico">
-		<?php echo $row['tecnico']; ?></td>
+		<?php echo @$row['tecnico']; ?></td>
 		<td data-label="SOT Atendidos">
-		<?php echo count($row['atendidos']) ?></td>
+		<?php echo @intval(count($row['atendidos'])) ?></td>
 		<td data-label="SOT pendientes">
-		<?php echo count($row['pendientes']) ?></td>
+		<?php echo @intval(count($row['pendientes'])) ?></td>
 		<td data-label="SOT reprogramados">
-		<?php echo count($row['reprogramados']) ?></td>
+		<?php echo @intval(count($row['reprogramados'])) ?></td>
 		<td data-label="SOT rechazados">
-		<?php echo count($row['rechazados']) ?></td>	
+		<?php echo @intval(count($row['rechazados'])) ?></td>	
 		</td>						
 	</tr>
 	<?php 
