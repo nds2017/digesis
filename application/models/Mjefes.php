@@ -34,6 +34,7 @@ public function jefes_ByDni($dni=null)
 		$this->db->select('c.*');
 		$this->db->from('jefes c');
 		$this->db->where('dni',$dni);
+		$query = $this->db->get();
 		if ( $query->num_rows() > 0 )
 			return $query->result();
 	}
