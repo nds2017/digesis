@@ -352,7 +352,7 @@ class Solicitudes extends CI_Controller {
 		$this->msolicitudes->solicitudes_addtecnicos($formdata);
 		$formdata = array(
 			'id' => $id,
-			'fecha_instalacion' => strtotime("now")
+			'modtime' => strtotime("now")
 		);
 		$this->msolicitudes->solicitudes_update($formdata, $id);
 		if ( $_GET['flag'] == 'seguimiento')

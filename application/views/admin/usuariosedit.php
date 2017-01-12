@@ -51,7 +51,7 @@
 					<td>Nombres : </td><td><input pattern="[/\s/A-Za-z]{1,30}" title="Solo Letras" required type="text" maxlength="30" name="nombres" value="<?=@$data->nombres?>"></td>
 				</tr>
 				<tr>
-					<td>Apellidos. : </td><td><input pattern="[/\s/A-Za-z]{1,30}" title="Solo Letras" required type="text" maxlength="30" name="apellidos" value="<?=@$data->apellidos?>"></td>
+					<td>Apellidos : </td><td><input pattern="[/\s/A-Za-z]{1,30}" title="Solo Letras" required type="text" maxlength="30" name="apellidos" value="<?=@$data->apellidos?>"></td>
 				</tr>
 				<tr>
 					<td>DNI : </td><td><input required type="text" class="solo-numero" maxlength="8" name="dni" value="<?=@$data->dni?>"></td>

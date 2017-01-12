@@ -109,8 +109,36 @@ class Mreportes extends CI_Model
 	}
 
 
-	public function solicitudes_estadosbySupervisor($supid = null, $estado = null) {
+	public function jefes_getReporteProduccion($supervisores) {
+		$rows = array();
+		$rows['totalcuadrillas'] = $rows['totalvalidados'] = 0;
+		foreach ( $supervisores as $rkey => $sup ) {
+			$this->db->select('COUNT(supid) AS cantidad, supid, t1id, t2id');
+			$this->db->from('solicitudestecnicos');
+			$this->db->where('supid', $sup->id);
+			$this->db->group_by(array("supid", "t1id", "t2id"));
+			$query = $this->db->get();
+			if ( $query->num_rows() > 0 ) {
+				$rows['bases'][$sup->baseid][$sup->id]['totalcuadrillas'] = $query->num_rows();
+				$rows['totalcuadrillas'] += $query->num_rows();
+			}
 
+			$this->db->select('COUNT(st.sid) AS cantidad');
+			$this->db->from('solicitudestecnicos st');
+			$this->db->join('solicitudes s', 'st.sid = s.id', 'left');
+			$this->db->where('st.supid', $sup->id);
+			$this->db->where('s.estadoid', 2);
+			$this->db->group_by("s.estadoid");
+			$query = $this->db->get();
+			if ( $query->num_rows() > 0 ) {
+				$rows['bases'][$sup->baseid][$sup->id]['totalvalidados'] = 0;
+				foreach ( $query->result() as $key => $row ) {
+					$rows['bases'][$sup->baseid][$sup->id]['totalvalidados'] = $row->cantidad;
+					$rows['totalvalidados'] += $row->cantidad;
+				}
+			}
+		}
+		return $rows;
 	}
 
 	public function jefes_getTotalSolicitudes($supervisores) {
@@ -259,6 +287,17 @@ class Mreportes extends CI_Model
 			$supervisores = $this->msupervisores->supervisores_byJefe($id);
 			if ( count($supervisores) ) {
 				$rows[$id] = $this->mreportes->jefes_getTotalSolicitudesRF($supervisores);
+			}
+		}
+		return $rows;
+	}
+
+	public function jefes_getProduccion($jefes) {
+		$rows = array();
+		foreach ( $jefes as $id => $jefe ) {
+			$supervisores = $this->msupervisores->supervisores_byJefe($id);
+			if ( count($supervisores) ) {
+				$rows[$id] = $this->mreportes->jefes_getReporteProduccion($supervisores);
 			}
 		}
 		return $rows;

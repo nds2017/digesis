@@ -22,8 +22,8 @@
 }
 
 .cont_time-s a {
-	color: blue;
-	text-decoration: underline;
+    color: blue;
+    text-decoration: underline;
 }
 
 * { box-sizing: border-box; }
@@ -433,6 +433,8 @@ background:url(../img/close.png) no-repeat; background-position: center center;
     margin-top:10px;
 }
 
+
+.ui-datepicker{ position:static !important; width:100% !important; /*display:block !important;*/margin-bottom:30px}
 
 .ui-popup-options-contenido .final-p input{    margin-bottom: 10px;}
 .ui-popup-options-contenido .final-p input.cancel{ background: #000;}
