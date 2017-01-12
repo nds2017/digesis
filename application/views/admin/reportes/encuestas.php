@@ -24,12 +24,18 @@
 					</select>
 					Supervisor :
 					<select id="rsupervisorid" name="supervisorid">
+						<?php if ( $jefeid ) { ?>
+						<option value="0">-Seleccione-</option>
+						<?php } ?>
 						<?php foreach ($supervisores as $id => $supervisor) { ?>
 						<option <?=(@$supervisorid==$id ? 'selected' : '')?> value=<?=$id?>><?=$supervisor?></option>
 						<?php } ?>
 					</select>
 					Técnico :
 					<select name="tecnicoid" id="rtecnicoid">
+						<?php if ( $supervisorid ) { ?>
+						<option value="0">-Seleccione-</option>
+						<?php } ?>
 						<?php foreach ($tecnicos as $id => $tecnico) { ?>
 						<option <?=(@$tecnicoid==$id ? 'selected' : '')?> value=<?=$id?>><?=$tecnico?></option>
 						<?php } ?>
