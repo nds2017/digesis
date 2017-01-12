@@ -47,7 +47,7 @@ class Mreportes extends CI_Model
 		return $rows;
 	}
 
-	public function supervisor_getEncuestas($tecnicos, $supid) {
+	public function supervisor_getEncuestas($tecnicos, $supervisor) {
 		$rows = array();
 		$rows['promedio'] = 0;
 		if ( is_array($tecnicos) && count($tecnicos) ) {
@@ -68,7 +68,8 @@ class Mreportes extends CI_Model
 			}
 			if ( isset($rows['tecnicos']) && count($rows['tecnicos']) ) {
 				$rows['promedio'] = $rows['promedio'] / (count($rows['tecnicos'])); 
-				$rows['id'] = $supid;
+				$rows['nombres'] = $supervisor['nombres'];
+				$rows['id'] = $supervisor['supid'];
 			}
 		}
 		return $rows;
@@ -81,11 +82,10 @@ class Mreportes extends CI_Model
 			foreach ( $supervisores as $id => $supervisor ) {
 				$tecnicos = $this->mtecnicos->tecnicos_bySupervisor($id);
 				if ( count($tecnicos) ) {
-					$data_sup = $this->mreportes->supervisor_getEncuestas($tecnicos, $id);
+					$data_sup = $this->mreportes->supervisor_getEncuestas($tecnicos, array('supid' => $id, 'nombres' => $supervisor);
 					if ( isset($data_sup['tecnicos']) && count($data_sup['tecnicos']) ) {
 						$rows['promedio'] += $data_sup['promedio'];
 						$rows['supervisores'][$id] = $data_sup;
-						$rows['nombres'] = $supervisor;
 					}
 				}
 			}
