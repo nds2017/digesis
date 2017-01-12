@@ -153,6 +153,7 @@ window.location.href=url;
 					<tbody>
 	<?php 					
 	foreach($jefe['supervisor'] as $key=>$value):
+	print_r($value);
 	?>
 	<tr>	
 	<td data-label="Supervisor">
