@@ -121,8 +121,8 @@ class Mreportes extends CI_Model
 			if ( $query->num_rows() > 0 ) {
 				var_dump($query->num_rows());
 			}
-			die('test');
 		}
+		die('test');
 	}
 
 	public function jefes_getTotalSolicitudes($supervisores) {
