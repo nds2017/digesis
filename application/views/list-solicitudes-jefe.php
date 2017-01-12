@@ -168,7 +168,7 @@ window.location.href=url;
 	<?php echo $sum_sup[$key_sup]['reprogramados'] ?></td>
 	<td data-label="SOT rechazados">
 	<?php echo $sum_sup[$key_sup]['rechazados'] ?></td>	
-	</td>						
+	</td>
 	</tr>
 
 	<?php 
@@ -176,7 +176,7 @@ window.location.href=url;
 		foreach($value['tec'] as $key=>$row):		
 	?>
 
-<tr style="background: #c4e5fa" id="<?php echo $key_sup?>">	  
+<tr style="background: #c4e5fa" class="hidden"> id="detalle_jefe-<?php echo $key_sup?>">	  
 		<td style="text-align: right;" data-label="Tecnico">
 		<?php echo @$row['tecnico']; ?></td>
 		<td data-label="SOT Atendidos">

@@ -85,9 +85,20 @@ $( "#frmmonedero" ).on( "click", "#btnbuscar", function() {
   });
 
 
-$( "#tbmonedero  a.supervisor_detalle" ).on( "click", function() {
+$("#tbmonedero  a.supervisor_detalle" ).on( "click", function() {
     var id=$(this).attr('data-id');
-    alert(id);
+        
+  if($("#detalle_jefe-"+id).hasClass('hidden')){
+      $("#detalle_jefe-"+id).fadeIn();
+      $("#detalle_jefe-"+id).removeClass('hidden');
+
+  }else{
+      $("#detalle_jefe-"+id).fadeOut();
+      $("#detalle_jefe-"+id).addClass('hidden');      
+    }
+
+
+
 
 });
 
