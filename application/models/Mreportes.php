@@ -90,7 +90,7 @@ class Mreportes extends CI_Model
 				}
 			}
 			if ( isset($rows['supervisores']) && count($rows['supervisores']) ) {
-				$rows['promedio'] = $rows['promedio'] / (count($rows['supervisores']));
+				$rows['promedio'] = number_format($rows['promedio'] / (count($rows['supervisores'])), 2);
 				$rows['id'] = $jefeid;
 			}
 		}
