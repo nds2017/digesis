@@ -3,7 +3,7 @@
 			<script src="<?=base_url()?>js/exportar.js"></script>
 
 			<div class="list-mod-panel">
-				<h1 style="float: left;"> Reportes / Eficiencia &nbsp;&nbsp;</h1>
+				<h1 style="float: left;"> Reportes / Registro Fotográfico &nbsp;&nbsp;</h1>
 				<a href="#" id="exportar"><img style="width: 25px;height: 25px;" src="/img/excel.png"></a>	
 			</div>
 			<br><br><br><hr>
