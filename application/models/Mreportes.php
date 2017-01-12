@@ -115,7 +115,7 @@ class Mreportes extends CI_Model
 		foreach ( $supervisores as $rkey => $sup ) {
 			$this->db->select('COUNT(supid) AS cantidad, supid, t1id, t2id');
 			$this->db->from('solicitudestecnicos');
-			$this->db->where('supid', 17);
+			$this->db->where('supid', $sup->id);
 			$this->db->group_by(array("supid", "t1id", "t2id"));
 			$query = $this->db->get();
 			if ( $query->num_rows() > 0 ) {
