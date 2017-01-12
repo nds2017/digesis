@@ -174,7 +174,7 @@ window.location.href=url;
 	?>
 
 	<tr style="background: #c4e5fa">	  
-		<td data-label="Tecnico">
+		<td style="text-align: right;" data-label="Tecnico">
 		<?php echo @$row['tecnico']; ?></td>
 		<td data-label="SOT Atendidos">
 		<?php echo @intval(count($row['atendidos'])) ?></td>
