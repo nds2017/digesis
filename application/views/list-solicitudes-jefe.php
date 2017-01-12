@@ -128,7 +128,7 @@ window.location.href=url;
 								Validado
 							</h4>
 							<h3>
-								<?=$acumulador['atendidos']?>
+								<?=@$acumulador['atendidos']?>
 							</h3>
 						</div>
 						<div class="cont-1 cont2">
@@ -136,7 +136,7 @@ window.location.href=url;
 								Pendiente de Validar
 							</h4>
 							<h3>
-								<?=$acumulador['pendientes']?>
+								<?=@$acumulador['pendientes']?>
 							</h3>
 						</div>
 					</div>
@@ -146,7 +146,7 @@ window.location.href=url;
 								Reprogramado
 							</h4>
 							<h3>
-								<?=$acumulador['reprogramados']?>
+								<?=@$acumulador['reprogramados']?>
 							</h3>
 						</div>
 						<div class="cont-1 cont4">
@@ -154,7 +154,7 @@ window.location.href=url;
 							   Rechazado
 							</h4>
 							<h3>
-								<?=$acumulador['rechazados']?>
+								<?=@$acumulador['rechazados']?>
 							</h3>
 						</div>
 					</div>
@@ -178,6 +178,7 @@ window.location.href=url;
 					</thead>
 					<tbody>
 	<?php 	
+	if (!empty($jefe['supervisor'])):
 	foreach($jefe['supervisor'] as $key_sup=>$value):
 	?>
 	<tr>	
@@ -220,6 +221,7 @@ window.location.href=url;
 </div>
 		<?php
 	endforeach;
+	endif;
 	?>	
 					</tbody>					  
 				</table>
