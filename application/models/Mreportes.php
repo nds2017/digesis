@@ -109,8 +109,14 @@ class Mreportes extends CI_Model
 
 			foreach ( $jefes as $id => $jefe ) {
 				$supervisores = $this->msupervisores->supervisores_combo($id);
-				if ( count($supervisores) )
+				if ( count($supervisores) ) {
+					if ( $params['supervisorid'] ) {
+						$supervisores2[$params['supervisorid']] = $supervisores[$params['supervisorid']];
+						unset($supervisores);
+						$supervisores[$params['supervisorid']] = $supervisores2[$params['supervisorid']];
+					}
 					$rows[$id] = $this->mreportes->jefe_getEncuestas($supervisores, $id);
+				}
 			}
 		}
 		return $rows;
