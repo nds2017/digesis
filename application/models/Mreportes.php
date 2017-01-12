@@ -47,7 +47,7 @@ class Mreportes extends CI_Model
 		return $rows;
 	}
 
-	public function supervisor_getEncuestas($tecnicos, $supervisor) {
+	public function supervisor_getEncuestas($tecnicos, $supervisor, $params = null) {
 		$rows = array();
 		$rows['promedio'] = 0;
 		if ( is_array($tecnicos) && count($tecnicos) ) {
@@ -57,6 +57,10 @@ class Mreportes extends CI_Model
 				$this->db->join('solicitudestecnicos st', 'st.sid = e.sid', 'left');
 				$this->db->join('solicitudes s', 's.id = e.sid', 'left');
 				$this->db->where('s.estadoid', 2);
+				if ( $params['desde'] && $params['hasta'] ) {
+					$this->db->where('s.fecha_instalacion >=', $params['desde']));
+					$this->db->where('s.fecha_instalacion <=', $params['hasta']));
+				}
 				$where = "(st.t1id = $tid OR st.t2id = $tid)";
 				$this->db->where($where);
 				$promedio = $this->db->get()->row()->respuesta;
@@ -75,14 +79,20 @@ class Mreportes extends CI_Model
 		return $rows;
 	}
 
-	public function jefe_getEncuestas($supervisores, $jefeid) {
+	public function jefe_getEncuestas($supervisores, $jefeid, $params = null) {
 		$rows = array();
 		$rows['promedio'] = 0;
 		if ( is_array($supervisores) && count($supervisores) ) {
 			foreach ( $supervisores as $id => $supervisor ) {
 				$tecnicos = $this->mtecnicos->tecnicos_bySupervisor($id);
 				if ( count($tecnicos) ) {
-					$data_sup = $this->mreportes->supervisor_getEncuestas($tecnicos, array('supid' => $id, 'nombres' => $supervisor));
+
+					if ( $params['tecnicoid'] )
+						$tecnicos2[$params['tecnicoid']] = $tecnicos[$params['tecnicoid']];
+					else
+						$tecnicos2 = $tecnicos;
+
+					$data_sup = $this->mreportes->supervisor_getEncuestas($tecnicos2, array('supid' => $id, 'nombres' => $supervisor), $params);
 					if ( isset($data_sup['tecnicos']) && count($data_sup['tecnicos']) ) {
 						$rows['promedio'] += $data_sup['promedio'];
 						$rows['supervisores'][$id] = $data_sup;
@@ -101,21 +111,21 @@ class Mreportes extends CI_Model
 		$rows = array();
 		if ( is_array($jefes) && count($jefes) ) {
 
-			if ( $params['jefeid'] ) {
+			if ( $params['jefeid'] )
 				$jefes2[$params['jefeid']] = $jefes[$params['jefeid']];
-				unset($jefes);
-				$jefes[$params['jefeid']] = $jefes2[$params['jefeid']];
-			}
+			else
+				$jefes2 = $jefes;
 
-			foreach ( $jefes as $id => $jefe ) {
+			foreach ( $jefes2 as $id => $jefe ) {
 				$supervisores = $this->msupervisores->supervisores_combo($id);
 				if ( count($supervisores) ) {
-					if ( $params['supervisorid'] ) {
+
+					if ( $params['supervisorid'] )
 						$supervisores2[$params['supervisorid']] = $supervisores[$params['supervisorid']];
-						unset($supervisores);
-						$supervisores[$params['supervisorid']] = $supervisores2[$params['supervisorid']];
-					}
-					$rows[$id] = $this->mreportes->jefe_getEncuestas($supervisores, $id);
+					else
+						$supervisores2 = $supervisores;
+
+					$rows[$id] = $this->mreportes->jefe_getEncuestas($supervisores2, $id, $params);
 				}
 			}
 		}
