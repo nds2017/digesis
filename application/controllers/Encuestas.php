@@ -304,7 +304,7 @@ $data['jefe']['supervisor'][$key_sup][$key_tecnico]['atendidos']=$this->msolicit
 
 	$acumulador['atendidos']=intval($acumulador['atendidos']) + count($data['jefe']['supervisor'][$key_sup]['tec'][$key_tecnico]['atendidos']);
 
-	$sum_sup[$key_sup]['atendidos']=intval($sum_sup[$key_sup]['atendidos'])+count($data['jefe']['supervisor'][$key_sup]['tec'][$key_tecnico]['atendidos']);
+	$sum_sup[$key_sup]['atendidos']=intval($sum_sup[$key_sup]['atendidos']);
 
 	$data['jefe']['supervisor'][$key_sup]['tec'][$key_tecnico]['pendientes']= $this->msolicitudes->solicitudes_encuestas($tid, 3);
 
