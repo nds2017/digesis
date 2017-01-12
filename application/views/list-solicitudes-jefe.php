@@ -170,8 +170,7 @@ window.location.href=url;
 
 	<?php 
 	if(!empty($value['tec'])):
-		foreach($value['tec'] as $key=>$row):				
-		print_r($row['tecnico']);
+		foreach($value['tec'] as $key=>$row):		
 	?>
 
 	<tr style="background: #354657">	  
