@@ -32,7 +32,7 @@ class Reportes extends CI_Controller {
 		$data['supervisores'] = $this->msupervisores->supervisores_combo();
 		$data['bases'] = $this->mbases->bases_combo();
 		$data['data'] = $this->mreportes->jefes_getProduccion($data['jefes']);
-		$this->load->view('admin/reportes/rfotografico', $data);
+		$this->load->view('admin/reportes/produccion', $data);
 	}
 
 	public function rfotografico() {
