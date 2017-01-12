@@ -16,6 +16,7 @@
 
     <!-- Load jQuery UI Main JS  -->
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="<?=base_url()?>js/asistencia.js"></script>
 									
 
     
