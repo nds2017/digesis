@@ -156,7 +156,7 @@ window.location.href=url;
 	?>
 	<tr>	
 	<td data-label="Supervisor">
-	<a href="#" id="idsupervidor" class="supervisor_detalle">
+	<a href="#" id="idsupervidor" data-id="<?php echo $key_sup;?>" class="supervisor_detalle">
 	<?php echo $value['nom_supervisor']; ?></td>
 	</a>
 	<td data-label="SOT Atendidos">

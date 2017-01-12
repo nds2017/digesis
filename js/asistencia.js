@@ -85,8 +85,10 @@ $( "#frmmonedero" ).on( "click", "#btnbuscar", function() {
   });
 
 
-$( "#tbmonedero  a#idsupervisor.supervisor_detalle" ).on( "click", function() {
-  alert("xxx");
+$( "#tbmonedero  a.supervisor_detalle" ).on( "click", function() {
+    var id=$(this).attr('data-id');
+    alert(id);
+
 });
 
 
