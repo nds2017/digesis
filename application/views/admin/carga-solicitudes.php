@@ -26,7 +26,7 @@
 					echo '<em>' . $info->filas . ' Registros Procesados <br>' . $info->add . ' Registros Agregados <br>' . $info->update . ' Registros Actualizados</em><hr>';
 			?>
 
-			<h1>Solicitudes Cargadas Desde <?=date('d-m-Y')?></h1>
+			<h1>Solicitudes Cargadas <?=date('d-m-Y')?></h1>
 			<?php
 				//$this->db->query("ALTER TABLE `horarios` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;");
 
