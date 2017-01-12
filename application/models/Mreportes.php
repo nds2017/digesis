@@ -58,8 +58,8 @@ class Mreportes extends CI_Model
 				$this->db->join('solicitudes s', 's.id = e.sid', 'left');
 				$this->db->where('s.estadoid', 2);
 				if ( $params['desde'] && $params['hasta'] ) {
-					$this->db->where('s.fecha_instalacion >=', $params['desde']));
-					$this->db->where('s.fecha_instalacion <=', $params['hasta']));
+					$this->db->where('s.fecha_instalacion >=', $params['desde']);
+					$this->db->where('s.fecha_instalacion <=', $params['hasta']);
 				}
 				$where = "(st.t1id = $tid OR st.t2id = $tid)";
 				$this->db->where($where);
