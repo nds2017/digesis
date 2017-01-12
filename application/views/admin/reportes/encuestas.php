@@ -24,18 +24,14 @@
 					</select>
 					Supervisor :
 					<select id="rsupervisorid" name="supervisorid">
-						<?php if ( @$supervisorid ) { ?>
 						<?php foreach ($supervisores as $id => $supervisor) { ?>
 						<option <?=(@$supervisorid==$id ? 'selected' : '')?> value=<?=$id?>><?=$supervisor?></option>
-						<?php } ?>
 						<?php } ?>
 					</select>
 					Técnico :
 					<select name="tecnicoid" id="rtecnicoid">
-						<?php if ( @$tecnicoid ) { ?>
 						<?php foreach ($tecnicos as $id => $tecnico) { ?>
 						<option <?=(@$tecnicoid==$id ? 'selected' : '')?> value=<?=$id?>><?=$tecnico?></option>
-						<?php } ?>
 						<?php } ?>
 					</select>
 					<input type="submit" class="btnsearch" value="Filtrar"/>
@@ -66,7 +62,7 @@
 					<?php foreach ( $data_j['supervisores'] as $supid => $data_s ) { ?>
 					<tr>
 						<td><strong>-</strong></td>
-						<td><strong><?=$supervisores[$supid]?></strong></td>
+						<td><strong><?=$data_s['nombre']?></strong></td>
 						<td><strong>-</strong></td>
 						<td><strong><?=isset($data_s['promedio'])?$data_s['promedio']:'-'?></strong></td>
 						<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/supervisor_encuestas/<?=$supid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
@@ -77,7 +73,7 @@
 						<tr>
 							<td><strong>-</strong></td>
 							<td><strong>-</strong></td>
-							<td><strong><?=$tecnicos[$tid]?></strong></td>
+							<td><strong><?=$data_t['nombre']?></strong></td>
 							<td><strong><?=isset($data_t['promedio'])?$data_t['promedio']:'-'?></strong></td>
 							<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/tecnico_encuestas/<?=$tid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 						</tr>
