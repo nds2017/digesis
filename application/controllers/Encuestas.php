@@ -335,7 +335,7 @@ $data['jefe']['supervisor'][$key_sup][$key_tecnico]['atendidos']=$this->msolicit
 }				
 		$data['sum_sup']=$sum_sup;
 		$data['acumulador']=$acumulador;					
-		$this->load->view('list-solicitudes-jefes', $data);
+		$this->load->view('list-solicitudes-jefe', $data);
 	}
 			else
 				redirect('welcome');
