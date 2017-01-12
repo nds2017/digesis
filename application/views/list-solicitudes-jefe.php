@@ -171,13 +171,12 @@ window.location.href=url;
 	</td>
 	</tr>
 
-<div  class="hidden" id="detalle_jefe-<?php echo $key_sup?>">
 	<?php 
 	if(!empty($value['tec'])):
 		foreach($value['tec'] as $key=>$row):		
 	?>
 
-<tr style="background: #c4e5fa">	  
+<tr style="background: #c4e5fa" class="hidden detalle_jefe-<?php echo $key_sup?>">	  
 		<td style="text-align: right;" data-label="Tecnico">
 		<?php echo @$row['tecnico']; ?></td>
 		<td data-label="SOT Atendidos">
