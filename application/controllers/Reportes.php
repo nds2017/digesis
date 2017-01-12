@@ -26,6 +26,15 @@ class Reportes extends CI_Controller {
 		$this->load->view('admin/reportes/eficiencia', $data);
 	}
 
+	public function produccion() {
+		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'produccion' ));
+		$data['jefes'] = $this->mjefes->jefes_combo();
+		$data['supervisores'] = $this->msupervisores->supervisores_combo();
+		$data['bases'] = $this->mbases->bases_combo();
+		$data['data'] = $this->mreportes->jefes_getProduccion($data['jefes']);
+		$this->load->view('admin/reportes/rfotografico', $data);
+	}
+
 	public function rfotografico() {
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'rfotografico' ));
 		$data['jefes'] = $this->mjefes->jefes_combo();

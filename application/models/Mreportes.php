@@ -109,8 +109,20 @@ class Mreportes extends CI_Model
 	}
 
 
-	public function solicitudes_estadosbySupervisor($supid = null, $estado = null) {
-
+	public function jefes_getReporteProduccion($supervisores) {
+		$rows = array();
+		$rows['totalcuadrillas'] = $rows['totalvalidados'] = 0;
+		foreach ( $supervisores as $rkey => $sup ) {
+			$this->db->select('COUNT(supid) AS cantidad');
+			$this->db->from('solicitudestecnicos');
+			$this->db->where('supid', $sup->id);
+			$this->db->group_by(array("supid, t1id, t2id"));
+			$query = $this->db->get();
+			if ( $query->num_rows() > 0 ) {
+				var_dump($query->num_rows());
+			}
+			die('test');
+		}
 	}
 
 	public function jefes_getTotalSolicitudes($supervisores) {
@@ -259,6 +271,17 @@ class Mreportes extends CI_Model
 			$supervisores = $this->msupervisores->supervisores_byJefe($id);
 			if ( count($supervisores) ) {
 				$rows[$id] = $this->mreportes->jefes_getTotalSolicitudesRF($supervisores);
+			}
+		}
+		return $rows;
+	}
+
+	public function jefes_getProduccion($jefes) {
+		$rows = array();
+		foreach ( $jefes as $id => $jefe ) {
+			$supervisores = $this->msupervisores->supervisores_byJefe($id);
+			if ( count($supervisores) ) {
+				$rows[$id] = $this->mreportes->jefes_getReporteProduccion($supervisores);
 			}
 		}
 		return $rows;
