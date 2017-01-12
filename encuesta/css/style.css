@@ -376,7 +376,7 @@ background:url(../img/tab-icon.png) no-repeat top center;
 
 .tservicio .data2 select{ font-weight: bold}
 .t1{background: #000!important;}
-.calendar-box input#datepicker{ opacity:0; background:none !important; outline:none !important; height:0px; width:1px; border:1px;}
+/*.calendar-box input#datepicker{ opacity:0; background:none !important; outline:none !important; height:0px; width:1px; border:1px;}*/
 
 .ui-popup-options-list li a:after {
 content: "";
@@ -434,7 +434,7 @@ background:url(../img/close.png) no-repeat; background-position: center center;
 }
 
 
-.ui-datepicker{ position:static !important; width:100% !important; /*display:block !important;*/margin-bottom:30px}
+/*.ui-datepicker{ position:static !important; width:100% !important; /*display:block !important;margin-bottom:30px}*/
 
 .ui-popup-options-contenido .final-p input{    margin-bottom: 10px;}
 .ui-popup-options-contenido .final-p input.cancel{ background: #000;}
@@ -577,8 +577,10 @@ table#tbmonedero {
 
 }
 
+/*
 @media (max-width: 480px) {    
    #ui-datepicker-div{ width:70%!important;}
   .ui-datepicker-multi, .ui-datepicker-group {float: none!important;}
   .ui-datepicker-multi-2 .ui-datepicker-group{width:100%!important;}
 }
+*/
