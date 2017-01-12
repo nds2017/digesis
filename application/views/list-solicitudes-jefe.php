@@ -146,7 +146,8 @@ window.location.href=url;
 							<th>Supervisor</th>
 							<th>SOT Atendidos</th>
 							<th>SOT pendientes</th>		
-							<th>SOT reprogramados</th>	  <th>SOT rechazados</th>	
+							<th>SOT reprogramados</th>	  
+							<th>SOT rechazados</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -163,11 +164,29 @@ window.location.href=url;
 	<td data-label="SOT reprogramados">
 	<?php echo $sum_sup[$key]['reprogramados'] ?></td>
 	<td data-label="SOT rechazados">
-	<?php echo $sum_sup[$key]['rechazados'] ?></td>
-						
+	<?php echo $sum_sup[$key]['rechazados'] ?></td>	
+	</td>						
+	</tr>
+	<?php foreach($value as key=>$row):
+		print_r($row);
+		?>
+
+	<tr style="background: #354657">	
+		<td data-label="Tecnico">
+		<?php echo $row['nom_supervisor']; ?></td>
+		<td data-label="SOT Atendidos">
+		<?php echo $row['atendidos'] ?></td>
+		<td data-label="SOT pendientes">
+		<?php echo $row['pendientes'] ?></td>
+		<td data-label="SOT reprogramados">
+		<?php echo $row['reprogramados'] ?></td>
+		<td data-label="SOT rechazados">
+		<?php echo $row['rechazados'] ?></td>	
+		</td>						
 	</tr>
 	<?php 
 		endforeach;
+	endforeach;
 	?>	
 					</tbody>					  
 				</table>
