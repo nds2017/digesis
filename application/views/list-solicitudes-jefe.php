@@ -169,8 +169,8 @@ window.location.href=url;
 	</tr>
 
 	<?php 
-	if(!empty($value)):
-		foreach($value as $key=>$row):				
+	if(!empty($value['tec'])):
+		foreach($value['tec'] as $key=>$row):				
 	?>
 
 	<tr style="background: #354657">	
