@@ -118,7 +118,7 @@ window.location.href=url;
 						Total Programado: <?php echo @$acumulador['nuevos'] + @$acumulador['reprogramados'] + @$acumulador['atendidos'] + @$acumulador['pendientes'] + @$acumulador['rechazados']		
 						?>
 					</div>
-					<div class="total_e">
+					<div class="total_e" style="color: red">
 						Pendiente de asignar: <?php echo intval(@$acumulador['nuevos'])			
 						?>
 					</div>
