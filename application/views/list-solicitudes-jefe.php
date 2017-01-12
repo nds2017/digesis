@@ -115,11 +115,11 @@ window.location.href=url;
 				</div>
 				<div class="estados">
 					<div class="total_e">
-						Total Programado: <?php echo $acumulador['nuevos'] + $acumulador['reprogramados'] + $acumulador['atendidos'] + $acumulador['pendientes'] + $acumulador['rechazados']						
+						Total Programado: <?php echo @$acumulador['nuevos'] + @$acumulador['reprogramados'] + @$acumulador['atendidos'] + @$acumulador['pendientes'] + @$acumulador['rechazados']		
 						?>
 					</div>
 					<div class="total_e">
-						Pendiente de asignar: <?php echo $acumulador['nuevos']			
+						Pendiente de asignar: <?php echo @$acumulador['nuevos']			
 						?>
 					</div>
 					<div class="cont_e">
