@@ -174,7 +174,7 @@ window.location.href=url;
 							<th>SOT pendientes</th>		
 							<th>SOT reprogramados</th>	  
 							<th>SOT rechazados</th>
-							<th>Pendientes de asignar</th>
+							<th>Pend. de asignar</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -196,7 +196,7 @@ window.location.href=url;
 	<td data-label="SOT rechazados">
 	<?php echo $sum_sup[$key_sup]['rechazados'] ?></td>	
 
-	<td data-label="Pendientes de asignar">
+	<td data-label="Pend. de asignar">
 	<?php echo $sum_sup[$key_sup]['nuevos'] ?></td>	
 
 	</td>
