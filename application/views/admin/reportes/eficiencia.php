@@ -16,14 +16,14 @@
 					<br>
 					<input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>
 					Jefe :
-					<select id="rjefeid">
+					<select id="rjefeid" name="jefeid">
 						<option value="0">-Seleccione-</option>
 						<?php foreach ($jefes as $id => $jefe) { ?>
 						<option <?=(@$jefeid==$id ? 'selected' : '')?> value=<?=$id?>><?=$jefe?></option>
 						<?php } ?>
 					</select>
 					Base :
-					<select id="rjefeid">
+					<select name="baseid">
 						<option value="0">-Seleccione-</option>
 						<?php foreach ($bases as $id => $base) { ?>
 						<option <?=(@$baseid==$id ? 'selected' : '')?> value=<?=$id?>><?=$base?></option>
