@@ -37,7 +37,6 @@
 						<?php foreach ($supervisores as $id => $supervisor) { ?>
 						<option <?=(@$supervisorid==$id ? 'selected' : '')?> value=<?=$id?>><?=$supervisor?></option>
 						<?php } ?>
-						<?php } ?>
 					</select>
 					<input type="submit" class="btnsearch" value="Filtrar"/>
 				</form>
