@@ -320,7 +320,7 @@ class Mreportes extends CI_Model
 
 
 	public function jefes_getEficiencia($jefes, $params) {
-		$rows = array();
+		$rows = $supervisores2 = array();
 		if ( is_array($jefes) && count($jefes) ) {
 
 			if ( $params['jefeid'] )
@@ -340,7 +340,7 @@ class Mreportes extends CI_Model
 						$supervisores2 = $supervisores;
 
 					if ( count($supervisores2) )
-					$rows[$id] = $this->mreportes->jefes_getTotalSolicitudes($supervisores2, $params);
+						$rows[$id] = $this->mreportes->jefes_getTotalSolicitudes($supervisores2, $params);
 				}
 			}
 		}
@@ -348,7 +348,7 @@ class Mreportes extends CI_Model
 	}
 
 	public function jefes_getRFotografico($jefes, $params) {
-		$rows = array();
+		$rows = $supervisores2 = array();
 		if ( is_array($jefes) && count($jefes) ) {
 
 			if ( $params['jefeid'] )
@@ -368,7 +368,7 @@ class Mreportes extends CI_Model
 						$supervisores2 = $supervisores;
 
 					if ( count($supervisores2) )
-					$rows[$id] = $this->mreportes->jefes_getTotalSolicitudesRF($supervisores2, $params);
+						$rows[$id] = $this->mreportes->jefes_getTotalSolicitudesRF($supervisores2, $params);
 				}
 			}
 		}
@@ -376,7 +376,7 @@ class Mreportes extends CI_Model
 	}
 
 	public function jefes_getProduccion($jefes, $params) {
-		$rows = array();
+		$rows = $supervisores2 = array();
 		if ( is_array($jefes) && count($jefes) ) {
 
 			if ( $params['jefeid'] )
