@@ -181,6 +181,7 @@ class Mreportes extends CI_Model
 		$rows['totalsinestado'] = $rows['totalreprogramados'] = $rows['totalrechazados'] = $rows['totalvalidados'] = $rows['totalpendientes'] = $rows['porcentaje'] = 0;
 		foreach ( $supervisores as $rkey => $name ) {
 			$sup = $this->msupervisores->supervisores_byID($rkey);
+			var_dump($sup);
 			$this->db->select('COUNT(st.sid) AS cantidad, s.upload');
 			$this->db->from('solicitudestecnicos st');
 			$this->db->join('solicitudes s', 'st.sid = s.id', 'left');
@@ -333,7 +334,7 @@ class Mreportes extends CI_Model
 
 			foreach ( $jefes2 as $id => $jefe ) {
 				$supervisores = $this->msupervisores->supervisores_combo($id, $params['baseid']);
-				var_dump($supervisores);
+				//var_dump($supervisores);
 				if ( count($supervisores) ) {
 
 					if ( $params['supervisorid'] ) {
