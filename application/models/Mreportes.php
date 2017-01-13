@@ -380,7 +380,7 @@ class Mreportes extends CI_Model
 				if ( $params['baseid'] )
 					$array['baseid'] = $params['baseid'];
 				if ( $params['supervisorid'] )
-					$array['supervisorid'] = $params['supervisorid'];
+					$array['id'] = $params['supervisorid'];
 				$supervisores = $this->msupervisores->supervisores_byJefe($id, $array);
 				if ( count($supervisores) )
 					$rows[$id] = $this->mreportes->jefes_getReporteProduccion($supervisores, $params);
