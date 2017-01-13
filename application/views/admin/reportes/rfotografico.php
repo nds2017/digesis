@@ -23,7 +23,7 @@
 						<?php } ?>
 					</select>
 					Base :
-					<select id="baseid">
+					<select name="baseid">
 						<option value="0">-Seleccione-</option>
 						<?php foreach ($bases as $id => $base) { ?>
 						<option <?=(@$baseid==$id ? 'selected' : '')?> value=<?=$id?>><?=$base?></option>

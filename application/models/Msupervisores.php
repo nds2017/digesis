@@ -58,8 +58,11 @@ class Msupervisores extends CI_Model
 		return $rows;
 	}
 
-	public function supervisores_byJefe($jefeid = null) {
-		return $this->db->get_where('supervisores', array('jefeid' => $jefeid, 'publish' => 1))->result();
+	public function supervisores_byJefe($jefeid = null, $baseid = null) {
+		if ( $baseid )
+			return $this->db->get_where('supervisores', array('jefeid' => $jefeid, 'publish' => 1, 'baseid' => $baseid))->result();
+		else
+			return $this->db->get_where('supervisores', array('jefeid' => $jefeid, 'publish' => 1))->result();
 	}
 
 	public function supervisores_ByDni($dni = null) {

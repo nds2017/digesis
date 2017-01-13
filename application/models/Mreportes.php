@@ -331,7 +331,16 @@ class Mreportes extends CI_Model
 			foreach ( $jefes2 as $id => $jefe ) {
 				$supervisores = $this->msupervisores->supervisores_byJefe($id);
 				if ( count($supervisores) ) {
-					$rows[$id] = $this->mreportes->jefes_getTotalSolicitudes($supervisores, $params);
+
+					if ( $params['supervisorid'] ) {
+						if ( isset($supervisores[$params['supervisorid']]) )
+							$supervisores2[$params['supervisorid']] = $supervisores[$params['supervisorid']];
+					}
+					else
+						$supervisores2 = $supervisores;
+
+					if ( count($supervisores2) )
+					$rows[$id] = $this->mreportes->jefes_getTotalSolicitudes($supervisores2, $params);
 				}
 			}
 		}
@@ -350,7 +359,16 @@ class Mreportes extends CI_Model
 			foreach ( $jefes2 as $id => $jefe ) {
 				$supervisores = $this->msupervisores->supervisores_byJefe($id);
 				if ( count($supervisores) ) {
-					$rows[$id] = $this->mreportes->jefes_getTotalSolicitudesRF($supervisores, $params);
+
+					if ( $params['supervisorid'] ) {
+						if ( isset($supervisores[$params['supervisorid']]) )
+							$supervisores2[$params['supervisorid']] = $supervisores[$params['supervisorid']];
+					}
+					else
+						$supervisores2 = $supervisores;
+
+					if ( count($supervisores2) )
+					$rows[$id] = $this->mreportes->jefes_getTotalSolicitudesRF($supervisores2, $params);
 				}
 			}
 		}
@@ -367,9 +385,18 @@ class Mreportes extends CI_Model
 				$jefes2 = $jefes;
 
 			foreach ( $jefes2 as $id => $jefe ) {
-				$supervisores = $this->msupervisores->supervisores_byJefe($id);
+				$supervisores = $this->msupervisores->supervisores_byJefe($id, $params['baseid']);
 				if ( count($supervisores) ) {
-					$rows[$id] = $this->mreportes->jefes_getReporteProduccion($supervisores, $params);
+
+					if ( $params['supervisorid'] ) {
+						if ( isset($supervisores[$params['supervisorid']]) )
+							$supervisores2[$params['supervisorid']] = $supervisores[$params['supervisorid']];
+					}
+					else
+						$supervisores2 = $supervisores;
+
+					if ( count($supervisores2) )
+						$rows[$id] = $this->mreportes->jefes_getReporteProduccion($supervisores2, $params);
 				}
 			}
 		}
