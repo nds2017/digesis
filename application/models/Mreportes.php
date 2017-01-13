@@ -331,18 +331,8 @@ class Mreportes extends CI_Model
 			foreach ( $jefes2 as $id => $jefe ) {
 				$supervisores = $this->msupervisores->supervisores_byJefe($id, $params['baseid']);
 
-				if ( count($supervisores) ) {
-
-					if ( $params['supervisorid'] ) {
-						if ( isset($supervisores[$params['supervisorid']]) )
-							$supervisores2[$params['supervisorid']] = $supervisores[$params['supervisorid']];
-					}
-					else
-						$supervisores2 = $supervisores;
-
-					if ( count($supervisores2) )
-						$rows[$id] = $this->mreportes->jefes_getTotalSolicitudes($supervisores2, $params);
-				}
+				if ( count($supervisores) )
+					$rows[$id] = $this->mreportes->jefes_getTotalSolicitudes($supervisores, $params);
 			}
 		}
 		return $rows;
@@ -386,19 +376,14 @@ class Mreportes extends CI_Model
 				$jefes2 = $jefes;
 
 			foreach ( $jefes2 as $id => $jefe ) {
-				$supervisores = $this->msupervisores->supervisores_byJefe($id, $params['baseid']);
-				if ( count($supervisores) ) {
-
-					if ( $params['supervisorid'] ) {
-						if ( isset($supervisores[$params['supervisorid']]) )
-							$supervisores2[$params['supervisorid']] = $supervisores[$params['supervisorid']];
-					}
-					else
-						$supervisores2 = $supervisores;
-
-					if ( count($supervisores2) )
-						$rows[$id] = $this->mreportes->jefes_getReporteProduccion($supervisores2, $params);
-				}
+				$array = array('jefeid' => $id, 'publish' => 1);
+				if ( $params['baseid'] )
+					$array['baseid'] = $params['baseid'];
+				if ( $params['supervisorid'] )
+					$array['supervisorid'] = $params['supervisorid'];
+				$supervisores = $this->msupervisores->supervisores_byJefe($id, $array);
+				if ( count($supervisores) )
+					$rows[$id] = $this->mreportes->jefes_getReporteProduccion($supervisores, $params);
 			}
 		}
 		return $rows;
