@@ -327,7 +327,7 @@ class Mreportes extends CI_Model
 				$jefes2[$params['jefeid']] = $jefes[$params['jefeid']];
 			else
 				$jefes2 = $jefes;
-
+var_dump($jefes2);
 			foreach ( $jefes2 as $id => $jefe ) {
 				$supervisores = $this->msupervisores->supervisores_byJefe($id, $params['baseid']);
 				var_dump($supervisores);
@@ -342,8 +342,8 @@ class Mreportes extends CI_Model
 
 					if ( count($supervisores2) )
 						$rows[$id] = $this->mreportes->jefes_getTotalSolicitudes($supervisores2, $params);
-					var_dump($supervisores2);
-					var_dump('hola');
+					//var_dump($supervisores2);
+					//var_dump('hola');
 				}
 			}
 		}
