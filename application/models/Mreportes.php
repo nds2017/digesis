@@ -137,6 +137,7 @@ class Mreportes extends CI_Model
 		$rows = array();
 		$rows['totalcuadrillas'] = $rows['totalvalidados'] = 0;
 		foreach ( $supervisores as $rkey => $sup ) {
+			$rows['bases'][$sup->baseid][$sup->id]['nombres'] = $sup->nombres;
 			$this->db->select('COUNT(st.supid)');
 			$this->db->from('solicitudestecnicos st');
 			$this->db->join('solicitudes s', 'st.sid = s.id', 'left');
@@ -179,6 +180,7 @@ class Mreportes extends CI_Model
 		$rows['totalprogramadas'] = $rows['totaladicionales'] = $rows['totalsolicitudes'] = 0;
 		$rows['totalsinestado'] = $rows['totalreprogramados'] = $rows['totalrechazados'] = $rows['totalvalidados'] = $rows['totalpendientes'] = $rows['porcentaje'] = 0;
 		foreach ( $supervisores as $rkey => $sup ) {
+			$rows['bases'][$sup->baseid][$sup->id]['nombres'] = $sup->nombres;
 			$this->db->select('COUNT(st.sid) AS cantidad, s.upload');
 			$this->db->from('solicitudestecnicos st');
 			$this->db->join('solicitudes s', 'st.sid = s.id', 'left');
@@ -253,6 +255,7 @@ class Mreportes extends CI_Model
 		$rows['totalvalidados'] = $rows['totalpendientes'] = $rows['totalsolicitudes'] = 0;
 		$rows['totalobservados'] = $rows['totalsinrf'] = $rows['totalconforme'] = $rows['porcentaje'] = 0;
 		foreach ( $supervisores as $rkey => $sup ) {
+			$rows['bases'][$sup->baseid][$sup->id]['nombres'] = $sup->nombres;
 			$this->db->select('COUNT(st.sid) AS cantidad, s.estadoid');
 			$this->db->from('solicitudestecnicos st');
 			$this->db->join('solicitudes s', 'st.sid = s.id', 'left');
