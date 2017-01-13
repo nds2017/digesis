@@ -329,7 +329,7 @@ class Mreportes extends CI_Model
 				$jefes2 = $jefes;
 
 			foreach ( $jefes2 as $id => $jefe ) {
-				$supervisores = $this->msupervisores->supervisores_byJefe($id);
+				$supervisores = $this->msupervisores->supervisores_byJefe($id, $params['baseid']);
 				if ( count($supervisores) ) {
 
 					if ( $params['supervisorid'] ) {
@@ -357,7 +357,7 @@ class Mreportes extends CI_Model
 				$jefes2 = $jefes;
 
 			foreach ( $jefes2 as $id => $jefe ) {
-				$supervisores = $this->msupervisores->supervisores_byJefe($id);
+				$supervisores = $this->msupervisores->supervisores_byJefe($id, $params['baseid']);
 				if ( count($supervisores) ) {
 
 					if ( $params['supervisorid'] ) {
