@@ -33,9 +33,9 @@
 					<select id="rsupervisorid" name="supervisorid">
 						<?php if ( $jefeid ) { ?>
 						<option value="0">-Seleccione-</option>
-						<?php } ?>
 						<?php foreach ($supervisores as $id => $supervisor) { ?>
 						<option <?=(@$supervisorid==$id ? 'selected' : '')?> value=<?=$id?>><?=$supervisor?></option>
+						<?php } ?>
 						<?php } ?>
 					</select>
 					<input type="submit" class="btnsearch" value="Filtrar"/>
@@ -79,7 +79,7 @@
 						<tr>
 							<td><strong>-</strong></td>
 							<td><strong>-</strong></td>
-							<td><strong><?=$data_s['nombres']?></strong></td>
+							<td><strong><?=$supervisores[$supid]?></strong></td>
 							<td><strong><?=$data_s['totalcuadrillas']?></strong></td>
 							<td><strong><?=isset($data_s['totalvalidados'])?$data_s['totalvalidados']:0?></strong></td>
 							<td><strong>-</strong></td>

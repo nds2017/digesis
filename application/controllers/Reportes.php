@@ -27,6 +27,7 @@ class Reportes extends CI_Controller {
 		$data['baseid'] = isset($_POST['baseid']) ? $_POST['baseid'] : null;
 
 		$data['jefes'] = $this->mjefes->jefes_combo();
+		$data['supervisores'] = $this->msupervisores->supervisores_combo();
 		if ( $data['jefeid'] )
 			$data['supervisores'] = $this->msupervisores->supervisores_combo($data['jefeid']);
 		$data['bases'] = $this->mbases->bases_combo();
@@ -46,6 +47,7 @@ class Reportes extends CI_Controller {
 		$data['baseid'] = isset($_POST['baseid']) ? $_POST['baseid'] : null;
 
 		$data['jefes'] = $this->mjefes->jefes_combo();
+		$data['supervisores'] = $this->msupervisores->supervisores_combo();
 		if ( $data['jefeid'] )
 			$data['supervisores'] = $this->msupervisores->supervisores_combo($data['jefeid']);
 		$data['bases'] = $this->mbases->bases_combo();
@@ -65,6 +67,7 @@ class Reportes extends CI_Controller {
 		$data['baseid'] = isset($_POST['baseid']) ? $_POST['baseid'] : null;
 
 		$data['jefes'] = $this->mjefes->jefes_combo();
+		$data['supervisores'] = $this->msupervisores->supervisores_combo();
 		if ( $data['jefeid'] )
 			$data['supervisores'] = $this->msupervisores->supervisores_combo($data['jefeid']);
 		$data['bases'] = $this->mbases->bases_combo();
@@ -84,6 +87,7 @@ class Reportes extends CI_Controller {
 		$data['tecnicoid'] = isset($_POST['tecnicoid']) ? $_POST['tecnicoid'] : null;
 
 		$data['jefes'] = $this->mjefes->jefes_combo();
+		$data['supervisores'] = $this->msupervisores->supervisores_combo();
 		if ( $data['jefeid'] )
 			$data['supervisores'] = $this->msupervisores->supervisores_combo($data['jefeid']);
 		if ( $data['supervisorid'] )

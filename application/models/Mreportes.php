@@ -170,8 +170,6 @@ class Mreportes extends CI_Model
 					$rows['totalvalidados'] += $row->cantidad;
 				}
 			}
-			if ( $rows['totalcuadrillas'] || $rows['totalvalidados'] )
-				$rows['bases'][$sup->baseid][$sup->id]['nombres'] = $sup->nombres;
 		}
 		return $rows;
 	}
@@ -181,6 +179,7 @@ class Mreportes extends CI_Model
 		$rows['totalprogramadas'] = $rows['totaladicionales'] = $rows['totalsolicitudes'] = 0;
 		$rows['totalsinestado'] = $rows['totalreprogramados'] = $rows['totalrechazados'] = $rows['totalvalidados'] = $rows['totalpendientes'] = $rows['porcentaje'] = 0;
 		foreach ( $supervisores as $rkey => $sup ) {
+			$rows['bases'][$sup->baseid][$sup->id]['nombres'] = $sup->nombres;
 			$this->db->select('COUNT(st.sid) AS cantidad, s.upload');
 			$this->db->from('solicitudestecnicos st');
 			$this->db->join('solicitudes s', 'st.sid = s.id', 'left');
@@ -244,10 +243,8 @@ class Mreportes extends CI_Model
 					$rows['bases'][$sup->baseid][$sup->id]['porcentaje'] = number_format(($rows['bases'][$sup->baseid][$sup->id]['validados'] / $rows['bases'][$sup->baseid][$sup->id]['totalsolicitudes']) * 100, 0);
 				}
 			}
-			if ( $rows['totalsolicitudes'] ) {
+			if ( $rows['totalsolicitudes'] )
 				$rows['porcentaje'] = number_format(($rows['totalvalidados'] / $rows['totalsolicitudes'] * 100), 0);
-				$rows['bases'][$sup->baseid][$sup->id]['nombres'] = $sup->nombres;
-			}
 		}
 		return $rows;
 	}
@@ -257,6 +254,7 @@ class Mreportes extends CI_Model
 		$rows['totalvalidados'] = $rows['totalpendientes'] = $rows['totalsolicitudes'] = 0;
 		$rows['totalobservados'] = $rows['totalsinrf'] = $rows['totalconforme'] = $rows['porcentaje'] = 0;
 		foreach ( $supervisores as $rkey => $sup ) {
+			$rows['bases'][$sup->baseid][$sup->id]['nombres'] = $sup->nombres;
 			$this->db->select('COUNT(st.sid) AS cantidad, s.estadoid');
 			$this->db->from('solicitudestecnicos st');
 			$this->db->join('solicitudes s', 'st.sid = s.id', 'left');
@@ -316,10 +314,8 @@ class Mreportes extends CI_Model
 					$rows['bases'][$sup->baseid][$sup->id]['porcentaje'] = number_format(($rows['bases'][$sup->baseid][$sup->id]['conforme'] / $rows['bases'][$sup->baseid][$sup->id]['totalsolicitudes']) * 100, 0);
 				}
 			}
-			if ( $rows['totalsolicitudes'] ) {
+			if ( $rows['totalsolicitudes'] )
 				$rows['porcentaje'] = number_format(($rows['totalconforme'] / $rows['totalsolicitudes'] * 100), 0);
-				$rows['bases'][$sup->baseid][$sup->id]['nombres'] = $sup->nombres;
-			}
 		}
 		return $rows;
 	}
