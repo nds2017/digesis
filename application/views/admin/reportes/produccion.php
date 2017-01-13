@@ -9,7 +9,7 @@
 			<br><br><br><hr>
 			<fieldset class="search">
 				<legend></legend>
-				<form id="form" method="post" action="<?=base_url()?>index.php/reportes/rfotografico">
+				<form id="form" method="post" action="<?=base_url()?>index.php/reportes/produccion">
 					<h3>Seleccionar rango de fechas:</h3><br>
 					De : <input type="date" name="desde" value="<?=$desde?>">
 					Hasta : <input type="date" name="hasta" value="<?=$hasta?>">
