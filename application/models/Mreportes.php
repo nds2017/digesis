@@ -320,7 +320,7 @@ class Mreportes extends CI_Model
 
 
 	public function jefes_getEficiencia($jefes, $params) {
-		$rows = $supervisores2 = array();
+		$rows = array();
 		if ( is_array($jefes) && count($jefes) ) {
 
 			if ( $params['jefeid'] )
@@ -329,8 +329,12 @@ class Mreportes extends CI_Model
 				$jefes2 = $jefes;
 
 			foreach ( $jefes2 as $id => $jefe ) {
-				$supervisores = $this->msupervisores->supervisores_byJefe($id, $params['baseid']);
-
+				$array = array('jefeid' => $id, 'publish' => 1);
+				if ( $params['baseid'] )
+					$array['baseid'] = $params['baseid'];
+				if ( $params['supervisorid'] )
+					$array['id'] = $params['supervisorid'];
+				$supervisores = $this->msupervisores->supervisores_byJefe($id, $array);
 				if ( count($supervisores) )
 					$rows[$id] = $this->mreportes->jefes_getTotalSolicitudes($supervisores, $params);
 			}
@@ -339,7 +343,7 @@ class Mreportes extends CI_Model
 	}
 
 	public function jefes_getRFotografico($jefes, $params) {
-		$rows = $supervisores2 = array();
+		$rows = array();
 		if ( is_array($jefes) && count($jefes) ) {
 
 			if ( $params['jefeid'] )
@@ -348,26 +352,21 @@ class Mreportes extends CI_Model
 				$jefes2 = $jefes;
 
 			foreach ( $jefes2 as $id => $jefe ) {
-				$supervisores = $this->msupervisores->supervisores_byJefe($id, $params['baseid']);
-				if ( count($supervisores) ) {
-
-					if ( $params['supervisorid'] ) {
-						if ( isset($supervisores[$params['supervisorid']]) )
-							$supervisores2[$params['supervisorid']] = $supervisores[$params['supervisorid']];
-					}
-					else
-						$supervisores2 = $supervisores;
-
-					if ( count($supervisores2) )
-						$rows[$id] = $this->mreportes->jefes_getTotalSolicitudesRF($supervisores2, $params);
-				}
+				$array = array('jefeid' => $id, 'publish' => 1);
+				if ( $params['baseid'] )
+					$array['baseid'] = $params['baseid'];
+				if ( $params['supervisorid'] )
+					$array['id'] = $params['supervisorid'];
+				$supervisores = $this->msupervisores->supervisores_byJefe($id, $array);
+				if ( count($supervisores) )
+					$rows[$id] = $this->mreportes->jefes_getTotalSolicitudesRF($supervisores, $params);
 			}
 		}
 		return $rows;
 	}
 
 	public function jefes_getProduccion($jefes, $params) {
-		$rows = $supervisores2 = array();
+		$rows = array();
 		if ( is_array($jefes) && count($jefes) ) {
 
 			if ( $params['jefeid'] )
