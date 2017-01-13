@@ -18,29 +18,59 @@ class Reportes extends CI_Controller {
 	}
 
 	public function eficiencia() {
-		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'eficiencia' ));
+		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'eficiencia'));
+
+		$data['desde'] = isset($_POST['desde']) ? $_POST['desde'] : null;
+		$data['hasta'] = isset($_POST['hasta']) ? $_POST['hasta'] : null;
+		$data['jefeid'] = isset($_POST['jefeid']) ? $_POST['jefeid'] : null;
+		$data['supervisorid'] = isset($_POST['supervisorid']) ? $_POST['supervisorid'] : null;
+		$data['baseid'] = isset($_POST['baseid']) ? $_POST['baseid'] : null;
+
 		$data['jefes'] = $this->mjefes->jefes_combo();
-		$data['supervisores'] = $this->msupervisores->supervisores_combo();
+		if ( $data['jefeid'] )
+			$data['supervisores'] = $this->msupervisores->supervisores_combo($data['jefeid']);
 		$data['bases'] = $this->mbases->bases_combo();
-		$data['data'] = $this->mreportes->jefes_getEficiencia($data['jefes']);
+
+		$params = array('desde' => $data['desde'], 'hasta' => $data['hasta'], 'jefeid' => $data['jefeid'], 'supervisorid' => $data['supervisorid'], 'baseid' => $data['baseid']);
+		$data['data'] = $this->mreportes->jefes_getEficiencia($data['jefes'], $params);
 		$this->load->view('admin/reportes/eficiencia', $data);
 	}
 
 	public function produccion() {
-		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'produccion' ));
+		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'produccion'));
+
+		$data['desde'] = isset($_POST['desde']) ? $_POST['desde'] : null;
+		$data['hasta'] = isset($_POST['hasta']) ? $_POST['hasta'] : null;
+		$data['jefeid'] = isset($_POST['jefeid']) ? $_POST['jefeid'] : null;
+		$data['supervisorid'] = isset($_POST['supervisorid']) ? $_POST['supervisorid'] : null;
+		$data['baseid'] = isset($_POST['baseid']) ? $_POST['baseid'] : null;
+
 		$data['jefes'] = $this->mjefes->jefes_combo();
-		$data['supervisores'] = $this->msupervisores->supervisores_combo();
+		if ( $data['jefeid'] )
+			$data['supervisores'] = $this->msupervisores->supervisores_combo($data['jefeid']);
 		$data['bases'] = $this->mbases->bases_combo();
-		$data['data'] = $this->mreportes->jefes_getProduccion($data['jefes']);
+
+		$params = array('desde' => $data['desde'], 'hasta' => $data['hasta'], 'jefeid' => $data['jefeid'], 'supervisorid' => $data['supervisorid'], 'baseid' => $data['baseid']);
+		$data['data'] = $this->mreportes->jefes_getProduccion($data['jefes'], $params);
 		$this->load->view('admin/reportes/produccion', $data);
 	}
 
 	public function rfotografico() {
-		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'rfotografico' ));
+		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'rfotografico'));
+
+		$data['desde'] = isset($_POST['desde']) ? $_POST['desde'] : null;
+		$data['hasta'] = isset($_POST['hasta']) ? $_POST['hasta'] : null;
+		$data['jefeid'] = isset($_POST['jefeid']) ? $_POST['jefeid'] : null;
+		$data['supervisorid'] = isset($_POST['supervisorid']) ? $_POST['supervisorid'] : null;
+		$data['baseid'] = isset($_POST['baseid']) ? $_POST['baseid'] : null;
+
 		$data['jefes'] = $this->mjefes->jefes_combo();
-		$data['supervisores'] = $this->msupervisores->supervisores_combo();
+		if ( $data['jefeid'] )
+			$data['supervisores'] = $this->msupervisores->supervisores_combo($data['jefeid']);
 		$data['bases'] = $this->mbases->bases_combo();
-		$data['data'] = $this->mreportes->jefes_getRFotografico($data['jefes']);
+
+		$params = array('desde' => $data['desde'], 'hasta' => $data['hasta'], 'jefeid' => $data['jefeid'], 'supervisorid' => $data['supervisorid'], 'baseid' => $data['baseid']);
+		$data['data'] = $this->mreportes->jefes_getRFotografico($data['jefes'], $params);
 		$this->load->view('admin/reportes/rfotografico', $data);
 	}
 
@@ -60,7 +90,6 @@ class Reportes extends CI_Controller {
 			$data['tecnicos'] = $this->mtecnicos->tecnicos_bySupervisor($data['supervisorid']);
 
 		$params = array('desde' => $data['desde'], 'hasta' => $data['hasta'], 'jefeid' => $data['jefeid'], 'supervisorid' => $data['supervisorid'], 'tecnicoid' => $data['tecnicoid']);
-
 		$data['data'] = $this->mreportes->jefes_getEncuestas($data['jefes'], $params);
 		$this->load->view('admin/reportes/encuestas', $data);
 	}

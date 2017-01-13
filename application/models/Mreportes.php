@@ -133,14 +133,19 @@ class Mreportes extends CI_Model
 	}
 
 
-	public function jefes_getReporteProduccion($supervisores) {
+	public function jefes_getReporteProduccion($supervisores, $params = null) {
 		$rows = array();
 		$rows['totalcuadrillas'] = $rows['totalvalidados'] = 0;
 		foreach ( $supervisores as $rkey => $sup ) {
-			$this->db->select('COUNT(supid) AS cantidad, supid, t1id, t2id');
-			$this->db->from('solicitudestecnicos');
-			$this->db->where('supid', $sup->id);
-			$this->db->group_by(array("supid", "t1id", "t2id"));
+			$this->db->select('COUNT(st.supid)');
+			$this->db->from('solicitudestecnicos st');
+			$this->db->join('solicitudes s', 'st.sid = s.id', 'left');
+			$this->db->where('st.supid', $sup->id);
+			if ( $params['desde'] && $params['hasta'] ) {
+				$this->db->where('s.fecha_instalacion >=', strtotime($params['desde']));
+				$this->db->where('s.fecha_instalacion <=', strtotime($params['hasta']));
+			}
+			$this->db->group_by(array("st.supid", "st.t1id", "st.t2id"));
 			$query = $this->db->get();
 			if ( $query->num_rows() > 0 ) {
 				$rows['bases'][$sup->baseid][$sup->id]['totalcuadrillas'] = $query->num_rows();
@@ -151,6 +156,10 @@ class Mreportes extends CI_Model
 			$this->db->from('solicitudestecnicos st');
 			$this->db->join('solicitudes s', 'st.sid = s.id', 'left');
 			$this->db->where('st.supid', $sup->id);
+			if ( $params['desde'] && $params['hasta'] ) {
+				$this->db->where('s.fecha_instalacion >=', strtotime($params['desde']));
+				$this->db->where('s.fecha_instalacion <=', strtotime($params['hasta']));
+			}
 			$this->db->where('s.estadoid', 2);
 			$this->db->group_by("s.estadoid");
 			$query = $this->db->get();
@@ -165,7 +174,7 @@ class Mreportes extends CI_Model
 		return $rows;
 	}
 
-	public function jefes_getTotalSolicitudes($supervisores) {
+	public function jefes_getTotalSolicitudes($supervisores, $params = null) {
 		$rows = array();
 		$rows['totalprogramadas'] = $rows['totaladicionales'] = $rows['totalsolicitudes'] = 0;
 		$rows['totalsinestado'] = $rows['totalreprogramados'] = $rows['totalrechazados'] = $rows['totalvalidados'] = $rows['totalpendientes'] = $rows['porcentaje'] = 0;
@@ -174,6 +183,10 @@ class Mreportes extends CI_Model
 			$this->db->from('solicitudestecnicos st');
 			$this->db->join('solicitudes s', 'st.sid = s.id', 'left');
 			$this->db->where('st.supid', $sup->id);
+			if ( $params['desde'] && $params['hasta'] ) {
+				$this->db->where('s.fecha_instalacion >=', strtotime($params['desde']));
+				$this->db->where('s.fecha_instalacion <=', strtotime($params['hasta']));
+			}
 			$this->db->group_by("s.upload");
 			$query = $this->db->get();
 			if ( $query->num_rows() > 0 ) {
@@ -197,6 +210,10 @@ class Mreportes extends CI_Model
 			$this->db->from('solicitudestecnicos st');
 			$this->db->join('solicitudes s', 'st.sid = s.id', 'left');
 			$this->db->where('st.supid', $sup->id);
+			if ( $params['desde'] && $params['hasta'] ) {
+				$this->db->where('s.fecha_instalacion >=', strtotime($params['desde']));
+				$this->db->where('s.fecha_instalacion <=', strtotime($params['hasta']));
+			}
 			$this->db->group_by("s.estadoid");
 			$query = $this->db->get();
 			if ( $query->num_rows() > 0 ) {
@@ -231,7 +248,7 @@ class Mreportes extends CI_Model
 		return $rows;
 	}
 
-	public function jefes_getTotalSolicitudesRF($supervisores) {
+	public function jefes_getTotalSolicitudesRF($supervisores, $params = null) {
 		$rows = array();
 		$rows['totalvalidados'] = $rows['totalpendientes'] = $rows['totalsolicitudes'] = 0;
 		$rows['totalobservados'] = $rows['totalsinrf'] = $rows['totalconforme'] = $rows['porcentaje'] = 0;
@@ -240,6 +257,10 @@ class Mreportes extends CI_Model
 			$this->db->from('solicitudestecnicos st');
 			$this->db->join('solicitudes s', 'st.sid = s.id', 'left');
 			$this->db->where('st.supid', $sup->id);
+			if ( $params['desde'] && $params['hasta'] ) {
+				$this->db->where('s.fecha_instalacion >=', strtotime($params['desde']));
+				$this->db->where('s.fecha_instalacion <=', strtotime($params['hasta']));
+			}
 			$where = "(s.estadoid = 2 OR s.estadoid = 3)";
 			$this->db->where($where);
 			$this->db->group_by("s.estadoid");
@@ -265,6 +286,10 @@ class Mreportes extends CI_Model
 			$this->db->from('solicitudestecnicos st');
 			$this->db->join('solicitudes s', 'st.sid = s.id', 'left');
 			$this->db->where('st.supid', $sup->id);
+			if ( $params['desde'] && $params['hasta'] ) {
+				$this->db->where('s.fecha_instalacion >=', strtotime($params['desde']));
+				$this->db->where('s.fecha_instalacion <=', strtotime($params['hasta']));
+			}
 			$where = "(s.estadoid = 2 OR s.estadoid = 3)";
 			$this->db->where($where);
 			$this->db->group_by("s.rf");
@@ -294,34 +319,58 @@ class Mreportes extends CI_Model
 	}
 
 
-	public function jefes_getEficiencia($jefes) {
+	public function jefes_getEficiencia($jefes, $params) {
 		$rows = array();
-		foreach ( $jefes as $id => $jefe ) {
-			$supervisores = $this->msupervisores->supervisores_byJefe($id);
-			if ( count($supervisores) ) {
-				$rows[$id] = $this->mreportes->jefes_getTotalSolicitudes($supervisores);
+		if ( is_array($jefes) && count($jefes) ) {
+
+			if ( $params['jefeid'] )
+				$jefes2[$params['jefeid']] = $jefes[$params['jefeid']];
+			else
+				$jefes2 = $jefes;
+
+			foreach ( $jefes2 as $id => $jefe ) {
+				$supervisores = $this->msupervisores->supervisores_byJefe($id);
+				if ( count($supervisores) ) {
+					$rows[$id] = $this->mreportes->jefes_getTotalSolicitudes($supervisores, $params);
+				}
 			}
 		}
 		return $rows;
 	}
 
-	public function jefes_getRFotografico($jefes) {
+	public function jefes_getRFotografico($jefes, $params) {
 		$rows = array();
-		foreach ( $jefes as $id => $jefe ) {
-			$supervisores = $this->msupervisores->supervisores_byJefe($id);
-			if ( count($supervisores) ) {
-				$rows[$id] = $this->mreportes->jefes_getTotalSolicitudesRF($supervisores);
+		if ( is_array($jefes) && count($jefes) ) {
+
+			if ( $params['jefeid'] )
+				$jefes2[$params['jefeid']] = $jefes[$params['jefeid']];
+			else
+				$jefes2 = $jefes;
+
+			foreach ( $jefes2 as $id => $jefe ) {
+				$supervisores = $this->msupervisores->supervisores_byJefe($id);
+				if ( count($supervisores) ) {
+					$rows[$id] = $this->mreportes->jefes_getTotalSolicitudesRF($supervisores, $params);
+				}
 			}
 		}
 		return $rows;
 	}
 
-	public function jefes_getProduccion($jefes) {
+	public function jefes_getProduccion($jefes, $params) {
 		$rows = array();
-		foreach ( $jefes as $id => $jefe ) {
-			$supervisores = $this->msupervisores->supervisores_byJefe($id);
-			if ( count($supervisores) ) {
-				$rows[$id] = $this->mreportes->jefes_getReporteProduccion($supervisores);
+		if ( is_array($jefes) && count($jefes) ) {
+
+			if ( $params['jefeid'] )
+				$jefes2[$params['jefeid']] = $jefes[$params['jefeid']];
+			else
+				$jefes2 = $jefes;
+
+			foreach ( $jefes2 as $id => $jefe ) {
+				$supervisores = $this->msupervisores->supervisores_byJefe($id);
+				if ( count($supervisores) ) {
+					$rows[$id] = $this->mreportes->jefes_getReporteProduccion($supervisores, $params);
+				}
 			}
 		}
 		return $rows;

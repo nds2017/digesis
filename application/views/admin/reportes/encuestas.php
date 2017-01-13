@@ -1,5 +1,5 @@
 			</div>
-			<script src="<?=base_url()?>js/departamentos.js"></script>
+			<script src="<?=base_url()?>js/reportes.js"></script>
 			<script src="<?=base_url()?>js/exportar.js"></script>
 
 			<div class="list-mod-panel">

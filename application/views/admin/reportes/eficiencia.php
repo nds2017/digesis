@@ -1,6 +1,5 @@
 			</div>
-			<script src="<?=base_url()?>js/departamentos.js"></script>
-
+			<script src="<?=base_url()?>js/reportes.js"></script>
 			<script src="<?=base_url()?>js/exportar.js"></script>
 
 			<div class="list-mod-panel">
@@ -12,8 +11,8 @@
 				<legend></legend>
 				<form id="form" method="post" action="<?=base_url()?>index.php/reportes/eficiencia">
 					<h3>Seleccionar rango de fechas:</h3><br>
-					De : <input type="date" name="desde">
-					Hasta : <input type="date" name="hasta">					
+					De : <input type="date" name="desde" value="<?=$desde?>">
+					Hasta : <input type="date" name="hasta" value="<?=$hasta?>">
 					<br>
 					<input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>
 					Jefe :
@@ -32,7 +31,9 @@
 					</select>
 					Supervisor :
 					<select id="rsupervisorid" name="supervisorid">
-						<?php if ( @$supervisorid ) { ?>
+						<?php if ( $jefeid ) { ?>
+						<option value="0">-Seleccione-</option>
+						<?php } ?>
 						<?php foreach ($supervisores as $id => $supervisor) { ?>
 						<option <?=(@$supervisorid==$id ? 'selected' : '')?> value=<?=$id?>><?=$supervisor?></option>
 						<?php } ?>
@@ -97,7 +98,7 @@
 						<tr>
 							<td><strong>-</strong></td>
 							<td><strong>-</strong></td>
-							<td><strong><?=$supervisores[$supid]?></strong></td>
+							<td><strong><?=@$data_s['nombres']?></strong></td>
 							<td><strong><?=$data_s['programadas']?></strong></td>
 							<td><strong><?=$data_s['adicionales']?></strong></td>
 							<td><strong><?=$data_s['totalsolicitudes']?></strong></td>
