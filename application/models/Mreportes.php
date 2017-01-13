@@ -356,6 +356,7 @@ class Mreportes extends CI_Model
 				}
 			}
 		}
+		var_dump($rows); die();
 		return $rows;
 	}
 
