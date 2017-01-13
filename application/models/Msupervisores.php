@@ -46,23 +46,27 @@ class Msupervisores extends CI_Model
 		$this->db->update('supervisores', $data);
 	}
 
-	public function supervisores_combo($jefeid = null) {
+	public function supervisores_combo($jefeid = null, $baseid = null) {
 		$rows = array();
+
+		$this->db->select('id, CONCAT(nombres, " ", apellidos) AS tnombres');
+		$this->db->from('supervisores');
+		$this->db->where('publish', 1);
 		if ( is_numeric($jefeid) && ($jefeid != 0) )
-			$query = $this->db->query("SELECT id, CONCAT(nombres, ' ', apellidos) AS tnombres FROM supervisores WHERE jefeid = $jefeid AND publish = 1");
-		else
-			$query = $this->db->query("SELECT id, CONCAT(nombres, ' ', apellidos) AS tnombres FROM supervisores WHERE publish = 1");
-		foreach ( $query->result() as $key=>$row ) {
-			$rows[$row->id] = $row->tnombres;
+			$this->db->where('jefeid', $jefeid);
+		if ( is_numeric($baseid) && ($baseid != 0) )
+			$this->db->where('baseid', $baseid);
+		$query = $this->db->get();
+		if ( $query->num_rows() > 0 ) {
+			foreach ( $query->result() as $key=>$row ) {
+				$rows[$row->id] = $row->tnombres;
+			}
 		}
 		return $rows;
 	}
 
-	public function supervisores_byJefe($jefeid = null, $baseid = null) {
-		if ( $baseid )
-			return $this->db->get_where('supervisores', array('jefeid' => $jefeid, 'publish' => 1, 'baseid' => $baseid))->result();
-		else
-			return $this->db->get_where('supervisores', array('jefeid' => $jefeid, 'publish' => 1))->result();
+	public function supervisores_byJefe($jefeid = null) {
+		return $this->db->get_where('supervisores', array('jefeid' => $jefeid, 'publish' => 1))->result();
 	}
 
 	public function supervisores_ByDni($dni = null) {
