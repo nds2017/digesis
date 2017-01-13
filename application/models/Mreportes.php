@@ -180,8 +180,8 @@ class Mreportes extends CI_Model
 		$rows['totalprogramadas'] = $rows['totaladicionales'] = $rows['totalsolicitudes'] = 0;
 		$rows['totalsinestado'] = $rows['totalreprogramados'] = $rows['totalrechazados'] = $rows['totalvalidados'] = $rows['totalpendientes'] = $rows['porcentaje'] = 0;
 		foreach ( $supervisores as $rkey => $name ) {
-			$sup = array_shift($this->msupervisores->supervisores_byID($rkey));
-			var_dump($sup);
+			$sup = (object)array_shift($this->msupervisores->supervisores_byID($rkey));
+			var_dump($sup->id);
 			$this->db->select('COUNT(st.sid) AS cantidad, s.upload');
 			$this->db->from('solicitudestecnicos st');
 			$this->db->join('solicitudes s', 'st.sid = s.id', 'left');
