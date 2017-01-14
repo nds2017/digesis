@@ -1,5 +1,5 @@
 			</div>
-			<script src="<?=base_url()?>js/departamentos.js"></script>
+			<script src="<?=base_url()?>js/reportes.js"></script>
 			<script src="<?=base_url()?>js/exportar.js"></script>
 
 			<div class="list-mod-panel">
@@ -9,21 +9,21 @@
 			<br><br><br><hr>
 			<fieldset class="search">
 				<legend></legend>
-				<form id="form" method="post" action="<?=base_url()?>index.php/reportes/rfotografico">
+				<form id="form" method="post" action="<?=base_url()?>index.php/reportes/produccion">
 					<h3>Seleccionar rango de fechas:</h3><br>
-					De : <input type="date" name="desde">
-					Hasta : <input type="date" name="hasta">
+					De : <input type="date" name="desde" value="<?=$desde?>">
+					Hasta : <input type="date" name="hasta" value="<?=$hasta?>">
 					<br>
 					<input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>
 					Jefe :
-					<select id="rjefeid">
+					<select id="rjefeid" name="jefeid">
 						<option value="0">-Seleccione-</option>
 						<?php foreach ($jefes as $id => $jefe) { ?>
 						<option <?=(@$jefeid==$id ? 'selected' : '')?> value=<?=$id?>><?=$jefe?></option>
 						<?php } ?>
 					</select>
 					Base :
-					<select id="rjefeid">
+					<select name="baseid">
 						<option value="0">-Seleccione-</option>
 						<?php foreach ($bases as $id => $base) { ?>
 						<option <?=(@$baseid==$id ? 'selected' : '')?> value=<?=$id?>><?=$base?></option>
@@ -31,7 +31,8 @@
 					</select>
 					Supervisor :
 					<select id="rsupervisorid" name="supervisorid">
-						<?php if ( @$supervisorid ) { ?>
+						<?php if ( $jefeid ) { ?>
+						<option value="0">-Seleccione-</option>
 						<?php foreach ($supervisores as $id => $supervisor) { ?>
 						<option <?=(@$supervisorid==$id ? 'selected' : '')?> value=<?=$id?>><?=$supervisor?></option>
 						<?php } ?>

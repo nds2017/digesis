@@ -1,5 +1,5 @@
 			</div>
-			<script src="<?=base_url()?>js/departamentos.js"></script>
+			<script src="<?=base_url()?>js/reportes.js"></script>
 			<script src="<?=base_url()?>js/exportar.js"></script>
 
 			<div class="list-mod-panel">
@@ -11,12 +11,12 @@
 				<legend></legend>
 				<form id="form" method="post" action="<?=base_url()?>index.php/reportes/encuestas">
 					<h3>Seleccionar rango de fechas:</h3><br>
-					De : <input type="date" name="desde">
-					Hasta : <input type="date" name="hasta">
+					De : <input type="date" name="desde" value="<?=$desde?>">
+					Hasta : <input type="date" name="hasta" value="<?=$hasta?>">
 					<br>
 					<input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>
 					Jefe :
-					<select id="rjefeid">
+					<select id="rjefeid" name="jefeid">
 						<option value="0">-Seleccione-</option>
 						<?php foreach ($jefes as $id => $jefe) { ?>
 						<option <?=(@$jefeid==$id ? 'selected' : '')?> value=<?=$id?>><?=$jefe?></option>
@@ -24,7 +24,8 @@
 					</select>
 					Supervisor :
 					<select id="rsupervisorid" name="supervisorid">
-						<?php if ( @$supervisorid ) { ?>
+						<?php if ( $jefeid ) { ?>
+						<option value="0">-Seleccione-</option>
 						<?php foreach ($supervisores as $id => $supervisor) { ?>
 						<option <?=(@$supervisorid==$id ? 'selected' : '')?> value=<?=$id?>><?=$supervisor?></option>
 						<?php } ?>
@@ -32,7 +33,8 @@
 					</select>
 					Técnico :
 					<select name="tecnicoid" id="rtecnicoid">
-						<?php if ( @$tecnicoid ) { ?>
+						<?php if ( $supervisorid ) { ?>
+						<option value="0">-Seleccione-</option>
 						<?php foreach ($tecnicos as $id => $tecnico) { ?>
 						<option <?=(@$tecnicoid==$id ? 'selected' : '')?> value=<?=$id?>><?=$tecnico?></option>
 						<?php } ?>
@@ -66,7 +68,7 @@
 					<?php foreach ( $data_j['supervisores'] as $supid => $data_s ) { ?>
 					<tr>
 						<td><strong>-</strong></td>
-						<td><strong><?=$supervisores[$supid]?></strong></td>
+						<td><strong><?=$data_s['nombres']?></strong></td>
 						<td><strong>-</strong></td>
 						<td><strong><?=isset($data_s['promedio'])?$data_s['promedio']:'-'?></strong></td>
 						<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/supervisor_encuestas/<?=$supid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
@@ -77,7 +79,7 @@
 						<tr>
 							<td><strong>-</strong></td>
 							<td><strong>-</strong></td>
-							<td><strong><?=$tecnicos[$tid]?></strong></td>
+							<td><strong><?=$data_t['nombres']?></strong></td>
 							<td><strong><?=isset($data_t['promedio'])?$data_t['promedio']:'-'?></strong></td>
 							<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/tecnico_encuestas/<?=$tid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 						</tr>
