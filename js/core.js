@@ -299,4 +299,5 @@ var sn ={}
           new sn.orbit(this)
     });
 
+  $("[name='session_value']").focus();
   });

@@ -9,6 +9,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" type="text/css" href="<?=base_url()?>css/style.css">
 	<link rel="stylesheet" href="<?=base_url()?>css/font-awesome.min.css">
 	<script src="<?=base_url()?>encuesta/js/jquery-1.9.1.min.js"></script>
+
+	<script type="text/javascript">
+		
+	$(document).on('ready', function(){    
+
+  		$("[name='session_value']").focus();
+  });
+
+	</script>
 </head>
 <body>
 
