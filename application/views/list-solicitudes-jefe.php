@@ -110,7 +110,7 @@ window.location.href=url;
 			<div class="list-solicitud">
 				<div class="cont_time-s">	
 					<h4>Fecha: <input style="color: #333" type="text" id="fecha" value="<?=@$fecha?>" /></h4>
-					<h4><em>Bienvenido <?=@$jefe['nom_jefe']?></em><br>
+					<h4><em>Bienvenido Jefe : <?=@$jefe['nom_jefe']?></em><br>
 					<a href="<?=base_url()?>">Cerrar Sesión</a></h4>
 				</div>
 				<div class="estados">
