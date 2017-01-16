@@ -14,7 +14,7 @@ class Asistencia extends CI_Controller {
 			  
 	 public function index()
 	 {	 	
-	 	securityAccess(array(1));
+	 	securityAccess(array(1,2));
 	 	date_default_timezone_set('America/Lima');
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'asistencia' ));
 
