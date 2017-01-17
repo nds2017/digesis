@@ -93,7 +93,7 @@ class Solicitudes extends CI_Controller {
 		print_r($sot);
 		$sots=array();
 		echo count($sot);
-
+		exit();
 		for ($i=1;$i<=count($sot);$i++)
 		{
            if (isset($sot['sot'+$i]))
