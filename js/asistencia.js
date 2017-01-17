@@ -104,14 +104,14 @@ $("#tbmonedero  a.supervisor_detalle" ).on( "click", function() {
 $("#mult-asignacion" ).on( "click", function() {
 
     var checked = []
+    var i=0;
     $("input[name='sot[]']:checked").each(function ()
       {
-        checked.push(parseInt($(this).val()));
+        checked.push("sot"+i+"="+parseInt($(this).val()));
       });
       checked = checked.join('&');      
+      console.log(checked);
 
-      console.log($('input[name="sot"]:checked').serialize());
-      
        //window.location.href = '/index.php/solicitudes?sot='+checked;
   });
 
