@@ -42,7 +42,7 @@
 						<th scope="col"><span>EDITAR</span></th>
 					</tr>
 				</thead>
-				<?php if ( count($data['tecnicos']) || count($data['supervisores']) || count($data['jefes']) ) { ?>
+				<?php if ( count(@$data['tecnicos']) || count(@$data['supervisores']) || count(@$data['jefes']) ) { ?>
 				<tbody>
 				<?php if ( count(@$data['tecnicos']) ) { ?>
 				<?php foreach ( $data['tecnicos'] as $key => $row ) { ?>
