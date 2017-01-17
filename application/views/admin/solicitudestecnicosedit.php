@@ -12,6 +12,8 @@ $(document).ready(function() {
 		success:  function (r) {
 			alert(r.sucess);
 		}
+	});
+
 });
 </script>
 			<script src="<?=base_url()?>js/departamentos.js"></script>
