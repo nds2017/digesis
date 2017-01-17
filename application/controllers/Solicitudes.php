@@ -123,7 +123,7 @@ class Solicitudes extends CI_Controller {
 			}
 			else
 				redirect('solicitudes');
-		}
+		
 		$this->load->view('admin/solicitudes_asignar', $data);
 	}
 
