@@ -67,6 +67,7 @@
 					<td><strong><?=round($data_j['totalvalidados']/$data_j['totalcuadrillas'], 2)?></strong></td>
 					<?php else { ?>
 					<td><strong>0</strong></td>
+					<?php } ?>
 					<td><strong>-</strong></td>
 				</tr>
 					<?php if ( isset($data_j['bases']) && count($data_j['bases']) ) { ?>
