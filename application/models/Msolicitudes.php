@@ -564,10 +564,8 @@ public function solicitudes_asignar_multiple($sot)
 		$this->db->where_in('s.id',$sot); 
 
 		$query = $this->db->get();	
-		echo $this->db->last_query();
-		exit;			
+		
 		if ( $query->num_rows() > 0 ) {			
-
 			return $query->result();
 		}
 
