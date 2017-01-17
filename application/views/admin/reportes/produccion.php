@@ -64,7 +64,7 @@
 					<td><strong><?=$data_j['totalcuadrillas']?></strong></td>
 					<td><strong><?=$data_j['totalvalidados']?></strong></td>
 					<?php if ( $data_j['totalcuadrillas'] ) { ?>
-					<td><strong><?=$data_j['totalvalidados']/$data_j['totalcuadrillas']?></strong></td>
+					<td><strong><?=round($data_j['totalvalidados']/$data_j['totalcuadrillas'], 2)?></strong></td>
 					<?php else { ?>
 					<td><strong>0</strong></td>
 					<td><strong>-</strong></td>
@@ -89,7 +89,7 @@
 							<td><strong><?=$data_s['totalcuadrillas']?></strong></td>
 							<?php $validados = isset($data_s['totalvalidados']) ? $data_s['totalvalidados'] : 0; ?>
 							<td><strong><?=$validados?></strong></td>
-							<td><strong><?=$validados/$data_s['totalcuadrillas']?></strong></td>
+							<td><strong><?=round($validados/$data_s['totalcuadrillas'], 2)?></strong></td>
 							<td><strong>-</strong></td>
 						</tr>
 						<?php } ?>
