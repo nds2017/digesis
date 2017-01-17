@@ -102,15 +102,14 @@ class Solicitudes extends CI_Controller {
            if (isset($sot['sot'.$i]))
 				$sots[]=$sot['sot'.$i];
 		}
-		print_r($sots);
-		
-		exit();
-
+					
 		$data['admin'] = ($session->rolid==1) ? TRUE : FALSE;
 		if (!empty($sots)) {
 			securityAccess(array(1));
 
 	$sol_mult=$this->msolicitudes->solicitudes_asignar_multiple($sots);
+	print_r($sol_mult);
+	exit();
 
 		$r_sol_tec=[];
 		foreach ($sol_mult as $key => $value) {
