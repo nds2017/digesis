@@ -25,7 +25,7 @@
 					<td>Horario : </td>
 					<td>
 						<select required name="horarioid">
-							<option value="0">-Seleccione-</option>
+							<option value="">-Seleccione-</option>
 							<?php foreach ( $horarios as $key => $horario ) { ?>
 								<option <?=(@$data->horario==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$horario?></option>
 							<?php } ?>
