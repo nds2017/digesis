@@ -69,6 +69,7 @@ $(document).ready(function() {
 <tbody>
 <?php
 	foreach ($r_sol_tec as $key => $value){
+		print_r($value);
 }
 ?>
 	<tr>
