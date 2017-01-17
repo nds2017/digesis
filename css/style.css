@@ -1085,7 +1085,9 @@ table th[class*="span"],
 }
 
 
-html, body{ height: 100%;}
+html { font-family: 'open_sansregular';font-size: 100%; line-height: 1.2; text-rendering: optimizeLegibility; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+body { background-color: #000; color: #fff; margin: 0; }
+
 html.pannel-toolbar {
 		padding-top: 32px;
 		-moz-box-sizing: border-box;
