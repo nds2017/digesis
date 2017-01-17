@@ -10,6 +10,7 @@ $(document).ready(function() {
 		type:  'POST',
 		dataType: 'json',
 		success:  function (r) {
+			$("tec1cell").html('hola');
 			if ( r.success ) {
 				$("tec1cell").html(r.t1cell);
 				$("tec2cell").html(r.t2cell);
