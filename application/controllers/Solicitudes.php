@@ -108,26 +108,26 @@ class Solicitudes extends CI_Controller {
 			securityAccess(array(1));
 
 	$sol_mult=$this->msolicitudes->solicitudes_asignar_multiple($sots);
-	print_r($sol_mult);
-	exit();
 
 		$r_sol_tec=[];
 		foreach ($sol_mult as $key => $value) {
-			/*
-		$r_sol_tec['id']=$value->id
-		$r_sol_tec['Nsol']=$value		
-		$r_sol_tec['tecnico1']
-		$r_sol_tec['tecnico2']
-		$r_sol_tec['fecha']
-		$r_sol_tec['hora']
-*/
+
+			$r_sol_tec['id']=$value->id;		
+			$r_sol_tec['tecnico1']=(($value->tecnico1!="")?$value->tecnico1:"sin asignar");
+			$r_sol_tec['tecnico2']=(($value->tecnico2!="")?$value->tecnico2:"sin asignar");
+			$r_sol_tec['fecha']=$value->fecha_instalacion;
+			$r_sol_tec['hora']="";
 
 		}
 				
-				/*if ( @$data['data']->supid ) {
+				/*
+				if ( @$data['data']->supid ) {
 					$data['tecnicos1'] = $this->mtecnicos->tecnicos_bySupervisor($data['data']->supid, 1);
 					$data['tecnicos2'] = $this->mtecnicos->tecnicos_bySupervisor($data['data']->supid, 2);
-				}*/
+				}
+				*/
+
+			$data['r_sol_tec']=$r_sol_tec;				
 			}
 			else
 				redirect('solicitudes');
@@ -180,7 +180,6 @@ class Solicitudes extends CI_Controller {
 		securityAccess(array(1, 4));
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'asignartecnicos' ));
 		$data['supervisores'] = $this->msupervisores->supervisores_combo();
-		$data['horarios'] = $this->msolicitudes->horarios_entrys();
 		$data['data'] = $this->msolicitudes->solicitudes_byID($id);
 		if ( @$data['data']->supid ) {
 			$data['tecnicos1'] = $this->mtecnicos->tecnicos_bySupervisor($data['data']->supid, 1);
@@ -225,8 +224,6 @@ class Solicitudes extends CI_Controller {
 		securityAccess(array(1, 4));
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'asignartecnicos' ));
 		$data['data'] = $this->msolicitudes->solicitudes_byID($sid);
-		$data['tecnicos1'] = $this->mtecnicos->tecnicos_byCargo(1);
-		$data['tecnicos2'] = $this->mtecnicos->tecnicos_byCargo(2);
 		$data['incidencias'] = $this->msolicitudes->solicitudes_incidencias($sid);
 		$this->load->view('admin/solicitudesincidencia', $data);
 	}
@@ -414,8 +411,6 @@ class Solicitudes extends CI_Controller {
 		$this->msolicitudes->solicitudes_addtecnicos($formdata);
 		$formdata = array(
 			'id' => $id,
-			'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($this->input->post('fecha_instalacion')) : strtotime('now'),
-			'horario' => $this->input->post('horarioid'),
 			'modtime' => strtotime("now")
 		);
 		$this->msolicitudes->solicitudes_update($formdata, $id);
