@@ -16,10 +16,10 @@
 
 			<table class="table table-bordered table-striped">
 				<tr>
-					<td>Nombres : </td><td><input pattern="[/\s/A-Za-z]{1,30}" title="Solo Letras" type="text" required maxlength="30" autofocus="autofocus" name="nombres" value="<?=@$data->nombres?>"></td>
+					<td>Nombres : </td><td><input pattern="[/\s/ñA-Za-z]{1,30}" title="Solo Letras" type="text" required maxlength="30" autofocus="autofocus" name="nombres" value="<?=@$data->nombres?>"></td>
 				</tr>
 				<tr>
-					<td>Apellidos : </td><td><input pattern="[/\s/A-Za-z]{1,30}" title="Solo Letras" type="text" required maxlength="30" name="apellidos" value="<?=@$data->apellidos?>"></td>
+					<td>Apellidos : </td><td><input pattern="[/\s/ñA-Za-z]{1,30}" title="Solo Letras" type="text" required maxlength="30" name="apellidos" value="<?=@$data->apellidos?>"></td>
 				</tr>
 				<tr>
 					<td>DNI : </td><td><input class="solo-numero" type="text" required maxlength="8" name="dni" value="<?=@$data->dni?>"></td>
