@@ -63,7 +63,10 @@
 					<td><strong>-</strong></td>
 					<td><strong><?=$data_j['totalcuadrillas']?></strong></td>
 					<td><strong><?=$data_j['totalvalidados']?></strong></td>
+					<?php if ( $data_j['totalcuadrillas'] ) { ?>
 					<td><strong><?=$data_j['totalvalidados']/$data_j['totalcuadrillas']?></strong></td>
+					<?php else { ?>
+					<td><strong>0</strong></td>
 					<td><strong>-</strong></td>
 				</tr>
 					<?php if ( isset($data_j['bases']) && count($data_j['bases']) ) { ?>
