@@ -140,7 +140,7 @@ $(document).ready(function() {
 				<br><br>
 				<div class="divbuttons">
 					<input class="btnsearch" type="button" value="Regresar a Lista" onclick="window.location='<?=base_url()?>index.php/solicitudes/lista';">
-					<input class="btnsearch" type="submit" value="<?=(@$data? 'Guardar' : 'Crear')?>">
+					<input class="btnsearch" type="submit" value="<?=(@$data? 'Guardar' : 'Crear asignacion')?>">
 				</div>
 		</div>
 	</div>
