@@ -29,6 +29,28 @@
 				<tr>
 					<td>Fecha de Programación : </td><td><input disabled type="date" name="fecha_instalacion" value="<?=(@$data->fecha_instalacion) ? date('Y-m-d', $data->fecha_instalacion) : null?>"></td>
 				</tr>
+				<tr>
+					<td>Técnico 1: : </td>
+					<td>
+						<select disabled id="tecnico1id" name="tecnico1id">
+							<option value="0">-Sin Asignar-</option>
+							<?php foreach ( @$tecnicos1 as $key => $tecnico1 ) { ?>
+							<option <?=(@$data->t1id==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tecnico1?></option>
+							<?php } ?>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Técnico 2: : </td>
+					<td>
+						<select disabled id="tecnico2id" name="tecnico2id">
+							<option value="0">-Sin Asignar-</option>
+							<?php foreach ( @$tecnicos2 as $key => $tecnico2 ) { ?>
+							<option <?=(@$data->t2id==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tecnico2?></option>
+							<?php } ?>
+						</select>
+					</td>
+				</tr>
 			</table>
 			<fieldset class="fieldform">
 				<legend><b>Incidencias</b></legend>

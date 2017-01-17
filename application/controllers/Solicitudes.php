@@ -224,6 +224,8 @@ class Solicitudes extends CI_Controller {
 		securityAccess(array(1, 4));
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'asignartecnicos' ));
 		$data['data'] = $this->msolicitudes->solicitudes_byID($sid);
+		$data['tecnicos1'] = $this->mtecnicos->tecnicos_byCargo(1);
+		$data['tecnicos2'] = $this->mtecnicos->tecnicos_byCargo(2);
 		$data['incidencias'] = $this->msolicitudes->solicitudes_incidencias($sid);
 		$this->load->view('admin/solicitudesincidencia', $data);
 	}
