@@ -11,8 +11,10 @@ $(document).ready(function() {
 		dataType: 'json',
 		success:  function (r) {
 			if ( r.success ) {
-				$("#tec1cell").html("RPC: " + r.t1cell);
-				$("#tec2cell").html("RPC: " + r.t2cell);
+				if ( r.t1cell )
+					$("#tec1cell").html("RPC: " + r.t1cell);
+				if ( r.t2cell )
+					$("#tec2cell").html("RPC: " + r.t2cell);
 			}
 		}
 	});
