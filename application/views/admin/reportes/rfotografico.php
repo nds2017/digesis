@@ -11,8 +11,8 @@
 				<legend></legend>
 				<form id="form" method="post" action="<?=base_url()?>index.php/reportes/rfotografico">
 					<h3>Seleccionar rango de fechas:</h3><br>
-					Desde : <input type="date" name="desde" value="<?=$desde?>">
-					Hasta : <input type="date" name="hasta" value="<?=$hasta?>">
+					Desde : <input type="date" name="desde" id="desde" value="<?=$desde?>">
+					Hasta : <input type="date" name="hasta" id="hasta" value="<?=$hasta?>">
 					<br>
 					<input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>
 					Jefe :
