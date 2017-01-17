@@ -84,8 +84,23 @@ class Tecnicos extends CI_Controller {
 		redirect('tecnicos');
 	}
 
-	public function tecnico_get_telefono() {
-		echo json_encode('sucess' => TRUE);
+	public function tecnico_telefono() {
+		$array = array('success' => FALSE);
+		if ( $_POST ) {
+
+			if ( !empty($_POST['t1id']) ) {
+				$array['success'] = TRUE;
+				$array['t1cell'] = $this->mtecnicos->tecnicos_get_telefono($_POST['t1id']);
+			}
+			if ( !empty($_POST['t2id']) ) {
+				$array['success'] = TRUE;
+				$array['t2cell'] = $this->mtecnicos->tecnicos_get_telefono($_POST['t2id']);
+			}
+			echo json_encode($array);
+		}
+		else
+			echo json_encode($array);
+
 	}
 }
 

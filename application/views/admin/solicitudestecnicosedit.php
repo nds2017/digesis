@@ -6,7 +6,7 @@ $(document).ready(function() {
 
 	$.ajax({
 		data: { t1id : $("#tecnico1id").val(), t2id : $("#tecnico2id").val() },
-		url:   url + '/tecnico_get_telefono',
+		url:   url + '/tecnico_telefono',
 		type:  'POST',
 		dataType: 'json',
 		success:  function (r) {

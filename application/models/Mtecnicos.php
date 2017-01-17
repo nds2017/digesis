@@ -110,7 +110,6 @@ public function tecnicos_bySupervisor2($supervisorid = 0) {
 	}
 
 
-
 	public function tecnicos_total() {
 		$query = $this->db->query("SELECT COUNT(id) AS cantidad FROM tecnicos");
 		return $query->row(0);
@@ -129,4 +128,10 @@ public function tecnicos_bySupervisor2($supervisorid = 0) {
 		$this->db->where('id', $data['id']);
 		$this->db->update('tecnicos', $data);
 	}
+
+	public function tecnicos_total($id) {
+		$query = $this->db->query("SELECT rpc FROM tecnicos WHERE id = $id");
+		return $query->row(0);
+	}
+
 }
