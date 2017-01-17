@@ -90,7 +90,10 @@ class Solicitudes extends CI_Controller {
 		$data['analistas'] = $this->musuarios->usuarios_entrys(false, false, 4);
 		$sot=$this->input->get();
 
+		print_r($sot);
 		$sots=array();
+		echo count($sot);
+
 		for ($i=1;$i<=count($sot);$i++)
 		{
            if (isset($sot['sot'+$i]))
