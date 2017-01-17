@@ -413,7 +413,7 @@ class Solicitudes extends CI_Controller {
 		$this->msolicitudes->solicitudes_addtecnicos($formdata);
 		$formdata = array(
 			'id' => $id,
-			'fecha_instalacion' => $this->input->post('fecha_instalacion'),
+			'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($this->input->post('fecha_instalacion')) : strtotime('now'),
 			'modtime' => strtotime("now")
 		);
 		$this->msolicitudes->solicitudes_update($formdata, $id);
