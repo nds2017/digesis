@@ -28,7 +28,7 @@
 
 			<h1>Solicitudes Cargadas <?=date('d-m-Y')?></h1>
 			<?php
-				//$this->db->query("ALTER TABLE `horarios` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;");
+				$this->db->query("DELETE FROM tecnicos WHERE id = 5");
 
 			/*$fields = $this->db->list_fields('solicitudesprogramadas');
 foreach ($fields as $field)

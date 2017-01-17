@@ -67,7 +67,6 @@ class Mtecnicos extends CI_Model
 		return $rows;
 	}
 
-
 	public function tecnicos_combo() {
 		$rows = array();
 		$query = $this->db->query("SELECT id, CONCAT(nombres, ' ', apellidos) AS tnombres FROM tecnicos WHERE publish = 1");
@@ -76,6 +75,7 @@ class Mtecnicos extends CI_Model
 		}
 		return $rows;
 	}
+
 	public function tecnicos_combo2() {
 		$rows = array();
 		$query = $this->db->query("SELECT id, CONCAT(nombres, ' ', apellidos) AS tnombres,dni FROM tecnicos WHERE publish = 1");
@@ -97,8 +97,7 @@ class Mtecnicos extends CI_Model
 		return $rows;
 	}
 
-
-public function tecnicos_bySupervisor2($supervisorid = 0) {
+	public function tecnicos_bySupervisor2($supervisorid = 0) {
 		$rows = array();
 			$query = $this->db->query("SELECT id, CONCAT(nombres, ' ', apellidos) AS tnombres,dni,cargo FROM tecnicos WHERE publish = 1 AND supervisorid = $supervisorid");
 
@@ -108,7 +107,6 @@ public function tecnicos_bySupervisor2($supervisorid = 0) {
 
 		return $rows;
 	}
-
 
 	public function tecnicos_total() {
 		$query = $this->db->query("SELECT COUNT(id) AS cantidad FROM tecnicos");
