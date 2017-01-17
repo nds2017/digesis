@@ -2,7 +2,7 @@
 			<script src="<?=base_url()?>js/departamentos.js"></script>
 
 			<div class="list-mod-panel">
-				<h1 style="float: left;"> Crear Supervisor &nbsp;&nbsp;</h1>
+				<h1 style="float: left;"> <?=(@$data)?'Editar Supervisor' : 'Crear Supervisor'?> &nbsp;&nbsp;</h1>
 				<h2><a href="<?=base_url()?>index.php/supervisores/lista">Regresar a Supervisores</a></h2>
 			</div>
 			<br>
@@ -16,13 +16,13 @@
 
 			<table class="table table-bordered table-striped">
 				<tr>
-					<td>Nombres : </td><td><input pattern="[/\s/A-Za-z]{1,30}" title="Solo Letras" type="text" required maxlength="30" autofocus="autofocus" name="nombres" value="<?=@$data->nombres?>"></td>
+					<td>Nombres : </td><td><input pattern="[/\s/ÑñA-Za-z]{1,30}" title="Solo Letras" type="text" required maxlength="30" autofocus="autofocus" name="nombres" value="<?=@$data->nombres?>"></td>
 				</tr>
 				<tr>
-					<td>Apellidos : </td><td><input pattern="[/\s/A-Za-z]{1,30}" title="Solo Letras" type="text" required maxlength="30" name="apellidos" value="<?=@$data->apellidos?>"></td>
+					<td>Apellidos : </td><td><input pattern="[/\s/ÑñA-Za-z]{1,30}" title="Solo Letras" type="text" required maxlength="30" name="apellidos" value="<?=@$data->apellidos?>"></td>
 				</tr>
 				<tr>
-					<td>DNI : </td><td><input class="solo-numero" type="text" required maxlength="8" name="dni" value="<?=@$data->dni?>"></td>
+					<td>DNI : </td><td><input class="solo-numero" type="text" required title="Sólo 8 Dígitos" pattern=".{8}" name="dni" value="<?=@$data->dni?>"></td>
 				</tr>
 				<tr>
 					<td>Correo : </td><td><input type="email" required maxlength="40" size="40" name="email" value="<?=@$data->email?>"></td>
@@ -49,10 +49,10 @@
 					</td>
 				</tr>
 				<tr>
-					<td>Usuario : </td><td><input required type="text" maxlength="20" name="user" value="<?=@$data->user?>"></td>
+					<td>Usuario : </td><td><input maxlength="20" type="text" name="user" value="<?=@$data->user?>"></td>
 				</tr>
 				<tr>
-					<td>Contraseña : </td><td><input required maxlength="20" type="password" name="password" value="<?=@$data->password?>"></td>
+					<td>Contraseña : </td><td><input maxlength="20" type="password" name="password" value="<?=@$data->password?>"></td>
 				</tr>
 				<?php if ( @$data->id ) { ?>
 				<tr><td>Estado : </td>

@@ -39,22 +39,22 @@
 					</td>
 				</tr>
 				<tr>
-					<td>Nombre de Usuario : </td><td><input <?=(@$data->id)?'disabled':''?> maxlength="20" autofocus="autofocus" required type="text" name="user" value="<?=@$data->user?>"></td>
+					<td>Nombre de Usuario : </td><td><input <?=(@$data->id)?'disabled':''?> title="Entre 4 a 20 Letras" pattern=".{4,20}" autofocus="autofocus" required type="text" name="user" value="<?=@$data->user?>"></td>
 					<?php if ( @$disabled ) { ?>
 						<input type="hidden" name="user" value="<?=$data->user?>"/>
 					<?php } ?>
 				</tr>
 				<tr>
-					<td>Contraseña : </td><td><input type="password" maxlength="20" name="password" required value="<?=@$data->password?>"></td>
+					<td>Contraseña : </td><td><input type="password" title="Entre 4 a 20 Letras" pattern=".{4,20}" name="password" required value="<?=@$data->password?>"></td>
 				</tr>
 				<tr>
-					<td>Nombres : </td><td><input pattern="[/\s/A-Za-z]{1,30}" title="Solo Letras" required type="text" maxlength="30" name="nombres" value="<?=@$data->nombres?>"></td>
+					<td>Nombres : </td><td><input pattern="[/\s/ÑñA-Za-z]{1,30}" title="Solo Letras" required type="text" maxlength="30" name="nombres" value="<?=@$data->nombres?>"></td>
 				</tr>
 				<tr>
-					<td>Apellidos : </td><td><input pattern="[/\s/A-Za-z]{1,30}" title="Solo Letras" required type="text" maxlength="30" name="apellidos" value="<?=@$data->apellidos?>"></td>
+					<td>Apellidos : </td><td><input pattern="[/\s/ÑñA-Za-z]{1,30}" title="Solo Letras" required type="text" maxlength="30" name="apellidos" value="<?=@$data->apellidos?>"></td>
 				</tr>
 				<tr>
-					<td>DNI : </td><td><input required type="text" class="solo-numero" maxlength="8" name="dni" value="<?=@$data->dni?>"></td>
+					<td>DNI : </td><td><input required type="text" class="solo-numero" title="Sólo 8 Dígitos" pattern=".{8}" name="dni" value="<?=@$data->dni?>"></td>
 				</tr>
 				<tr>
 					<td>Correo : </td><td><input required size="40" maxlength="40" type="email" name="email" value="<?=@$data->email?>"></td>

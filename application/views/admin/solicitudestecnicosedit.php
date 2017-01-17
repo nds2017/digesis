@@ -1,5 +1,6 @@
 			</div>
 			<script src="<?=base_url()?>js/departamentos.js"></script>
+			<script src="<?=base_url()?>js/tecnicos.js"></script>
 
 			<div class="list-mod-panel">
 				<h1 style="float: left;">Asignar Técnico&nbsp;&nbsp;</h1>
@@ -14,12 +15,24 @@
 					echo form_open_multipart('solicitudes/edittecnicos/' . @$data->id);
 			?>
 			<input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>
+			<input type="hidden" id="urlt" value="<?=base_url()?>index.php/tecnicos"/>
 			<table class="table table-bordered table-striped">
 				<tr>
 					<td>N° Solicitud : </td><td><input disabled type="text" name="solicitudid" value="<?=@$data->id?>"></td>
 				</tr>
 				<tr>
-					<td>Fecha de Programación : </td><td><input disabled type="date" name="fecha_instalacion" value="<?=(@$data->fecha_instalacion) ? date('Y-m-d', $data->fecha_instalacion) : null?>"></td>
+					<td>Fecha de Programación : </td><td><input required type="date" name="fecha_instalacion" value="<?=(@$data->fecha_instalacion) ? date('Y-m-d', $data->fecha_instalacion) : null?>"></td>
+				</tr>
+				<tr>
+					<td>Horario : </td>
+					<td>
+						<select required name="horarioid">
+							<option value="">-Seleccione-</option>
+							<?php foreach ( $horarios as $key => $horario ) { ?>
+								<option <?=(@$data->horario==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$horario?></option>
+							<?php } ?>
+						</select>
+					</td>
 				</tr>
 			</table>
 			<fieldset class="fieldform">
@@ -45,6 +58,7 @@
 								<option <?=(@$data->t1id==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tecnico1?></option>
 								<?php } ?>
 							</select>
+							<b><span id="tec1cell"></span></b>
 						</td>
 					</tr>
 					<tr>
@@ -56,6 +70,7 @@
 								<option <?=(@$data->t2id==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tecnico2?></option>
 								<?php } ?>
 							</select>
+							<b><span id="tec2cell"></span></b>
 						</td>
 					</tr>
 				</table>

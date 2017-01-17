@@ -1,5 +1,18 @@
 $(document).ready(function() {
 
+	$( "#form" ).submit(function( event ) {
+		var desde = $("#desde").val();
+		var hasta = $("#hasta").val();
+
+		if ( new Date(desde).getTime() > new Date(hasta).getTime() ) {
+			alert('Coloque Fechas Correctas');
+			event.preventDefault();
+		}
+		else
+			return;
+	});
+
+
 	var url = $("#url").val() ? $("#url").val() : '';
 
 	$("#rjefeid").change(function() {
