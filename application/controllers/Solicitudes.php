@@ -90,11 +90,11 @@ class Solicitudes extends CI_Controller {
 		$data['analistas'] = $this->musuarios->usuarios_entrys(false, false, 4);
 		$sot=$this->input->get();
 
-		$url = parse_url($_SERVER['REQUEST_URI']);
-		parse_str($url['query'], $params);
+		//$url = parse_url($_SERVER['REQUEST_URI']);
+		//parse_str($url['query'], $params);
 		
-		print_r($params);
-		
+		//print_r($params);
+
 		$sots=array();
 				
 		for ($i=0;$i<=count($sot);$i++)
