@@ -10,10 +10,9 @@ $(document).ready(function() {
 		type:  'POST',
 		dataType: 'json',
 		success:  function (r) {
-			$("tec1cell").html('hola');
 			if ( r.success ) {
-				$("tec1cell").html(r.t1cell);
-				$("tec2cell").html(r.t2cell);
+				$("#tec1cell").html("RPC: " + r.t1cell);
+				$("#tec2cell").html("RPC: " + r.t2cell);
 			}
 		}
 	});
