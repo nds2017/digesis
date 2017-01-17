@@ -19,7 +19,7 @@
 					<td>N° Solicitud : </td><td><input disabled type="text" name="solicitudid" value="<?=@$data->id?>"></td>
 				</tr>
 				<tr>
-					<td>Fecha de Programación : </td><td><input disabled type="date" name="fecha_instalacion" value="<?=(@$data->fecha_instalacion) ? date('Y-m-d', $data->fecha_instalacion) : null?>"></td>
+					<td>Fecha de Programación : </td><td><input type="date" name="fecha_instalacion" value="<?=(@$data->fecha_instalacion) ? date('Y-m-d', $data->fecha_instalacion) : null?>"></td>
 				</tr>
 			</table>
 			<fieldset class="fieldform">
