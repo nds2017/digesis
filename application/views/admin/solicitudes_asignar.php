@@ -68,8 +68,7 @@ $(document).ready(function() {
 </thead>
 <tbody>
 <?php
-	foreach ($r_sol_tec as $key => $value){
-		print_r($value);
+	foreach ($r_sol_tec as $key => $value){		
 }
 ?>
 	<tr>
@@ -81,6 +80,9 @@ $(document).ready(function() {
 		<td></td>
 
 	</tr>
+	<?php
+		endforeach;
+	?>
 
 </tbody>
 
