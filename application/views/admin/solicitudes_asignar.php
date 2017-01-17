@@ -28,6 +28,18 @@ $(document).ready(function() {
 			return;
 	});
 
+	$('.timepicker').timepicker({
+    timeFormat: 'h:mm p',
+    interval: 60,
+    minTime: '10',
+    maxTime: '6:00pm',
+    defaultTime: '11',
+    startTime: '10:00',
+    dynamic: false,
+    dropdown: true,
+    scrollbar: true
+});
+
 });
 
 </script>
@@ -75,7 +87,7 @@ $(document).ready(function() {
 		<td align="center"><?php echo $value['tecnico1'] ?></td>
 		<td><?php echo $value['tecnico2'] ?></td>
 		<td align="center"><?php echo $value['fecha'] ?></td>
-		<td><?php echo $value['hora'] ?></td>
+		<td><input type="text" name="timepicker" id="timepicker"> </input></td>
 		<td></td>
 
 	</tr>
