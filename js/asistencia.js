@@ -104,6 +104,8 @@ $("#tbmonedero  a.supervisor_detalle" ).on( "click", function() {
 
 $("#mult-asignacion" ).on( "click", function() {
 
+console.log("ok");
+
 var checked = []
   $("input[name='sot[]']:checked").each(function ()
     {
