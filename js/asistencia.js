@@ -108,9 +108,10 @@ $("#mult-asignacion" ).on( "click", function() {
       {
         checked.push(parseInt($(this).val()));
       });
-      checked = checked.join('&');
-      console.log("---");
-      console.log(checked);
+      checked = checked.join('&');      
+
+      console.log($('input[name="sot"]:checked').serialize());
+      
        //window.location.href = '/index.php/solicitudes?sot='+checked;
   });
 
