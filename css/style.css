@@ -1123,20 +1123,6 @@ header h1{ font-size: 15px;}
 		left: 10px;
 		font-size: 15px;}
 
-
-.right-list-admin{ float: left; background: #23282d; height: 100%; width: 200px; color: #fff; padding: 10px 0; }
-.right-list-admin .list-menu > dd{ margin-right: 0; padding: 0;}
-.right-list-admin .list-menu > dd > a{ color: #eee;  font-size: 11px;
-		font-weight: 400; text-decoration: none;
-		line-height: 18px; display: block; position: relative;
-		padding: 8px 0px 10px 35px; }
-.right-list-admin .list-menu > dd > a:hover, .right-list-admin .list-menu > dd > a.active{     background-color: #191e23;
-		color: #00b9eb; }
-.right-list-admin .list-menu > dd > a i{    position: absolute;
-		top: 9px;
-		left: 10px;
-		font-size: 15px;}
-
 .right-content{ overflow: auto; background: #f1f1f1; padding: 15px; height: 100%;}
 .list-mod-panel{ margin-bottom: 20px; width: 100%}
 .list-mod-panel > h2{ display: inline-block; font-size: 14px;  padding: 5px 8px; background: #00008B; border-radius: 3px; color: #fff;}
