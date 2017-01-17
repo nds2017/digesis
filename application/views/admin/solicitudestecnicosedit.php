@@ -26,17 +26,6 @@
 				<tr>
 					<td>Hora : </td><td><input type="text" name="hora" maxlength="5" value="<?=@$data->hora?>"></td>
 				</tr>
-				<tr>
-					<td>Horario : </td>
-					<td>
-						<select name="horarioid">
-							<option value="">-Seleccione-</option>
-							<?php foreach ( $horarios as $key => $horario ) { ?>
-								<option <?=(@$data->horario==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$horario?></option>
-							<?php } ?>
-						</select>
-					</td>
-				</tr>
 			</table>
 			<fieldset class="fieldform">
 				<legend><b>Personal</b></legend>
