@@ -96,10 +96,11 @@ class Solicitudes extends CI_Controller {
 		//print_r($params);
 
 		$sots=array();
+		print_r($sot);
 				
 		for ($i=0;$i<=count($sot);$i++)
 		{
-
+		 echo 'sot'+$i;
            if (isset($sot['sot'+$i]))
 				$sots[]=$sot['sot'+$i];
 		}
