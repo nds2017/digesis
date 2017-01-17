@@ -54,7 +54,7 @@ $(document).ready(function() {
 			?>
 
 <table class="table table-bordered table-striped">
-
+<input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>
 <thead>
 	<tr>
 		<th>N.Sot</th>
