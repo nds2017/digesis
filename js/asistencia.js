@@ -102,5 +102,15 @@ $("#tbmonedero  a.supervisor_detalle" ).on( "click", function() {
 });
 
 
+$("#mult-asignacion" ).on( "click", function() {
+
+var checked = []
+  $("input[name='sot[]']:checked").each(function ()
+    {
+    checked.push(parseInt($(this).val()));
+    console.log(parseInt($(this).val()));
+    });
+
+  });
 
 });

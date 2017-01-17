@@ -22,6 +22,7 @@ class Solicitudes extends CI_Controller {
 		$data['data'] = $this->msolicitudes->solicitudes_entrys();
 		$data['cantidades'] = $this->msolicitudes->solicitudes_cantidades();
 		$this->load->view('admin/solicitudes', $data);
+		
 	}
 
 	public function lista($estadoid = 0) {
@@ -76,6 +77,41 @@ class Solicitudes extends CI_Controller {
 		}
 		$this->load->view('admin/solicitudesedit', $data);
 	}
+
+
+	public function form_multiple($id = false) {
+		securityAccess(array(1, 4));
+		$session = get_session();
+		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'solicitudesadd' ));
+		$data['supervisores'] = $this->msupervisores->supervisores_combo();
+		$data['analistas'] = $this->musuarios->usuarios_entrys(false, false, 4);
+		$data['tipotrabajos'] = $this->msolicitudes->tipostrabajo_entrys();
+		$data['tiposervicios'] = $this->msolicitudes->tiposservicio_entrys();
+		$data['distritos'] = $this->mdepartamentos->distritos_entrys();
+		$data['provincias'] = $this->mdepartamentos->provincias_entrys();
+		$data['departamentos'] = $this->mdepartamentos->departamentos_entrys();
+		$data['regiones'] = $this->msolicitudes->regiones_entrys();
+		$data['horarios'] = $this->msolicitudes->horarios_entrys();
+		$data['admin'] = ($session->rolid==1) ? TRUE : FALSE;
+		if ( isset($id) && is_numeric($id) && ( $id != "0" ) ) {
+			securityAccess(array(1));
+			if ( $this->msolicitudes->solicitudes_validate($id) ) {
+				$data['data'] = $this->msolicitudes->solicitudes_byID($id);
+				$data['distritos'] = $this->mdepartamentos->distritos_entrys($data['data']->provinciaid);
+				$data['provincias'] = $this->mdepartamentos->provincias_entrys($data['data']->departamentoid);
+				$data['estados'] = $this->msolicitudes->estados_entrys();
+				$data['motivos'] = $this->msolicitudes->solicitudes_motivos($data['data']->estadoid);
+				if ( @$data['data']->supid ) {
+					$data['tecnicos1'] = $this->mtecnicos->tecnicos_bySupervisor($data['data']->supid, 1);
+					$data['tecnicos2'] = $this->mtecnicos->tecnicos_bySupervisor($data['data']->supid, 2);
+				}
+			}
+			else
+				redirect('solicitudes');
+		}
+		$this->load->view('admin/solicitudesedit', $data);
+	}
+
 
 	public function listarf($estadorf = 0) {
 		securityAccess(array(1, 6));
