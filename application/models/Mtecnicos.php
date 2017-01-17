@@ -129,7 +129,7 @@ public function tecnicos_bySupervisor2($supervisorid = 0) {
 		$this->db->update('tecnicos', $data);
 	}
 
-	public function tecnicos_total($id) {
+	public function tecnicos_get_telefono($id) {
 		$query = $this->db->query("SELECT rpc FROM tecnicos WHERE id = $id");
 		return $query->row(0);
 	}
