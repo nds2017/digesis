@@ -19,7 +19,7 @@
 			<div class="body_w">
 				<div class="cont-login">
 					<form action="<?=base_url()?>index.php/welcome" method="get">
-						<input class="input_f" name="dni" type="text" value="DNI">
+						<input class="input_f" name="dni" type="text" title="Sólo 8 Dígitos" pattern=".{8}" value="DNI">
 						<input class="btn-active" type="submit" value="INGRESAR">
 						<?=(@$error)?'DNI INCORRECTO':''?>
 					</form>
