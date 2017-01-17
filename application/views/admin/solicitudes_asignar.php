@@ -87,7 +87,7 @@ $(document).ready(function() {
 		<td align="center"><?php echo $value['tecnico1'] ?></td>
 		<td><?php echo $value['tecnico2'] ?></td>
 		<td align="center"><?php echo $value['fecha'] ?></td>
-		<td><input type="text" name="timepicker" id="timepicker"> </input></td>
+		<td><input type="text" name="timepicker" class="timepicker" id="timepicker"> </input></td>
 		<td></td>
 
 	</tr>
