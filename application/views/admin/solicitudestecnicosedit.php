@@ -2,6 +2,8 @@
 <script>
 
 function changeTecnico() {
+	var url = $("#urlt").val() ? $("#urlt").val() : '';
+
 	$.ajax({
 		data: { t1id : $("#tecnico1id").val(), t2id : $("#tecnico2id").val() },
 		url:   url + '/tecnico_telefono',
@@ -19,8 +21,6 @@ function changeTecnico() {
 }
 
 $(document).ready(function() {
-
-	var url = $("#urlt").val() ? $("#urlt").val() : '';
 
 	changeTecnico();
 
