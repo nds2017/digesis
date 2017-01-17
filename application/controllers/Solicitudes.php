@@ -180,6 +180,7 @@ class Solicitudes extends CI_Controller {
 		securityAccess(array(1, 4));
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'asignartecnicos' ));
 		$data['supervisores'] = $this->msupervisores->supervisores_combo();
+		$data['horarios'] = $this->msolicitudes->horarios_entrys();
 		$data['data'] = $this->msolicitudes->solicitudes_byID($id);
 		if ( @$data['data']->supid ) {
 			$data['tecnicos1'] = $this->mtecnicos->tecnicos_bySupervisor($data['data']->supid, 1);
