@@ -22,7 +22,7 @@
 					<td>Apellidos : </td><td><input pattern="[/\s/ÑñA-Za-z]{1,30}" title="Solo Letras" type="text" required maxlength="30" name="apellidos" value="<?=@$data->apellidos?>"></td>
 				</tr>
 				<tr>
-					<td>DNI : </td><td><input class="solo-numero" type="number" required maxlength="8" name="dni" value="<?=@$data->dni?>"></td>
+					<td>DNI : </td><td><input class="solo-numero" title="Sólo 8 Dígitos" pattern=".{8}" type="number" required name="dni" value="<?=@$data->dni?>"></td>
 				</tr>
 				<tr>
 					<td>Correo : </td><td><input type="email" required maxlength="40" size="40" name="email" value="<?=@$data->email?>"></td>
