@@ -89,27 +89,42 @@ class Solicitudes extends CI_Controller {
 
 		$data['analistas'] = $this->musuarios->usuarios_entrys(false, false, 4);
 		$sot=$this->input->get();
-		print_r($sot);
-		exit;
-		
+
+		$sots[];
+		for ($i=1;$i<=count($sot);$i++)
+		{
+           if (isset($sot['sot'+$i]))
+				$sots[]=$sot['sot'+$i];
+		}
+				
 		$data['admin'] = ($session->rolid==1) ? TRUE : FALSE;
-		if ( isset($id) && is_numeric($id) && ( $id != "0" ) ) {
+		if (!empty($sots)) {
 			securityAccess(array(1));
-			if ( $this->msolicitudes->solicitudes_validate($id) ) {
-				$data['data'] = $this->msolicitudes->solicitudes_byID($id);
-				$data['distritos'] = $this->mdepartamentos->distritos_entrys($data['data']->provinciaid);
-				$data['provincias'] = $this->mdepartamentos->provincias_entrys($data['data']->departamentoid);
-				$data['estados'] = $this->msolicitudes->estados_entrys();
-				$data['motivos'] = $this->msolicitudes->solicitudes_motivos($data['data']->estadoid);
-				if ( @$data['data']->supid ) {
+
+	$sol_mult=$this->msolicitudes->solicitudes_asignar_multiple($sots);
+
+		$r_sol_tec=[];
+		foreach ($sol_mult as $key => $value) {
+			/*
+		$r_sol_tec['id']=$value->id
+		$r_sol_tec['Nsol']=$value		
+		$r_sol_tec['tecnico1']
+		$r_sol_tec['tecnico2']
+		$r_sol_tec['fecha']
+		$r_sol_tec['hora']
+*/
+
+		}
+				
+				/*if ( @$data['data']->supid ) {
 					$data['tecnicos1'] = $this->mtecnicos->tecnicos_bySupervisor($data['data']->supid, 1);
 					$data['tecnicos2'] = $this->mtecnicos->tecnicos_bySupervisor($data['data']->supid, 2);
-				}
+				}*/
 			}
 			else
 				redirect('solicitudes');
 		}
-		$this->load->view('admin/solicitudesedit', $data);
+		$this->load->view('admin/solicitudes_asignar', $data);
 	}
 
 

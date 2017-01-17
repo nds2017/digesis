@@ -552,6 +552,24 @@ public function solicitudesByMonth($tid=null,$fecha=null){
 
 
 
+public function solicitudes_asignar_multiple($sot)
+{
 
+		$this->db->select('s.*, CONCAT(t.nombres, " ", t.apellidos) AS tnombres');
+		$this->db->from('solicitudes s');
+		$this->db->join('solicitudestecnicos st', 'st.sid = s.id', 'left');
+		$this->db->join('tecnicos t', 't.id = st.t1id', 'left');
+
+		$this->db->where('s.id',$sot); 
+
+		$query = $this->db->get();	
+		echo $this->db->last_query();
+		exit;			
+		if ( $query->num_rows() > 0 ) {			
+
+			return $query->result();
+		}
+
+}
 
 }
