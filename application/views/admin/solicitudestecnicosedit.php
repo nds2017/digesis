@@ -1,4 +1,19 @@
 			</div>
+<script>
+$(document).ready(function() {
+
+	var url = $("#url").val() ? $("#url").val() : '';
+
+	$.ajax({
+		data: { t1id : $("#tecnico1id").val(), t2id : $("#tecnico2id").val() },
+		url:   url + '/tecnico_get_telefono',
+		type:  'POST',
+		dataType: 'json',
+		success:  function (r) {
+			alert(r.sucess);
+		}
+});
+</script>
 			<script src="<?=base_url()?>js/departamentos.js"></script>
 
 			<div class="list-mod-panel">
@@ -14,6 +29,7 @@
 					echo form_open_multipart('solicitudes/edittecnicos/' . @$data->id);
 			?>
 			<input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>
+			<input type="hidden" id="urlt" value="<?=base_url()?>index.php/tecnicos"/>
 			<table class="table table-bordered table-striped">
 				<tr>
 					<td>N° Solicitud : </td><td><input disabled type="text" name="solicitudid" value="<?=@$data->id?>"></td>
@@ -56,9 +72,7 @@
 								<option <?=(@$data->t1id==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tecnico1?></option>
 								<?php } ?>
 							</select>
-						</td>
-						<td>
-							Télefono
+							<span id="tec1cell"></span>
 						</td>
 					</tr>
 					<tr>
@@ -70,9 +84,7 @@
 								<option <?=(@$data->t2id==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tecnico2?></option>
 								<?php } ?>
 							</select>
-						</td>
-						<td>
-							Télefono
+							<span id="tec2cell"></span>
 						</td>
 					</tr>
 				</table>

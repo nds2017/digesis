@@ -83,6 +83,10 @@ class Tecnicos extends CI_Controller {
 		$this->mtecnicos->tecnicos_delete($id);
 		redirect('tecnicos');
 	}
+
+	public function tecnico_get_telefono() {
+		echo json_encode('sucess' => TRUE);
+	}
 }
 
 ?>
