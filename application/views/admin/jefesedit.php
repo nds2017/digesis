@@ -38,10 +38,10 @@
 					</td>
 				</tr>
 				<tr>
-					<td>Usuario : </td><td><input <?=(@$data->id)?'disabled':''?> required title="Entre 4 a 20 Letras" pattern=".{4,20}" type="text" name="user" value="<?=@$data->user?>"></td>
+					<td>Usuario : </td><td><input <?=(@$data->id)?'disabled':''?> maxlength="20" type="text" name="user" value="<?=@$data->user?>"></td>
 				</tr>
 				<tr>
-					<td>Contraseña : </td><td><input required type="password" title="Entre 4 a 20 Letras" pattern=".{4,20}" name="password" value="<?=@$data->password?>"></td>
+					<td>Contraseña : </td><td><input type="password" maxlength="20" name="password" value="<?=@$data->password?>"></td>
 				</tr>
 				<?php if ( @$data->id ) { ?>
 				<tr><td>Estado : </td>

@@ -49,10 +49,10 @@
 					</td>
 				</tr>
 				<tr>
-					<td>Usuario : </td><td><input required type="text" title="Entre 4 a 20 Letras" pattern=".{4,20}" name="user" value="<?=@$data->user?>"></td>
+					<td>Usuario : </td><td><input maxlength="20" type="text" name="user" value="<?=@$data->user?>"></td>
 				</tr>
 				<tr>
-					<td>Contraseña : </td><td><input required title="Entre 4 a 20 Letras" pattern=".{4,20}" type="password" name="password" value="<?=@$data->password?>"></td>
+					<td>Contraseña : </td><td><input maxlength="20" type="password" name="password" value="<?=@$data->password?>"></td>
 				</tr>
 				<?php if ( @$data->id ) { ?>
 				<tr><td>Estado : </td>
