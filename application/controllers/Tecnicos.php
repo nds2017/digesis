@@ -90,11 +90,13 @@ class Tecnicos extends CI_Controller {
 
 			if ( !empty($_POST['t1id']) ) {
 				$array['success'] = TRUE;
-				$array['t1cell'] = $this->mtecnicos->tecnicos_get_telefono($_POST['t1id']);
+				$t1cell = $this->mtecnicos->tecnicos_get_telefono($_POST['t1id']);
+				$array['t1cell'] = isset($t1cell) ? $t1cell : '-';
 			}
 			if ( !empty($_POST['t2id']) ) {
 				$array['success'] = TRUE;
-				$array['t2cell'] = $this->mtecnicos->tecnicos_get_telefono($_POST['t2id']);
+				$t2cell = $this->mtecnicos->tecnicos_get_telefono($_POST['t2id']);
+				$array['t2cell'] = isset($t2cell) ? $t2cell : '-';
 			}
 			echo json_encode($array);
 		}
