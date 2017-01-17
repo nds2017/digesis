@@ -2,7 +2,7 @@
 <script>
 $(document).ready(function() {
 
-	var url = $("#url").val() ? $("#url").val() : '';
+	var url = $("#urlt").val() ? $("#urlt").val() : '';
 
 	$.ajax({
 		data: { t1id : $("#tecnico1id").val(), t2id : $("#tecnico2id").val() },
