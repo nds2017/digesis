@@ -135,7 +135,7 @@ class Mreportes extends CI_Model
 
 	public function jefes_getReporteProduccion($supervisores, $params = null) {
 		$rows = array();
-		$rows['totalcuadrillas'] = $rows['totalvalidados'] = 0;
+		$rows['totalcuadrillas'] = $rows['totalvalidados'] = $rows['promedio'] = 0;
 		foreach ( $supervisores as $rkey => $sup ) {
 			$this->db->select('COUNT(st.supid)');
 			$this->db->from('solicitudestecnicos st');

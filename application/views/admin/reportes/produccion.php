@@ -50,6 +50,7 @@
 						<th scope="col"><span>SUPERVISOR</span></th>
 						<th scope="col"><span># de Cuadrillas</span></th>
 						<th scope="col"><span># de SOT Val.</span></th>
+						<th scope="col"><span>Producción Promedio</span></th>
 						<th scope="col"><span>Observaciones</span></th>
 					</tr>
 				</thead>
@@ -62,6 +63,7 @@
 					<td><strong>-</strong></td>
 					<td><strong><?=$data_j['totalcuadrillas']?></strong></td>
 					<td><strong><?=$data_j['totalvalidados']?></strong></td>
+					<td><strong><?=$data_j['totalvalidados']/$data_j['totalcuadrillas']?></strong></td>
 					<td><strong>-</strong></td>
 				</tr>
 					<?php if ( isset($data_j['bases']) && count($data_j['bases']) ) { ?>
@@ -69,6 +71,7 @@
 					<tr>
 						<td><strong>-</strong></td>
 						<td><strong><?=$bases[$baseid]?></strong></td>
+						<td><strong>-</strong></td>
 						<td><strong>-</strong></td>
 						<td><strong>-</strong></td>
 						<td><strong>-</strong></td>
@@ -81,7 +84,9 @@
 							<td><strong>-</strong></td>
 							<td><strong><?=$supervisores[$supid]?></strong></td>
 							<td><strong><?=$data_s['totalcuadrillas']?></strong></td>
-							<td><strong><?=isset($data_s['totalvalidados'])?$data_s['totalvalidados']:0?></strong></td>
+							<?php $validados = isset($data_s['totalvalidados']) ? $data_s['totalvalidados'] : 0; ?>
+							<td><strong><?=$validados?></strong></td>
+							<td><strong><?=$validados/$data_s['totalcuadrillas']?></strong></td>
 							<td><strong>-</strong></td>
 						</tr>
 						<?php } ?>
