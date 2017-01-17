@@ -108,11 +108,10 @@ $("#mult-asignacion" ).on( "click", function() {
     $("input[name='sot[]']:checked").each(function ()
       {
         checked.push("sot"+i+"="+parseInt($(this).val()));
+        i++;
       });
       checked = checked.join('&');      
-      console.log(checked);
-
-       //window.location.href = '/index.php/solicitudes?sot='+checked;
+      window.location.href = '/index.php/solicitudes/form_multiple?sot='+checked;
   });
 
 });
