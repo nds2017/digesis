@@ -2,7 +2,7 @@
 			<script src="<?=base_url()?>js/departamentos.js"></script>
 
 			<div class="list-mod-panel">
-				<h1 style="float: left;"> Crear Técnico &nbsp;&nbsp;</h1>
+				<h1 style="float: left;"> <?=(@$data)?'Editar Técnico' : 'Crear Técnico'?> &nbsp;&nbsp;</h1>
 				<h2><a href="<?=base_url()?>index.php/tecnicos/lista">Regresar a Técnicos</a></h2>
 			</div>
 			<br>
@@ -22,7 +22,7 @@
 					<td>Apellidos : </td><td><input pattern="[/\s/ÑñA-Za-z]{1,30}" title="Solo Letras" type="text" required maxlength="30" name="apellidos" value="<?=@$data->apellidos?>"></td>
 				</tr>
 				<tr>
-					<td>DNI : </td><td><input class="solo-numero" title="8 Dígitos" type="text" pattern=".{8}" required name="dni" value="<?=@$data->dni?>"></td>
+					<td>DNI : </td><td><input class="solo-numero" title="Sólo 8 Dígitos" pattern=".{8}" type="text" required name="dni" value="<?=@$data->dni?>"></td>
 				</tr>
 				<tr>
 					<td>Correo : </td><td><input type="email" required maxlength="40" size="40" name="email" value="<?=@$data->email?>"></td>
@@ -31,7 +31,7 @@
 					<td>Cargo : </td><td><select name="cargo"><option value="1" <?=(@$data->cargo==1?'selected':'')?>>Técnico 1</option><option value="2" <?=(@$data->cargo==2?'selected':'')?>>Técnico 2</option></select></td>
 				</tr>
 				<tr>
-					<td>RPC (9*) : </td><td><input class="solo-numero" maxlength="9" type="text" name="rpc" value="<?=@$data->rpc?>"></td>
+					<td>RPC (9*) : </td><td><input class="solo-numero" title="Sólo 9 Dígitos" pattern=".{9}" type="text" name="rpc" value="<?=@$data->rpc?>"></td>
 				</tr>
 				<tr>
 					<td>Fecha Ingreso : </td><td><input type="date" required name="fechaingreso" value="<?=(@$data->fechaingreso) ? date('Y-m-d', $data->fechaingreso) : date('Y-m-d')?>"></td>

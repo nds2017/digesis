@@ -2,7 +2,7 @@
 			<script src="<?=base_url()?>js/departamentos.js"></script>
 
 			<div class="list-mod-panel">
-				<h1 style="float: left;"> Crear Jefe &nbsp;&nbsp;</h1>
+				<h1 style="float: left;"> <?=(@$data)?'Editar Jefe' : 'Crear Jefe'?> &nbsp;&nbsp;</h1>
 				<h2><a href="<?=base_url()?>index.php/supervisores/lista">Regresar a Jefes</a></h2>
 			</div>
 			<br>
