@@ -57,6 +57,9 @@
 								<?php } ?>
 							</select>
 						</td>
+						<td>
+							Télefono
+						</td>
 					</tr>
 					<tr>
 						<td>Técnico 2: : </td>
@@ -67,6 +70,9 @@
 								<option <?=(@$data->t2id==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tecnico2?></option>
 								<?php } ?>
 							</select>
+						</td>
+						<td>
+							Télefono
 						</td>
 					</tr>
 				</table>
