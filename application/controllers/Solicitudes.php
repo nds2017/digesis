@@ -112,11 +112,11 @@ class Solicitudes extends CI_Controller {
 		$r_sol_tec=[];
 		foreach ($sol_mult as $key => $value) {
 
-			$r_sol_tec['id']=$value->id;		
-			$r_sol_tec['tecnico1']=(($value->tecnico1!="")?$value->tecnico1:"sin asignar");
-			$r_sol_tec['tecnico2']=(($value->tecnico2!="")?$value->tecnico2:"sin asignar");
-			$r_sol_tec['fecha']=$value->fecha_instalacion;
-			$r_sol_tec['hora']="";
+			$r_sol_tec[$key]['id']=$value->id;		
+			$r_sol_tec[$key]['tecnico1']=(($value->tecnico1!="")?$value->tecnico1:"sin asignar");
+			$r_sol_tec[$key]['tecnico2']=(($value->tecnico2!="")?$value->tecnico2:"sin asignar");
+			$r_sol_tec[$key]['fecha']=$value->fecha_instalacion;
+			$r_sol_tec[$key]['hora']="";
 
 		}
 				
