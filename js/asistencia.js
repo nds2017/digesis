@@ -104,7 +104,7 @@ $("#tbmonedero  a.supervisor_detalle" ).on( "click", function() {
 $("#mult-asignacion" ).on( "click", function() {
 
     var checked = []
-    var i=0;
+    var i=1;
     $("input[name='sot[]']:checked").each(function ()
       {
         checked.push("sot"+i+"="+parseInt($(this).val()));
