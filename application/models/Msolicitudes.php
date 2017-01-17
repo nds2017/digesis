@@ -562,7 +562,6 @@ public function solicitudes_asignar_multiple($sot)
 		$this->db->join('tecnicos t2', 't2.id = st.t2id', 'left');
 
 		$this->db->where_in('s.id',$sot); 
-
 		$query = $this->db->get();	
 		
 		if ( $query->num_rows() > 0 ) {			
