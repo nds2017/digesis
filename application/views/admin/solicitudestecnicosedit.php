@@ -1,9 +1,7 @@
 			</div>
 <script>
-$(document).ready(function() {
 
-	var url = $("#urlt").val() ? $("#urlt").val() : '';
-
+function changeTecnico() {
 	$.ajax({
 		data: { t1id : $("#tecnico1id").val(), t2id : $("#tecnico2id").val() },
 		url:   url + '/tecnico_telefono',
@@ -17,6 +15,26 @@ $(document).ready(function() {
 					$("#tec2cell").html("RPC: " + r.t2cell);
 			}
 		}
+	});
+}
+
+$(document).ready(function() {
+
+	var url = $("#urlt").val() ? $("#urlt").val() : '';
+
+	changeTecnico();
+
+	$("#supervisorid").change(function() {
+		$("#tec1cell").html("");
+		$("#tec2cell").html("");
+	});
+
+	$("#tecnico1id").change(function() {
+		changeTecnico();
+	});
+
+	$("#tecnico2id").change(function() {
+		changeTecnico();
 	});
 
 });
