@@ -103,15 +103,14 @@ $("#tbmonedero  a.supervisor_detalle" ).on( "click", function() {
 
 $("#mult-asignacion" ).on( "click", function() {
 
-console.log("ok");
-
-var checked = []
-  $("input[name='sot[]']:checked").each(function ()
-    {
-    checked.push(parseInt($(this).val()));
-    console.log(parseInt($(this).val()));
-    });
-
+    var checked = []
+    $("input[name='sot[]']:checked").each(function ()
+      {
+        checked.push(parseInt($(this).val()));
+      });
+      checked = checked.join('&');
+      console.log(checked);
+       //window.location.href = '/index.php/solicitudes?sot='+checked;
   });
 
 });
