@@ -1,27 +1,15 @@
 $(document).ready(function() {
 
 	$( "#form" ).submit(function( event ) {
-		/*if ( $("#dptoid").val() != 0 ) {
-			if ( $("#provinciaid").val() != 0 ) {
-				if ( $("#distritoid").val() != 0 )
-					return;
-				else
-					alert('Seleccione Distrito');
-			}
-			else
-				alert('Seleccione Provincia');
-			event.preventDefault();
-		}
-		else
-			return;*/
 		var desde = $("#desde").val();
 		var hasta = $("#hasta").val();
 
-		time = new Date(desde).getTime();
-		alert(time);
-		time = new Date(hasta).getTime();
-		alert(time);
-		event.preventDefault();
+		if ( new Date(desde).getTime() > new Date(hasta).getTime() ) {
+			alert('Coloque Fechas Correctas');
+			event.preventDefault();
+		}
+		else
+			return;
 	});
 
 
