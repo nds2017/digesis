@@ -90,16 +90,22 @@ class Solicitudes extends CI_Controller {
 		$data['analistas'] = $this->musuarios->usuarios_entrys(false, false, 4);
 		$sot=$this->input->get();
 
-		print_r($sot);
+		$url = parse_url($_SERVER['REQUEST_URI']);
+		parse_str($url['query'], $params);
+		
+		print_r($params);
+		
 		$sots=array();
-		echo count($sot);
-		exit();
-		for ($i=1;$i<=count($sot);$i++)
+				
+		for ($i=0;$i<=count($sot);$i++)
 		{
+
            if (isset($sot['sot'+$i]))
 				$sots[]=$sot['sot'+$i];
 		}
-				
+		
+		exit();
+
 		$data['admin'] = ($session->rolid==1) ? TRUE : FALSE;
 		if (!empty($sots)) {
 			securityAccess(array(1));
