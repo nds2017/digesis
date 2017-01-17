@@ -69,7 +69,6 @@ $(document).ready(function() {
 <tbody>
 <?php
 	foreach ($r_sol_tec as $key => $value){		
-}
 ?>
 	<tr>
 		<td><?php echo $value['id']?></td>
@@ -81,7 +80,7 @@ $(document).ready(function() {
 
 	</tr>
 	<?php
-		endforeach;
+		}
 	?>
 
 </tbody>
