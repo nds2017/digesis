@@ -14,8 +14,13 @@ $(document).ready(function() {
 		}
 		else
 			return;*/
-		alert($("#desde").val());
-		alert($("#hasta").val());
+		var desde = $("#desde").val();
+		var hasta = $("#hasta").val();
+
+		time = new Date(desde).getTime();
+		alert(time);
+		time = new Date(hasta).getTime();
+		alert(time);
 		event.preventDefault();
 	});
 
