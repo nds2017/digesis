@@ -131,7 +131,8 @@ public function tecnicos_bySupervisor2($supervisorid = 0) {
 
 	public function tecnicos_get_telefono($id) {
 		$query = $this->db->query("SELECT rpc FROM tecnicos WHERE id = $id");
-		return $query->row(0);
+		$result = $query->row(0);
+		return ($result ? $result : '');
 	}
 
 }

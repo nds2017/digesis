@@ -10,7 +10,10 @@ $(document).ready(function() {
 		type:  'POST',
 		dataType: 'json',
 		success:  function (r) {
-			alert(r.sucess);
+			if ( r.success ) {
+				$("tec1cell").html(r.t1cell);
+				$("tec2cell").html(r.t2cell);
+			}
 		}
 	});
 
