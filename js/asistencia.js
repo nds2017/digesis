@@ -107,7 +107,7 @@ $("#mult-asignacion" ).on( "click", function() {
     var i=1;
     $("input[name='sot[]']:checked").each(function ()
       {
-        checked.push("sot"+i+"="+parseInt($(this).val()));
+        checked.push("sot"+i+"="+$(this).val());
         i++;
       });
       checked = checked.join('&');
