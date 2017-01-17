@@ -103,6 +103,7 @@ class Solicitudes extends CI_Controller {
            if (isset($sot['sot'+$i]))
 				$sots[]=$sot['sot'+$i];
 		}
+		print_r($sots);
 		
 		exit();
 
