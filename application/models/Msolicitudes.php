@@ -555,10 +555,11 @@ public function solicitudesByMonth($tid=null,$fecha=null){
 public function solicitudes_asignar_multiple($sot)
 {
 
-		$this->db->select('s.*, CONCAT(t.nombres, " ", t.apellidos) AS tnombres');
+		$this->db->select('s.*, CONCAT(t1.nombres, " ", t1.apellidos) AS tecnico1,CONCAT(t2.nombres, " ", t2.apellidos) AS tecnico2',);
 		$this->db->from('solicitudes s');
 		$this->db->join('solicitudestecnicos st', 'st.sid = s.id', 'left');
-		$this->db->join('tecnicos t', 't.id = st.t1id', 'left');
+		$this->db->join('tecnicos t1', 't1.id = st.t1id', 'left');
+		$this->db->join('tecnicos t2', 't2.id = st.t2id', 'left');
 
 		$this->db->where_in('s.id',$sot); 
 
