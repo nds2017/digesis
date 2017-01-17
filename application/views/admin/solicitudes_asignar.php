@@ -60,8 +60,8 @@ $(document).ready(function() {
 		<th>N.Sot</th>
 		<th>Tecnico1</th>
 		<th>Tecnico2</th>
-		<th>Fecha Instalacion</th>
-		<th>Programacion</th>
+		<th>Fecha Programacion</th>
+		<th>Hora Programacion</th>
 		<th>Estado</th>
 
 	</tr>

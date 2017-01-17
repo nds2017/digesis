@@ -41,6 +41,11 @@
 					<br>
 					N° SOT: <input type="text" size="10" name="solicitudid" value="<?=@$solicitudid?>"/>
 					<input type="submit" class="btnsearch" value="Buscar"/>
+
+					<div class="mult_asignacion">
+					<input type="button" id="mult-asignacion" class="btnsearch" value="Asignar a:"/>
+						
+					</div> 
 				</form>
 			</fieldset>
 			<table class="table table-bordered table-striped">
