@@ -24,7 +24,7 @@
 					<td>Fecha de Programación : </td><td><input required type="date" name="fecha_instalacion" value="<?=(@$data->fecha_instalacion) ? date('Y-m-d', $data->fecha_instalacion) : null?>"></td>
 				</tr>
 				<tr>
-					<td>Hora : </td><td><input type="text" name="hora" value="<?=@$data->hora?>"></td>
+					<td>Hora : </td><td><input type="text" name="hora" maxlength="5" value="<?=@$data->hora?>"></td>
 				</tr>
 				<tr>
 					<td>Horario : </td>
