@@ -145,6 +145,7 @@ class Solicitudes extends CI_Controller {
 	 $data=json_decode($request['data']);
      foreach ($data as $key => $value) {
      
+     	var_dump($value);
 		$formdata = array(
 			'sid' => $value->id,
 			'supid' =>$request['supervisorid'], 
