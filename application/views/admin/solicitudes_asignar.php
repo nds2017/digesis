@@ -28,11 +28,7 @@ $(document).ready(function() {
       	item = {};
 
 		var id =$(this).attr('data-id');
-		var fecha=$('input#fecha_instalacion_'+id).val();
-
-		console.log("fecha");
-		console.log(fecha);
-
+		var fecha=$('input#fecha_instalacion_'+id).val();		
       	item['id']=$(this).attr('data-id');
       	item['fecha']=fecha;
       	item['hora']=$(this).val();
