@@ -140,7 +140,7 @@ class Solicitudes extends CI_Controller {
 	{
 	 $session = get_session();
      $request=$this->input->post();    
-     print_r($request);
+     print_r($request['data']);
 
      foreach ($request['data'] as $key => $value) {
      
