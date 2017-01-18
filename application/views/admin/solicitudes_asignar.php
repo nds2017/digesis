@@ -69,7 +69,7 @@ $(document).ready(function() {
 
 					
 	$('.timepicker').timepicker({
-    timeFormat: 'h:mm',
+    timeFormat: 'H:mm',
     interval: 30,
     minTime: '10',
     maxTime: '19:00',
