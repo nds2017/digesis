@@ -103,7 +103,7 @@
 				<h2 style="color: blue"> SOLICITUD NO ENCONTRADA </h2>
 				<?php } ?>
 			</table>
-			<div style="width: 20px; float: right;" >
+			<div style="width: 20px; float: left;" >
 		 <input type="button" id="mult-asignacion" class="btnsearch" value="Asignar a:"/>						
 		</div> 
 		</div>		
