@@ -140,7 +140,7 @@ class Solicitudes extends CI_Controller {
 	{
 	 $session = get_session();
      $request=$this->input->post();    
-     //print_r($request['data']);
+     print_r($request['data']);
 
 	 $data=json_decode($request['data']);
      foreach ($data as $key => $value) {
@@ -162,7 +162,7 @@ class Solicitudes extends CI_Controller {
 		);
 		$this->msolicitudes->solicitudes_update($formdata, $value->id);
 		
-
+		return json_encode(array('msg'=>'ok'));
      }
 
 	}
