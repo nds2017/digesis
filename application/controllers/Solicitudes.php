@@ -120,6 +120,7 @@ class Solicitudes extends CI_Controller {
 			$r_sol_tec[$value->id]['hora']=(($value->hora!="")? $value->hora:"12:00");
 
 		}
+		print_r($r_sol_tec);
 				
 				/*
 				if ( @$data['data']->supid ) {
