@@ -52,8 +52,7 @@
 			<br>
 			<table class="table table-bordered table-striped">
 				<thead>
-					<tr>
-						<th scope="col"><span>Sel</span></th>
+					<tr>						
 						<th scope="col"><span>N° SOT</span></th>
 						<th scope="col"><span>TIPO DE SERVICIO</span></th>
 						<th scope="col"><span>NOMBRE DEL CLIENTE</span></th>
@@ -66,10 +65,7 @@
 				<?php if ( @$data ) { ?>
 				<tbody>
 				<?php foreach ( $data as $row ) { ?>
-				<tr>
-					<td><strong>
-	<input type="checkbox" name="sot[]" value="<?=$row->id?>">
-					</strong></td>
+				<tr>					
 					<td><strong><?=$row->id?></strong></td>
 					<td><strong><?=$row->tsnombre?></strong></td>
 					<td><strong><?=$row->cliente?></strong></td>
