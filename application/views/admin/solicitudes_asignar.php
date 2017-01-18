@@ -115,6 +115,7 @@ $(document).ready(function() {
 <?php
 	foreach ($r_sol_tec as $key => $value){		
 ?>
+<?php echo $value['hora'] ?>
 	<tr>
 		<td><?php echo $value['id']?></td>
 		<td align="center"><?php echo $value['tecnico1'] ?></td>
