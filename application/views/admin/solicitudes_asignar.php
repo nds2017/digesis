@@ -18,14 +18,39 @@ $(document).ready(function() {
   		});
 	});
 
-	$( "#solicitudform" ).submit(function( event ) {
-		if ( $(".nocheck:hidden").length == 0 ) {
-			$( "#sid" ).focus();
-			alert('Digite un código correcto');
-			event.preventDefault();
-		}
-		else
-			return;
+	$("#solicitudform").submit(function( event ){
+
+
+	  var data = [];  
+      var item = {};
+      $("input[name='timepicker[]']").each(function ()
+      {
+      	item['id']=$(this).val()
+      	item['hora']=$(this).attr('data-id');      	
+        data.push(item);        
+      });
+      
+      var form=new FormData();
+      var str=JSON.stringify(data);
+      form.append('data',str);
+
+		$.ajax({
+			data: form,
+			type: 'POST',
+			url : '"<?=base_url()?>/index.php/solicitudes/asignar',
+			processData: false, 
+			contentType: false,
+			success: function(r){
+				
+			}
+		});
+
+      
+  });
+
+
+		
+		return;
 	});
 
 	$('.timepicker').timepicker({
@@ -50,19 +75,11 @@ $(document).ready(function() {
 			</div>
 			<br>
 
-			<?php
-			if ( @$data ) {
-				$check = '';
-				$nocheck = 'display: none;';
-				echo '<input type="hidden" id="status" value="edit"/><input type="hidden" id="asid" value="' . $data->id . ' "/>';
-				echo form_open_multipart('solicitudes/edit/' . $data->id, array('id' => 'solicitudform'));
-			}
-			else {
+			<?php						
 				$check = 'display: none;';
 				$nocheck = '';
 				echo '<input type="hidden" id="status" value="add"/>';
-				echo form_open_multipart('solicitudes/add', array('id' => 'solicitudform'));
-			}
+				echo form_open_multipart('solicitudes/asignar', array('id' => 'solicitudform'));			
 			?>
 
 <table class="table table-bordered table-striped">
@@ -87,7 +104,7 @@ $(document).ready(function() {
 		<td align="center"><?php echo $value['tecnico1'] ?></td>
 		<td><?php echo $value['tecnico2'] ?></td>
 		<td align="center"><?php echo $value['fecha'] ?></td>
-		<td><input type="text" name="timepicker" class="timepicker" id="timepicker"> </input></td>
+		<td><input type="text" name="timepicker[]" data-id="<?php echo $value['id']?>" class="timepicker" id="timepicker"> </input></td>
 		<td></td>
 
 	</tr>
@@ -154,6 +171,7 @@ $(document).ready(function() {
 					<input class="btnsearch" type="button" value="Regresar a Lista" onclick="window.location='<?=base_url()?>index.php/solicitudes/lista';">
 					<input class="btnsearch" type="submit" value="<?=(@$data? 'Guardar' : 'Crear asignacion')?>">
 				</div>
+				</from>
 		</div>
 	</div>
 </body>

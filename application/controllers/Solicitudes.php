@@ -136,6 +136,13 @@ class Solicitudes extends CI_Controller {
 	}
 
 
+	public function asignar(){
+
+     $request=$this->input->post();
+     print_r($request);
+
+	}
+
 	public function listarf($estadorf = 0) {
 		securityAccess(array(1, 6));
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'listarf' ));
