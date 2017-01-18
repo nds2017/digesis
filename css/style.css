@@ -1248,6 +1248,7 @@ left: 950px;
     float:right;
     position: fixed;
     min-height: 225px;
+    top: 100px;
     margin-bottom: 10px;
     margin-right: 10px;
     overflow: hidden;
