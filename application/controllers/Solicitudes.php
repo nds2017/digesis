@@ -152,7 +152,7 @@ class Solicitudes extends CI_Controller {
 			't2id' => $request['tecnico2id'], 
 			'aid' => $session->id
 		);
-		
+
 		print_r($formdata);
 
 		$this->msolicitudes->solicitudes_addtecnicos($formdata);
@@ -164,8 +164,9 @@ class Solicitudes extends CI_Controller {
 		);
 		$this->msolicitudes->solicitudes_update($formdata, $value->id);
 		
-		return json_encode(array('msg'=>'ok'));
+		
      }
+     return json_encode(array('msg'=>'ok'));
 
 	}
 
