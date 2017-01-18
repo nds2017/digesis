@@ -41,13 +41,14 @@
 					<br>
 					N° SOT: <input type="text" size="10" name="solicitudid" value="<?=@$solicitudid?>"/>
 					<input type="submit" class="btnsearch" value="Buscar"/>
-
-					<div class="mult_asignacion">
+					
+				</form>
+			</fieldset>
+			<div style="width:70%">
+			<div class="mult_asignacion">
 					<input type="button" id="mult-asignacion" class="btnsearch" value="Asignar a:"/>
 						
 					</div> 
-				</form>
-			</fieldset>
 			<table class="table table-bordered table-striped">
 				<thead>
 					<tr>
@@ -95,6 +96,7 @@
 				</tbody>
 				<?php } else { ?>
 				</table>
+				</div>
 				<h2 style="color: blue"> SOLICITUD NO ENCONTRADA </h2>
 				<?php } ?>
 			</table>
