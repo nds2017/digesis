@@ -29,13 +29,11 @@ $(document).ready(function() {
       	item['hora']=$(this).val();
         data.push(item);        
       });
-      
-      alert($('#supervisorid').val());
-      
-
+                 
       var form=new FormData();
       var str=JSON.stringify(data);
       form.append('data',str);
+      form.append('supervisorid',$('#supervisorid').val());
       form.append('tecnico1id',$('#tecnico1id').val());
       form.append('tecnico2id',$('#tecnico2id').val());
 
@@ -105,7 +103,10 @@ $(document).ready(function() {
 		<td><?php echo $value['id']?></td>
 		<td align="center"><?php echo $value['tecnico1'] ?></td>
 		<td><?php echo $value['tecnico2'] ?></td>
-		<td align="center"><?php echo $value['fecha'] ?></td>
+		<td align="center">
+
+		<input required type="date" name="fecha_instalacion[]" value="<?=(@$value['fecha']) ? $value['fecha'] : null?>"></td>
+		
 		<td><input type="text" name="timepicker[]" data-id="<?php echo $value['id']?>" class="timepicker" id="timepicker"> </input></td>
 		<td></td>
 

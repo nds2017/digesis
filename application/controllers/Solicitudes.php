@@ -138,9 +138,31 @@ class Solicitudes extends CI_Controller {
 
 	public function asignar()
 	{
-		
-     $request=$this->input->post();
+	 $session = get_session();
+     $request=$this->input->post();    
      print_r($request);
+
+     foreach ($request['data'] as $key => $value) {
+     
+		$formdata = array(
+			'sid' => $value->id,
+			'supid' =>$request['supervisorid'], 
+			't1id' => $request['tecnico1id'], 
+			't2id' => $request['tecnico2id'], 
+			'aid' => $session->id
+		);
+
+		$this->msolicitudes->solicitudes_addtecnicos($formdata);
+		$formdata = array(
+			'id' =>$value->id,
+			'fecha_instalacion' => $this->input->post('fecha_instalacion') ? strtotime($this->input->post('fecha_instalacion')) : strtotime('now'),
+			'hora' => $value->hora,
+			'modtime' => strtotime("now")
+		);
+		$this->msolicitudes->solicitudes_update($formdata, $value->id);
+		
+
+     }
 
 	}
 
