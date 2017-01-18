@@ -160,9 +160,8 @@ class Solicitudes extends CI_Controller {
 			'fecha_instalacion' => $value->fecha? strtotime($value->fecha) : strtotime('now'),
 			'hora' => $value->hora,
 			'modtime' => strtotime("now")
-		);
-		print_r($formdata);
-		
+		);		
+
 		$this->msolicitudes->solicitudes_update($formdata, $value->id);
 		
 		
