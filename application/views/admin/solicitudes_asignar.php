@@ -30,9 +30,15 @@ $(document).ready(function() {
         data.push(item);        
       });
       
+      alert($('#supervisorid').val());
+      
+
       var form=new FormData();
       var str=JSON.stringify(data);
       form.append('data',str);
+      form.append('tecnico1id',$('#tecnico1id').val());
+      form.append('tecnico2id',$('#tecnico2id').val());
+
 
 		$.ajax({
 			data: form,
@@ -119,7 +125,7 @@ $(document).ready(function() {
 						<tr>
 							<td>Analista de Servicio: </td>
 							<td>
-								<select name="analistaid">
+								<select name="analistaid" id="analistaid">
 									<option value="0">-Seleccione-</option>
 									<?php foreach ( $analistas as $key => $analista ) { ?>
 									<option <?=(@$data->aid==$analista->id ? 'selected' : '')?>  value="<?=$analista->id?>"><?=$analista->nombres . ' ' . $analista->apellidos?></option>
