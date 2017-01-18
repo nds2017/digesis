@@ -22,11 +22,15 @@ $(document).ready(function() {
 	  
 	  var data = [];  
       var item = {};
+	  var fecha=$("input[name='fecha_instalacion[]']");
+	  console.log(fecha);
       $("input[name='timepicker[]']").each(function ()
       {
       	item = {};
       	item['id']=$(this).attr('data-id');
+      	item['fecha']=$(this).val();
       	item['hora']=$(this).val();
+
         data.push(item);           
       });
                  
@@ -116,7 +120,7 @@ $(document).ready(function() {
 		<td><?php echo $value['tecnico2'] ?></td>
 		<td align="center">
 
-		<input required type="date" name="fecha_instalacion[]" value="<?=(@$value['fecha']) ? $value['fecha'] : null?>"></td>
+		<input required type="date" name="fecha_instalacion[$key]" value="<?=(@$value['fecha']) ? $value['fecha'] : null?>"></td>
 		
 		<td><input type="text" name="timepicker[]" data-id="<?php echo $value['id']?>" class="timepicker" id="timepicker"> </input></td>
 		<td></td>

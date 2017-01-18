@@ -113,11 +113,11 @@ class Solicitudes extends CI_Controller {
 		$r_sol_tec=[];
 		foreach ($sol_mult as $key => $value) {
 
-			$r_sol_tec[$key]['id']=$value->id;		
-			$r_sol_tec[$key]['tecnico1']=(($value->tecnico1!="")?$value->tecnico1:"sin asignar");
-			$r_sol_tec[$key]['tecnico2']=(($value->tecnico2!="")?$value->tecnico2:"sin asignar");
-	$r_sol_tec[$key]['fecha']=($value->fecha_instalacion==0)? 'Sin asignar': date('Y-m-d',$value->fecha_instalacion);
-			$r_sol_tec[$key]['hora']="";
+			$r_sol_tec[$value->id]['id']=$value->id;		
+			$r_sol_tec[$value->id]['tecnico1']=(($value->tecnico1!="")?$value->tecnico1:"sin asignar");
+			$r_sol_tec[$value->id]['tecnico2']=(($value->tecnico2!="")?$value->tecnico2:"sin asignar");
+	$r_sol_tec[$value->id]['fecha']=($value->fecha_instalacion==0)? 'Sin asignar': date('Y-m-d',$value->fecha_instalacion);
+			$r_sol_tec[$value->id]['hora']="";
 
 		}
 				
@@ -153,10 +153,7 @@ class Solicitudes extends CI_Controller {
 			't2id' => $request['tecnico2id'], 
 			'aid' => $session->id
 		);
-
-
-		print_r($formdata);
-
+	
 		$this->msolicitudes->solicitudes_addtecnicos($formdata);
 		$formdata = array(
 			'id' =>$value->id,
