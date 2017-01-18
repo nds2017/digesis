@@ -70,7 +70,7 @@ $(document).ready(function() {
 					
 	$('.timepicker').timepicker({
     timeFormat: 'h:mm p',
-    interval: 60,
+    interval: 30,
     minTime: '10',
     maxTime: '6:00pm',
     defaultTime: '11',
