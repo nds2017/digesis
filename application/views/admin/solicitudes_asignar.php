@@ -24,6 +24,8 @@ $(document).ready(function() {
       var item = {};
       $("input[name='timepicker[]']").each(function ()
       {
+
+      	console.log($(this).attr('data-id'));
       	item['id']=$(this).attr('data-id');
       	item['hora']=$(this).val();
         data.push(item);        
