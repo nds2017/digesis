@@ -1235,3 +1235,32 @@ position: fixed;
 top: 250px;
 left: 950px;
 }
+
+#content {
+    width: 1200px;
+    margin: 0px auto;
+}
+
+#column-left {
+    background-color: #EBE9EA;
+    border: 1px solid #D2D2D2;
+    border-radius: 8px 8px 8px 8px;
+    float: left;
+    position: fixed;
+    min-height: 225px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    overflow: hidden;
+    text-align: center;
+    width: 200px;
+}
+
+#central {
+    background-color: #EBE9EA;
+    border: 1px solid #D2D2D2;
+    border-radius: 8px 8px 8px 8px;
+    float: right;
+    height: 5000px;
+    margin-bottom: 10px;
+    width: 985px;
+}
