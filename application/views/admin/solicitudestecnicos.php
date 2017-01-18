@@ -43,6 +43,9 @@
 					<input type="submit" class="btnsearch" value="Buscar"/>
 					
 					
+		<div >
+		 <input type="button" id="mult-asignacion" class="btnsearch" value="Asignar a:"/>						
+		</div> 
 				</form>
 			</fieldset>
 			<div style="width:100%" id="content">
@@ -101,10 +104,9 @@
 				<?php } ?>
 			</table>
 		</div>
-		<div id="column-left">
-					<input type="button" id="mult-asignacion" class="btnsearch" value="Asignar a:"/>
-						
-			</div> 
+		<div >
+		 <input type="button" id="mult-asignacion" class="btnsearch" value="Asignar a:"/>						
+		</div> 
 		</div>
 	</div>
 </body>
