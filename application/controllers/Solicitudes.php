@@ -109,6 +109,7 @@ class Solicitudes extends CI_Controller {
 
 	$sol_mult=$this->msolicitudes->solicitudes_asignar_multiple($sots);
 
+print_r($sol_mult);
 		$r_sol_tec=[];
 		foreach ($sol_mult as $key => $value) {
 
