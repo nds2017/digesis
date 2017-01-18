@@ -45,14 +45,10 @@ $(document).ready(function() {
 			}
 		});
 
-      
+    return;  
   });
 
-
-		
-		return;
-	});
-
+					
 	$('.timepicker').timepicker({
     timeFormat: 'h:mm p',
     interval: 60,

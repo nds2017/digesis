@@ -136,8 +136,9 @@ class Solicitudes extends CI_Controller {
 	}
 
 
-	public function asignar(){
-
+	public function asignar()
+	{
+		
      $request=$this->input->post();
      print_r($request);
 
