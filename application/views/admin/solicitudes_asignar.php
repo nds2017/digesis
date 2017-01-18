@@ -27,8 +27,7 @@ $(document).ready(function() {
       	item = {};
       	item['id']=$(this).attr('data-id');
       	item['hora']=$(this).val();
-        data.push(item);   
-        console.log(data);     
+        data.push(item);           
       });
                  
       var form=new FormData();
@@ -72,7 +71,7 @@ $(document).ready(function() {
 
 			<div class="list-mod-panel">
 				<h1 style="float: left;"> <?=(@$data)?'Editar Solicitud' : 'Asignar Solicitud'?> &nbsp;&nbsp;</h1>
-				<h2><a href="<?=base_url()?>index.php/solicitudes/lista">Regresar a Lista de Solicitudes</a></h2>
+				<h2><a href="<?=base_url()?>index.php/solicitudes/listatecnicos">Regresar a Lista de Solicitudes</a></h2>
 			</div>
 			<br>
 
@@ -172,7 +171,7 @@ $(document).ready(function() {
 				</fieldset>
 				<br><br>
 				<div class="divbuttons">
-					<input class="btnsearch" type="button" value="Regresar a Lista" onclick="window.location='<?=base_url()?>index.php/solicitudes/lista';">
+					<input class="btnsearch" type="button" value="Regresar a Lista" onclick="window.location='<?=base_url()?>index.php/solicitudes/listatecnicos';">
 					<input class="btnsearch" type="submit" value="<?=(@$data? 'Guardar' : 'Crear asignacion')?>">
 				</div>
 				</from>
