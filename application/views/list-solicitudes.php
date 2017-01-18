@@ -208,6 +208,8 @@
 									<div class="data2"><?=$reprogramado->tsnombre?></div>
 									<div class="data1">CÓDIGO SOT</div>
 									<div class="data2"><?=$reprogramado->id?></div>
+									<div class="data1">HORA</div>
+									<div class="data2"><?=$reprogramado->hora?></div>
 									<div class="data1">CLIENTE</div>
 									<div class="data2"><?=$reprogramado->cliente?></div>
 									<div class="data1">ESTADO</div>
@@ -232,6 +234,8 @@
 									<div class="data2"><?=$nuevo->tsnombre?></div>
 									<div class="data1">CÓDIGO SOT</div>
 									<div class="data2"><?=$nuevo->id?></div>
+									<div class="data1">HORA</div>
+									<div class="data2"><?=$nuevo->hora?></div>
 									<div class="data1">CLIENTE</div>
 									<div class="data2"><?=$nuevo->cliente?></div>
 									<div class="data1">ESTADO</div>
@@ -256,6 +260,8 @@
 									<div class="data2"><?=$pendiente->id?></div>
 									<div class="data1">MOTIVO</div>
 									<div class="data2"><?=isset($pendiente->motivo)?$pendiente->motivo:'-'?></div>
+									<div class="data1">HORA</div>
+									<div class="data2"><?=$pendiente->hora?></div>
 									<div class="data1">CLIENTE</div>
 									<div class="data2"><?=$pendiente->cliente?></div>
 									<div class="data1">DIRECCIÓN</div>

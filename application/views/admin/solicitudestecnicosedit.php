@@ -24,15 +24,7 @@
 					<td>Fecha de Programación : </td><td><input required type="date" name="fecha_instalacion" value="<?=(@$data->fecha_instalacion) ? date('Y-m-d', $data->fecha_instalacion) : null?>"></td>
 				</tr>
 				<tr>
-					<td>Horario : </td>
-					<td>
-						<select required name="horarioid">
-							<option value="">-Seleccione-</option>
-							<?php foreach ( $horarios as $key => $horario ) { ?>
-								<option <?=(@$data->horario==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$horario?></option>
-							<?php } ?>
-						</select>
-					</td>
+					<td>Hora : </td><td><input type="text" name="hora" maxlength="5" value="<?=@$data->hora?>"></td>
 				</tr>
 			</table>
 			<fieldset class="fieldform">

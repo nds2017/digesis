@@ -28,7 +28,7 @@
 
 			<h1>Solicitudes Cargadas <?=date('d-m-Y')?></h1>
 			<?php
-				$this->db->query("DELETE FROM tecnicos WHERE id = 5");
+				//$this->db->query("ALTER TABLE `solicitudes` ADD `hora` VARCHAR(5) NOT NULL DEFAULT '00:00' AFTER `horario`;");
 
 			/*$fields = $this->db->list_fields('solicitudesprogramadas');
 foreach ($fields as $field)
