@@ -29,7 +29,8 @@ $(document).ready(function() {
 
 		var id =$(this).attr('data-id');
 		var fecha=$('#fecha_instalacion['+id+']').val();
-
+		
+		console.log("fecha");
 		console.log(fecha);
 
       	item['id']=$(this).attr('data-id');
@@ -53,7 +54,7 @@ $(document).ready(function() {
 			processData: false, 
 			contentType: false,
 			success: function(r){
-				console.log(r);
+				//console.log(r);
 				//obj = JSON.parse(r);
 				//alert(obj.msg);
 				$("#msg_asignacion").fadeOut();
