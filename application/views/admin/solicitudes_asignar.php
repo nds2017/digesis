@@ -53,7 +53,7 @@ $(document).ready(function() {
 				setTimeout(function() {
 				$("#msg_asignacion").fadeIn();
     			$("#msg_asignacion").addClass('hidden');
-				}, 4000);
+				}, 8000);
 
 
 			}
