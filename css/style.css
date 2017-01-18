@@ -1256,11 +1256,11 @@ left: 950px;
 }
 
 #central {
-    background-color: #EBE9EA;
+    /*background-color: #EBE9EA;
     border: 1px solid #D2D2D2;
-    border-radius: 8px 8px 8px 8px;
+    border-radius: 8px 8px 8px 8px;*/
     float: left;
-    height: 5000px;
+    height: 2000px;
     margin-bottom: 10px;
     width: 800px;
 }
