@@ -37,7 +37,7 @@ $(document).ready(function() {
 		$.ajax({
 			data: form,
 			type: 'POST',
-			url : '"<?=base_url()?>/index.php/solicitudes/asignar',
+			url : '/index.php/solicitudes/asignar',
 			processData: false, 
 			contentType: false,
 			success: function(r){
