@@ -109,7 +109,7 @@ class Solicitudes extends CI_Controller {
 
 	$sol_mult=$this->msolicitudes->solicitudes_asignar_multiple($sots);
 
-print_r($sol_mult);
+
 		$r_sol_tec=[];
 		foreach ($sol_mult as $key => $value) {
 
@@ -141,8 +141,7 @@ print_r($sol_mult);
 	{
 	 $session = get_session();
      $request=$this->input->post();    
-     print_r($request['data']);
-
+     
 	 $data=json_decode($request['data']);
      foreach ($data as $key => $value) {
      
@@ -153,6 +152,8 @@ print_r($sol_mult);
 			't2id' => $request['tecnico2id'], 
 			'aid' => $session->id
 		);
+		
+		print_r($formdata);
 
 		$this->msolicitudes->solicitudes_addtecnicos($formdata);
 		$formdata = array(
