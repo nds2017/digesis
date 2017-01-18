@@ -84,7 +84,7 @@ $(document).ready(function() {
 
 <table class="table table-bordered table-striped">
 <input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>
-<div class="msgimportante">Se asignaron correctamente las solicitudes</div>
+<div class="msgimportante hidden">Se asignaron correctamente las solicitudes</div>
 <thead>
 	<tr>
 		<th>N.Sot</th>
