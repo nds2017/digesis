@@ -28,8 +28,8 @@ $(document).ready(function() {
       	item = {};
 
 		var id =$(this).attr('data-id');
-		var fecha=$('#fecha_instalacion['+id+']');
-		
+		var fecha=$('#fecha_instalacion['+id+']').val();
+
 		console.log(fecha);
 
       	item['id']=$(this).attr('data-id');
