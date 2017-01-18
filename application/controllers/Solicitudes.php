@@ -153,6 +153,7 @@ class Solicitudes extends CI_Controller {
 			'aid' => $session->id
 		);
 
+
 		print_r($formdata);
 
 		$this->msolicitudes->solicitudes_addtecnicos($formdata);
