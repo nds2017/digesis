@@ -50,7 +50,7 @@ $(document).ready(function() {
 			processData: false, 
 			contentType: false,
 			success: function(r){
-				//console.log(r);
+				console.log(r);
 				//obj = JSON.parse(r);
 				//alert(obj.msg);
 				$("#msg_asignacion").fadeOut();
@@ -69,10 +69,10 @@ $(document).ready(function() {
 
 					
 	$('.timepicker').timepicker({
-    timeFormat: 'h:mm p',
+    timeFormat: 'h:mm',
     interval: 30,
     minTime: '10',
-    maxTime: '6:00pm',
+    maxTime: '19:00',
     defaultTime: '11',
     startTime: '08:00',
     dynamic: false,
