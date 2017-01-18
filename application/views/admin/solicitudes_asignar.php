@@ -28,7 +28,7 @@ $(document).ready(function() {
       	item = {};
 
 		var id =$(this).attr('data-id');
-		var fecha=$('#fecha_instalacion['+id+']').val();
+		var fecha=$('input#fecha_instalacion['+id+']').val();
 		
 		console.log("fecha");
 		console.log(fecha);
