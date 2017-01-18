@@ -106,7 +106,7 @@ $(document).ready(function() {
 		<th>Tecnico2</th>
 		<th>Fecha Programacion</th>
 		<th>Hora Programacion</th>
-		<th>Estado</th>
+		<th>Accion</th>
 
 	</tr>
 </thead>
@@ -123,7 +123,7 @@ $(document).ready(function() {
 		<input required type="date" id="fecha_instalacion_<?php echo $key ?>" name="fecha_instalacion_<?php echo $key ?>" value="<?=(@$value['fecha']) ? $value['fecha'] : null?>"></td>
 
 		<td><input type="text" name="timepicker[]" data-id="<?php echo $value['id']?>" class="timepicker" id="timepicker" value="<?php echo $value['hora'] ?>"> </input></td>
-		<td></td>
+		<td><a href="#">retirar asignacion</a></td>
 
 	</tr>
 	<?php
