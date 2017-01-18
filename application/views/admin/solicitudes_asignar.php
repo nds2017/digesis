@@ -20,7 +20,7 @@ $(document).ready(function() {
 
 	$("#solicitudform").submit(function( event ){
 
-
+	  alert('sss');
 	  var data = [];  
       var item = {};
       $("input[name='timepicker[]']").each(function ()
@@ -45,7 +45,7 @@ $(document).ready(function() {
 			}
 		});
 
-    return;  
+    
   });
 
 					
