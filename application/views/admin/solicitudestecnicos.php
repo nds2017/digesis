@@ -47,11 +47,7 @@
 			</fieldset>
 			<div style="width:100%" id="content">
 
-			<div id="column-left">
-					<input type="button" id="mult-asignacion" class="btnsearch" value="Asignar a:"/>
-						
-			</div> 
-
+			
 			<div id="central">
 			<table class="table table-bordered table-striped">
 				<thead>
@@ -100,11 +96,15 @@
 				</tbody>
 				<?php } else { ?>
 				</table>
-				</div>
+				
 				<h2 style="color: blue"> SOLICITUD NO ENCONTRADA </h2>
 				<?php } ?>
 			</table>
 		</div>
+		<div id="column-left">
+					<input type="button" id="mult-asignacion" class="btnsearch" value="Asignar a:"/>
+						
+			</div> 
 		</div>
 	</div>
 </body>
