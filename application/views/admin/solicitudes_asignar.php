@@ -27,12 +27,12 @@ $(document).ready(function() {
       	
       	item['id']=$(this).attr('data-id');
       	item['hora']=$(this).val();
-        data.push(item);        
+        data.push(item);   
+        console.log(data);     
       });
                  
       var form=new FormData();
-      var str=JSON.stringify(data);
-      console.log(str);
+      var str=JSON.stringify(data);      
       form.append('data',str);
       form.append('supervisorid',$('#supervisorid').val());
       form.append('tecnico1id',$('#tecnico1id').val());
