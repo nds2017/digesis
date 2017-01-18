@@ -45,8 +45,9 @@ $(document).ready(function() {
 			processData: false, 
 			contentType: false,
 			success: function(r){
-				obj = JSON.parse(r);
-				alert(obj.msg);
+				console.log(r);
+				//obj = JSON.parse(r);
+				//alert(obj.msg);
 				$("#msg_asignacion").fadeOut();
 				$("#msg_asignacion").removeClass('hidden');				
 				setTimeout(function() {
