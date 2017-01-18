@@ -1222,3 +1222,7 @@ border-left-color: #F9C16D;
 text-align:left;
 width: 70%;
 }
+
+.hidden{
+	display: none;
+}
