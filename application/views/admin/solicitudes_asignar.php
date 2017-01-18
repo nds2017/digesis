@@ -72,8 +72,7 @@ $(document).ready(function() {
     timeFormat: 'H:mm',
     interval: 30,
     minTime: '10',
-    maxTime: '19:00',
-    defaultTime: '11',
+    maxTime: '19:00',    
     startTime: '08:00',
     dynamic: false,
     dropdown: true,
@@ -115,7 +114,6 @@ $(document).ready(function() {
 <?php
 	foreach ($r_sol_tec as $key => $value){		
 ?>
-<?php echo $value['hora'] ?>
 	<tr>
 		<td><?php echo $value['id']?></td>
 		<td align="center"><?php echo $value['tecnico1'] ?></td>
