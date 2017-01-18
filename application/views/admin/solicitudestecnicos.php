@@ -44,7 +44,7 @@
 					
 				</form>
 			</fieldset>
-			<div style="width:70%">
+			<div style="width:100%">
 			<div class="mult_asignacion">
 					<input type="button" id="mult-asignacion" class="btnsearch" value="Asignar a:"/>
 						
