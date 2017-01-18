@@ -1226,3 +1226,8 @@ width: 90%;
 .hidden{
 	display: none;
 }
+
+.mult_asignacion{
+width:100%; 
+float:right;
+}
