@@ -45,7 +45,16 @@ $(document).ready(function() {
 			processData: false, 
 			contentType: false,
 			success: function(r){
-				
+				obj = JSON.parse(r);
+				alert(obj.msg);
+				$("#msg_asignacion").fadeOut();
+				$("#msg_asignacion").removeClass('hidden');				
+				setTimeout(function() {
+				$("#msg_asignacion").fadeIn();
+    			$("#msg_asignacion").addClass('hidden');
+				}, 4000);
+
+
 			}
 		});
 
@@ -84,7 +93,7 @@ $(document).ready(function() {
 
 <table class="table table-bordered table-striped">
 <input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>
-<div class="msgimportante hidden">Se asignaron correctamente las solicitudes</div>
+<div id="msg_asignacion" class="msgimportante hidden">Se asignaron correctamente las solicitudes</div>
 <thead>
 	<tr>
 		<th>N.Sot</th>
