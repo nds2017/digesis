@@ -24,8 +24,7 @@ $(document).ready(function() {
       var item = {};
       $("input[name='timepicker[]']").each(function ()
       {
-
-      	console.log($(this).attr('data-id'));
+      	
       	item['id']=$(this).attr('data-id');
       	item['hora']=$(this).val();
         data.push(item);        
@@ -33,6 +32,7 @@ $(document).ready(function() {
                  
       var form=new FormData();
       var str=JSON.stringify(data);
+      console.log(str);
       form.append('data',str);
       form.append('supervisorid',$('#supervisorid').val());
       form.append('tecnico1id',$('#tecnico1id').val());
