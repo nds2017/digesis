@@ -1229,7 +1229,9 @@ width: 90%;
 
 .mult_asignacion{
 width:18%; 
-float:right;	
-margin-right:110px;
+/*float:right;*/	
+/*margin-right:110px;*/
 position: fixed;
+top: 250px;
+left: 800px;
 }
