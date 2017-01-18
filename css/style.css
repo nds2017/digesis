@@ -1237,7 +1237,7 @@ left: 950px;
 }
 
 #content {
-    width: 1200px;
+    width: 900px;
     margin: 0px auto;
 }
 
@@ -1245,7 +1245,7 @@ left: 950px;
     background-color: #EBE9EA;
     border: 1px solid #D2D2D2;
     border-radius: 8px 8px 8px 8px;
-    float: left;
+    float:right;
     position: fixed;
     min-height: 225px;
     margin-bottom: 10px;
@@ -1262,5 +1262,5 @@ left: 950px;
     float: right;
     height: 5000px;
     margin-bottom: 10px;
-    width: 985px;
+    width: 800px;
 }
