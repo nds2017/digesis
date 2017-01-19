@@ -49,15 +49,16 @@
 							</td>
 						<td><input type="submit" class="btnsearch" value="Filtrar"/></td>	
 						</tr>
+						<tr>
+							<td>N° SOT</td>
+						</tr>
+						<tr>
+							<td><input type="text" size="10" name="solicitudid" value="<?=@$solicitudid?>"/></td>
+							<td><input type="submit" class="btnsearch" value="Buscar"/></td>
+						</tr>
 					</table>	
 
 					<input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>					
-					
-					
-					<br>
-					N° SOT: <input type="text" size="10" name="solicitudid" value="<?=@$solicitudid?>"/>
-					<input type="submit" class="btnsearch" value="Buscar"/>
-					
 					
 		<div >
 		 <input type="button" id="mult-asignacion" class="btnsearch" value="Asignar a:"/>						
