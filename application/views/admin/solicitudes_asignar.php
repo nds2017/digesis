@@ -133,7 +133,7 @@ $(document).ready(function() {
 		<td><input type="text" name="timepicker[]" data-id="<?php echo $value['id']?>" class="timepicker" id="timepicker" value="<?php echo $value['hora'] ?>"> </input></td>
 		<td>
 		<?php 		  
-		if ($value['tecnico2']!="sin asignar"): ?>
+		if ($value['tecnico2']=="sin asignar"): ?>
 			<a href="#" onclick ="delete_user($(this))">retirar</a>
 		<?php else:?>
 			<a href="" style="color:#d3dbe2 " onclick ="">retirar</a>
