@@ -2,6 +2,12 @@
 			<script src="<?=base_url()?>js/departamentos.js"></script>
 <script>
 
+function delete_user(row)
+    {
+        row.closest('tr').remove();
+
+    }
+    
 $(document).ready(function() {
 
 	$("#sid").blur(function() {
@@ -18,12 +24,7 @@ $(document).ready(function() {
   		});
 	});
 
-	function delete_user(row)
-    {
-        row.closest('tr').remove();
-
-
-    }
+	
 
 	$("#solicitudform").submit(function( event ){
 	  
