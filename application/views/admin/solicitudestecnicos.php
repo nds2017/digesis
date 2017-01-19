@@ -81,9 +81,9 @@
 					<input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>												
 			</form>
 			</fieldset>								
-
-		<div id="btn_asignacion">
-		 <input type="button" id="mult-asignacion" class="btnsearch" value="Asignar a:"/>	
+		<div id="central">
+			<div id="btn_asignacion">
+		 		<input type="button" id="mult-asignacion" class="btnsearch" value="Asignar a:"/>	
 		</div>							
 			<table class="table table-bordered table-striped">
 				<thead>
@@ -137,6 +137,7 @@
 				<?php } ?>
 			</table>
 			<div style="width: 20px; float: left;" >		 
+		</div>
 		</div>
 	</div>
 </body>
