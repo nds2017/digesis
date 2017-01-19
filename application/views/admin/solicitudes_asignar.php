@@ -134,9 +134,9 @@ $(document).ready(function() {
 		<td>
 		<?php 		  
 		if ($value['tecnico2']=="sin asignar"): ?>
-			<a href="#" onclick ="delete_user($(this))">retirar</a>
+			<a href="#" style="color:#48c460" onclick ="delete_user($(this))">retirar</a>
 		<?php else:?>
-			<a href="" style="color:#d3dbe2 " onclick ="">retirar</a>
+			<a href="" style="color:#d3dbe2" onclick ="">retirar</a>
 		<?php endif;?>
 
 		</td>
