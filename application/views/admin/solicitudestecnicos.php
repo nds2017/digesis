@@ -30,7 +30,7 @@
 					</select>
 							</td>
 							<td>
-								<select id="provinciaid" name="provinciaid">
+								<select id="provinciaid" name="provinciaid" style="width: 200px">
 						<?php if ( @$distritoid ) { ?>
 						<?php foreach ($provincias as $id => $provincia) { ?>
 						<option <?=(@$provinciaid==$id ? 'selected' : '')?> value=<?=$id?>><?=$provincia?></option>
@@ -39,7 +39,7 @@
 					</select>
 							</td>
 							<td>
-						<select name="distritoid" id="distritoid">
+						<select name="distritoid" id="distritoid" style="width: 200px">
 						<?php if ( @$distritoid ) { ?>
 						<?php foreach ($distritos as $id => $distrito) { ?>
 						<option <?=(@$distritoid==$id ? 'selected' : '')?> value=<?=$id?>><?=$distrito?></option>
