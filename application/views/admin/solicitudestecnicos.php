@@ -53,8 +53,10 @@
 							<td>N° SOT</td>
 						</tr>
 						<tr>
-							<td><input type="text" size="10" name="solicitudid" value="<?=@$solicitudid?>"/></td>
-							<td><input type="submit" class="btnsearch" value="Buscar"/></td>
+							<td><input type="text" size="10" name="solicitudid" value="<?=@$solicitudid?>"/>
+								<input type="submit" class="btnsearch" value="Buscar"/>
+							</td>
+							<td></td>
 						</tr>
 					</table>	
 
