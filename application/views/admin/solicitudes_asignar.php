@@ -18,6 +18,13 @@ $(document).ready(function() {
   		});
 	});
 
+	function delete_user(row)
+    {
+        row.closest('tr').remove();
+
+
+    }
+
 	$("#solicitudform").submit(function( event ){
 	  
 	  var data = [];  
@@ -123,7 +130,7 @@ $(document).ready(function() {
 		<input required type="date" id="fecha_instalacion_<?php echo $key ?>" name="fecha_instalacion_<?php echo $key ?>" value="<?=(@$value['fecha']) ? $value['fecha'] : null?>"></td>
 
 		<td><input type="text" name="timepicker[]" data-id="<?php echo $value['id']?>" class="timepicker" id="timepicker" value="<?php echo $value['hora'] ?>"> </input></td>
-		<td><a href="#">retirar asignacion</a></td>
+		<td><a href="#" onclick ="delete_user($(this))">retirar</a></td>
 
 	</tr>
 	<?php
