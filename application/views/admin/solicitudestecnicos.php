@@ -82,6 +82,9 @@
 			</form>
 			</fieldset>								
 
+		<div id="btn_asignacion">
+		 <input type="button" id="mult-asignacion" class="btnsearch" value="Asignar a:"/>	
+		</div>							
 			<table class="table table-bordered table-striped">
 				<thead>
 					<tr>
@@ -133,10 +136,7 @@
 				<h2 style="color: blue"> SOLICITUD NO ENCONTRADA </h2>
 				<?php } ?>
 			</table>
-			<div style="width: 20px; float: left;" >
-		<div id="btn_asignacion">
-		 <input type="button" id="mult-asignacion" class="btnsearch" value="Asignar a:"/>	
-		</div>							
+			<div style="width: 20px; float: left;" >		 
 		</div>
 	</div>
 </body>
