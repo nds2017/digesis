@@ -1,6 +1,11 @@
 			</div>
 			<script src="<?=base_url()?>js/departamentos.js"></script>
 			<script src="<?=base_url()?>js/portamento-min.js"></script>
+			<script type="text/javascript">
+				
+			$('#btn_asignacion').portamento();
+
+			</script>
 			<style type="text/css">
 				#portamento_container {
 					float:right;
