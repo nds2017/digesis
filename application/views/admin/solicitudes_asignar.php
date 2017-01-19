@@ -7,7 +7,7 @@ function delete_user(row)
         row.closest('tr').remove();
 
     }
-    
+
 $(document).ready(function() {
 
 	$("#sid").blur(function() {
@@ -131,7 +131,13 @@ $(document).ready(function() {
 		<input required type="date" id="fecha_instalacion_<?php echo $key ?>" name="fecha_instalacion_<?php echo $key ?>" value="<?=(@$value['fecha']) ? $value['fecha'] : null?>"></td>
 
 		<td><input type="text" name="timepicker[]" data-id="<?php echo $value['id']?>" class="timepicker" id="timepicker" value="<?php echo $value['hora'] ?>"> </input></td>
-		<td><a href="#" onclick ="delete_user($(this))">retirar</a></td>
+		<td>
+		<?php  ($value['tecnico2']!="sin asignar")? ?>
+		<a href="#" onclick ="delete_user($(this))">retirar</a>
+		<?php :?>
+		<a href="" style="color:#d3dbe2 " onclick ="">retirar</a>
+
+		</td>
 
 	</tr>
 	<?php
