@@ -13,31 +13,47 @@
 						</ul>
 					</nav>
 
-					<input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>
-					Departamento :
-					<select id="dptoid">
+					<table>
+						<tr>
+							<td>Departamento </td>
+							<td>Provincia </td>
+							<td>Distrito</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>
+								<select id="dptoid">
 						<option value="0">-Seleccione-</option>
 						<?php foreach ($departamentos as $id => $departamento) { ?>
 						<option <?=(@$departamentoid==$id ? 'selected' : '')?> value=<?=$id?>><?=$departamento?></option>
 						<?php } ?>
 					</select>
-					Provincia
-					<select id="provinciaid" name="provinciaid">
+							</td>
+							<td>
+								<select id="provinciaid" name="provinciaid">
 						<?php if ( @$distritoid ) { ?>
 						<?php foreach ($provincias as $id => $provincia) { ?>
 						<option <?=(@$provinciaid==$id ? 'selected' : '')?> value=<?=$id?>><?=$provincia?></option>
 						<?php } ?>
 						<?php } ?>
 					</select>
-					Distrito:
-					<select name="distritoid" id="distritoid">
+							</td>
+							<td>
+						<select name="distritoid" id="distritoid">
 						<?php if ( @$distritoid ) { ?>
 						<?php foreach ($distritos as $id => $distrito) { ?>
 						<option <?=(@$distritoid==$id ? 'selected' : '')?> value=<?=$id?>><?=$distrito?></option>
 						<?php } ?>
 						<?php } ?>
 					</select>
-					<input type="submit" class="btnsearch" value="Filtrar"/>
+							</td>
+						<td><input type="submit" class="btnsearch" value="Filtrar"/></td>	
+						</tr>
+					</table>	
+
+					<input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>					
+					
+					
 					<br>
 					N° SOT: <input type="text" size="10" name="solicitudid" value="<?=@$solicitudid?>"/>
 					<input type="submit" class="btnsearch" value="Buscar"/>
