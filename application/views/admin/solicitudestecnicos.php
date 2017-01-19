@@ -66,11 +66,7 @@
 		 <input type="button" id="mult-asignacion" class="btnsearch" value="Asignar a:"/>						
 		</div> 
 				</form>
-			</fieldset>
-			<div style="width:100%" id="content">
-
-			
-			<div id="central">
+			</fieldset>								
 			<table class="table table-bordered table-striped">
 				<thead>
 					<tr>
@@ -123,9 +119,7 @@
 				<?php } ?>
 			</table>
 			<div style="width: 20px; float: left;" >
-		 <input type="button" id="mult-asignacion" class="btnsearch" value="Asignar a:"/>						
-		</div> 
-		</div>		
+		 <input type="button" id="mult-asignacion" class="btnsearch" value="Asignar a:"/>								
 		</div>
 	</div>
 </body>
