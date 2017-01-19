@@ -74,13 +74,13 @@
 			<table class="table table-bordered table-striped">
 				<thead>
 					<tr>
-				<th scope="col"><span>Sel</span></th>
-						<th scope="col"><span>N° SOT</span></th>
-						<th scope="col"><span>TIPO DE SERVICIO</span></th>
-						<th scope="col"><span>NOMBRE DEL CLIENTE</span></th>
-						<th scope="col"><span>DISTRITO - DPTO</span></th>
-						<th scope="col"><span>FECHA PROGRAMACIÓN</span></th>
-						<th scope="col"><span>ASIGNAR</span></th>
+				<th scope="col" width="5%"><span>Sel</span></th>
+						<th scope="col" width="8%"><span>N° SOT</span></th>
+						<th scope="col" width="10%"><span>TIPO DE SERVICIO</span></th>
+						<th scope="col" width="30%"><span>NOMBRE DEL CLIENTE</span></th>
+						<th scope="col" width="30%"><span>DISTRITO - DPTO</span></th>
+						<th scope="col" width="20%"><span>FECHA PROGRAMACIÓN</span></th>
+						<th scope="col" width="10%"><span>ASIGNAR</span></th>
 					</tr>
 				</thead>
 				<?php if ( count($data['pendientes']) || count($data['programadas']) ) { ?>
