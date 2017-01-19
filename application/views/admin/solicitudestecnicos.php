@@ -22,7 +22,7 @@
 						</tr>
 						<tr>
 							<td>
-								<select id="dptoid">
+								<select id="dptoid" style="width: 200px">
 						<option value="0">-Seleccione-</option>
 						<?php foreach ($departamentos as $id => $departamento) { ?>
 						<option <?=(@$departamentoid==$id ? 'selected' : '')?> value=<?=$id?>><?=$departamento?></option>
