@@ -1,6 +1,19 @@
 			</div>
 			<script src="<?=base_url()?>js/departamentos.js"></script>
-
+			<script src="<?=base_url()?>js/portamento-min.js"></script>
+			<style type="text/css">
+				#portamento_container {
+					float:right;
+					position:relative;
+				}
+				#portamento_container #btn_asignacion {
+					float:none;
+					position:absolute;
+				}
+				#portamento_container #btn_asignacion.fixed {
+					position:fixed;
+				}
+			</style>
 			<h1> Soporte de Servicio</h1><br>
 			<fieldset class="search">
 				<legend></legend>
@@ -60,13 +73,10 @@
 						</tr>
 					</table>	
 
-					<input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>					
-					
-		<div >
-		 <input type="button" id="mult-asignacion" class="btnsearch" value="Asignar a:"/>						
-		</div> 
-				</form>
+					<input type="hidden" id="url" value="<?=base_url()?>index.php/solicitudes"/>												
+			</form>
 			</fieldset>								
+
 			<table class="table table-bordered table-striped">
 				<thead>
 					<tr>
@@ -119,7 +129,9 @@
 				<?php } ?>
 			</table>
 			<div style="width: 20px; float: left;" >
-		 <input type="button" id="mult-asignacion" class="btnsearch" value="Asignar a:"/>								
+		<div id="btn_asignacion">
+		 <input type="button" id="mult-asignacion" class="btnsearch" value="Asignar a:"/>	
+		</div>							
 		</div>
 	</div>
 </body>
