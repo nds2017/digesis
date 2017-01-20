@@ -155,7 +155,10 @@ class Encuestas extends CI_Controller {
 		date_default_timezone_set('America/Lima');
 		//date_default_timezone_set("GMT");
 		//date_default_timezone_set('UTC');
-		setlocale(LC_ALL,"es_ES");
+		//setlocale(LC_ALL,"es_ES");
+		$lenguage = 'es_ES.UTF-8';
+		putenv("LANG=$lenguage");
+		setlocale(LC_ALL, $lenguage);
 		if (isset($_GET['dni']) && (!empty($_GET['dni']))){
 			$resumen=$this->billetera_resumen($_GET['dni']);	
 			$detalle=$this->billetera_detalle($_GET['dni']);			
