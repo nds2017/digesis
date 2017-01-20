@@ -1272,6 +1272,7 @@ left: 950px;
    -webkit-border-radius: 7px; 
    border-radius: 7px;
    border: none;
-	width: 100%;
+    width: 100%;
 	float:left;
+	padding: 10px;
 }
