@@ -19,6 +19,7 @@
 					position:fixed;
 				}
 			</style>
+			
 			<h1> Soporte de Servicio</h1><br>
 			<fieldset class="search">
 				<legend></legend>
