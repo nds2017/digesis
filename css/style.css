@@ -1261,8 +1261,7 @@ left: 950px;
     /*background-color: #EBE9EA;
     border: 1px solid #D2D2D2;
     border-radius: 8px 8px 8px 8px;*/
-    float: left;
-    height: 2000px;
+    float: left; 
     margin-bottom: 10px;
     width: 78%;
 }
