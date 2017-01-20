@@ -84,7 +84,7 @@
 			</fieldset>								
 		<div id="central">
 			<div id="btn_asignacion">
-		<input type="button" id="mult-asignacion" class="circle" value=""/>	
+		<input type="button" id="mult-asignacion" class="circle" value="Asignar a:"/>	
 		</div>							
 			<table class="table table-bordered table-striped">
 				<thead>
