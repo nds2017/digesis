@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 
 	<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-	
+
 </head>
 <body>
 <?php $session = get_session(); ?>
@@ -53,8 +53,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<dd><a <?=($active=='supervisores')?'class="active"':''?>href="<?=base_url()?>index.php/supervisores/form"><i class="fa fa-ticket"></i> Crear Supervisor </a></dd>
 					<dd><a <?=($active=='tecnicos')?'class="active"':''?>href="<?=base_url()?>index.php/tecnicos/form"><i class="fa fa-ticket"></i> Crear Tecnico </a></dd>
 				<dt><a <?=($active=='reportes')?'class="active"':''?>href="#"><i class="fa fa-star"></i> Reportes </a></dt>
-					<dd><a <?=($active=='eficiencia')?'class="active"':''?>href="<?=base_url()?>index.php/reportes/eficiencia"><i class="fa fa-ticket"></i> Eficiencia </a></dd>
-					<dd><a <?=($active=='encuestas')?'class="active"':''?>href="<?=base_url()?>index.php/reportes/encuestas"><i class="fa fa-ticket"></i> Encuestas </a></dd>
+				<dd><a <?=($active=='encuestas')?'class="active"':''?>href="<?=base_url()?>index.php/reportes/encuestas"><i class="fa fa-ticket"></i> Encuestas </a></dd>
+					<dd><a <?=($active=='eficiencia')?'class="active"':''?>href="<?=base_url()?>index.php/reportes/eficiencia"><i class="fa fa-ticket"></i> Eficiencia </a></dd>					
 					<dd><a <?=($active=='rfotografico')?'class="active"':''?>href="<?=base_url()?>index.php/reportes/rfotografico"><i class="fa fa-ticket"></i> Registro F. </a></dd>
 					<dd><a <?=($active=='produccion')?'class="active"':''?>href="<?=base_url()?>index.php/reportes/produccion"><i class="fa fa-ticket"></i> Produccion </a></dd>
 				<?php } else if ( $session->rolid == 2 ) { ?>

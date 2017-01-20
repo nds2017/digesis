@@ -173,7 +173,7 @@ if (!empty($r_asistencia)):
     if ($value->asistencia==0)
         if ($value->descanso==0){
         $dia_semana = $this->dias[date('N', strtotime($fecha1))-1];        
-        $monto_desc_asistencia = $monto_desc_asistencia+$this->_ci->mpenalidades->getPenalidadesById(($dia_semana=='Domingo')? self::CODIGO_ASISTENCIA2 : self::CODIGO_ASISTENCIA1);   
+        $monto_desc_rfesc_asistencia = $monto_desc_asistencia+$this->_ci->mpenalidades->getPenalidadesById(($dia_semana=='Domingo')? self::CODIGO_ASISTENCIA2 : self::CODIGO_ASISTENCIA1);   
         }
 }
 endif;
