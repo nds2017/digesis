@@ -258,7 +258,9 @@ restore_error_handler();
                         $monto_desc_asistencia=0;                        
                         //$fecha= date('Y-m-d',$value->fecha);                        
                         $fecha= gmdate("Y-m-d", $value->fecha);
-                        if ($value->asistencia==0){
+
+                if ($value->asistencia==0)
+                        if ($value->descanso==0){
                             $dia_semana = $this->dias[date('N', strtotime($fecha))-1];                                                
                             $monto_desc_asistencia = $this->_ci->mpenalidades->getPenalidadesById(($dia_semana=='Domingo')? self::CODIGO_ASISTENCIA2 : self::CODIGO_ASISTENCIA1);   
                         }
