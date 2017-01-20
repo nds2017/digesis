@@ -238,9 +238,9 @@ restore_error_handler();
                 $tid = $datat->id; 
                 $r_asistencia=$this->_ci->masistencia->getAsistenciaByIdAndMonth($tid);
                 
-                echo '<pre>';
+             /*   echo '<pre>';
                     print_r($r_asistencia);
-                echo '</pre>';
+                echo '</pre>';*/
                 
                 if (!empty($r_asistencia)):
                       $cc=1;
