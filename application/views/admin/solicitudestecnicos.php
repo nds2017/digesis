@@ -19,7 +19,7 @@
 					position:fixed;
 				}
 			</style>
-			
+
 			<h1> Soporte de Servicio</h1><br>
 			<fieldset class="search">
 				<legend></legend>
@@ -84,7 +84,7 @@
 			</fieldset>								
 		<div id="central">
 			<div id="btn_asignacion">
-		 		<input type="button" id="mult-asignacion" class="circle" value="Asignar a:"/>	
+		<input type="button" id="mult-asignacion" class="circle" value=""/>	
 		</div>							
 			<table class="table table-bordered table-striped">
 				<thead>
