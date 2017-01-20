@@ -1266,9 +1266,7 @@ left: 950px;
     width: 78%;
 }
 
-.circle { 
-   width: 140px;
-   height: 140px;
+.circle {    
    background:#3655b9; 
    -moz-border-radius: 7px; 
    -webkit-border-radius: 7px; 
