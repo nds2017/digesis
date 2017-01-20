@@ -163,7 +163,7 @@ class Encuestas extends CI_Controller {
 		if (isset($_GET['dni']) && (!empty($_GET['dni']))){
 			$resumen=$this->billetera_resumen($_GET['dni']);	
 			$detalle=$this->billetera_detalle($_GET['dni']);			
-			echo $fecha=get_date_spanish(date('Y-m-d'));//strftime("%A %d de %B del %Y");
+			echo $fecha=get_date_spanish(time(),false,"%A %d de %B del %Y");//strftime("%A %d de %B del %Y");
 			$data['resumen'] = $resumen;
 			$data['detalle'] = $detalle;
 			$data['fecha'] = $fecha;			
