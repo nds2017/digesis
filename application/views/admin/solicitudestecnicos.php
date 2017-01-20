@@ -139,6 +139,7 @@
 			<div style="width: 20px; float: left;" >		 
 		</div>
 		</div>
+		</div>
 	</div>
 </body>
 </html>
