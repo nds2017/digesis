@@ -3,7 +3,7 @@
 			<script src="<?=base_url()?>js/portamento-min.js"></script>
 			<script type="text/javascript">
 			$(function() {	
-				$('#btn_asignacion').portamento({gap: 80});
+				$('#btn_asignacion').portamento({gap: 180});
 			});
 			</script>
 			<style type="text/css">
