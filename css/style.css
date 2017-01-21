@@ -1149,7 +1149,7 @@ header h1{ font-size: 15px;}
 		left: 10px;
 		font-size: 15px;}
 
-.right-content{ overflow: auto; background: #f1f1f1; padding: 15px; height: 100%;}
+.right-content{ overflow:hidden; background: #f1f1f1; padding: 15px; height: 100%;}
 .list-mod-panel{ margin-bottom: 20px; width: 100%}
 .list-mod-panel > h2{ display: inline-block; font-size: 14px;  padding: 5px 8px; background: #00008B; border-radius: 3px; color: #fff;}
 .list-mod-panel > h2 a{color: #fff;}
