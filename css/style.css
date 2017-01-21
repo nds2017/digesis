@@ -1263,7 +1263,7 @@ left: 950px;
     border-radius: 8px 8px 8px 8px;*/
     float: left; 
     margin-bottom: 10px;
-    width: 72%;
+    width: 100%;
 }
 
 .circle {    
@@ -1277,3 +1277,16 @@ left: 950px;
 	padding: 10px;
 	color: #ffffff;
 }
+
+@media screen and (max-width: 1300px) {
+
+#central {
+    /*background-color: #EBE9EA;
+    border: 1px solid #D2D2D2;
+    border-radius: 8px 8px 8px 8px;*/
+    float: left; 
+    margin-bottom: 10px;
+    width: 72%;
+}
+
+	}
