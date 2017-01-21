@@ -25,19 +25,19 @@
 			<br>
 
 			<div class="row">
-			  <div class="col-xs-3">
+			  <div class="col-xs-2">
 			    <input type="text" class="form-control" placeholder=".col-xs-3">
 			  </div>
-			  <div class="col-xs-3">
+			  <div class="col-xs-2">
 			    <input type="text" class="form-control" placeholder=".col-xs-4">
 			  </div>
-			  <div class="col-xs-3">
+			  <div class="col-xs-2">
 			    <input type="text" class="form-control" placeholder=".col-xs-5">
 			  </div>
-			  <div class="col-xs-3">
+			  <div class="col-xs-2">
 			    <input type="text" class="form-control" placeholder=".col-xs-5">
 			  </div>
-			  <div class="col-xs-3">
+			  <div class="col-xs-2">
 			  <input type="submit" value="Agregar" class="btn"></input>
 			  </div>
 
