@@ -42,27 +42,23 @@ foreach ($fields as $field)
 			<br>
 			<table class="table table-striped table-bordered" id="myTable">
 				<thead>
-					<tr>
-						<th scope="col"><span>N°</span></th>
-						<th scope="col"><span>N° SOT</span></th>
-						<th scope="col"><span>TIPO SERVICIO</span></th>
-						<th scope="col"><span>NOMBRE CLIENTE</span></th>
-						<th scope="col"><span>DISTRITO - DPTO</span></th>
-						<th scope="col"><span>PLANO</span></th>
-						<th scope="col"><span>FECHA PROGRAMACIÓN</span></th>
-					</tr>
-				</thead>
-				<?php if ( @$data ) { ?>
-				<tbody>
-				<?php foreach ( $data as $i => $row ) { ?>
 				<tr>
-					<td><strong><?=$i+1?></strong></td>
-					<td><strong><?=$row->id?></strong></td>
-					<td><strong><?=$row->tsnombre?></strong></td>
-					<td><strong><?=$row->cliente?></strong></td>
-					<td><strong><?=$row->distrito . ' - ' . $row->dpto?></strong></td>
-					<td><strong><?=$row->plano?></strong></td>
-					<td><strong><?=date('d-m-Y', $row->fecha_instalacion)?></strong></td>
+					<th scope="col"><span>N°</span></th>			
+					<th scope="col"><span>Servicio a ejecutar</span></th>
+					<th scope="col"><span>Categoria</span></th>
+					<th scope="col"><span>Motivos de solucion</span></th>
+					<th scope="col"><span>Fotos</span></th>
+				</tr>
+				</thead>
+				<?php if ( @$servicios ) { ?>
+				<tbody>
+				<?php foreach (@$servicios as $i => $row ) { ?>
+				<tr>
+					<td><strong><?=$row->id ?></strong></td>
+					<td><strong><?=$row->descripcion ?></strong></td>
+					<td><strong><?=$row->categoria ?></strong></td>
+					<td><strong><?=$row->motivos ?></strong></td>
+					<td><strong><?=$row->fotos ?></strong></td>
 				</tr>
 				<?php } ?>
 				</tbody>

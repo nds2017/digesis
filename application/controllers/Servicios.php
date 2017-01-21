@@ -17,6 +17,8 @@ class Servicios extends CI_Controller {
 	 	$this->load->library('excel');
 	 	securityAccess(array(1));
 	 	$data['header'] = $this->load->view('admin/menu/header', array('active' => 'solicitudesload' ));
+
+	 	$r_servicios=$this->mservicios->get();
 		   		
 		if ($this->input->server('REQUEST_METHOD') == 'POST'):
 			$this->mservicios->delete();	
@@ -44,6 +46,7 @@ class Servicios extends CI_Controller {
 	}
 }
    		endif;
+   		$data['servicios']=$r_servicios;
 	 	$this->load->view('admin/carga-servicios',$data);
 	 }
 
