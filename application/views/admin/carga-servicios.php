@@ -34,8 +34,11 @@
 			  <div class="col-xs-5">
 			    <input type="text" class="form-control" placeholder=".col-xs-5">
 			  </div>
+			  <div class="col-xs-6">
+			    <input type="text" class="form-control" placeholder=".col-xs-5">
+			  </div>
 			</div>
-			
+
 			<table class="table table-striped table-bordered" id="myTable">
 				<thead>
 				<tr>
