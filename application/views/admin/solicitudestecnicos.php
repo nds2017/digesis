@@ -89,7 +89,9 @@
 			<table class="table table-bordered table-striped">
 				<thead>
 					<tr>
-				<th scope="col" width="5%"><span>Sel</span></th>
+				<th scope="col" width="5%"><span>Sel</span>
+					<input type="checkbox" id="select_all"/>
+				</th>
 						<th scope="col" width="8%"><span>N° SOT</span></th>
 						<th scope="col" width="10%"><span>TIPO DE SERVICIO</span></th>
 						<th scope="col" width="30%"><span>NOMBRE DEL CLIENTE</span></th>
