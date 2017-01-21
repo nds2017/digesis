@@ -30,9 +30,6 @@ class Servicios extends CI_Controller {
 		       	$sheetData = $obj_excel->getActiveSheet()->toArray(null,true,true,true);
 		       	$arr_datos = array();
 		       	foreach ($sheetData as $index => $value) {  
-		       		
-		       		echo  $value['B'];
-		       		echo '<br/>';
 
 					if ( $index != 2 ){
 			            $arr_datos = array(
@@ -41,6 +38,8 @@ class Servicios extends CI_Controller {
 			                    'motivos'  =>  $value['D'],            
 			                    'fotos'  =>  $value['BD']
 			            ); 
+			            
+			            print_r($arr_datos);
 
 				foreach ($arr_datos as $llave => $valor) {
 					$arr_datos[$llave] = $valor;
