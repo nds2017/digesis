@@ -180,12 +180,8 @@ $(document).ready(function() {
 	});
 
 
- $('.checkall').change(function() {
-    var checkboxes = $(this).closest('table').find('td').find(':checkbox');
-    if($(this).is(':checked')) {
-        checkboxes.attr('checked', 'checked');
-    } else {
-        checkboxes.removeAttr('checked');
-    }
+$("#select_all").change(function () {
+    $("input:checkbox").prop('checked', $(this).prop("checked"));
 });
+
 })
