@@ -24,8 +24,7 @@ class Servicios extends CI_Controller {
 			$r_servicios=$this->mservicios->get();
 			$data['servicios']=$r_servicios;
 	 		$this->load->view('admin/carga-servicios',$data);
-		else:
-		if ($this->input->server('REQUEST_METHOD') == 'POST'):
+		else if ($this->input->server('REQUEST_METHOD') == 'POST'):
 			$this->mservicios->delete();	
 			$file = $_FILES['file']['tmp_name'];
 			$type = $_FILES['file']['type'];
@@ -49,8 +48,9 @@ class Servicios extends CI_Controller {
 				$this->mservicios->insert($arr_datos);	
             } 	
 }
-   		endif;   		
    		redirect('servicios');
+   		endif;   		
+   		
 	 }
 
 
