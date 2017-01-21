@@ -1111,7 +1111,7 @@ header {
 }
 
 header h1{ font-size: 15px;}
-#container{ height: 100%;}
+#container{ height: 100%;position: absolute;}
 .right-list-admin{ float: left; background: #23282d; height: 100%; width: 200px; color: #fff; padding: 10px 0; }
 .right-list-admin .list-menu > li{ margin: 0; padding: 0;}
 .right-list-admin .list-menu > li > a{ color: #eee;  font-size: 13px;
