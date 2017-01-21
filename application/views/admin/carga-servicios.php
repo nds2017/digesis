@@ -28,16 +28,16 @@
 			  <div class="col-xs-3">
 			    <input type="text" class="form-control" placeholder=".col-xs-3">
 			  </div>
-			  <div class="col-xs-4">
+			  <div class="col-xs-3">
 			    <input type="text" class="form-control" placeholder=".col-xs-4">
 			  </div>
-			  <div class="col-xs-5">
+			  <div class="col-xs-3">
 			    <input type="text" class="form-control" placeholder=".col-xs-5">
 			  </div>
-			  <div class="col-xs-6">
+			  <div class="col-xs-3">
 			    <input type="text" class="form-control" placeholder=".col-xs-5">
 			  </div>
-			  <div class="col-xs-6">
+			  <div class="col-xs-3">
 			  <input type="submit" value="Agregar" class="btn"></input>
 			  </div>
 
