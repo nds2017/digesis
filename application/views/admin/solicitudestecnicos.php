@@ -137,7 +137,7 @@
 				<h2 style="color: blue"> SOLICITUD NO ENCONTRADA </h2>
 				<?php } ?>
 			</table>
-			<div style="width: 20px; float: left;" >		 
+			<div style="clear: both;"></div>
 		</div>
 		</div>
 		</div>
