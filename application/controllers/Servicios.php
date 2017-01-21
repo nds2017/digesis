@@ -23,9 +23,8 @@ class Servicios extends CI_Controller {
 		if ($this->input->server('REQUEST_METHOD') == 'POST'):
 			$this->mservicios->delete();	
 			$file = $_FILES['file']['tmp_name'];
-			$type = $_FILES['file']['type'];
-			if ( !empty($file) && ( $type == 'application/vnd.ms-excel' ) ) {
-
+			echo $type = $_FILES['file']['type'];
+			
 		 		$obj_excel = PHPExcel_IOFactory::load($file);    
 		       	$sheetData = $obj_excel->getActiveSheet()->toArray(null,true,true,true);
 		       	$arr_datos = array();
@@ -49,8 +48,7 @@ class Servicios extends CI_Controller {
 				}
 
 				$this->mservicios->insert($arr_datos);	
-            } 
-	}
+            } 	
 }
    		endif;
    		$data['servicios']=$r_servicios;
