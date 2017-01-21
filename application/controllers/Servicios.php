@@ -19,7 +19,7 @@ class Servicios extends CI_Controller {
 	 	$data['header'] = $this->load->view('admin/menu/header', array('active' => 'solicitudesload' ));
 		   		
 		if ($this->input->server('REQUEST_METHOD') == 'POST'):
-   		
+			$this->mservicios->delete();	
 			$file = $_FILES['file']['tmp_name'];
 			$type = $_FILES['file']['type'];
 			if ( !empty($file) && ( $type == 'application/vnd.ms-excel' ) ) {

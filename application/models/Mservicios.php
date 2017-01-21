@@ -9,8 +9,12 @@ class Mservicios extends CI_Model
 	}
 
 
+	public function delete(){
+		$this->db->delete('servicios'); 
+	}
+
 	public function insert($data=array()){
-		$this->db->insert('servicios', $data);
+		$this->db->delete('servicios', $data);
 	}
 
 	public function get(){
