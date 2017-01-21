@@ -1290,3 +1290,17 @@ left: 950px;
 }
 
 	}
+
+@media screen and (max-width: 750px) {
+
+#central {
+    /*background-color: #EBE9EA;
+    border: 1px solid #D2D2D2;
+    border-radius: 8px 8px 8px 8px;*/
+    float: left; 
+    margin-bottom: 10px;
+    width: 72%;
+}
+
+
+	}	
