@@ -23,6 +23,19 @@
 			</form>					
 			<hr style="border: 1px blue solid">			
 			<br>
+
+			<div class="row">
+			  <div class="col-xs-3">
+			    <input type="text" class="form-control" placeholder=".col-xs-3">
+			  </div>
+			  <div class="col-xs-4">
+			    <input type="text" class="form-control" placeholder=".col-xs-4">
+			  </div>
+			  <div class="col-xs-5">
+			    <input type="text" class="form-control" placeholder=".col-xs-5">
+			  </div>
+			</div>
+			
 			<table class="table table-striped table-bordered" id="myTable">
 				<thead>
 				<tr>
