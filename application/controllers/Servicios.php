@@ -18,8 +18,13 @@ class Servicios extends CI_Controller {
 	 	securityAccess(array(1));
 	 	$data['header'] = $this->load->view('admin/menu/header', array('active' => 'solicitudesload' ));
 
-	 	$r_servicios=$this->mservicios->get();
-		   		
+	 	
+		
+		if ($this->input->server('REQUEST_METHOD') == 'GET'):
+			$r_servicios=$this->mservicios->get();
+			$data['servicios']=$r_servicios;
+	 		$this->load->view('admin/carga-servicios',$data);
+		else:
 		if ($this->input->server('REQUEST_METHOD') == 'POST'):
 			$this->mservicios->delete();	
 			$file = $_FILES['file']['tmp_name'];
@@ -44,9 +49,8 @@ class Servicios extends CI_Controller {
 				$this->mservicios->insert($arr_datos);	
             } 	
 }
-   		endif;
-   		$data['servicios']=$r_servicios;
-	 	$this->load->view('admin/carga-servicios',$data);
+   		endif;   		
+   		redirect('servicios');
 	 }
 
 

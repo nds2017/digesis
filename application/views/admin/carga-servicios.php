@@ -21,24 +21,7 @@
 			<br><br>
 			<?php if ( @$error ) echo $error; ?>
 			</form>					
-			<hr style="border: 1px blue solid">
-			<?php
-				if ( !@$error && @$_POST['carga'] )
-					echo '<em>' . $info->filas . ' Registros Procesados <br>' . $info->add . ' Registros Agregados <br>' . $info->update . ' Registros Actualizados</em><hr>';
-			?>
-
-			
-			<?php
-				//$this->db->query("ALTER TABLE `solicitudes` ADD `hora` VARCHAR(5) NOT NULL DEFAULT '00:00' AFTER `horario`;");
-
-			/*$fields = $this->db->list_fields('solicitudesprogramadas');
-foreach ($fields as $field)
-{
-   echo $field . '<br>';
-}
-				$query = $this->db->query("SELECT * FROM solicitudesprogramadas");
-				print_r($query->result());*/
-			?>
+			<hr style="border: 1px blue solid">			
 			<br>
 			<table class="table table-striped table-bordered" id="myTable">
 				<thead>
