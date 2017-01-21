@@ -180,12 +180,12 @@ $(document).ready(function() {
 	});
 
 
- $('#select_all').change(function(){
-        var checkboxes = $(this).closest('form').find(':checkbox');
-        if($(this).prop('checked')) {
-          checkboxes.prop('checked', true);
-        } else {
-          checkboxes.prop('checked', false);
-        }
-    });
+ $('.checkall').change(function() {
+    var checkboxes = $(this).closest('table').find('td').find(':checkbox');
+    if($(this).is(':checked')) {
+        checkboxes.attr('checked', 'checked');
+    } else {
+        checkboxes.removeAttr('checked');
+    }
+});
 })
