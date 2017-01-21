@@ -14,7 +14,8 @@ class Mservicios extends CI_Model
 	}
 
 	public function insert($data=array()){
-		$this->db->delete('servicios', $data);
+			
+		$this->db->insert('servicios', $data);
 	}
 
 	public function get(){
