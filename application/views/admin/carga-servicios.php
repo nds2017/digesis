@@ -24,7 +24,7 @@
 			<hr style="border: 1px blue solid">			
 			<br>
 
-			<div class="row">
+			<div class="row" style="border: solid 1px #333">
 			  <div class="col-xs-2">
 			    <input type="text" class="form-control" placeholder=".col-xs-3">
 			  </div>
