@@ -31,6 +31,9 @@ class Servicios extends CI_Controller {
 		       	$arr_datos = array();
 		       	foreach ($sheetData as $index => $value) {  
 
+				echo '<pre>';
+				print_r($value);
+				echo '</pre>';
 					if ( $index != 2 ){
 			            $arr_datos = array(
 			                    'descripcion'  => $value['B'], 
@@ -38,7 +41,7 @@ class Servicios extends CI_Controller {
 			                    'motivos'  =>  $value['D'],            
 			                    'fotos'  =>  $value['BD']
 			            ); 
-			            
+
 			            print_r($arr_datos);
 
 				foreach ($arr_datos as $llave => $valor) {
