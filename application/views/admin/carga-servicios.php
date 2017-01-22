@@ -68,8 +68,7 @@
 			<hr style="border: 1px blue solid">			
 			<br>
 
-
-<div id="msg_asignacion" class="msgimportante hidden">Debe completar los datos</div>
+<div id="msg_asignacion" style="width: 100%" class="msgimportante hidden">Debe completar los datos</div>
 
 		<div class="row" style="border: solid 1px #b3b3b3;margin-left: 10px; margin-right: 10px;padding-top:10px; margin-bottom: 15px;">
 			  <div class="col-xs-2">
