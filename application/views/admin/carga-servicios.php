@@ -22,12 +22,12 @@
 			    } );
 
 			$("input#btn_agregar").on( "click", function() {
-				alert('ss');
-      			var servicio = $('#txt_servicio').val();
-      			var categoria = $('#txt_categoria').val();
-      			var motivos = $('#txt_motivos').val();
-      			var fotos = $('#txt_fotos').val();
-
+				
+      			var servicio = $('input#txt_servicio').val();
+      			var categoria = $('input#txt_categoria').val();
+      			var motivos = $('input#txt_motivos').val();
+      			var fotos = $('input#txt_fotos').val();
+			if (servicio!="" && categoria!=""){
       			$.ajax({      				
 	data: { servicio : servicio,categoria:categoria,motivos:motivos,fotos:fotos},
 				url:   '/index.php/servicios/add',
@@ -38,9 +38,17 @@
 					console.log(r);
 				  }
 				});
+      		}else{
+
+				$("#msg_asignacion").fadeOut();
+				$("#msg_asignacion").removeClass('hidden');			
+				setTimeout(function() {
+				$("#msg_asignacion").fadeIn();
+    			$("#msg_asignacion").addClass('hidden');    			
+				}, 3000);
+      		}
 
   			});
-
 
 		});
 
@@ -59,6 +67,9 @@
 			</form>					
 			<hr style="border: 1px blue solid">			
 			<br>
+
+
+<div id="msg_asignacion" class="msgimportante hidden">Debe completar los datos</div>
 
 		<div class="row" style="border: solid 1px #b3b3b3;margin-left: 10px; margin-right: 10px;padding-top:10px; margin-bottom: 15px;">
 			  <div class="col-xs-2">
