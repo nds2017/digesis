@@ -43,7 +43,7 @@
     			$("#msg_asignacion").addClass('hidden');    						  
 				});      		
 
-  				};
+  				}
   			});
 
   			}else{
