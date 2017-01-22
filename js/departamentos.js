@@ -199,9 +199,10 @@ $("#tiposervicioid").change(function() {
 				},
 				success:  function (r) {					
 					trabajo.find('option').remove();
-					//$(r).each(function(i, v) {
-					//	trabajo.append('<option value="' + v.id + '">' + v.descripcion + '</option>');
-					//})					
+					$(r).each(function(i, v) {
+						console.log('xxxxx');
+						//trabajo.append('<option value="' + v.id + '">' + v.descripcion + '</option>');
+					})					
 				}
 			});
 
