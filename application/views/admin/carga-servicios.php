@@ -21,11 +21,17 @@
 			        table.row('.selected').remove().draw( false );
 			    } );
 
-
-
 		$('#myTable tr td').on( 'click', 'a.serv_delete', function () {
 			var id=$(this).attr('data-id');
- 			$(this).parent().parent().parent().fadeTo(800, 0, function () {       $(this).remove(); });
+			$.ajax({      				
+				data: {id : id},
+				url:   '/index.php/servicios/delete',
+				type:  'POST',
+				dataType: 'json',				
+				success:  function (r) {
+					$(this).parent().parent().parent().fadeTo(800, 0, function () {       $(this).remove(); });
+  				}
+  			}); 			
 		});
 
 			$("input#btn_agregar").on( "click", function() {
