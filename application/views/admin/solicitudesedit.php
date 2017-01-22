@@ -82,6 +82,10 @@ $(document).ready(function() {
 					<td>
 						<select required name="tipotrabajoid">
 							<option value="">-Seleccione-</option>
+							<?php 
+								print_r($tipotrabajos);
+							?>
+
 							<?php foreach ( $tipotrabajos as $key => $tipotrabajo ) { ?>
 								<option <?=(@$data->tipotrabajoid==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tipotrabajo?></option>
 							<?php } ?>
