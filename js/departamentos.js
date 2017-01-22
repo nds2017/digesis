@@ -205,7 +205,7 @@ $("#tiposervicioid").change(function() {
 					})					
 				}
 			});
-}
-});
+
+ });
 
 })
