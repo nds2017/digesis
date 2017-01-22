@@ -24,8 +24,8 @@
 		$('#myTable tr td').on( 'click', 'a.serv_delete', function () {
 			var id=$(this).attr('data-id');
 			var me=$(this);
-			$(me).parent().parent().parent().fadeTo(800, 0, function () {       $(me).remove(); });
-			
+			$(me).parent().parent().parent().fadeTo(800, 0, function () {       $(this).remove(); });
+
 			$.ajax({      				
 				data: {id : id},
 				url:   '/index.php/servicios/delete',
