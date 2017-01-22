@@ -580,6 +580,7 @@ class Solicitudes extends CI_Controller {
 
 
 public function get_tipo_trabajo($id=null){
+	$id=$this->input->get('id');
 	$r=$this->mservicios->getByCategoria($id);
 	echo json_encode($r);
 exit();
