@@ -103,7 +103,7 @@
 					<option>Categoria</option>
 					<?php foreach($categorias as $key=>$row){ ?>
 					<option value="<?php echo trim($row->id) ?>">
-					<?php echo $row->nombre ?></option>
+					<?php echo trim($row->nombre) ?></option>
 					<?php } ?>
 				</select>
 			 <!--<input type="text" class="form-control" id="txt_categoria" placeholder="categoria">-->
