@@ -72,7 +72,7 @@ class Solicitudes extends CI_Controller {
 			if ( $this->msolicitudes->solicitudes_validate($id) ) {
 				$data['data'] = $this->msolicitudes->solicitudes_byID($id);
 
-				var_dump($data['data'][0]->id);
+				var_dump($data['data']->id);
 				exit();
 		$categoria=null;
 
