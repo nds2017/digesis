@@ -71,18 +71,16 @@ class Solicitudes extends CI_Controller {
 			securityAccess(array(1));
 			if ( $this->msolicitudes->solicitudes_validate($id) ) {
 				$data['data'] = $this->msolicitudes->solicitudes_byID($id);
-
-				var_dump($data['data']->id);
-				exit();
+				
 		$categoria=null;
 
-	if ($data['data']['tiposervicioid']==self::SERVICIO_INSTALACIONES)
+	if ($data['data']->tiposervicioid==self::SERVICIO_INSTALACIONES)
 		$categoria="instalaciones";
 
-	if ($data['data']['tiposervicioid']==self::SERVICIO_MANTENIMIENTO)
+	if ($data['data']->tiposervicioid==self::SERVICIO_MANTENIMIENTO)
 		$categoria='mantenimiento';
 
-	if ($data['data']['tiposervicioid']==self::SERVICIO_POST_VENTA)
+	if ($data['data']->tiposervicioid==self::SERVICIO_POST_VENTA)
 		$categoria='post instalacion';
 
 				$data['tipotrabajos']=$this->mservicios->getByCategoria($categoria);
