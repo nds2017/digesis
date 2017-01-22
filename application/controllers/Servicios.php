@@ -64,8 +64,9 @@ public function add(){
 		); 						
 		$this->mservicios->insert($arr_datos);	
 		echo json_encode(array('msg'=>'ok','code'=>200));
-	}
-	echo json_encode(array('msg'=>'faild','code'=>-1));
+	}else
+		echo json_encode(array('msg'=>'faild','code'=>-1));
+exit;		
 }
 
 
