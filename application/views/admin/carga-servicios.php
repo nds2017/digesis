@@ -34,7 +34,7 @@
 				type:  'POST',
 				dataType: 'json',				
 				success:  function (r) {
-				$("#msg_asignacion").html('Registro Servicios correcto');	
+				$("#msg_asignacion").html('Registro servicios correcto');	
 				$("#msg_asignacion").fadeOut();
 				$("#msg_asignacion").removeClass('hidden');			
 
@@ -77,8 +77,9 @@
 			<br>
 
 <div id="msg_asignacion" style="width: 100%" class="msgimportante hidden">Debe completar los datos</div>
-
-		<div class="row" style="border: solid 1px #b3b3b3;margin-left: 10px; margin-right: 10px;padding-top:10px; margin-bottom: 15px;">
+		<fieldset class="row" style="border: solid 1px #b3b3b3;margin-left: 10px; margin-right: 10px;padding-top:10px; margin-bottom: 15px;">
+		<legend>Agregar Servicio</legend>
+		<!--<div class="row" style="border: solid 1px #b3b3b3;margin-left: 10px; margin-right: 10px;padding-top:10px; margin-bottom: 15px;">-->
 			  <div class="col-xs-2">
 			    <input type="text" id="txt_servicio" class="form-control" placeholder="servicio">
 			  </div>
@@ -95,7 +96,8 @@
 
 		<input type="button" id="btn_agregar" value="Agregar" class="btn"></input>
 
-			  </div>
+		</fieldset>
+			  <!--</div>-->
 
 			</div>
 
