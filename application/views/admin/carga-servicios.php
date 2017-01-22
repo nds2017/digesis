@@ -117,7 +117,7 @@
 			<table class="table table-striped table-bordered" id="myTable">
 				<thead>
 				<tr>
-					<th scope="col"><span>N</span></th>			
+					<th scope="col"><span>#</span></th>			
 					<th scope="col"><span>Servicio a ejecutar</span></th>
 					<th scope="col"><span>Categoria</span></th>
 					<th scope="col"><span>Motivos de solucion</span></th>
