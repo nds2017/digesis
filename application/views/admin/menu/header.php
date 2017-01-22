@@ -22,6 +22,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">
 	
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">
+	
 	<script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 
 
