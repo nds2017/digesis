@@ -13,10 +13,12 @@ class Mservicios extends CI_Model
 		$this->db->query("delete from servicios");
 	}
 
-	public function delete_row($id=null){		
-		$this->db->delete('servicios',array('id',$id));	
-		echo $this->db->last_query();
-		return 1;
+	public function delete_row($id=null){
+
+	  $this->db->where('id', $id);
+      $this->db->delete('servicios'); 
+	  echo $this->db->last_query();
+	  return 1;
 	}
 	public function insert($data=array()){
 			
