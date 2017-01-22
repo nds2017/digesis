@@ -93,13 +93,11 @@
 			    <input type="text" class="form-control" id="txt_fotos" placeholder="fotos">
 			  </div>
 			  <div class="col-xs-2">
-
-		<input type="button" id="btn_agregar" value="Agregar" class="btn"></input>
+				<input type="button" id="btn_agregar" value="Agregar" class="btn"></input>
+			  </div>
 
 		</fieldset>
-			  <!--</div>-->
-
-			</div>
+			  <!--</div>-->			
 
 			<table class="table table-striped table-bordered" id="myTable">
 				<thead>
