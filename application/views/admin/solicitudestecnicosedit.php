@@ -26,6 +26,29 @@
 				<tr>
 					<td>Hora : </td><td><input type="text" name="hora" maxlength="5" value="<?=@$data->hora?>"></td>
 				</tr>
+				<tr>
+					<td>Tipo de Servicio : </td>
+					<td>
+						<select required name="tiposervicioid" id="tiposervicioid">
+							<option value="">-Seleccione-</option>
+							<?php foreach ( $tiposervicios as $key => $tiposervicio ) { ?>
+								<option <?=(@$data->tiposervicioid==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tiposervicio?></option>
+							<?php } ?>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Tipo de Trabajo : </td>
+					<td>
+			<select required name="tipotrabajoid" id="tipotrabajoid">
+							<option value="">-Seleccione-</option>							
+							<?php foreach ( $tipotrabajos as $key => $tipotrabajo ) { ?>
+								<option <?=(@$data->tipotrabajoid==$tipotrabajo->id ? 'selected' : '')?>  value="<?=$tipotrabajo->id?>"><?=$tipotrabajo->descripcion?></option>
+							<?php } ?>
+						</select>
+					</td>
+				</tr>
+
 			</table>
 			<fieldset class="fieldform">
 				<legend><b>Personal</b></legend>
