@@ -41,7 +41,7 @@ class Mservicios extends CI_Model
 	$this->db->from('servicios s');	
 	$this->db->where('categoria',$categoria);
 	$query = $this->db->get();
-	echo $this->db->last_query();
+	//echo $this->db->last_query();
 	$rows=array();
 	if( $query->num_rows() > 0 ) {
 		foreach ($query->result() as $key => $row ) {

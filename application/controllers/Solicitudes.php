@@ -73,7 +73,6 @@ class Solicitudes extends CI_Controller {
 				$data['data'] = $this->msolicitudes->solicitudes_byID($id);
 				
 		$categoria=null;
-
 	if ($data['data']->tiposervicioid==self::SERVICIO_INSTALACIONES)
 		$categoria="instalacion";
 

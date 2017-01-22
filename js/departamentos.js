@@ -188,9 +188,9 @@ $("#select_all").change(function () {
 
 $("#tiposervicioid").change(function() {		
 
-		var servicio= $(this).val();
+		var servicio= $('#tiposervicioid').val();
 		var trabajo = $('#tipotrabajoid');
-
+			alert(servicio);
 			$.ajax({
 				data: { id : servicio },
 				url:   '/index.php/solicitudes/get_tipo_trabajo',
