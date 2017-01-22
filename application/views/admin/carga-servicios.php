@@ -99,8 +99,19 @@
 			    <input type="text" id="txt_servicio" class="form-control" placeholder="servicio">
 			  </div>
 			  <div class="col-xs-2">
-			    <input type="text" class="form-control" id="txt_categoria" placeholder="categoria">
+				<select id="txt_categoria" placeholder="categoria">
+					<option>Categoria</option>
+					<?php foreach($categorias $key=>$row){ ?>
+					<option value="<?php echo $row->id ?>">
+					<?php echo $row->nombre ?></option>
+					<?php } ?>
+				</select>
+			 <!--<input type="text" class="form-control" id="txt_categoria" placeholder="categoria">-->
+
+
+
 			  </div>
+
 			  <div class="col-xs-2">
 			    <input type="text" id="txt_motivos" class="form-control" placeholder="motivos">
 			  </div>

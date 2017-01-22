@@ -24,6 +24,9 @@ class Servicios extends CI_Controller {
 	 	
 		
 		if ($this->input->server('REQUEST_METHOD') == 'GET'){
+
+			$r_categoria=$this->mservicios->get_tipo_servicios();
+			$data['categorias']=$r_categoria;
 			$r_servicios=$this->mservicios->get();
 			$data['servicios']=$r_servicios;
 	 		$this->load->view('admin/carga-servicios',$data);
