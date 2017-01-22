@@ -33,7 +33,7 @@ class Mservicios extends CI_Model
 
 	public function getByCategoria($categoria=null){
 
-	$this->db->select('s.id,s.categora');
+	$this->db->select('s.id,s.categoria');
 	$this->db->from('servicios s');	
 	$this->db->where('categoria',$categoria);
 	$query = $this->db->get();
