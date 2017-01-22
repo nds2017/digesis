@@ -99,7 +99,7 @@
 			    <input type="text" id="txt_servicio" class="form-control" placeholder="servicio">
 			  </div>
 			  <div class="col-xs-2">
-				<select id="txt_categoria" placeholder="categoria">
+				<select style="width: 100px" id="txt_categoria" placeholder="categoria">
 					<option>Categoria</option>
 					<?php foreach($categorias as $key=>$row){ ?>
 <option value="<?php echo trim($row->id) ?>">
