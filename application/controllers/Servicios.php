@@ -55,8 +55,9 @@ class Servicios extends CI_Controller {
 
 public function add(){
 	$request=$this->input->post();	
+	print_r($request);
 	if (!empty($request)) {
-		$obj=json_decode($request);
+		$obj=json_encode($request);
 		$arr_datos = array(
 			'descripcion'  =>$obj->servicio,
 			'categoria' => $obj->categoria,
