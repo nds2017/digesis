@@ -54,13 +54,13 @@ class Servicios extends CI_Controller {
 	 }
 
 public function delete(){
-	$id=$this->input->post('id');		
+	echo $id=$this->input->post('id');		
 	if (!empty($id)){
-		$r=$this->mservicios->delete_row($id);	
+		echo $r=$this->mservicios->delete_row($id);	
 		if ($r)
 			echo json_encode(array('code'=>200));
 		else
-			echo json_encode(array('code'=>-1));
+			echo json_encode(array('code'=>$r));
 		exit();
 	}
 }
