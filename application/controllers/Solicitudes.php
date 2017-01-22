@@ -579,10 +579,22 @@ class Solicitudes extends CI_Controller {
 	}
 
 
-public function get_tipo_trabajo($id=null){
+public function get_tipo_trabajo($id=null)
+{
 	$id=$this->input->get('id');
-	$r=$this->mservicios->getByCategoria($id);
+
+	if ($id==self::SERVICIO_INSTALACIONES)
+		$categoria="instalaciones";
+
+	if ($id==self::SERVICIO_MANTENIMIENTO)
+		$categoria='mantenimiento';
+
+	if ($id==self::SERVICIO_POST_VENTA)
+		$categoria='post instalacion';
+
+
+	$r=$this->mservicios->getByCategoria($categoria);
 	echo json_encode($r);
-exit();
+	exit();
 }	
 }
