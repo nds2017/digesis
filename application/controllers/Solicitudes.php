@@ -591,7 +591,7 @@ public function get_tipo_trabajo($id=null)
 	if ($id==self::SERVICIO_POST_VENTA)
 		$categoria='post instalacion';
 
-
+	echo $categoria;
 	$r=$this->mservicios->getByCategoria($categoria);
 	echo json_encode($r);
 	exit();
