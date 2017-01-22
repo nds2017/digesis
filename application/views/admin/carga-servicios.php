@@ -23,9 +23,9 @@
 
 
 
-		$('#myTable tbody tr td a.serv_delete').on( 'click', 'tr', function () {
+		$('#myTable tr td').on( 'click', 'a.serv_delete', function () {
 			alert('ok');
-		})
+		});
 
 			$("input#btn_agregar").on( "click", function() {
 				
