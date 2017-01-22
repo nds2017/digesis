@@ -20,7 +20,7 @@
 			    $('#button').click( function () {
 			        table.row('.selected').remove().draw( false );
 			    } );
-    		
+
 		});
 
 			</script>
@@ -58,7 +58,7 @@
 
 			</div>
 
-			<table class="table table-striped table-bordered" id="myTable">
+			<table class="table table-striped table-bordered display" id="myTable">
 				<thead>
 				<tr>
 					<th scope="col"><span>N°</span></th>			
