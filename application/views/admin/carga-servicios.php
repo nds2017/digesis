@@ -66,6 +66,7 @@
 					<th scope="col"><span>Categoria</span></th>
 					<th scope="col"><span>Motivos de solucion</span></th>
 					<th scope="col"><span>Fotos</span></th>
+					<th scope="col"><span>Accion</span></th>
 				</tr>
 				</thead>
 				<?php if ( @$servicios ) { ?>
@@ -77,6 +78,7 @@
 					<td><strong><?=$row->categoria ?></strong></td>
 					<td><strong><?=$row->motivos ?></strong></td>
 					<td><strong><?=$row->fotos ?></strong></td>
+					<td><strong><a href="">Eliminar</a></strong></td>
 				</tr>
 				<?php } ?>
 				</tbody>
