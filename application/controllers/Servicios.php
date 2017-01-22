@@ -64,9 +64,9 @@ public function add(){
 			'fotos'  =>$obj->fotos
 		); 						
 		$this->mservicios->insert($arr_datos);	
-		return json_encode(array('msg'=>'ok','code'=>200))
+		return json_encode(array('msg'=>'ok','code'=>200));
 	}
-	return json_encode(array('msg'=>'faild','code'=>-1))
+	return json_encode(array('msg'=>'faild','code'=>-1));
 }
 
 
