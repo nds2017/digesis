@@ -21,7 +21,8 @@
 			        table.row('.selected').remove().draw( false );
 			    } );
 
-			$("#btn_agregar").on( "click", function() {
+			$("input#btn_agregar").on( "click", function() {
+				alert('ss');
       			var servicio = $('#txt_servicio').val();
       			var categoria = $('#txt_categoria').val();
       			var motivos = $('#txt_motivos').val();
@@ -73,7 +74,9 @@
 			    <input type="text" class="form-control" id="txt_fotos" placeholder="fotos">
 			  </div>
 			  <div class="col-xs-2">
-			  <input type="submit" id="btn_agregar" value="Agregar" class="btn"></input>
+
+		<input type="button" id="btn_agregar" value="Agregar" class="btn"></input>
+
 			  </div>
 
 			</div>
