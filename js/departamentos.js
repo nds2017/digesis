@@ -184,4 +184,28 @@ $("#select_all").change(function () {
     $("input:checkbox").prop('checked', $(this).prop("checked"));
 });
 
+
+
+$("#tiposervicioid").change(function() {		
+
+		var servicio= $(this).val();
+		var trabajo = $('#tipotrabajoid');
+
+			$.ajax({
+				data: { id : servicio },
+				url:   '/index.php/solicitudes/get_tipo_trabajo',
+				type:  'GET',
+				dataType: 'json',
+				beforeSend: function () {					
+				},
+				success:  function (r) {					
+					trabajo.find('option').remove();
+					$(r).each(function(i, v) {
+						trabajo.append('<option value="' + v.id + '">' + v.descripcion + '</option>');
+					})					
+				}
+			});
+}
+});
+
 })

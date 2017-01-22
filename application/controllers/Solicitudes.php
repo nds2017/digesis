@@ -577,4 +577,11 @@ class Solicitudes extends CI_Controller {
 		$data['data'] = $this->msolicitudes->solicitudes_carga($data['bnombres']);
 		$this->load->view('admin/carga-solicitudes', $data);
 	}
+
+
+public function get_tipo_trabajo($id=null){
+	$r=$this->mservicios->getByCategoria($id);
+	echo json_encode($r);
+exit();
+}	
 }
