@@ -75,7 +75,7 @@ class Solicitudes extends CI_Controller {
 		$categoria=null;
 
 	if ($data['data']->tiposervicioid==self::SERVICIO_INSTALACIONES)
-		$categoria="instalaciones";
+		$categoria="instalacion";
 
 	if ($data['data']->tiposervicioid==self::SERVICIO_MANTENIMIENTO)
 		$categoria='mantenimiento';
@@ -584,7 +584,7 @@ public function get_tipo_trabajo($id=null)
 	$id=$this->input->get('id');
 
 	if ($id==self::SERVICIO_INSTALACIONES)
-		$categoria="instalaciones";
+		$categoria="instalacion";
 
 	if ($id==self::SERVICIO_MANTENIMIENTO)
 		$categoria='mantenimiento';
