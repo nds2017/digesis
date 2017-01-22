@@ -3,7 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Solicitudes extends CI_Controller {
 
-	public function __construct() {
+	const SERVICIO_MANTENIMIENTO=1;
+	const SERVICIO_INSTALACIONES=2;
+	const SERVICIO_POST_VENTA=3;
+
+	public function __construct()
+	 {
 		parent::__construct();
 		$this->load->database('default');
 		$this->load->model('msolicitudes');
@@ -11,6 +16,7 @@ class Solicitudes extends CI_Controller {
 		$this->load->model('mdepartamentos');
 		$this->load->model('musuarios');
 		$this->load->model('msupervisores');
+		$this->load->model('mservicios');
 		is_logged_in() ? true : redirect('admin');
 	}
 
@@ -51,7 +57,9 @@ class Solicitudes extends CI_Controller {
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'solicitudesadd' ));
 		$data['supervisores'] = $this->msupervisores->supervisores_combo();
 		$data['analistas'] = $this->musuarios->usuarios_entrys(false, false, 4);
-		$data['tipotrabajos'] = $this->msolicitudes->tipostrabajo_entrys();
+
+		//$data['tipotrabajos'] = $this->msolicitudes->tipostrabajo_entrys();
+		$data['tipotrabajos'] =array();			
 		$data['tiposervicios'] = $this->msolicitudes->tiposservicio_entrys();
 		$data['distritos'] = $this->mdepartamentos->distritos_entrys();
 		$data['provincias'] = $this->mdepartamentos->provincias_entrys();
@@ -63,14 +71,27 @@ class Solicitudes extends CI_Controller {
 			securityAccess(array(1));
 			if ( $this->msolicitudes->solicitudes_validate($id) ) {
 				$data['data'] = $this->msolicitudes->solicitudes_byID($id);
+		$categoria=null;
+
+	if ($data['data']['tiposervicioid']==self::SERVICIO_INSTALACIONES)
+		$categoria="instalaciones";
+
+	if ($data['data']['tiposervicioid']==self::SERVICIO_MANTENIMIENTO)
+		$categoria='mantenimiento';
+
+	if ($data['data']['tiposervicioid']==self::SERVICIO_POST_VENTA)
+		$categoria='post instalacion';
+
+				$data['tipotrabajos']=$this->mservicios->getByCategoria($categoria);
+
 				$data['distritos'] = $this->mdepartamentos->distritos_entrys($data['data']->provinciaid);
 				$data['provincias'] = $this->mdepartamentos->provincias_entrys($data['data']->departamentoid);
 				$data['estados'] = $this->msolicitudes->estados_entrys();
 				$data['motivos'] = $this->msolicitudes->solicitudes_motivos($data['data']->estadoid);
-				if ( @$data['data']->supid ) {
+				if (@$data['data']->supid){
 					$data['tecnicos1'] = $this->mtecnicos->tecnicos_bySupervisor($data['data']->supid, 1);
 					$data['tecnicos2'] = $this->mtecnicos->tecnicos_bySupervisor($data['data']->supid, 2);
-				}
+					}
 			}
 			else
 				redirect('solicitudes');

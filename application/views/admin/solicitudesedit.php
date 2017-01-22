@@ -65,6 +65,17 @@ $(document).ready(function() {
 				</tr>
 				<tr>
 					<td>Fecha de Programación : </td><td><input type="date" name="fecha_instalacion" value="<?=(@$data->fecha_instalacion) ? date('Y-m-d', $data->fecha_instalacion) : date('Y-m-d')?>"></td>
+				</tr>				
+				<tr>
+					<td>Tipo de Servicio : </td>
+					<td>
+						<select required name="tiposervicioid">
+							<option value="">-Seleccione-</option>
+							<?php foreach ( $tiposervicios as $key => $tiposervicio ) { ?>
+								<option <?=(@$data->tiposervicioid==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tiposervicio?></option>
+							<?php } ?>
+						</select>
+					</td>
 				</tr>
 				<tr>
 					<td>Tipo de Trabajo : </td>
@@ -73,17 +84,6 @@ $(document).ready(function() {
 							<option value="">-Seleccione-</option>
 							<?php foreach ( $tipotrabajos as $key => $tipotrabajo ) { ?>
 								<option <?=(@$data->tipotrabajoid==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tipotrabajo?></option>
-							<?php } ?>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td>Tipo de Servicio : </td>
-					<td>
-						<select required name="tiposervicioid">
-							<option value="">-Seleccione-</option>
-							<?php foreach ( $tiposervicios as $key => $tiposervicio ) { ?>
-								<option <?=(@$data->tiposervicioid==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tiposervicio?></option>
 							<?php } ?>
 						</select>
 					</td>
