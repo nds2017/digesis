@@ -102,7 +102,7 @@
 				<select id="txt_categoria" placeholder="categoria">
 					<option>Categoria</option>
 					<?php foreach($categorias as $key=>$row){ ?>
-					<option value="<?php echo $row->id ?>">
+					<option value="<?php echo trim($row->id) ?>">
 					<?php echo $row->nombre ?></option>
 					<?php } ?>
 				</select>
