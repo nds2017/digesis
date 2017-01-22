@@ -59,7 +59,7 @@ class Mservicios extends CI_Model
 		$query = $this->db->get();
 		foreach ($query->result() as $key =>$row)
 		 {
-		 		 $row->nombre=trim($row->nombre);
+		 		 $row->nombre=rtrim($row->nombre);
 				 $rows[] = $row;
 		 }	
 		return $rows;
