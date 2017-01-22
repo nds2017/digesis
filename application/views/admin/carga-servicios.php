@@ -113,7 +113,7 @@
 			    <input type="text" id="txt_motivos" class="form-control" placeholder="motivos">
 			  </div>
 			  <div class="col-xs-2">
-			    <input type="text" class="form-control" id="txt_fotos" placeholder="fotos">
+			    <input type="text"  class="form-control" id="txt_fotos" placeholder="fotos" type="number" max="99">
 			  </div>
 			  <div class="col-xs-2">
 				<input type="button" id="btn_agregar" value="Agregar" class="btn"></input>
