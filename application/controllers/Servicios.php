@@ -59,10 +59,10 @@ public function add(){
 	if (!empty($request)) {
 		$obj=json_encode($request);
 		$arr_datos = array(
-			'descripcion'  =>$obj->servicio,
-			'categoria' => $obj->categoria,
-			'motivos'  =>$obj->motivos,
-			'fotos'  =>$obj->fotos
+			'descripcion'  =>$obj['servicio'],
+			'categoria' => $obj['categoria'],
+			'motivos'  =>$obj['motivos'],
+			'fotos'  =>$obj['fotos']
 		); 						
 		$this->mservicios->insert($arr_datos);	
 		return json_encode(array('msg'=>'ok','code'=>200));
