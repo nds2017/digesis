@@ -63,9 +63,9 @@ public function add(){
 			'fotos'  =>$request['fotos']
 		); 						
 		$this->mservicios->insert($arr_datos);	
-		return json_encode(array('msg'=>'ok','code'=>200));
+		echo json_encode(array('msg'=>'ok','code'=>200));
 	}
-	return json_encode(array('msg'=>'faild','code'=>-1));
+	echo json_encode(array('msg'=>'faild','code'=>-1));
 }
 
 
