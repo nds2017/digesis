@@ -19,9 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 
-	
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
-	
+		
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">
 
 	<script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
