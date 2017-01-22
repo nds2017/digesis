@@ -125,7 +125,7 @@
 					<td><strong><?=$row->categoria ?></strong></td>
 					<td><strong><?=$row->motivos ?></strong></td>
 					<td><strong><?=$row->fotos ?></strong></td>
-					<td><strong><a class="serv_delete"> style="color:red" data-id="<?=$row->id ?>" href="#">Eliminar</a></strong></td>
+					<td><strong><a class="serv_delete" style="color:red" data-id="<?=$row->id ?>" href="#">Eliminar</a></strong></td>
 				</tr>
 				<?php } ?>
 				</tbody>
