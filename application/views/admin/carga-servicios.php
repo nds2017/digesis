@@ -37,11 +37,10 @@
 				$("#msg_asignacion").html('Registro Servicios correcto');	
 				$("#msg_asignacion").fadeOut();
 				$("#msg_asignacion").removeClass('hidden');			
+				
 				setTimeout(function() {
 				$("#msg_asignacion").fadeIn();
-    			$("#msg_asignacion").addClass('hidden');    		
-				  }
-
+    			$("#msg_asignacion").addClass('hidden');    						  
 				});
       		}else{
 
