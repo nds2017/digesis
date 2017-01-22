@@ -15,8 +15,11 @@ class Servicios extends CI_Controller {
 	 public function index()
 	 {	 	
 	 	$this->load->library('excel');
-	 	securityAccess(array(1));
-	 	$data['header'] = $this->load->view('admin/menu/header', array('active' => 'solicitudesload' ));
+
+	 	$session = get_session();
+		securityAccess(array(1, 3));
+
+	 	$data['header'] = $this->load->view('admin/menu/header', array('active' => 'serviciosload' ));
 
 	 	
 		
