@@ -21,6 +21,26 @@
 			        table.row('.selected').remove().draw( false );
 			    } );
 
+			$("#btn_agregar").on( "click", function() {
+      			var servicio = $('#txt_servicio').val();
+      			var categoria = $('#txt_categoria').val();
+      			var motivos = $('#txt_motivos').val();
+      			var fotos = $('#txt_fotos').val();
+
+      			$.ajax({      				
+	data: { servicio : servicio,categoria:categoria,motivos:motivos,fotos:fotos},
+				url:   '/index.php/servicios/add',
+				type:  'POST',
+				dataType: 'json',				
+				success:  function (r) {
+					alert('ok');					
+					console.log(r);
+				  }
+				});
+
+  			});
+
+
 		});
 
 			</script>
@@ -41,19 +61,19 @@
 
 		<div class="row" style="border: solid 1px #b3b3b3;margin-left: 10px; margin-right: 10px;padding-top:10px; margin-bottom: 15px;">
 			  <div class="col-xs-2">
-			    <input type="text" class="form-control" placeholder="servicio">
+			    <input type="text" id="txt_servicio" class="form-control" placeholder="servicio">
 			  </div>
 			  <div class="col-xs-2">
-			    <input type="text" class="form-control" placeholder="categoria">
+			    <input type="text" class="form-control" id="txt_categoria" placeholder="categoria">
 			  </div>
 			  <div class="col-xs-2">
-			    <input type="text" class="form-control" placeholder="motivos">
+			    <input type="text" id="txt_motivos" class="form-control" placeholder="motivos">
 			  </div>
 			  <div class="col-xs-2">
-			    <input type="text" class="form-control" placeholder="fotos">
+			    <input type="text" class="form-control" id="txt_fotos" placeholder="fotos">
 			  </div>
 			  <div class="col-xs-2">
-			  <input type="submit" value="Agregar" class="btn"></input>
+			  <input type="submit" id="btn_agregar" value="Agregar" class="btn"></input>
 			  </div>
 
 			</div>
