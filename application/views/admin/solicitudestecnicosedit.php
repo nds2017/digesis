@@ -48,7 +48,6 @@
 						</select>
 					</td>
 				</tr>
-
 			</table>
 			<fieldset class="fieldform">
 				<legend><b>Personal</b></legend>
