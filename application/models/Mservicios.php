@@ -16,9 +16,7 @@ class Mservicios extends CI_Model
 	public function delete_row($id=null){
 
 	  $this->db->where('id', $id);
-      $this->db->delete('servicios'); 
-	  echo $this->db->last_query();
-	  return 1;
+      return $this->db->delete('servicios'); 	 	  
 	}
 	public function insert($data=array()){
 			
