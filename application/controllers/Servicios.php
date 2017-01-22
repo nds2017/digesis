@@ -54,15 +54,13 @@ class Servicios extends CI_Controller {
 	 }
 
 public function add(){
-	$request=$this->input->post();	
-	print_r($request);
-	if (!empty($request)) {
-		$obj=json_encode($request);
+	$request=$this->input->post();		
+	if (!empty($request)) {				
 		$arr_datos = array(
-			'descripcion'  =>$obj['servicio'],
-			'categoria' => $obj['categoria'],
-			'motivos'  =>$obj['motivos'],
-			'fotos'  =>$obj['fotos']
+			'descripcion'  =>$request['servicio'],
+			'categoria' => $request['categoria'],
+			'motivos'  =>$request['motivos'],
+			'fotos'  =>$request['fotos']
 		); 						
 		$this->mservicios->insert($arr_datos);	
 		return json_encode(array('msg'=>'ok','code'=>200));
