@@ -21,6 +21,12 @@
 			        table.row('.selected').remove().draw( false );
 			    } );
 
+
+
+		$('#myTable tbody tr td a.serv_delete').on( 'click', 'tr', function () {
+			alert('ok');
+		})
+
 			$("input#btn_agregar").on( "click", function() {
 				
       			var servicio = $('input#txt_servicio').val();
@@ -119,7 +125,7 @@
 					<td><strong><?=$row->categoria ?></strong></td>
 					<td><strong><?=$row->motivos ?></strong></td>
 					<td><strong><?=$row->fotos ?></strong></td>
-					<td><strong><a href="">Eliminar</a></strong></td>
+					<td><strong><a class="serv_delete"> style="color:red" data-id="<?=$row->id ?>" href="#">Eliminar</a></strong></td>
 				</tr>
 				<?php } ?>
 				</tbody>
