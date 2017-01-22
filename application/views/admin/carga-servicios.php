@@ -34,9 +34,14 @@
 				type:  'POST',
 				dataType: 'json',				
 				success:  function (r) {
-					alert('ok');					
-					console.log(r);
+				$("#msg_asignacion").html('Registro Servicios correcto');	
+				$("#msg_asignacion").fadeOut();
+				$("#msg_asignacion").removeClass('hidden');			
+				setTimeout(function() {
+				$("#msg_asignacion").fadeIn();
+    			$("#msg_asignacion").addClass('hidden');    		
 				  }
+
 				});
       		}else{
 
