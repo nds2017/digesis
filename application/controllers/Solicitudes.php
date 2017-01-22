@@ -71,6 +71,9 @@ class Solicitudes extends CI_Controller {
 			securityAccess(array(1));
 			if ( $this->msolicitudes->solicitudes_validate($id) ) {
 				$data['data'] = $this->msolicitudes->solicitudes_byID($id);
+
+				print_r($data['data']);
+				exit();
 		$categoria=null;
 
 	if ($data['data']['tiposervicioid']==self::SERVICIO_INSTALACIONES)
