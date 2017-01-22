@@ -199,8 +199,9 @@ $("#tiposervicioid").change(function() {
 				},
 				success:  function (r) {					
 					trabajo.find('option').remove();
+					console.log(r);
 					$(r).each(function(i, v) {
-						console.log('xxxxx');
+						
 						//trabajo.append('<option value="' + v.id + '">' + v.descripcion + '</option>');
 					})					
 				}
