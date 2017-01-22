@@ -58,7 +58,7 @@
 
 			</div>
 
-			<table class="table table-striped table-bordered display" id="myTable">
+			<table class="display" id="myTable">
 				<thead>
 				<tr>
 					<th scope="col"><span>N°</span></th>			
