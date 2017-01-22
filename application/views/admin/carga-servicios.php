@@ -40,8 +40,8 @@
 
 				setTimeout(function() {
 				$("#msg_asignacion").fadeIn();
-    			$("#msg_asignacion").addClass('hidden');    						  
-				});      		
+    			$("#msg_asignacion").addClass('hidden');    			
+				}, 3000);
 
   				}
   			});
