@@ -61,6 +61,7 @@ public function delete(){
 			echo json_encode(array('code'=>200));
 		else
 			echo json_encode(array('code'=>-1));
+		exit();
 	}
 }
 public function add(){

@@ -23,13 +23,15 @@
 
 		$('#myTable tr td').on( 'click', 'a.serv_delete', function () {
 			var id=$(this).attr('data-id');
+			var me=$(this);
 			$.ajax({      				
 				data: {id : id},
 				url:   '/index.php/servicios/delete',
 				type:  'POST',
 				dataType: 'json',				
 				success:  function (r) {
-					$(this).parent().parent().parent().fadeTo(800, 0, function () {       $(this).remove(); });
+					console.log('sss');
+					$(me).parent().parent().parent().fadeTo(800, 0, function () {       $(me).remove(); });
   				}
   			}); 			
 		});
