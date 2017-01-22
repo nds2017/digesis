@@ -25,7 +25,7 @@
 
 		$('#myTable tr td').on( 'click', 'a.serv_delete', function () {
 			var id=$(this).attr('data-id');
- 			table.row('.selected').remove().draw(false); 			
+ 			 $(this).parent().remove();
 		});
 
 			$("input#btn_agregar").on( "click", function() {
