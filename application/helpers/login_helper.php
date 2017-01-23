@@ -53,7 +53,8 @@
 	function securityAccess($roles = array()) {
 		$CI =& get_instance();
 		$user = $CI->session->all_userdata();
-		echo $rolid = $user['session_data']['set_rol'];
+		$rolid = $user['session_data']['set_rol'];
+		print_r($roles);
 		if ( !in_array($rolid, $roles) ){
 			echo 'paso';
 			exit();
