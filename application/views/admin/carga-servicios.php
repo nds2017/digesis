@@ -10,7 +10,7 @@
 
 			</script>
 			</div>
-			<h1>Cargar Solicitudes</h1><br>						
+			<h1>Cargar Servicios</h1><br>						
 			<form method="post" enctype="multipart/form-data">
 			 <div class="form-group">
 				<label for="exampleInputFile">Cargar servicios</label>
