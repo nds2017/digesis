@@ -3,9 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en" class="pannel-toolbar">
 <head>
-	<meta charset="utf-8">
+	<meta charset="utf-8">	
 	<title>ATENCIÓN TÉCNICA CLARO</title>
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?=base_url()?>css/bootstrap.css">
+
 	<link rel="stylesheet" type="text/css" href="<?=base_url()?>css/style.css">
 	<link rel="stylesheet" href="<?=base_url()?>css/font-awesome.min.css">
 	<script src="<?=base_url()?>encuesta/js/jquery-1.9.1.min.js"></script>
