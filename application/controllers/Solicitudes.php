@@ -104,7 +104,7 @@ class Solicitudes extends CI_Controller {
 					
 		$data['admin'] = ($session->rolid==1) ? TRUE : FALSE;
 		if (!empty($sots)) {
-			securityAccess(array(1));
+			securityAccess(array(1,4));
 
 	$sol_mult=$this->msolicitudes->solicitudes_asignar_multiple($sots);
 
