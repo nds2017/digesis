@@ -67,7 +67,7 @@ $(document).ready(function() {
 				$("#msg_asignacion").fadeIn();
     			$("#msg_asignacion").addClass('hidden');
     			document.location.href="<?=base_url()?>index.php/solicitudes/listatecnicos";
-				}, 6000);
+				}, 3000);
 
 
 
