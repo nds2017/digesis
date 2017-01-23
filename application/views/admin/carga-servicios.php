@@ -1,3 +1,10 @@
+			<script type="text/javascript">
+				
+				$(document).ready(function(){
+    					$('#myTable').DataTable();
+			});
+
+			</script>
 			</div>
 			<h1>Cargar Solicitudes</h1><br>
 			<fieldset class="search">
@@ -39,7 +46,7 @@ foreach ($fields as $field)
 				print_r($query->result());*/
 			?>
 			<br>
-			<table class="table table-bordered table-striped">
+			<table class="" id="myTable">
 				<thead>
 					<tr>
 						<th scope="col"><span>N°</span></th>
