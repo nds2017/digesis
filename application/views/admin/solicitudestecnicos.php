@@ -86,7 +86,7 @@
 			<div id="btn_asignacion">
 		<input type="button" id="mult-asignacion" class="circle" value="Asignar a:"/>	
 		</div>							
-			<table class="table table-bordered table-striped" style="width: 100%;max-width:100%">
+			<table class="table table-bordered table-striped" style="width:95%;max-width:95%">
 				<thead>
 					<tr>
 				<th scope="col" width="5%"><span>Sel</span>
