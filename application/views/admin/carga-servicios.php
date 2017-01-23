@@ -10,18 +10,17 @@
 
 			</script>
 			</div>
-			<h1>Cargar Solicitudes</h1><br>
-			<fieldset class="search">
-				<legend></legend>
-				<form method="post" enctype="multipart/form-data">
-					<div class="upload">
-						<input id="fileSelect" name="file" type="file" accept=".csv" />
-					</div>
-					<input class="btn" style="margin: 0px;" name="carga" type="submit" value="Cargar" />
-					<br><br>
-					<?php if ( @$error ) echo $error; ?>
-				</form>
-			</fieldset>
+			<h1>Cargar Solicitudes</h1><br>						
+			<form method="post" enctype="multipart/form-data">
+			 <div class="form-group">
+				<label for="exampleInputFile">File input</label>
+				<input type="file" id="exampleInputFile">
+				<p class="help-block">Example block-level help text here.</p>
+				</div>					
+			<input class="btn" style="margin: 0px;" name="carga" type="submit" value="Cargar" />
+			<br><br>
+			<?php if ( @$error ) echo $error; ?>
+			</form>		
 			<br>			
 			<hr>
 			<?php
