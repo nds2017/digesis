@@ -6,9 +6,9 @@ class Servicios extends CI_Controller {
 	
 	 public function __construct()
    {
-
  	   parent::__construct();
 		$this->load->model('mservicios');
+		$this->load->library('excel');
 		is_logged_in() ? true : redirect('admin');
 	}
 			  
@@ -23,9 +23,21 @@ class Servicios extends CI_Controller {
 			$type = $_FILES['file']['type'];
 			if ( !empty($file) && ( $type == 'application/vnd.ms-excel' ) ) {
 
-			print_r($file);
-
+				$handle = fopen($file, "r");
+				$fila = 1;
+				$datos = array();
+				$i =0;
+				while (($datos = fgetcsv($handle)) !== false ){
+					if ( count($datos) > 8 ) {
+						$i++;
+						if ( $i == 1 )
+							continue;
+						if ( !empty($datos[0]) ) {
+							print_r($datos);
+						}		
 			}
+		}
+	}
 
    		endif;
 
