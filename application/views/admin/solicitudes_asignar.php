@@ -132,16 +132,15 @@ $(document).ready(function() {
 		<td><?php echo $value['tecnico2'] ?></td>
 
 <td>	
-	<select required name="tipotrabajoid" id="tipotrabajoid" style="width:200px">
+	<select required name="tipotrabajoid" id="tipotrabajoid" style="width:150px">
 	<option value="">-Seleccione-</option>							
 	<?php foreach ($value['tipotrabajos'] as $key => $tipotrabajo ) { ?>
 		<option <?=(@$data->tipotrabajoid==$tipotrabajo->id ? 'selected' : '')?>  value="<?=$tipotrabajo->id?>"><?=$tipotrabajo->descripcion?></option>
 	<?php } ?>
 	</select>
 </td>
-
 		<td align="center">
-		<input required type="date" style="width:100px" id="fecha_instalacion_<?php echo $key ?>" name="fecha_instalacion_<?php echo $key ?>" value="<?=(@$value['fecha']) ? $value['fecha'] : null?>"></td>
+		<input required type="date" style="width:110px" id="fecha_instalacion_<?php echo $key ?>" name="fecha_instalacion_<?php echo $key ?>" value="<?=(@$value['fecha']) ? $value['fecha'] : null?>"></td>
 
 		<td><input type="text" name="timepicker[]" style="width:100px" data-id="<?php echo $value['id']?>" class="timepicker" id="timepicker" value="<?php echo $value['hora'] ?>"> </input></td>
 		<td>
