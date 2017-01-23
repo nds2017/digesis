@@ -3,6 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Servicios extends CI_Controller {
 
+	const SERVICIO_MANTENIMIENTO=1;
+	const SERVICIO_INSTALACIONES=2;
+	const SERVICIO_POST_VENTA=3;
+
 	
 	 public function __construct()
    {
@@ -73,9 +77,21 @@ public function delete(){
 public function add(){
 	$request=$this->input->post();		
 	if (!empty($request)) {				
+
+		$categoria=null;
+	if ($data['data']->tiposervicioid==self::SERVICIO_INSTALACIONES)
+		$categoria="instalacion";
+
+	if ($data['data']->tiposervicioid==self::SERVICIO_MANTENIMIENTO)
+		$categoria='mantenimiento';
+
+	if ($data['data']->tiposervicioid==self::SERVICIO_POST_VENTA)
+		$categoria='post instalacion';
+
+
 		$arr_datos = array(
 			'descripcion'  =>$request['servicio'],
-			'categoria' => $request['categoria'],
+			'categoria' => $categoria,
 			'motivos'  =>$request['motivos'],
 			'fotos'  =>$request['fotos']
 		); 						
