@@ -53,11 +53,8 @@
 	function securityAccess($roles = array()) {
 		$CI =& get_instance();
 		$user = $CI->session->all_userdata();
-		$rolid = $user['session_data']['set_rol'];
-		print_r($roles);
-		if ( !in_array($rolid, $roles) ){
-			echo 'paso';
-			exit();
+		$rolid = $user['session_data']['set_rol'];		
+		if (!in_array($rolid, $roles)){			
 			redirect('admin/erroraccess');
 		}
 	}
