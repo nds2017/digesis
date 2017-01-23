@@ -14,6 +14,7 @@ class Servicios extends CI_Controller {
 			  
 	 public function index()
 	 {	 	
+	 	$this->load->library('excel');
 	 	securityAccess(array(1));
 	 	$data['header'] = $this->load->view('admin/menu/header', array('active' => 'solicitudesload' ));
 		   		
@@ -22,21 +23,13 @@ class Servicios extends CI_Controller {
 			$file = $_FILES['file']['tmp_name'];
 			$type = $_FILES['file']['type'];
 			if ( !empty($file) && ( $type == 'application/vnd.ms-excel' ) ) {
-
-				$handle = fopen($file, "r");
-				$fila = 1;
-				$datos = array();
-				$i =0;
-				while (($datos = fgetcsv($handle)) !== false ){
-					if ( count($datos) > 8 ) {
-						$i++;
-						if ( $i == 1 )
-							continue;
-						if ( !empty($datos[0]) ) {
-							print_r($datos);
-						}		
-			}
-		}
+			
+		 		$obj_excel = PHPExcel_IOFactory::load($file);    
+		       	$sheetData = $obj_excel->getActiveSheet()->toArray(null,true,true,true);
+		       	$arr_datos = array();
+		       	foreach ($sheetData as $index => $value) {  
+					print_r($value);
+		       	}
 	}
 
    		endif;
