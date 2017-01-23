@@ -5,6 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta charset="utf-8">
 	<title>ATENCIÓN TÉCNICA CLARO</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?=base_url()?>css/style.css">
 	<link rel="stylesheet" href="<?=base_url()?>css/font-awesome.min.css">
 	<script src="<?=base_url()?>encuesta/js/jquery-1.9.1.min.js"></script>
@@ -17,9 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 
-
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+	
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">
 	
 	<script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
