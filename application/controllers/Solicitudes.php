@@ -136,6 +136,18 @@ class Solicitudes extends CI_Controller {
 			$r_sol_tec[$value->id]['id']=$value->id;		
 			$r_sol_tec[$value->id]['tecnico1']=(($value->tecnico1!="")?$value->tecnico1:"sin asignar");
 			$r_sol_tec[$value->id]['tecnico2']=(($value->tecnico2!="")?$value->tecnico2:"sin asignar");
+
+	if ($value->tipotrabajoid==self::SERVICIO_INSTALACIONES)
+		$categoria="instalacion";
+
+	if ($value->tipotrabajoid==self::SERVICIO_MANTENIMIENTO)
+		$categoria='mantenimiento';
+
+	if ($value->tipotrabajoid==self::SERVICIO_POST_VENTA)
+		$categoria='post instalacion';
+	
+	$r_sol_tec[$value->id]['tipotrabajo']=$this->mservicios->getByCategoria($categoria);
+
 	$r_sol_tec[$value->id]['fecha']=($value->fecha_instalacion==0)? 'Sin asignar': date('Y-m-d',$value->fecha_instalacion);
 			$r_sol_tec[$value->id]['hora']=(($value->hora!="")? $value->hora:"12:00");
 		}

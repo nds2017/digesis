@@ -115,8 +115,9 @@ $(document).ready(function() {
 		<th>N.Sot</th>
 		<th>Tecnico1</th>
 		<th>Tecnico2</th>
-		<th>Fecha Programacion</th>
-		<th>Hora Programacion</th>
+		<th>Tipo de Trabajo</th>
+		<th>Fecha Prog.</th>
+		<th>Hora Prog.</th>
 		<th>Accion</th>
 
 	</tr>
@@ -129,8 +130,17 @@ $(document).ready(function() {
 		<td><?php echo $value['id']?></td>
 		<td align="center"><?php echo $value['tecnico1'] ?></td>
 		<td><?php echo $value['tecnico2'] ?></td>
-		<td align="center">
 
+<td>	
+	<select required name="tipotrabajoid" id="tipotrabajoid">
+	<option value="">-Seleccione-</option>							
+	<?php foreach ( $tipotrabajos as $key => $tipotrabajo ) { ?>
+		<option <?=(@$data->tipotrabajoid==$tipotrabajo->id ? 'selected' : '')?>  value="<?=$tipotrabajo->id?>"><?=$tipotrabajo->descripcion?></option>
+	<?php } ?>
+	</select>
+</td>
+
+		<td align="center">
 		<input required type="date" id="fecha_instalacion_<?php echo $key ?>" name="fecha_instalacion_<?php echo $key ?>" value="<?=(@$value['fecha']) ? $value['fecha'] : null?>"></td>
 
 		<td><input type="text" name="timepicker[]" data-id="<?php echo $value['id']?>" class="timepicker" id="timepicker" value="<?php echo $value['hora'] ?>"> </input></td>

@@ -63,7 +63,6 @@ class Mservicios extends CI_Model
 				 $rows[] = $row;
 		 }	
 		return $rows;
-
 	}
 
 }
