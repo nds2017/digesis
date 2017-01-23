@@ -161,8 +161,7 @@ class Solicitudes extends CI_Controller {
 	 $session = get_session();
      $request=$this->input->post();    
      
-	 $data=json_decode($request['data']);
-	 print_r($data);
+	 $data=json_decode($request['data']);	 
      foreach ($data as $key => $value) {
           	
 		$formdata = array(
@@ -234,7 +233,25 @@ class Solicitudes extends CI_Controller {
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'asignartecnicos' ));
 		$data['supervisores'] = $this->msupervisores->supervisores_combo();
 		$data['horarios'] = $this->msolicitudes->horarios_entrys();
-		$data['data'] = $this->msolicitudes->solicitudes_byID($id);
+
+
+
+		$data['data'] = $this->msolicitudes->solicitudes_byID($id);				
+
+		$data['tiposervicios'] = $this->msolicitudes->tiposservicio_entrys();
+
+		$categoria=null;
+	if ($data['data']->tiposervicioid==self::SERVICIO_INSTALACIONES)
+		$categoria="instalacion";
+
+	if ($data['data']->tiposervicioid==self::SERVICIO_MANTENIMIENTO)
+		$categoria='mantenimiento';
+
+	if ($data['data']->tiposervicioid==self::SERVICIO_POST_VENTA)
+		$categoria='post instalacion';
+
+		$data['tipotrabajos']=$this->mservicios->getByCategoria($categoria);
+
 		if ( @$data['data']->supid ) {
 			$data['tecnicos1'] = $this->mtecnicos->tecnicos_bySupervisor($data['data']->supid, 1);
 			$data['tecnicos2'] = $this->mtecnicos->tecnicos_bySupervisor($data['data']->supid, 2);

@@ -66,7 +66,6 @@ $(document).ready(function() {
 				<tr>
 					<td>Fecha de Programación : </td><td><input type="date" name="fecha_instalacion" value="<?=(@$data->fecha_instalacion) ? date('Y-m-d', $data->fecha_instalacion) : date('Y-m-d')?>"></td>
 				</tr>				
-				
 				<tr>
 					<td>Tipo de Servicio : </td>
 					<td>
@@ -78,7 +77,6 @@ $(document).ready(function() {
 						</select>
 					</td>
 				</tr>
-
 				<tr>
 					<td>Tipo de Trabajo : </td>
 					<td>
