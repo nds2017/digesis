@@ -154,7 +154,7 @@ $(document).ready(function() {
 
 					
 				<br>
-				<fieldset <?=//($admin)?'':'style="dislay:none;"'?> class="fieldform">
+				<fieldset class="fieldform">
 					<legend><b>Personal</b></legend>
 					<table class="table table-bordered table-striped">
 					<!--
