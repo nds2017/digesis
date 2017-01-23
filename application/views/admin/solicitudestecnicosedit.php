@@ -27,9 +27,9 @@
 					<td>Hora : </td><td><input type="text" name="hora" maxlength="5" value="<?=@$data->hora?>"></td>
 				</tr>
 				<tr>
-					<td>Tipo de Servicio : </td>
+					<td>Tipo de Serviciooos : </td>
 					<td>
-						<select required name="tiposervicioid" id="tiposervicioid" style="display:true">
+						<select disabled="true" required name="tiposervicioid" id="tiposervicioid" style="display:true">
 							<option value="">-Seleccione-</option>
 							<?php foreach ( $tiposervicios as $key => $tiposervicio ) { ?>
 								<option <?=(@$data->tiposervicioid==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tiposervicio?></option>
