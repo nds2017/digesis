@@ -13,7 +13,7 @@
 			<h1>Cargar Servicios</h1><br>						
 			<form method="post" enctype="multipart/form-data">
 			 <div class="form-group">
-				<label for="exampleInputFile">Cargar servicios</label>
+				<label for="exampleInputFile"></label>
 				<input type="file" id="exampleInputFile">
 				<p class="help-block">Seleccione un archivo csv.</p>
 				</div>					
