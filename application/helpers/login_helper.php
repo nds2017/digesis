@@ -54,8 +54,11 @@
 		$CI =& get_instance();
 		$user = $CI->session->all_userdata();
 		echo $rolid = $user['session_data']['set_rol'];
-		if ( !in_array($rolid, $roles) )
+		if ( !in_array($rolid, $roles) ){
+			echo 'paso';
+			exit();
 			redirect('admin/erroraccess');
+		}
 	}
 
 

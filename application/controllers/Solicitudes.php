@@ -80,10 +80,8 @@ class Solicitudes extends CI_Controller {
 
 
 	public function form_multiple() {
-		securityAccess(array(1, 4));
-		exit();
+		securityAccess(array(1, 4));		
 		$session = get_session();
-
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'solicitudesadd' ));
 
 		$data['supervisores'] = $this->msupervisores->supervisores_combo();
