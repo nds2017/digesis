@@ -46,7 +46,7 @@ foreach ($fields as $field)
 				print_r($query->result());*/
 			?>
 			<br>
-			<table class="" id="myTable">
+			<table class="table table-striped table-bordered" id="myTable">
 				<thead>
 					<tr>
 						<th scope="col"><span>N°</span></th>
