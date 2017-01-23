@@ -195,8 +195,7 @@ class Solicitudes extends CI_Controller {
 		);		
 
 		$this->msolicitudes->solicitudes_update($formdata, $value->id);
-		
-		
+				
      }
      return json_encode(array('msg'=>'ok'));
 

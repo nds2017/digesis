@@ -39,7 +39,7 @@
 			$("input#btn_agregar").on( "click", function() {
 				
       			var servicio = $('input#txt_servicio').val();
-      			var categoria = $('input#txt_categoria').val();
+      			var categoria = $('select#txt_categoria').val();
       			var motivos = $('input#txt_motivos').val();
       			var fotos = $('input#txt_fotos').val();
 			if (servicio!="" && categoria!=""){
