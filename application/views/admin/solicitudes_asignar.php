@@ -132,7 +132,7 @@ $(document).ready(function() {
 		<td><?php echo $value['tecnico2'] ?></td>
 
 <td>	
-	<select required name="tipotrabajoid" id="tipotrabajoid">
+	<select required name="tipotrabajoid" id="tipotrabajoid" style="width:200px">
 	<option value="">-Seleccione-</option>							
 	<?php foreach ($value['tipotrabajos'] as $key => $tipotrabajo ) { ?>
 		<option <?=(@$data->tipotrabajoid==$tipotrabajo->id ? 'selected' : '')?>  value="<?=$tipotrabajo->id?>"><?=$tipotrabajo->descripcion?></option>
