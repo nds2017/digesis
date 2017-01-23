@@ -36,10 +36,12 @@ $(document).ready(function() {
       	item = {};
 
 		var id =$(this).attr('data-id');
-		var fecha=$('input#fecha_instalacion_'+id).val();		
+		var fecha=$('input#fecha_instalacion_'+id).val();	
+		var tipotrabajoid=$('select#tipotrabajoid_'+id).val();	  	
       	item['id']=$(this).attr('data-id');
       	item['fecha']=fecha;
       	item['hora']=$(this).val();
+      	item['tipotrabajoid']=tipotrabajoid;
         data.push(item);           
       });
                  
@@ -48,9 +50,7 @@ $(document).ready(function() {
       form.append('data',str);
       form.append('supervisorid',$('#supervisorid').val());
       form.append('tecnico1id',$('#tecnico1id').val());
-      form.append('tecnico2id',$('#tecnico2id').val());
-
-
+      form.append('tecnico2id',$('#tecnico2id').val());	        
 		$.ajax({
 			data: form,
 			type: 'POST',
@@ -132,7 +132,7 @@ $(document).ready(function() {
 		<td><?php echo $value['tecnico2'] ?></td>
 
 <td>	
-	<select required name="tipotrabajoid" id="tipotrabajoid" style="width:150px">
+	<select required name="tipotrabajoid" id="tipotrabajoid_<?php echo $key ?>" style="width:150px">
 	<option value="">-Seleccione-</option>							
 	<?php foreach ($value['tipotrabajos'] as $key => $tipotrabajo ) { ?>
 		<option <?=(@$data->tipotrabajoid==$tipotrabajo->id ? 'selected' : '')?>  value="<?=$tipotrabajo->id?>"><?=$tipotrabajo->descripcion?></option>
@@ -140,7 +140,7 @@ $(document).ready(function() {
 	</select>
 </td>
 		<td align="center">
-		<input required type="date" style="width:110px" id="fecha_instalacion_<?php echo $key ?>" name="fecha_instalacion_<?php echo $key ?>" value="<?=(@$value['fecha']) ? $value['fecha'] : null?>"></td>
+		<input required type="date" style="width:130px" id="fecha_instalacion_<?php echo $key ?>" name="fecha_instalacion_<?php echo $key ?>" value="<?=(@$value['fecha']) ? $value['fecha'] : null?>"></td>
 
 		<td><input type="text" name="timepicker[]" style="width:100px" data-id="<?php echo $value['id']?>" class="timepicker" id="timepicker" value="<?php echo $value['hora'] ?>"> </input></td>
 		<td>
