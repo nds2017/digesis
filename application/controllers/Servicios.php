@@ -79,13 +79,13 @@ public function add(){
 	if (!empty($request)) {				
 
 		$categoria=null;
-	if ($request['categoria']->tiposervicioid==self::SERVICIO_INSTALACIONES)
+	if ($request['categoria']==self::SERVICIO_INSTALACIONES)
 		$categoria="instalacion";
 
-	if ($request['categoria']->tiposervicioid==self::SERVICIO_MANTENIMIENTO)
+	if ($request['categoria']==self::SERVICIO_MANTENIMIENTO)
 		$categoria='mantenimiento';
 
-	if ($request['categoria']->tiposervicioid==self::SERVICIO_POST_VENTA)
+	if ($request['categoria']==self::SERVICIO_POST_VENTA)
 		$categoria='post instalacion';
 
 
