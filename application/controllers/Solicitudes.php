@@ -147,7 +147,7 @@ class Solicitudes extends CI_Controller {
 	if ($value->tiposervicioid==self::SERVICIO_POST_VENTA)
 		$categoria='post instalacion';
 	
-	$r_sol_tec[$value->id]['tipotrabajo']=$this->mservicios->getByCategoria($categoria);
+	$r_sol_tec[$value->id]['tipotrabajos']=$this->mservicios->getByCategoria($categoria);
 
 	$r_sol_tec[$value->id]['fecha']=($value->fecha_instalacion==0)? 'Sin asignar': date('Y-m-d',$value->fecha_instalacion);
 			$r_sol_tec[$value->id]['hora']=(($value->hora!="")? $value->hora:"12:00");
