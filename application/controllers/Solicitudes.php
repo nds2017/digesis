@@ -117,8 +117,7 @@ class Solicitudes extends CI_Controller {
 			$r_sol_tec[$value->id]['tecnico2']=(($value->tecnico2!="")?$value->tecnico2:"sin asignar");
 	$r_sol_tec[$value->id]['fecha']=($value->fecha_instalacion==0)? 'Sin asignar': date('Y-m-d',$value->fecha_instalacion);
 			$r_sol_tec[$value->id]['hora']=(($value->hora!="")? $value->hora:"12:00");
-
-		}		
+		}
 				
 				/*
 				if ( @$data['data']->supid ) {

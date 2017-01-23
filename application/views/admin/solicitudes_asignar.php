@@ -154,9 +154,10 @@ $(document).ready(function() {
 
 					
 				<br>
-				<fieldset <?=($admin)?'':'style="display:none;"'?> class="fieldform">
+				<fieldset <?=//($admin)?'':'style="dislay:none;"'?> class="fieldform">
 					<legend><b>Personal</b></legend>
 					<table class="table table-bordered table-striped">
+					<!--
 						<tr>
 							<td>Analista de Servicio: </td>
 							<td>
@@ -168,6 +169,7 @@ $(document).ready(function() {
 								</select>
 							</td>
 						</tr>
+						-->
 						<tr>
 							<td>Supervisor : </td>
 							<td>
