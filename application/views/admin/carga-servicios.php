@@ -18,22 +18,14 @@
 					<?php if ( @$error ) echo $error; ?>
 				</form>
 			</fieldset>
-			<br>
-			<fieldset class="search">
-				<legend><b>Buscar Por:</b></legend>
-				<form method="post">
-					N° SOT:
-					<input type="text" name="bnombres" value="<?=@$bnombres?>" />
-					<input type="submit" name="busqueda" class="btnsearch" value="Filtrar"/>
-				</form>
-			</fieldset>
+			<br>			
 			<hr>
 			<?php
 				if ( !@$error && @$_POST['carga'] )
 					echo '<em>' . $info->filas . ' Registros Procesados <br>' . $info->add . ' Registros Agregados <br>' . $info->update . ' Registros Actualizados</em><hr>';
 			?>
 
-			<h1>Solicitudes Cargadas <?=date('d-m-Y')?></h1>
+			
 			<?php
 				//$this->db->query("ALTER TABLE `solicitudes` ADD `hora` VARCHAR(5) NOT NULL DEFAULT '00:00' AFTER `horario`;");
 
