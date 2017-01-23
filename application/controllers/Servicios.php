@@ -16,6 +16,19 @@ class Servicios extends CI_Controller {
 	 {	 	
 	 	securityAccess(array(1));
 	 	$data['header'] = $this->load->view('admin/menu/header', array('active' => 'solicitudesload' ));
+		   		
+		if ($this->input->server('REQUEST_METHOD') == 'POST'):
+   		
+			$file = $_FILES['file']['tmp_name'];
+			$type = $_FILES['file']['type'];
+			if ( !empty($file) && ( $type == 'application/vnd.ms-excel' ) ) {
+
+			print_r($file);
+
+			}
+
+   		endif;
+
 	 	$this->load->view('admin/carga-servicios',$data);
 	 }
 
