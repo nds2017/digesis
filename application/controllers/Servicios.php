@@ -15,7 +15,8 @@ class Servicios extends CI_Controller {
 	 public function index()
 	 {	 	
 	 	securityAccess(array(1));
-	 	$this->load->view('admin/carga-servicios');
+	 	$data['header'] = $this->load->view('admin/menu/header', array('active' => 'solicitudesload' ));
+	 	$this->load->view('admin/carga-servicios',$data);
 	 }
 
 
