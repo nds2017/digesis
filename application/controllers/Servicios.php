@@ -39,6 +39,7 @@ class Servicios extends CI_Controller {
 			$file = $_FILES['file']['tmp_name'];
 			$type = $_FILES['file']['type'];
 			
+			if (!empty($file)) {
 		 		$obj_excel = PHPExcel_IOFactory::load($file);    
 		       	$sheetData = $obj_excel->getActiveSheet()->toArray(null,true,true,true);
 		       	$arr_datos = array();
@@ -57,6 +58,7 @@ class Servicios extends CI_Controller {
 
 				$this->mservicios->insert($arr_datos);	
             } 	
+}
 }
    		redirect('servicios');
    		}
