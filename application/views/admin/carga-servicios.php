@@ -20,9 +20,8 @@
 			<input class="btn" style="margin: 0px;" name="carga" type="submit" value="Cargar" />
 			<br><br>
 			<?php if ( @$error ) echo $error; ?>
-			</form>		
-			<br>			
-			<hr style="border: 2px blue solid">
+			</form>					
+			<hr style="border: 1px blue solid">
 			<?php
 				if ( !@$error && @$_POST['carga'] )
 					echo '<em>' . $info->filas . ' Registros Procesados <br>' . $info->add . ' Registros Agregados <br>' . $info->update . ' Registros Actualizados</em><hr>';
