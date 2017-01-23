@@ -29,7 +29,7 @@
 				<tr>
 					<td>Tipo de Servicio : </td>
 					<td>
-						<select required name="tiposervicioid" id="tiposervicioid">
+						<select required name="tiposervicioid" id="tiposervicioid" style="display:true">
 							<option value="">-Seleccione-</option>
 							<?php foreach ( $tiposervicios as $key => $tiposervicio ) { ?>
 								<option <?=(@$data->tiposervicioid==$key ? 'selected' : '')?>  value="<?=$key?>"><?=$tiposervicio?></option>
