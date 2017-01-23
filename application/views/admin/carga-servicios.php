@@ -13,16 +13,16 @@
 			<h1>Cargar Solicitudes</h1><br>						
 			<form method="post" enctype="multipart/form-data">
 			 <div class="form-group">
-				<label for="exampleInputFile">File input</label>
+				<label for="exampleInputFile">Cargar servicios</label>
 				<input type="file" id="exampleInputFile">
-				<p class="help-block">Example block-level help text here.</p>
+				<p class="help-block">Seleccione un archivo csv.</p>
 				</div>					
 			<input class="btn" style="margin: 0px;" name="carga" type="submit" value="Cargar" />
 			<br><br>
 			<?php if ( @$error ) echo $error; ?>
 			</form>		
 			<br>			
-			<hr>
+			<hr style="border: 2px blue solid">
 			<?php
 				if ( !@$error && @$_POST['carga'] )
 					echo '<em>' . $info->filas . ' Registros Procesados <br>' . $info->add . ' Registros Agregados <br>' . $info->update . ' Registros Actualizados</em><hr>';
