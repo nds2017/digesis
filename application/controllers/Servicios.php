@@ -141,13 +141,13 @@ if (!empty($id))
 	$r_servicios=$this->mservicios->getById($id);	
 
    echo $r_servicios[0]->categoria;
-if($r_servicios[0]->categoria==self::SERVICIO_MANTENIMIENTO_NAME)
+if(strtolower($r_servicios[0]->categoria)==self::SERVICIO_MANTENIMIENTO_NAME)
 	$cat=self::SERVICIO_MANTENIMIENTO;
 
-if($r_servicios[0]->categoria==self::SERVICIO_INSTALACIONES_NAME)
+if(strtolower($r_servicios[0]->categoria)==self::SERVICIO_INSTALACIONES_NAME)
 	$cat=self::SERVICIO_INSTALACIONES;
 
-if($r_servicios[0]->categoria==self::SERVICIO_POST_VENTA_NAME)
+if(strtolower($r_servicios[0]->categoria)==self::SERVICIO_POST_VENTA_NAME)
 	$cat=self::SERVICIO_POST_VENTA;
 
 	echo $cat;
