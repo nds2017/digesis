@@ -125,6 +125,17 @@ public function add(){
 exit;		
 }
 
+public function update($id){
+
+	$request=$this->input->post();
+	exit();
+
+	$r=$this->mservicios->update();
+	if ($r)
+		redirect('servicios')
+
+}
+
 public function edit($id){
 
 $session = get_session();
