@@ -36,7 +36,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>Motivo : </td><td><input pattern="[/\s/ÑñA-Za-z]{1,30}" title="Solo Letras" type="text" required maxlength="30" name="apellidos" value="<?=@$servicios[0]->motivos?>"></td>
+					<td>Motivo : </td><td><input pattern="[/\s/ÑñA-Za-z]{1,30}" title="Solo Letras" type="text" maxlength="30" name="apellidos" value="<?=@$servicios[0]->motivos?>"></td>
 				</tr>
 				<tr>
 					<td>Foto : </td><td><input class="solo-numero" title="Sólo 2 Dígitos" pattern=".{2}" type="number" required name="dni" value="<?=@$servicios[0]->fotos?>"></td>
