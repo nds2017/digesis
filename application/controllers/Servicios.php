@@ -139,8 +139,7 @@ $cat=null;
 if (!empty($id))
 	{
 	$r_servicios=$this->mservicios->getById($id);	
-
-   echo $r_servicios[0]->categoria;
+   
 if(strtolower($r_servicios[0]->categoria)==self::SERVICIO_MANTENIMIENTO_NAME)
 	$cat=self::SERVICIO_MANTENIMIENTO;
 
@@ -150,7 +149,7 @@ if(strtolower($r_servicios[0]->categoria)==self::SERVICIO_INSTALACIONES_NAME)
 if(strtolower($r_servicios[0]->categoria)==self::SERVICIO_POST_VENTA_NAME)
 	$cat=self::SERVICIO_POST_VENTA;
 
-	echo $cat;
+	
 	$data['cat']=$cat;
 	$data['servicios']=$r_servicios;
 	$this->load->view('admin/servicios_editar', $data);
