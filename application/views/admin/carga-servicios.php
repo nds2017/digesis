@@ -95,10 +95,10 @@
 		<fieldset class="row" style="border: solid 1px #b3b3b3;margin-left: 10px; margin-right: 10px;padding-top:10px; margin-bottom: 15px;">
 		<legend>Agregar Servicio</legend>
 		<!--<div class="row" style="border: solid 1px #b3b3b3;margin-left: 10px; margin-right: 10px;padding-top:10px; margin-bottom: 15px;">-->
-			  <div class="col-xs-4">
+			  <div class="col-xs-3">
 			    <input type="text" id="txt_servicio" class="form-control" placeholder="servicio">
 			  </div>
-			  <div class="col-xs-3">
+			  <div class="col-xs-2">
 				<select id="txt_categoria" placeholder="categoria">
 					<option>Categoria</option>
 					<?php foreach($categorias as $key=>$row){ ?>
