@@ -138,9 +138,7 @@
 				</select>
 			</div>
 
-			<div class="col-xs-2">
-				<input type="button" id="btn_agregar" value="Filtrar" class="btn"></input>
-			</div>
+			
 			</div>
 			<table class="table table-striped table-bordered" id="myTable">
 				<thead>
