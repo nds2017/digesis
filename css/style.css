@@ -1316,6 +1316,10 @@ left: 950px;
     width: 80%;
 }
 
+.col-xs-4{
+width: 250px;
+padding: 8px;
+}
 .col-xs-3{
 width: 150px;
 padding: 8px;
@@ -1324,6 +1328,7 @@ padding: 8px;
 
 .col-xs-2{
 	width:70px;
+	padding: 8px;
 
 }
 
