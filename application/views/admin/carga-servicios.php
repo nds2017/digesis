@@ -110,7 +110,7 @@
 			  </div>
 
 			  <div class="col-xs-3">
-			    <input type="text" id="txt_motivos" class="form-control" placeholder="motivos">
+			    <input type="text" id="txt_motivos" class="form-control" placeholder="motivos" style="width: 200px">
 			  </div>
 			  <div class="col-xs-2">
 <input class="form-control" id="txt_fotos" placeholder="fotos" type="number" size="2" min="0" max="99" value="">
