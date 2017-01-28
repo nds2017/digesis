@@ -7,6 +7,10 @@ class Servicios extends CI_Controller {
 	const SERVICIO_INSTALACIONES=2;
 	const SERVICIO_POST_VENTA=3;
 
+	const SERVICIO_MANTENIMIENTO_NAME="mantenimiento";
+	const SERVICIO_INSTALACIONES_NAME="instalaciones";
+	const SERVICIO_POST_VENTA_NAME="post venta";
+
 	
 	 public function __construct()
    {
@@ -130,10 +134,22 @@ $data['header'] = $this->load->view('admin/menu/header', array('active' => 'serv
 
 $r_categoria=$this->mservicios->get_tipo_servicios();
 $data['categorias']=$r_categoria;
+$cat=null;
 
 if (!empty($id))
 	{
 	$r_servicios=$this->mservicios->getById($id);	
+
+if($r_servicios[0]->categoria==SERVICIO_MANTENIMIENTO_NAME)
+	$cat=self::SERVICIO_MANTENIMIENTO;
+
+if($r_servicios[0]->categoria==SERVICIO_INSTALACIONES_NAME)
+	$cat=self::SERVICIO_INSTALACIONES;
+
+if($r_servicios[0]->categoria==SERVICIO_POST_VENTA_NAME)
+	$cat=self::SERVICIO_POST_VENTA;
+
+	$data['cat']=$cat;
 	$data['servicios']=$r_servicios;
 	$this->load->view('admin/servicios_editar', $data);
 	}
