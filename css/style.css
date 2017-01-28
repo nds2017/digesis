@@ -1301,7 +1301,12 @@ left: 950px;
 }
 
 #txt_categoria{
-	width: 90px;
+	/*width: 90px;*/
+
+}
+#sel_categoria{
+   width: 90px;
+
 }
 
 .col-xs-4{
@@ -1357,7 +1362,7 @@ left: 950px;
 }
 
 	}	
-	
+
 @media screen and (max-width: 750px) {
 
 #central {
