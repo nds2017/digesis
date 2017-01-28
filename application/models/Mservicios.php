@@ -67,6 +67,10 @@ class Mservicios extends CI_Model
 		return $rows;
 	}
 
+	public function update($data=array(),$id=null){
+      return $this->db->update('servicios',$data,$id);
+
+	}
 
 	public function get_tipo_servicios()
 	{
