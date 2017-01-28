@@ -1316,5 +1316,15 @@ left: 950px;
     width: 80%;
 }
 
+.col-xs-4{
+width: 300px;
+
+}
+
+.col-xs-2{
+	width: 200px;
+}
+
+
 
 	}		

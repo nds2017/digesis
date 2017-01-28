@@ -82,7 +82,7 @@
 			 <div class="form-group">
 				<label for="exampleInputFile"></label>
 				<input type="file" name="file" id="exampleInputFile">
-				<p class="help-block">Seleccione un archivo csv.</p>
+				<p class="help-block">Seleccione un archivo xls.</p>
 				</div>					
 			<input class="btn" style="margin: 0px;" name="carga" type="submit" value="Cargar" />
 			<br><br>
