@@ -8,7 +8,7 @@
 			<br>
 			
 <?php 
-echo form_open_multipart('servicios/update/');		
+echo form_open_multipart('servicios/update/'.$servicios[0]->id);		
 ?>
 
 			<table class="table table-bordered table-striped">
