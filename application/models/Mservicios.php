@@ -68,8 +68,10 @@ class Mservicios extends CI_Model
 	}
 
 	public function update($data=array(),$id=null){
-      return $this->db->update('servicios',$data,$id);
 
+	   $this->db->where('servicios',$id);
+       $r=$this->db->update('servicios',$data);
+	   return $r;	   
 	}
 
 	public function get_tipo_servicios()

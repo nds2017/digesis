@@ -13,7 +13,10 @@ echo form_open_multipart('servicios/update/'.$servicios[0]->id);
 
 			<table class="table table-bordered table-striped">
 				<tr>
-					<td>Servicio : </td><td><input title="Solo Letras" type="text" required maxlength="30" autofocus="autofocus" name="descripcion" value="<?=@$servicios[0]->descripcion?>"></td>
+					<td>Servicio : </td>
+					<td>
+					<input type="hidden" name="id" value="<?=@$servicios[0]->id ?>"></input>
+					<input title="Solo Letras" type="text" required maxlength="30" autofocus="autofocus" name="descripcion" value="<?=@$servicios[0]->descripcion?>"></td>
 				</tr>
 				<tr>
 				<td>Categoria</td>

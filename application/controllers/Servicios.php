@@ -128,6 +128,7 @@ exit;
 public function update($id){
 
 	$request=$this->input->post();	
+	
 	$r=$this->mservicios->update($request,$request[0]->id);
 	if ($r)
 		redirect('servicios');
