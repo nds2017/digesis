@@ -121,6 +121,21 @@ public function add(){
 exit;		
 }
 
+public function edit($id){
+
+$session = get_session();
+securityAccess(array(1, 3));
+
+$data['header'] = $this->load->view('admin/menu/header', array('active' => 'serviciosload' ));
+
+if (!empty($id))
+	{
+
+	$r_servicios=$this->mservicios->getById($id);
+	$data['servicios']=$r_servicios;
+	$this->load->view('admin/servicios_editar', $data);
+	}
+}
 
 public function carga() {
 		date_default_timezone_set('America/Lima');
