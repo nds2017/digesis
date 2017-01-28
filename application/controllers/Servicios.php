@@ -8,7 +8,7 @@ class Servicios extends CI_Controller {
 	const SERVICIO_POST_VENTA=3;
 
 	const SERVICIO_MANTENIMIENTO_NAME="mantenimiento";
-	const SERVICIO_INSTALACIONES_NAME="instalaciones";
+	const SERVICIO_INSTALACIONES_NAME="instalacion";
 	const SERVICIO_POST_VENTA_NAME="post venta";
 
 	
@@ -140,7 +140,7 @@ if (!empty($id))
 	{
 	$r_servicios=$this->mservicios->getById($id);	
 
-echo $r_servicios[0]->categoria;
+   echo $r_servicios[0]->categoria;
 if($r_servicios[0]->categoria==self::SERVICIO_MANTENIMIENTO_NAME)
 	$cat=self::SERVICIO_MANTENIMIENTO;
 
