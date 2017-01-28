@@ -128,7 +128,7 @@ exit;
 public function update($id){
 
 	$request=$this->input->post();
-	exit();
+	
 
 	//$r=$this->mservicios->update();
 	if ($r)
