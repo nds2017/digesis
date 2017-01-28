@@ -128,7 +128,7 @@
 			<div class="toolbar" style="width:15%;">
 
 <div class="col-xs-1"> 
-	<span style="display:inline; width:100px;margin-right:10px; ">Filtrar por:</span>
+	<span style="display:inline; width:150px;margin-right:10px; ">Filtrar por:</span>
 </div>
 			<div class="col-xs-2" style="margin-left: 15px;">		
 				<select id="txt_categoria" placeholder="categoria">
