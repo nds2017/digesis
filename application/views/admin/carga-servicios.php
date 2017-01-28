@@ -9,6 +9,7 @@
     		});
 
  $("div.toolbar").html('<b>Custom tool bar! Text/images etc.</b>');
+
 			$('#myTable tbody').on( 'click', 'tr', function () {
 			        if ( $(this).hasClass('selected') ) {
 			            $(this).removeClass('selected');
@@ -124,6 +125,7 @@
 		</fieldset>
 			  <!--</div>-->			
 
+		<div class="toolbar"><b>Custom tool bar! Text/images etc.</b></div>
 			<table class="table table-striped table-bordered" id="myTable">
 				<thead>
 				<tr>
