@@ -130,7 +130,7 @@
 <div class="col-xs-1"> 
 	<span style="display:inline; width:100px;margin-right:10px; ">Filtrar por:</span>
 </div>
-			<div class="col-xs-2">		
+			<div class="col-xs-2" style="margin-left: 15px;">		
 				<select style="width: 100px" id="txt_categoria" placeholder="categoria">
 					<option>Categoria</option>
 					<?php foreach($categorias as $key=>$row){ ?>
