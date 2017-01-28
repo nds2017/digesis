@@ -126,8 +126,9 @@
 			  <!--</div>-->			
 
 			<div class="toolbar" style="margin-right: 15px">
-			<div class="col-xs-2">
-			<label>Categoria</label>
+
+			<div class="col-xs-3">
+			<label style="display: inline;">Categoria</label>			
 				<select style="width: 100px" id="txt_categoria" placeholder="categoria">
 					<option>Categoria</option>
 					<?php foreach($categorias as $key=>$row){ ?>
@@ -135,11 +136,12 @@
 <?php echo trim($row->nombre) ?>
 </option>
 					<?php } ?>
-				</select>			
+				</select>
 			</div>
-				<div class="col-xs-2">
-					<input type="button" id="btn_agregar" value="Filtrar" class="btn"></input>
-				</div>
+
+			<div class="col-xs-2">
+				<input type="button" id="btn_agregar" value="Filtrar" class="btn"></input>
+			</div>
 			</div>
 			<table class="table table-striped table-bordered" id="myTable">
 				<thead>
