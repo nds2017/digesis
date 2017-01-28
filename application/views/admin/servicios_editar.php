@@ -14,7 +14,7 @@
 
 			<table class="table table-bordered table-striped">
 				<tr>
-					<td>Servicio : </td><td><input pattern="[/\s/ÑñA-Za-z]{1,30}" title="Solo Letras" type="text" required maxlength="30" autofocus="autofocus" name="nombres" value="<?=@$data->nombres?>"></td>
+					<td>Servicio : </td><td><input pattern="[/\s/ÑñA-Za-z]{1,30}" title="Solo Letras" type="text" required maxlength="30" autofocus="autofocus" name="nombres" value="<?=@$servicios->descripcion?>"></td>
 				</tr>
 				<tr>
 				<td>Categoria</td>
@@ -36,10 +36,10 @@
 					</td>
 				</tr>
 				<tr>
-					<td>Motivo : </td><td><input pattern="[/\s/ÑñA-Za-z]{1,30}" title="Solo Letras" type="text" required maxlength="30" name="apellidos" value="<?=@$data->apellidos?>"></td>
+					<td>Motivo : </td><td><input pattern="[/\s/ÑñA-Za-z]{1,30}" title="Solo Letras" type="text" required maxlength="30" name="apellidos" value="<?=@$servicios->motivos?>"></td>
 				</tr>
 				<tr>
-					<td>Foto : </td><td><input class="solo-numero" title="Sólo 8 Dígitos" pattern=".{8}" type="number" required name="dni" value="<?=@$data->dni?>"></td>
+					<td>Foto : </td><td><input class="solo-numero" title="Sólo 2 Dígitos" pattern=".{2}" type="number" required name="dni" value="<?=@$data->dni?>"></td>
 				</tr>
 				
 			</table>
