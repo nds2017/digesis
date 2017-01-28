@@ -45,6 +45,7 @@ class Mservicios extends CI_Model
 	$this->db->from('servicios s');		
 	$this->db->where('id', $id);
 	$query = $this->db->get();
+	echo $this->db->last_query();
 	if ( $query->num_rows() > 0 )
 		return $query->result();
 	}
