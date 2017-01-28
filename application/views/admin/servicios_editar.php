@@ -6,11 +6,10 @@
 				<h2><a href="<?=base_url()?>index.php/supervisores/lista">Regresar a servicios</a></h2>
 			</div>
 			<br>
-
-			<?php $data = @$data[0]; ?>
+			
 <?php 
-			echo form_open_multipart('servicios/update/' . @$servicios[0]->$id);			
-			?>
+echo form_open_multipart('servicios/update/' .@$servicios[0]->$id);		
+?>
 
 			<table class="table table-bordered table-striped">
 				<tr>
