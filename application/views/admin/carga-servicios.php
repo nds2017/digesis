@@ -125,7 +125,17 @@
 		</fieldset>
 			  <!--</div>-->			
 
-			<div class="toolbar"></div>
+			<div class="toolbar">
+				<select style="width: 100px" id="txt_categoria" placeholder="categoria">
+					<option>Categoria</option>
+					<?php foreach($categorias as $key=>$row){ ?>
+<option value="<?php echo trim($row->id) ?>">
+<?php echo trim($row->nombre) ?>
+</option>
+					<?php } ?>
+				</select>			 
+				
+			</div>
 			<table class="table table-striped table-bordered" id="myTable">
 				<thead>
 				<tr>
