@@ -10,6 +10,11 @@
 
  //$("div.toolbar").html('<b>Custom tool bar! Text/images etc.</b>');
 
+$('#sel_categoria').on( 'change', function () {
+	console.log($(this).val());
+});	
+ 
+
 			$('#myTable tbody').on( 'click', 'tr', function () {
 			        if ( $(this).hasClass('selected') ) {
 			            $(this).removeClass('selected');
@@ -131,7 +136,7 @@
 	<span style="display:inline; width:150px;margin-right:10px; ">Filtrar por:</span>
 </div>
 			<div class="col-xs-2" style="margin-left: 15px;">		
-				<select id="txt_categoria" placeholder="categoria">
+				<select id="sel_categoria" placeholder="categoria">
 					<option>Categoria</option>
 					<?php foreach($categorias as $key=>$row){ ?>
 <option value="<?php echo trim($row->id) ?>">
