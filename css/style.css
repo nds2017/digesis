@@ -1183,6 +1183,9 @@ li { margin: 5px; padding: 5px; }
   text-align: left;  
 }
 
+##txt_categoria{
+	width: 20%;
+}
 
 .msgimportante {
 margin: 10px 0;
