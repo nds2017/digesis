@@ -1182,8 +1182,7 @@ li { margin: 5px; padding: 5px; }
   float: left;
   text-align: left;  
 }
-
-##txt_categoria{
+#txt_categoria{
 	width: 20%;
 }
 
