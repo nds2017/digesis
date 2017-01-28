@@ -3,10 +3,12 @@
 		$(document).ready(function(){
     		var table =$('#myTable').DataTable( {
 		        "language": {
-        		"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+        		"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json",
+        		 "dom": '<"toolbar">frtip'
         		}
     		});
 
+ $("div.toolbar").html('<b>Custom tool bar! Text/images etc.</b>');
 			$('#myTable tbody').on( 'click', 'tr', function () {
 			        if ( $(this).hasClass('selected') ) {
 			            $(this).removeClass('selected');
