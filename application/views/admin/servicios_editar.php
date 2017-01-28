@@ -44,8 +44,8 @@
 				
 			</table>
 			<div class="divbuttons">
-				<input class="btnsearch" type="button" value="Regresar a Lista" onclick="window.location='<?=base_url()?>index.php/jefes';">
-				<input class="btnsearch" type="submit" value="<?=(@$data? 'Guardar' : 'Crear')?>">
+				<input class="btnsearch" type="button" value="Regresar a Lista" onclick="window.location='<?=base_url()?>index.php/servicios';">
+				<input class="btnsearch" type="submit" value="Actualizar">
 			</div>
 		</div>
 	</div>
