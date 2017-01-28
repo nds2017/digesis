@@ -9,7 +9,7 @@
 
 			<?php $data = @$data[0]; ?>
 <?php 
-			echo form_open_multipart('servicios/edit/' . @$id);			
+			echo form_open_multipart('servicios/update/' . @$id);			
 			?>
 
 			<table class="table table-bordered table-striped">
