@@ -1322,6 +1322,22 @@ left: 950px;
 
 	}
 
+@media screen and (max-width: 1024px) {
+
+#central {
+    /*background-color: #EBE9EA;
+    border: 1px solid #D2D2D2;
+    border-radius: 8px 8px 8px 8px;*/
+    float: left; 
+    margin-bottom: 10px;
+    width: 100%;
+}
+.toolbar {
+    width: 25%;
+}
+
+	}	
+
 @media screen and (max-width: 1600px) {
 
 #central {
