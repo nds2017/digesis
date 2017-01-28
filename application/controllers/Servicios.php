@@ -128,6 +128,7 @@ exit;
 public function update($id){
 
 	$request=$this->input->post();
+	var_dump($request);
 	exit();
 
 	//$r=$this->mservicios->update();
