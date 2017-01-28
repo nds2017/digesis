@@ -98,7 +98,7 @@
 			  <div class="col-xs-3">
 			    <input type="text" id="txt_servicio" class="form-control" placeholder="servicio">
 			  </div>
-			  <div class="col-xs-1">
+			  <div class="col-xs-2">
 				<select style="width: 150px" id="txt_categoria" placeholder="categoria">
 					<option>Categoria</option>
 					<?php foreach($categorias as $key=>$row){ ?>
