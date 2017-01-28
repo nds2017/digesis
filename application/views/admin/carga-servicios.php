@@ -8,7 +8,7 @@
         		"dom": '<"toolbar">frtip'
     		});
 
- $("div.toolbar").html('<b>Custom tool bar! Text/images etc.</b>');
+ //$("div.toolbar").html('<b>Custom tool bar! Text/images etc.</b>');
 
 			$('#myTable tbody').on( 'click', 'tr', function () {
 			        if ( $(this).hasClass('selected') ) {
@@ -134,7 +134,7 @@
 </option>
 					<?php } ?>
 				</select>			 
-				
+
 			</div>
 			<table class="table table-striped table-bordered" id="myTable">
 				<thead>
