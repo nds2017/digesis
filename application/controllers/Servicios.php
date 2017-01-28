@@ -134,6 +134,9 @@ $data['categorias']=$r_categoria;
 if (!empty($id))
 	{
 	$r_servicios=$this->mservicios->getById($id);
+	var_dump($r_servicios);
+	echo $r_servicios[0]->descripcion;
+
 	$data['servicios']=$r_servicios;
 	$this->load->view('admin/servicios_editar', $data);
 	}
