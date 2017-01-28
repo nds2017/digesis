@@ -109,7 +109,7 @@
 				</select>			 
 			  </div>
 
-			  <div class="col-xs-2">
+			  <div class="col-xs-3">
 			    <input type="text" id="txt_motivos" class="form-control" placeholder="motivos">
 			  </div>
 			  <div class="col-xs-2">
