@@ -1242,6 +1242,10 @@ top: 250px;
 left: 950px;
 }
 
+.toolbar {
+    float: left;
+}
+
 #content {
     width: 900px;
     margin: 0px auto;

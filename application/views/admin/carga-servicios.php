@@ -125,7 +125,7 @@
 		</fieldset>
 			  <!--</div>-->			
 
-		<div class="toolbar"><b>Custom tool bar! Text/images etc.</b></div>
+		
 			<table class="table table-striped table-bordered" id="myTable">
 				<thead>
 				<tr>
