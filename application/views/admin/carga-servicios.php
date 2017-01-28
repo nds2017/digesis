@@ -125,7 +125,7 @@
 		</fieldset>
 			  <!--</div>-->			
 
-			<div class="toolbar" style="margin-right: 15px">
+			<div class="toolbar">
 
 <div class="col-xs-1"> 
 	<span style="display:inline;">Filtrar por:</span>
