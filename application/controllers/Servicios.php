@@ -132,7 +132,7 @@ public function update($id){
 
 	$r=$this->mservicios->update();
 	if ($r)
-		redirect('servicios')
+		redirect('servicios');
 
 }
 
