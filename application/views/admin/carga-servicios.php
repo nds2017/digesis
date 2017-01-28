@@ -127,7 +127,8 @@
 
 			<div class="toolbar" style="margin-right: 15px">
 
-			<div class="col-xs-2">			
+			<div class="col-xs-2">
+			<label style="display: inline;">Filtrar por:</label>			
 				<select style="width: 100px" id="txt_categoria" placeholder="categoria">
 					<option>Categoria</option>
 					<?php foreach($categorias as $key=>$row){ ?>
