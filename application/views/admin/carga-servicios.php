@@ -175,7 +175,7 @@ else
 					<td><strong><?=$row->fotos ?></strong></td>
 					<td>
 
-<strong><a class="serv_delete" style="color:blue" data-id="<?=$row->id ?>" href="#">Editar</a></strong>
+<strong><a class="serv_delete" style="color:blue" data-id="<?=$row->id ?>" href="/index.php/servicios/edit/<?=$row->id ?>">Editar</a></strong>
 <span>|</span>
 
 					<strong><a class="serv_delete" style="color:red" data-id="<?=$row->id ?>" href="#">Eliminar</a></strong></td>
