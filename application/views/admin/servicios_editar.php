@@ -14,7 +14,7 @@
 
 			<table class="table table-bordered table-striped">
 				<tr>
-					<td>Servicio : </td><td><input pattern="[/\s/ÑñA-Za-z]{1,30}" title="Solo Letras" type="text" required maxlength="30" autofocus="autofocus" name="nombres" value="<?=@$servicios->descripcion?>"></td>
+					<td>Servicio : </td><td><input pattern="[/\s/ÑñA-Za-z]{1,30}" title="Solo Letras" type="text" required maxlength="30" autofocus="autofocus" name="nombres" value="<?=@$servicios[0]->descripcion?>"></td>
 				</tr>
 				<tr>
 				<td>Categoria</td>
