@@ -2,7 +2,7 @@
 			<script src="<?=base_url()?>js/departamentos.js"></script>
 
 			<div class="list-mod-panel">
-				<h1 style="float: left;"> <?=(@$data)?'Editar Jefe' : 'Crear Jefe'?> &nbsp;&nbsp;</h1>
+				<h1 style="float: left;">Editar Servicio</h1>
 				<h2><a href="<?=base_url()?>index.php/supervisores/lista">Regresar a servicios</a></h2>
 			</div>
 			<br>
@@ -16,7 +16,6 @@
 				<tr>
 					<td>Servicio : </td><td><input pattern="[/\s/ÑñA-Za-z]{1,30}" title="Solo Letras" type="text" required maxlength="30" autofocus="autofocus" name="nombres" value="<?=@$data->nombres?>"></td>
 				</tr>
-								
 				<tr>
 				<td>Categoria</td>
 				<td>

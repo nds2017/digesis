@@ -128,13 +128,16 @@ securityAccess(array(1, 3));
 
 $data['header'] = $this->load->view('admin/menu/header', array('active' => 'serviciosload' ));
 
+$r_categoria=$this->mservicios->get_tipo_servicios();
+$data['categorias']=$r_categoria;
+
 if (!empty($id))
 	{
-
 	$r_servicios=$this->mservicios->getById($id);
 	$data['servicios']=$r_servicios;
 	$this->load->view('admin/servicios_editar', $data);
 	}
+
 }
 
 public function carga() {
