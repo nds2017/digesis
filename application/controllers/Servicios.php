@@ -128,7 +128,7 @@ exit;
 public function update($id){
 
 		$request=$this->input->post();
-
+		$data=array();
 		$categoria=null;
 	if ($request['categoria']==self::SERVICIO_INSTALACIONES)
 		$categoria="instalacion";
@@ -139,10 +139,16 @@ public function update($id){
 	if ($request['categoria']==self::SERVICIO_POST_VENTA)
 		$categoria='post instalacion';
 
-	   $request[0]->categoria=$categoria;
+	   
+	   $data=array(
+		'descripcion'=>$request[0]->descripcion,
+		'categoria'=>$categoria,
+		'motivos'=>$request[0]->motivos,
+		'fotos'=>$request[0]->fotos
+	   	);
 
 	 if (isset($request[0]->id))  
-		$r=$this->mservicios->update($request,$request[0]->id);
+		$r=$this->mservicios->update($data,$request[0]->id);
 		if ($r)
 			redirect('servicios');
 	else
