@@ -38,7 +38,12 @@
 						<td><strong>-</strong></td>
 						<td><strong><?=$solicitud->id?></strong></td>
 						<td><strong><?=$solicitud->fecha_instalacion?></strong></td>
-						<?php foreach ( $solicitud->encuestas as $value ) { ?>
+						<?php 
+						 $prom=array();	
+						 var_dump($solicitud->encuestas);
+						  foreach ( $solicitud->encuestas as $value ) { 
+							//$prom['']
+						  	?>
 							<td><strong><?=$value?></strong></td>
 						<?php } ?>
 						<td><strong><?=isset($solicitud->promedio)?$solicitud->promedio:'-'?></strong></td>
@@ -47,6 +52,20 @@
 					<?php } ?>
 				</tbody>
 				<?php } ?>
+				<tfoot>
+				<th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</th>
+
+				</tfoot>
 			</table>
 			<br><br>
 			<input class="btnsearch" type="button" value="Regresar" onclick="window.location='<?=base_url()?>index.php/reportes/encuestas';">
