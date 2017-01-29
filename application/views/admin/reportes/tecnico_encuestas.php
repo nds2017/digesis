@@ -54,15 +54,14 @@
 					<?php } ?>
 					<?php } ?>
 				</tbody>
-				<?php } ?>
-				<?php
-					var_dump($prom);
-				?>
+				<?php } ?>				
 				<tfoot>				
 				<th>
 					<td>-</td>
 					<td>-</td>					
-					<td><?php echo Round($prom[1]/$c,2); ?></td>
+			<td>
+			<?php $prom1= Round($prom[1]/$c,2); ?>
+			<span style="color:<?php echo ($prom1<6) 'red':'blue'?> "> <?php echo $prom1; ?></span> </td>
 					<td><?php echo Round($prom[2]/$c,2); ?></td>
 					<td><?php echo Round($prom[3]/$c,2); ?></td>
 					<td><?php echo Round($prom[4]/$c,2); ?></td>
