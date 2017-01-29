@@ -147,11 +147,11 @@ public function update($id){
 		'fotos'=>$request['fotos']
 	   	);
 
-	 if (isset($request[0]->id))  
-		$r=$this->mservicios->update($data,$request[0]->id);
+	 if (isset($request[0]->id)){  
+		$r=$this->mservicios->update($data,$request['id']);
 		if ($r)
 			redirect('servicios');
-	else
+	}else
 		echo 'Error, ';	
 
 }
