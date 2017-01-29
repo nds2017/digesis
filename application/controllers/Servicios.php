@@ -140,10 +140,13 @@ public function update($id){
 		$categoria='post instalacion';
 
 	   $request[0]->categoria=$categoria;
-	$r=$this->mservicios->update($request,$request[0]->id);
 
-	if ($r)
-		redirect('servicios');
+	 if (isset($request[0]->id))  
+		$r=$this->mservicios->update($request,$request[0]->id);
+		if ($r)
+			redirect('servicios');
+	else
+		echo 'Error, ';	
 
 }
 
