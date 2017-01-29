@@ -62,10 +62,23 @@
 			<td>
 			<?php $prom1= Round($prom[1]/$c,2); ?>
 			<span style="color:<?php echo ($prom1<6)? 'red':'blue' ?> "> <?php echo $prom1; ?></span> </td>
-					<td><?php echo Round($prom[2]/$c,2); ?></td>
-					<td><?php echo Round($prom[3]/$c,2); ?></td>
-					<td><?php echo Round($prom[4]/$c,2); ?></td>
-					<td><?php echo Round($prom[5]/$c,2); ?></td>
+
+			<td>
+			<?php $prom1= Round($prom[2]/$c,2); ?>
+			<span style="color:<?php echo ($prom1<6)? 'red':'blue' ?> "> <?php echo $prom1; ?></span> </td>
+
+			<td>
+			<?php $prom1= Round($prom[3]/$c,2); ?>
+			<span style="color:<?php echo ($prom1<6)? 'red':'blue' ?> "> <?php echo $prom1; ?></span> </td>
+
+			<td>
+			<?php $prom1= Round($prom[4]/$c,2); ?>
+			<span style="color:<?php echo ($prom1<6)? 'red':'blue' ?> "> <?php echo $prom1; ?></span> </td>
+
+			<td>
+			<?php $prom1= Round($prom[5]/$c,2); ?>
+			<span style="color:<?php echo ($prom1<6)? 'red':'blue' ?> "> <?php echo $prom1; ?></span> </td>
+			
 					<td></td>
 				</th>
 
