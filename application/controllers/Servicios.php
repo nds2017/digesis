@@ -131,13 +131,13 @@ public function update($id){
 		$data=array();
 		$categoria=null;		
 	if ($request['categoria']==self::SERVICIO_INSTALACIONES)
-		$categoria="instalacion";
+		$categoria="Instalacion";
 
 	if ($request['categoria']==self::SERVICIO_MANTENIMIENTO)
-		$categoria='mantenimiento';
+		$categoria='Mantenimiento';
 
 	if ($request['categoria']==self::SERVICIO_POST_VENTA)
-		$categoria='post instalacion';
+		$categoria='Post instalacion';
 
 	   
 	   $data=array(
