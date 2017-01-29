@@ -69,7 +69,7 @@ class Mservicios extends CI_Model
 
 	public function update($data=array(),$id=null){
 
-	   $this->db->where('servicios',$id);
+	   $this->db->where('id',$id);
        $r=$this->db->update('servicios',$data);
 	   return $r;	   
 	}
