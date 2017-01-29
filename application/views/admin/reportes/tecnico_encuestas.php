@@ -68,7 +68,7 @@
 					<td><?php Round($prom[3]/$c,2); ?></td>
 					<td><?php Round($prom[4]/$c,2); ?></td>
 					<td><?php Round($prom[5]/$c,2); ?></td>
-					<td><?php Round($prom[6]/$c,2); ?></td>
+					<td></td>
 				</th>
 
 				</tfoot>
