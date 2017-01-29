@@ -32,14 +32,15 @@
 					<td><strong>-</strong></td>
 					<td><strong><?=isset($data['promedio'])?$data['promedio']:'-'?></strong></td>
 				</tr>
-					<?php if ( isset($data['solicitudes']) && count($data['solicitudes']) ) { ?>
+					<?php if ( isset($data['solicitudes']) && count($data['solicitudes']) ) {
+ 					$prom[1]=0;$prom[2]=0;$prom[3]=0;$prom[4]=0;$prom[5]=0;
+					 ?>
 					<?php foreach ( $data['solicitudes'] as $solicitud ) { ?>
 					<tr>
 						<td><strong>-</strong></td>
 						<td><strong><?=$solicitud->id?></strong></td>
 						<td><strong><?=$solicitud->fecha_instalacion?></strong></td>
-						<?php 
-						 $prom[1]=0;$prom[2]=0;$prom[3]=0;$prom[4]=0;$prom[5]=0;	 
+						<?php 							 
 						  foreach ( $solicitud->encuestas as $key=>$value ) { 
 							$prom[$key]=$prom[$key]+$value;
 						  	?>
