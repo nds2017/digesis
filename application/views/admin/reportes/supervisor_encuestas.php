@@ -31,7 +31,18 @@
 						<td><strong>-</strong></td>
 						<td><strong><?=$tecnicos[$tid]?></strong></td>
 						<td><strong><?=isset($data_t['promedio'])?$data_t['promedio']:'-'?></strong></td>
+						<td><strong><?=isset($data_t['promedio'])?$data_t['promedio']:'-'?></strong></td>
+						<td><strong><?=isset($data_t['promedio'])?$data_t['promedio']:'-'?></strong></td>
+						<td><strong><?=isset($data_t['promedio'])?$data_t['promedio']:'-'?></strong></td>
+						<td><strong><?=isset($data_t['promedio'])?$data_t['promedio']:'-'?></strong></td>
+						<td><strong><?=isset($data_t['promedio'])?$data_t['promedio']:'-'?></strong></td>
+
+
+
+
+
 					</tr>
+
 					<?php } ?>
 					<?php } ?>
 				</tbody>
