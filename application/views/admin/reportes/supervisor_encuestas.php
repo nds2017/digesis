@@ -23,6 +23,11 @@
 				<tr>
 					<td><strong><?=$supervisores[$supid]?></strong></td>
 					<td><strong>-</strong></td>
+					<td><strong>-</strong></td>
+					<td><strong>-</strong></td>
+					<td><strong>-</strong></td>
+					<td><strong>-</strong></td>
+					<td><strong>-</strong></td>
 					<td><strong><?=isset($data['promedio'])?$data['promedio']:'-'?></strong></td>
 				</tr>
 					<?php if ( isset($data['tecnicos']) && count($data['tecnicos']) ) { ?>
