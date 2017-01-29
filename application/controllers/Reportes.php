@@ -96,7 +96,7 @@ class Reportes extends CI_Controller {
 		$params = array('desde' => $data['desde'], 'hasta' => $data['hasta'], 'jefeid' => $data['jefeid'], 'supervisorid' => $data['supervisorid'], 'tecnicoid' => $data['tecnicoid']);
 		$data['data'] = $this->mreportes->jefes_getEncuestas($data['jefes'], $params);
 
-		var_dump($data['data']);
+		//var_dump($data['data']);
 
 		$this->load->view('admin/reportes/encuestas',$data);
 	}
