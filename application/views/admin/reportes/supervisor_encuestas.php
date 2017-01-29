@@ -10,6 +10,11 @@
 					<tr>
 						<th scope="col"><span>SUPERVISOR</span></th>
 						<th scope="col"><span>TÉCNICOS</span></th>
+						<th scope="col"><span>Preg. 1</span></th>
+						<th scope="col"><span>Preg. 2</span></th>
+						<th scope="col"><span>Preg. 3</span></th>
+						<th scope="col"><span>Preg. 4</span></th>
+						<th scope="col"><span>Preg. 5</span></th>
 						<th scope="col"><span>PROMEDIO</span></th>
 					</tr>
 				</thead>
