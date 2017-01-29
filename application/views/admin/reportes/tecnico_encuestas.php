@@ -33,9 +33,12 @@
 					<td><strong><?=isset($data['promedio'])?$data['promedio']:'-'?></strong></td>
 				</tr>
 					<?php if ( isset($data['solicitudes']) && count($data['solicitudes']) ) {
+						$c=0;
  					$prom[1]=0;$prom[2]=0;$prom[3]=0;$prom[4]=0;$prom[5]=0;
 					 ?>
-					<?php foreach ( $data['solicitudes'] as $solicitud ) { ?>
+					<?php foreach ( $data['solicitudes'] as $solicitud ) {
+					$c++;
+					 ?>
 					<tr>
 						<td><strong>-</strong></td>
 						<td><strong><?=$solicitud->id?></strong></td>
@@ -57,15 +60,15 @@
 				?>
 				<tfoot>				
 				<th>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>-</td>
+					<td>-</td>
+					<td>-</td>
+					<td><?php Round($prom[1]/$c,2); ?></td>
+					<td><?php Round($prom[2]/$c,2); ?></td>
+					<td><?php Round($prom[3]/$c,2); ?></td>
+					<td><?php Round($prom[4]/$c,2); ?></td>
+					<td><?php Round($prom[5]/$c,2); ?></td>
+					<td><?php Round($prom[6]/$c,2); ?></td>
 				</th>
 
 				</tfoot>
