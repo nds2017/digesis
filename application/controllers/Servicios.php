@@ -130,6 +130,8 @@ public function update($id){
 		$request=$this->input->post();
 		$data=array();
 		$categoria=null;
+		var_dump($request);
+		exit();
 	if ($request['categoria']==self::SERVICIO_INSTALACIONES)
 		$categoria="instalacion";
 
