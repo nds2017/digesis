@@ -141,10 +141,10 @@ public function update($id){
 
 	   
 	   $data=array(
-		'descripcion'=>$request[0]->descripcion,
+		'descripcion'=>$request['descripcion'],
 		'categoria'=>$categoria,
-		'motivos'=>$request[0]->motivos,
-		'fotos'=>$request[0]->fotos
+		'motivos'=>$request['motivos'],
+		'fotos'=>$request['fotos']
 	   	);
 
 	 if (isset($request[0]->id))  
