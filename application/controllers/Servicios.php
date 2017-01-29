@@ -127,9 +127,21 @@ exit;
 
 public function update($id){
 
-	$request=$this->input->post();	
-	
+		$request=$this->input->post();
+
+		$categoria=null;
+	if ($request['categoria']==self::SERVICIO_INSTALACIONES)
+		$categoria="instalacion";
+
+	if ($request['categoria']==self::SERVICIO_MANTENIMIENTO)
+		$categoria='mantenimiento';
+
+	if ($request['categoria']==self::SERVICIO_POST_VENTA)
+		$categoria='post instalacion';
+
+	   $request[0]->categoria=$categoria;
 	$r=$this->mservicios->update($request,$request[0]->id);
+
 	if ($r)
 		redirect('servicios');
 
