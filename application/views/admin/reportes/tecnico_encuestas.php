@@ -39,10 +39,9 @@
 						<td><strong><?=$solicitud->id?></strong></td>
 						<td><strong><?=$solicitud->fecha_instalacion?></strong></td>
 						<?php 
-						 $prom=array();	
-						 var_dump($solicitud->encuestas);
-						  foreach ( $solicitud->encuestas as $value ) { 
-							//$prom['']
+						 $prom=array();							 
+						  foreach ( $solicitud->encuestas as $key=>$value ) { 
+							$prom[$key]=$prom[$key]+$value;
 						  	?>
 							<td><strong><?=$value?></strong></td>
 						<?php } ?>
@@ -52,7 +51,10 @@
 					<?php } ?>
 				</tbody>
 				<?php } ?>
-				<tfoot>
+				<?php
+					var_dump($prom);
+				?>
+				<tfoot>				
 				<th>
 					<td></td>
 					<td></td>
