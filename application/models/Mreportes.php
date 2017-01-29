@@ -111,7 +111,7 @@ class Mreportes extends CI_Model
 		$rows = array();
 		if ( is_array($jefes) && count($jefes) ) {
 
-			if ( $params['jefeid'] )
+			if ($params['jefeid'])
 				$jefes2[$params['jefeid']] = $jefes[$params['jefeid']];
 			else
 				$jefes2 = $jefes;
