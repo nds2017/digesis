@@ -49,7 +49,13 @@
 						  	?>
 							<td><strong><?=$value?></strong></td>
 						<?php } ?>
-						<td><strong><?=isset($solicitud->promedio)?$solicitud->promedio:'-'?></strong></td>
+						<td><strong>
+						<span style="color:<?php echo (@$solicitud->promedio<6)? 'red':'blue' ?> ">
+
+						<?=isset($solicitud->promedio)?$solicitud->promedio:'-'?>
+
+
+						</span></strong></td>
 					</tr>
 					<?php } ?>
 					<?php } ?>
