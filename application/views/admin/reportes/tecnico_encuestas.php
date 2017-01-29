@@ -39,7 +39,7 @@
 						<td><strong><?=$solicitud->id?></strong></td>
 						<td><strong><?=$solicitud->fecha_instalacion?></strong></td>
 						<?php 
-						 $prom=array();							 
+						 $prom=array(1,2,3,4,5);							 
 						  foreach ( $solicitud->encuestas as $key=>$value ) { 
 							$prom[$key]=$prom[$key]+$value;
 						  	?>
