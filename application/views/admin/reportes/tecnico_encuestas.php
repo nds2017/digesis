@@ -63,11 +63,11 @@
 					<td>-</td>
 					<td>-</td>
 					<td>-</td>
-					<td><?php Round($prom[1]/$c,2); ?></td>
-					<td><?php Round($prom[2]/$c,2); ?></td>
-					<td><?php Round($prom[3]/$c,2); ?></td>
-					<td><?php Round($prom[4]/$c,2); ?></td>
-					<td><?php Round($prom[5]/$c,2); ?></td>
+					<td><?php echo Round($prom[1]/$c,2); ?></td>
+					<td><?php echo Round($prom[2]/$c,2); ?></td>
+					<td><?php echo Round($prom[3]/$c,2); ?></td>
+					<td><?php echo Round($prom[4]/$c,2); ?></td>
+					<td><?php echo Round($prom[5]/$c,2); ?></td>
 					<td></td>
 				</th>
 
