@@ -153,7 +153,7 @@ else
 				</select>
 			</div>			
 			</div>
-			<table class="table table-striped table-bordered" id="myTable">
+			<table class="table table-striped table-bordered" id="myTable" data-page-length='25'>
 				<thead>
 				<tr>
 					<th scope="col"><span>#</span></th>			
