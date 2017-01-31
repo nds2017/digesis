@@ -20,9 +20,8 @@ class Reportes extends CI_Controller {
 	public function eficiencia() {
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'eficiencia'));
 
-		$data['desde'] = isset($_POST['desde']) ? $_POST['desde'] : null;
-		var_dump($data['desde']);
-		$data['hasta'] = isset($_POST['hasta']) ? $_POST['hasta'] : null;
+		$data['desde'] = isset($_POST['desde']) ? $_POST['desde'] : date('Y-m-01');
+		$data['hasta'] = isset($_POST['hasta']) ? $_POST['hasta'] : date('Y-m-t');
 		$data['jefeid'] = isset($_POST['jefeid']) ? $_POST['jefeid'] : null;
 		$data['supervisorid'] = isset($_POST['supervisorid']) ? $_POST['supervisorid'] : null;
 		$data['baseid'] = isset($_POST['baseid']) ? $_POST['baseid'] : null;
