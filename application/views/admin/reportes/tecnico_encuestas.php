@@ -5,7 +5,7 @@
 				<a href="#" id="exportar"><img style="width: 25px;height: 25px;" src="/img/excel.png"></a>
 			</div>
 			<br><br><br>
-			<table id="tbl_exportar" class="table table-bordered table-striped">
+			<table id="tbl_exportar" class="table table-bordered table-striped" data-page-length='25'>
 				<thead>
 					<tr>
 						<th scope="col"><span>TÉCNICO</span></th>
