@@ -22,6 +22,8 @@ class Reportes extends CI_Controller {
 
 		$data['desde'] = isset($_POST['desde']) ? $_POST['desde'] : date('Y-m-01');
 		$data['hasta'] = isset($_POST['hasta']) ? $_POST['hasta'] : date('Y-m-t');
+		var_dump($data['desde']);
+		var_dump($data['hasta']);
 		$data['jefeid'] = isset($_POST['jefeid']) ? $_POST['jefeid'] : null;
 		$data['supervisorid'] = isset($_POST['supervisorid']) ? $_POST['supervisorid'] : null;
 		$data['baseid'] = isset($_POST['baseid']) ? $_POST['baseid'] : null;
