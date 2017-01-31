@@ -40,8 +40,8 @@ class Reportes extends CI_Controller {
 	public function produccion() {
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'produccion'));
 
-		$data['desde'] = isset($_POST['desde']) ? $_POST['desde'] : null;
-		$data['hasta'] = isset($_POST['hasta']) ? $_POST['hasta'] : null;
+		$data['desde'] = isset($_POST['desde']) ? $_POST['desde'] : date('Y-m-01');
+		$data['hasta'] = isset($_POST['hasta']) ? $_POST['hasta'] : date('Y-m-d');
 		$data['jefeid'] = isset($_POST['jefeid']) ? $_POST['jefeid'] : null;
 		$data['supervisorid'] = isset($_POST['supervisorid']) ? $_POST['supervisorid'] : null;
 		$data['baseid'] = isset($_POST['baseid']) ? $_POST['baseid'] : null;
@@ -60,8 +60,8 @@ class Reportes extends CI_Controller {
 	public function rfotografico() {
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'rfotografico'));
 
-		$data['desde'] = isset($_POST['desde']) ? $_POST['desde'] : null;
-		$data['hasta'] = isset($_POST['hasta']) ? $_POST['hasta'] : null;
+		$data['desde'] = isset($_POST['desde']) ? $_POST['desde'] : date('Y-m-01');
+		$data['hasta'] = isset($_POST['hasta']) ? $_POST['hasta'] : date('Y-m-d');
 		$data['jefeid'] = isset($_POST['jefeid']) ? $_POST['jefeid'] : null;
 		$data['supervisorid'] = isset($_POST['supervisorid']) ? $_POST['supervisorid'] : null;
 		$data['baseid'] = isset($_POST['baseid']) ? $_POST['baseid'] : null;
@@ -80,8 +80,8 @@ class Reportes extends CI_Controller {
 	public function encuestas() {
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'encuestas' ));
 
-		$data['desde'] = isset($_POST['desde']) ? $_POST['desde'] : null;
-		$data['hasta'] = isset($_POST['hasta']) ? $_POST['hasta'] : null;
+		$data['desde'] = isset($_POST['desde']) ? $_POST['desde'] : date('Y-m-01');
+		$data['hasta'] = isset($_POST['hasta']) ? $_POST['hasta'] : date('Y-m-d');
 		$data['jefeid'] = isset($_POST['jefeid']) ? $_POST['jefeid'] : null;
 		$data['supervisorid'] = isset($_POST['supervisorid']) ? $_POST['supervisorid'] : null;
 		$data['tecnicoid'] = isset($_POST['tecnicoid']) ? $_POST['tecnicoid'] : null;
