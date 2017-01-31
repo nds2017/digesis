@@ -21,6 +21,7 @@ class Reportes extends CI_Controller {
 		$data['header'] = $this->load->view('admin/menu/header', array('active' => 'eficiencia'));
 
 		$data['desde'] = isset($_POST['desde']) ? $_POST['desde'] : null;
+		var_dump($data['desde']);
 		$data['hasta'] = isset($_POST['hasta']) ? $_POST['hasta'] : null;
 		$data['jefeid'] = isset($_POST['jefeid']) ? $_POST['jefeid'] : null;
 		$data['supervisorid'] = isset($_POST['supervisorid']) ? $_POST['supervisorid'] : null;
