@@ -138,8 +138,7 @@ foreach ($data['data']['tecnicos'] as $key_tecnico => $value_tecnico) {
 
 @$contador[$value_tecnico['id']][$key]=@$contador[$value_tecnico['id']][$key]+1;
 
-$promedio[$value_tecnico['id']]['promedio'][$key]=(@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key])/@$contador[$value_tecnico['id']][$key];
-
+$promedio[$value_tecnico['id']]['promedio'][$key]=round((@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key])/@$contador[$value_tecnico['id']][$key],2);
 
 		}
 
