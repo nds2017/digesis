@@ -125,12 +125,14 @@ $suma=array();
 foreach ($data['tecnicos'] as $key_tecnico => $value) {
 	
 	$r=$this->mreportes->tecnico_getEncuestas($key_tecnico);	
+	if (!empty($r['solicitudes'])){
 	foreach ($r['solicitudes'] as $key_soli => $solicitud) {	
 		foreach ($solicitud->encuestas as $key => $value) {
 		@$suma[$key_tecnico][$key]=@$suma[$key_tecnico][$key]+$value;
 		}
 
-	}
+	}	
+}
 
 	echo '<pre>';
 	print_r($suma);
