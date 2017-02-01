@@ -121,14 +121,18 @@ class Reportes extends CI_Controller {
 		$data['supid'] = $supid;
 		$tecnicos = $this->mtecnicos->tecnicos_bySupervisor($supid);
 
+
+			$data['data'] = $this->mreportes->supervisor_getEncuestas($tecnicos, array('supid' => $supid, 'nombres' => ''));
+
+			
 $suma=array();
-foreach ($data['tecnicos'] as $key_tecnico => $value_tecnico) {
+foreach ($data['data']['tecnicos'] as $key_tecnico => $value_tecnico) {
 	
 	$r=$this->mreportes->tecnico_getEncuestas($key_tecnico);	
 	if (!empty($r['solicitudes'])){
 	foreach ($r['solicitudes'] as $key_soli => $solicitud) {	
 		foreach ($solicitud->encuestas as $key => $value) {
-		@$suma[$key_tecnico][$value_tecnico][$key]=@$suma[$key_tecnico][$value_tecnico][$key]+$value;
+		@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key]=@$suma[$key_tecnico][$value_tecnico][$key]+$value;
 		}
 
 	}	
@@ -139,19 +143,9 @@ foreach ($data['tecnicos'] as $key_tecnico => $value_tecnico) {
 	echo '<pre>';
 	print_r($suma);
 	echo '</pre>';
-//print_r($data['tecnicos']);
-//$data['data'] = $this->mreportes->tecnico_getEncuestas($tid);
-//exit;
 
-
-			$data['data'] = $this->mreportes->supervisor_getEncuestas($tecnicos, array('supid' => $supid, 'nombres' => ''));
-
-			echo '<pre>';
-				print_r($data['data']);
-			echo '</pre>';
-
-			
-			$this->load->view('admin/reportes/supervisor_encuestas', $data);
+		
+	$this->load->view('admin/reportes/supervisor_encuestas', $data);
 		}
 		else
 			redirect('reportes');	
