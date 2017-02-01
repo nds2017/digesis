@@ -134,11 +134,6 @@ foreach ($data['data']['tecnicos'] as $key_tecnico => $value_tecnico) {
 	foreach ($r['solicitudes'] as $key_soli => $solicitud) {	
 		foreach ($solicitud->encuestas as $key => $value) {
 		@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key]=@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key]+$value;
-
-
-$promedio[$value_tecnico['id']]['promedio'][$key]=(@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key])/count((@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key]));
-
-
 		}
 
 	}	
@@ -147,9 +142,17 @@ $promedio[$value_tecnico['id']]['promedio'][$key]=(@$suma[$value_tecnico['id']][
 
 }
 
+foreach ($suma as $key => $value) {
+
+//$promedio[$key]['promedio'][$key]=(@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key])/5;
+
 	echo '<pre>';
-	print_r($promedio);
+	print_r($value);
 	echo '</pre>';
+
+}
+
+
 
 		
 	$this->load->view('admin/reportes/supervisor_encuestas', $data);
