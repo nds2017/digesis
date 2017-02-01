@@ -145,14 +145,8 @@ $promedio[$value_tecnico['id']]['promedio'][$key]=round((@$suma[$value_tecnico['
 	}	
 }
 
-
 }
-
-	echo '<pre>';
-	print_r($promedio);
-	echo '</pre>';
-
-		
+	$data['promedio']=$promedio;	
 	$this->load->view('admin/reportes/supervisor_encuestas', $data);
 		}
 		else
