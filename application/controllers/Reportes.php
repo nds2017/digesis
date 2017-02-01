@@ -121,9 +121,9 @@ class Reportes extends CI_Controller {
 			$data['supid'] = $supid;
 			$tecnicos = $this->mtecnicos->tecnicos_bySupervisor($supid);
 
-print_r($data['tecnicos']);
+//print_r($data['tecnicos']);
 //$data['data'] = $this->mreportes->tecnico_getEncuestas($tid);
-exit;
+//exit;
 
 
 			$data['data'] = $this->mreportes->supervisor_getEncuestas($tecnicos, array('supid' => $supid, 'nombres' => ''));
