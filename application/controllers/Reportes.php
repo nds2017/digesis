@@ -145,6 +145,11 @@ foreach ($data['tecnicos'] as $key_tecnico => $value_tecnico) {
 
 
 			$data['data'] = $this->mreportes->supervisor_getEncuestas($tecnicos, array('supid' => $supid, 'nombres' => ''));
+
+			echo '<pre>';
+				print_r($data['data']);
+			echo '</pre>';
+
 			
 			$this->load->view('admin/reportes/supervisor_encuestas', $data);
 		}
