@@ -132,7 +132,7 @@ foreach ($data['data']['tecnicos'] as $key_tecnico => $value_tecnico) {
 	if (!empty($r['solicitudes'])){
 	foreach ($r['solicitudes'] as $key_soli => $solicitud) {	
 		foreach ($solicitud->encuestas as $key => $value) {
-		@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key]=@$suma[$key_tecnico][$value_tecnico][$key]+$value;
+		@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key]=@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key]+$value;
 		}
 
 	}	
