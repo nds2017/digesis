@@ -188,11 +188,11 @@ foreach ($data['data']['supervisores'] as $key_sup => $value_sup) {
 		}
 
 		}
+	}
 		echo '<pre>';
 		print_r($promedio);
 		echo '</pre>';
 			$data['promedio']=$promedio;	
-
 
 			$data['jefeid'] = $jefeid;
 			$this->load->view('admin/reportes/jefe_encuestas', $data);
