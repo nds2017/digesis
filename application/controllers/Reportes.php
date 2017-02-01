@@ -124,10 +124,16 @@ class Reportes extends CI_Controller {
 
 foreach ($data['tecnicos'] as $key => $value) {
 	
-	$d=$this->mreportes->tecnico_getEncuestas($key);
+	$r=$this->mreportes->tecnico_getEncuestas($key);
+	foreach ($r['solicitudes'] as $key => $solicitud) {
+	
 	echo '<pre>';
-	print_r($d);
+	print_r($solicitud->encuestas);
 	echo '</pre>';
+		
+	}
+
+	
 
 }
 //print_r($data['tecnicos']);
