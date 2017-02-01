@@ -161,9 +161,38 @@ $promedio[$value_tecnico['id']]['promedio'][$key]=round((@$suma[$value_tecnico['
 			$supervisores = $this->msupervisores->supervisores_combo($jefeid);
 			$data['data'] = $this->mreportes->jefe_getEncuestas($supervisores, $jefeid);
 
-			echo '<pre>';
-			print_r($data['data']);
-			echo '</pre>';
+
+
+$suma=array();
+$promedio=array();
+$contador=array();
+foreach ($data['data']['supervisores'] as $key_sup => $value_sup) {
+
+
+		foreach ($value_sup['tecnicos'] as $key_tecnico => $value_tecnico) {
+			
+			$r=$this->mreportes->tecnico_getEncuestas($key_tecnico);	
+			if (!empty($r['solicitudes'])){
+
+			foreach ($r['solicitudes'] as $key_soli => $solicitud) {	
+				foreach ($solicitud->encuestas as $key => $value) {
+				@$suma[$key_sup][$value_tecnico['id']][$value_tecnico['nombres']][$key]=@$suma[$key_sup][$value_tecnico['id']][$value_tecnico['nombres']][$key]+$value;
+
+		@$contador[$key_sup][$value_tecnico['id']][$key]=@$contador[$key_sup][$value_tecnico['id']][$key]+1;
+
+		$promedio[$key_sup][$value_tecnico['id']]['promedio'][$key]=round((@$suma[$key_sup][$value_tecnico['id']][$value_tecnico['nombres']][$key])/@$contador[$key_sup][$value_tecnico['id']][$key],2);
+
+				}
+
+			}	
+		}
+
+		}
+		echo '<pre>';
+		print_r($promedio);
+		echo '</pre>';
+			$data['promedio']=$promedio;	
+
 
 			$data['jefeid'] = $jefeid;
 			$this->load->view('admin/reportes/jefe_encuestas', $data);
