@@ -127,6 +127,7 @@ class Reportes extends CI_Controller {
 			
 $suma=array();
 $promedio=array();
+$contador=array();
 foreach ($data['data']['tecnicos'] as $key_tecnico => $value_tecnico) {
 	
 	$r=$this->mreportes->tecnico_getEncuestas($key_tecnico);	
@@ -134,6 +135,12 @@ foreach ($data['data']['tecnicos'] as $key_tecnico => $value_tecnico) {
 	foreach ($r['solicitudes'] as $key_soli => $solicitud) {	
 		foreach ($solicitud->encuestas as $key => $value) {
 		@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key]=@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key]+$value;
+
+@$contador[$value_tecnico['id']][$key]=@$contador[$value_tecnico['id']][$key]+1;
+
+$promedio[$value_tecnico['id']]['promedio'][$key]=(@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key])/@$contador[$value_tecnico['id']][$key];
+
+
 		}
 
 	}	
@@ -142,22 +149,9 @@ foreach ($data['data']['tecnicos'] as $key_tecnico => $value_tecnico) {
 
 }
 
-foreach ($suma as $key => $row_tecnico) {
-
-//$promedio[$key]['promedio'][$key]=(@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key])/5;
-
-foreach ($row_tecnico as $key => $value) {
-
 	echo '<pre>';
-	print_r($value);
+	print_r($promedio);
 	echo '</pre>';
-
-}
-	
-
-}
-
-
 
 		
 	$this->load->view('admin/reportes/supervisor_encuestas', $data);
