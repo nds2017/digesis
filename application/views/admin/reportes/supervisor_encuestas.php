@@ -36,7 +36,7 @@
 						<td><strong>-</strong></td>
 						<td><strong><?=$tecnicos[$tid]?></strong></td>
 
-			<td><strong><?php $promedio[$tid]['1'] ?></strong></td>
+			<td><strong><?php print_r($promedio[$tid]) ?></strong></td>
 						<td><strong><?=isset($data_t['promedio'])?$data_t['promedio']:'-'?></strong></td>
 						<td><strong><?=isset($data_t['promedio'])?$data_t['promedio']:'-'?></strong></td>
 						<td><strong><?=isset($data_t['promedio'])?$data_t['promedio']:'-'?></strong></td>
