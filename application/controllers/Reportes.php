@@ -126,6 +126,7 @@ class Reportes extends CI_Controller {
 
 			
 $suma=array();
+$promedio=array();
 foreach ($data['data']['tecnicos'] as $key_tecnico => $value_tecnico) {
 	
 	$r=$this->mreportes->tecnico_getEncuestas($key_tecnico);	
@@ -133,6 +134,11 @@ foreach ($data['data']['tecnicos'] as $key_tecnico => $value_tecnico) {
 	foreach ($r['solicitudes'] as $key_soli => $solicitud) {	
 		foreach ($solicitud->encuestas as $key => $value) {
 		@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key]=@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key]+$value;
+
+
+$promedio[$value_tecnico['id']]['promedio'][$key]=(@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key])/5;
+
+
 		}
 
 	}	
@@ -140,8 +146,9 @@ foreach ($data['data']['tecnicos'] as $key_tecnico => $value_tecnico) {
 
 
 }
+
 	echo '<pre>';
-	print_r($suma);
+	print_r($promedio);
 	echo '</pre>';
 
 		
