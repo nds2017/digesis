@@ -134,13 +134,11 @@ foreach ($data['tecnicos'] as $key_tecnico => $value) {
 	}	
 }
 
+
+}
 	echo '<pre>';
 	print_r($suma);
 	echo '</pre>';
-
-	
-
-}
 //print_r($data['tecnicos']);
 //$data['data'] = $this->mreportes->tecnico_getEncuestas($tid);
 //exit;
