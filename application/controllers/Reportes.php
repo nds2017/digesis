@@ -142,13 +142,18 @@ foreach ($data['data']['tecnicos'] as $key_tecnico => $value_tecnico) {
 
 }
 
-foreach ($suma as $key => $value) {
+foreach ($suma as $key => $row_tecnico) {
 
 //$promedio[$key]['promedio'][$key]=(@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key])/5;
+
+foreach ($row_tecnico as $key => $value) {
 
 	echo '<pre>';
 	print_r($value);
 	echo '</pre>';
+
+}
+	
 
 }
 
