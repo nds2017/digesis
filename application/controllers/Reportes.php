@@ -160,6 +160,11 @@ $promedio[$value_tecnico['id']]['promedio'][$key]=round((@$suma[$value_tecnico['
 			$data['supervisores'] = $this->msupervisores->supervisores_combo();
 			$supervisores = $this->msupervisores->supervisores_combo($jefeid);
 			$data['data'] = $this->mreportes->jefe_getEncuestas($supervisores, $jefeid);
+
+			echo '<pre>';
+			print_r($data['data']);
+			echo '</pre>';
+
 			$data['jefeid'] = $jefeid;
 			$this->load->view('admin/reportes/jefe_encuestas', $data);
 		}

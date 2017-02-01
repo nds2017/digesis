@@ -42,11 +42,6 @@
 						<td><strong><?php echo $promedio[$tid]['promedio'][4]; ?></strong></td>
 						<td><strong><?php echo $promedio[$tid]['promedio'][5]; ?></strong></td>
 						<td><strong><?=isset($data_t['promedio'])?$data_t['promedio']:'-'?></strong></td>
-
-
-
-
-
 					</tr>
 
 					<?php } ?>
