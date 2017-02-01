@@ -117,10 +117,19 @@ class Reportes extends CI_Controller {
 		if ( is_numeric($supid) && ( $supid != 0 ) ) {
 			$data['header'] = $this->load->view('admin/menu/header', array('active' => 'encuestas' ));
 			$data['supervisores'] = $this->msupervisores->supervisores_combo();
-			$data['tecnicos'] = $this->mtecnicos->tecnicos_combo();
-			$data['supid'] = $supid;
-			$tecnicos = $this->mtecnicos->tecnicos_bySupervisor($supid);
+		$data['tecnicos'] = $this->mtecnicos->tecnicos_combo();
+		$data['supid'] = $supid;
+		$tecnicos = $this->mtecnicos->tecnicos_bySupervisor($supid);
 
+
+foreach ($data['tecnicos'] as $key => $value) {
+	
+	$d=$this->mreportes->tecnico_getEncuestas($key);
+	echo '<pre>';
+	print_r($d);
+	echo '</pre>';
+
+}
 //print_r($data['tecnicos']);
 //$data['data'] = $this->mreportes->tecnico_getEncuestas($tid);
 //exit;
