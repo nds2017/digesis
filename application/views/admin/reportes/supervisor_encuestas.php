@@ -36,11 +36,11 @@
 						<td><strong>-</strong></td>
 						<td><strong><?=$tecnicos[$tid]?></strong></td>
 
-			<td><strong><?php print_r($promedio[$tid]['promedio'][1]) ?></strong></td>
-						<td><strong><?=isset($data_t['promedio'])?$data_t['promedio']:'-'?></strong></td>
-						<td><strong><?=isset($data_t['promedio'])?$data_t['promedio']:'-'?></strong></td>
-						<td><strong><?=isset($data_t['promedio'])?$data_t['promedio']:'-'?></strong></td>
-						<td><strong><?=isset($data_t['promedio'])?$data_t['promedio']:'-'?></strong></td>
+			<td><strong><?php echo $promedio[$tid]['promedio'][1]; ?></strong></td>
+						<td><strong><?php echo $promedio[$tid]['promedio'][2]; ?></strong></td>
+						<td><strong><?php echo $promedio[$tid]['promedio'][3]; ?></strong></td>
+						<td><strong><?php echo $promedio[$tid]['promedio'][4]; ?></strong></td>
+						<td><strong><?php echo $promedio[$tid]['promedio'][5]; ?></strong></td>
 						<td><strong><?=isset($data_t['promedio'])?$data_t['promedio']:'-'?></strong></td>
 
 
