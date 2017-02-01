@@ -121,17 +121,20 @@ class Reportes extends CI_Controller {
 		$data['supid'] = $supid;
 		$tecnicos = $this->mtecnicos->tecnicos_bySupervisor($supid);
 
+$suma=array();
+foreach ($data['tecnicos'] as $key_tecnico => $value) {
+	
+	$r=$this->mreportes->tecnico_getEncuestas($key_tecnico);	
+	foreach ($r['solicitudes'] as $key => $solicitud) {	
+		foreach ($solicitud->encuestas as $key => $value) {
+		$suma[$key_tecnico][$key]	=$suma[$key]+$value;
+		}
 
-foreach ($data['tecnicos'] as $key => $value) {
-	
-	$r=$this->mreportes->tecnico_getEncuestas($key);
-	foreach ($r['solicitudes'] as $key => $solicitud) {
-	
-	echo '<pre>';
-	print_r($solicitud->encuestas);
-	echo '</pre>';
-		
 	}
+
+	echo '<pre>';
+	print_r($suma);
+	echo '</pre>';
 
 	
 
