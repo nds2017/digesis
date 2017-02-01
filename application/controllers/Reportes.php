@@ -120,6 +120,12 @@ class Reportes extends CI_Controller {
 			$data['tecnicos'] = $this->mtecnicos->tecnicos_combo();
 			$data['supid'] = $supid;
 			$tecnicos = $this->mtecnicos->tecnicos_bySupervisor($supid);
+
+print_r($data['tecnicos']);
+//$data['data'] = $this->mreportes->tecnico_getEncuestas($tid);
+exit;
+
+
 			$data['data'] = $this->mreportes->supervisor_getEncuestas($tecnicos, array('supid' => $supid, 'nombres' => ''));
 			
 			$this->load->view('admin/reportes/supervisor_encuestas', $data);
