@@ -136,7 +136,7 @@ foreach ($data['data']['tecnicos'] as $key_tecnico => $value_tecnico) {
 		@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key]=@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key]+$value;
 
 
-$promedio[$value_tecnico['id']]['promedio'][$key]=(@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key])/5;
+$promedio[$value_tecnico['id']]['promedio'][$key]=(@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key])/count((@$suma[$value_tecnico['id']][$value_tecnico['nombres']][$key]));
 
 
 		}
