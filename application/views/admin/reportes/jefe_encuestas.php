@@ -24,6 +24,11 @@
 				<tr>
 					<td><strong><?=$jefes[$jefeid]?></strong></td>
 					<td><strong>-</strong></td>
+					<td><strong>-</strong></td>
+					<td><strong>-</strong></td>
+					<td><strong>-</strong></td>
+					<td><strong>-</strong></td>
+					<td><strong>-</strong></td>
 					<td><strong><?=isset($data['promedio'])?$data['promedio']:'-'?></strong></td>
 				</tr>
 					<?php if ( isset($data['supervisores']) && count($data['supervisores']) ) { ?>
