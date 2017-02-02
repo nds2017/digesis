@@ -42,7 +42,7 @@
 						<td><strong><?php echo $promedio[$supid]['promedio'][3]; ?></strong></td>
 						<td><strong><?php echo $promedio[$supid]['promedio'][4]; ?></strong></td>
 						<td><strong><?php echo $promedio[$supid]['promedio'][5]; ?></strong></td>
-						<td><strong><?=isset($data_s['promedio'])?$data_t['promedio']:'-'?></strong></td>
+						<td><strong><?=isset($data_s['promedio'])?$data_s['promedio']:'-'?></strong></td>
 					</tr>
 					<?php } ?>
 					<?php } ?>
