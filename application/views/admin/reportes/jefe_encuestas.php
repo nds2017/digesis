@@ -11,6 +11,11 @@
 					<tr>
 						<th scope="col"><span>JEFE</span></th>
 						<th scope="col"><span>SUPERVISORES</span></th>
+						<th scope="col"><span>Preg. 1</span></th>
+						<th scope="col"><span>Preg. 2</span></th>
+						<th scope="col"><span>Preg. 3</span></th>
+						<th scope="col"><span>Preg. 4</span></th>
+						<th scope="col"><span>Preg. 5</span></th>
 						<th scope="col"><span>PROMEDIO</span></th>
 					</tr>
 				</thead>
@@ -26,6 +31,12 @@
 					<tr>
 						<td><strong>-</strong></td>
 						<td><strong><?=$supervisores[$supid]?></strong></td>
+
+						<td><strong><?=isset($data_s['promedio'])?$data_s['promedio']:'-'?></strong></td>
+						<td><strong><?=isset($data_s['promedio'])?$data_s['promedio']:'-'?></strong></td>
+						<td><strong><?=isset($data_s['promedio'])?$data_s['promedio']:'-'?></strong></td>
+						<td><strong><?=isset($data_s['promedio'])?$data_s['promedio']:'-'?></strong></td>
+						<td><strong><?=isset($data_s['promedio'])?$data_s['promedio']:'-'?></strong></td>
 						<td><strong><?=isset($data_s['promedio'])?$data_s['promedio']:'-'?></strong></td>
 					</tr>
 					<?php } ?>

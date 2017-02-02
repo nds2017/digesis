@@ -176,11 +176,11 @@ foreach ($data['data']['supervisores'] as $key_sup => $value_sup) {
 
 			foreach ($r['solicitudes'] as $key_soli => $solicitud) {	
 				foreach ($solicitud->encuestas as $key => $value) {
-				@$suma[$key_sup][$value_tecnico['id']][$value_tecnico['nombres']][$key]=@$suma[$key_sup][$value_tecnico['id']][$value_tecnico['nombres']][$key]+$value;
+				@$suma[$key_sup][$key]=@$suma[$key_sup][$key]+$value;
 
-		@$contador[$key_sup][$value_tecnico['id']][$key]=@$contador[$key_sup][$value_tecnico['id']][$key]+1;
+		@$contador[$key_sup][$key]=@$contador[$key_sup][$key]+1;
 
-		$promedio[$key_sup][$value_tecnico['id']]['promedio'][$key]=round((@$suma[$key_sup][$value_tecnico['id']][$value_tecnico['nombres']][$key])/@$contador[$key_sup][$value_tecnico['id']][$key],2);
+		$promedio[$key_sup]['promedio'][$key]=round((@$suma[$key_sup][$key])/@$contador[$key_sup][$key],2);
 
 				}
 
@@ -189,10 +189,10 @@ foreach ($data['data']['supervisores'] as $key_sup => $value_sup) {
 
 		}
 	}
-		/*echo '<pre>';
+		echo '<pre>';
 		print_r($promedio);
 		echo '</pre>';
-		*/
+		exit;
 			$data['promedio']=$promedio;	
 
 			$data['jefeid'] = $jefeid;
