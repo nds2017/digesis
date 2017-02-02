@@ -32,12 +32,12 @@
 						<td><strong>-</strong></td>
 						<td><strong><?=$supervisores[$supid]?></strong></td>
 
-						<td><strong><?=isset($data_s['promedio'])?$data_s['promedio']:'-'?></strong></td>
-						<td><strong><?=isset($data_s['promedio'])?$data_s['promedio']:'-'?></strong></td>
-						<td><strong><?=isset($data_s['promedio'])?$data_s['promedio']:'-'?></strong></td>
-						<td><strong><?=isset($data_s['promedio'])?$data_s['promedio']:'-'?></strong></td>
-						<td><strong><?=isset($data_s['promedio'])?$data_s['promedio']:'-'?></strong></td>
-						<td><strong><?=isset($data_s['promedio'])?$data_s['promedio']:'-'?></strong></td>
+						<td><strong><?php echo $promedio[$supid]['promedio'][1]; ?></strong></td>
+						<td><strong><?php echo $promedio[$supid]['promedio'][1]; ?></strong></td>
+						<td><strong><?php echo $promedio[$supid]['promedio'][1]; ?></strong></td>
+						<td><strong><?php echo $promedio[$supid]['promedio'][1]; ?></strong></td>
+						<td><strong><?php echo $promedio[$supid]['promedio'][1]; ?></strong></td>
+						<td><strong><?php echo $promedio[$supid]['promedio'][1]; ?></strong></td>
 					</tr>
 					<?php } ?>
 					<?php } ?>

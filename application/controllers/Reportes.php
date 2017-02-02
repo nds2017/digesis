@@ -189,10 +189,10 @@ foreach ($data['data']['supervisores'] as $key_sup => $value_sup) {
 
 		}
 	}
-		echo '<pre>';
+		/*echo '<pre>';
 		print_r($promedio);
 		echo '</pre>';
-		exit;
+		exit;*/
 			$data['promedio']=$promedio;	
 
 			$data['jefeid'] = $jefeid;
