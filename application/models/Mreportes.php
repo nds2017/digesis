@@ -9,7 +9,7 @@ class Mreportes extends CI_Model
 		$this->load->model('mtecnicos');
 	}
 
-	public function tecnico_getEncuestas($tid = null) {
+	public function tecnico_getEncuestas($tid = null, $fechas = null) {
 		$rows = array();
 		$this->db->select('s.id, s.fecha_instalacion');
 		$this->db->from('solicitudes s');
@@ -17,6 +17,12 @@ class Mreportes extends CI_Model
 		$this->db->where('s.estadoid', 2);
 		$where = "(st.t1id = $tid OR st.t2id = $tid)";
 		$this->db->where($where);
+
+		if ( is_array($fechas) && count($fechas) ) {
+			$this->db->where('s.fecha_instalacion >=', $fechas['desde']);
+			$this->db->where('s.fecha_instalacion <=', $fechas['hasta']);
+		}
+
 		$query = $this->db->get();
 		$rows['promedio'] = 0;
 		if ( $query->num_rows() > 0 ) {

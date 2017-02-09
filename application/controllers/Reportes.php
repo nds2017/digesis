@@ -101,10 +101,11 @@ class Reportes extends CI_Controller {
 		$this->load->view('admin/reportes/encuestas',$data);
 	}
 
-	public function tecnico_encuestas($tid = null) {
+	public function tecnico_encuestas($tid = null, $fecha_ini = null, $fecha_fin = null) {
 		if ( is_numeric($tid) && ( $tid != 0 ) ) {
+			$fechas = array('desde' => strtotime($fecha_ini), 'hasta' => strtotime($fecha_fin));
 			$data['header'] = $this->load->view('admin/menu/header', array('active' => 'encuestas' ));
-			$data['data'] = $this->mreportes->tecnico_getEncuestas($tid);
+			$data['data'] = $this->mreportes->tecnico_getEncuestas($tid, $fechas);
 			$data['tecnicos'] = $this->mtecnicos->tecnicos_combo();
 			$data['tid'] = $tid;
 			$this->load->view('admin/reportes/tecnico_encuestas', $data);
@@ -113,8 +114,9 @@ class Reportes extends CI_Controller {
 			redirect('reportes');
 	}
 
-	public function supervisor_encuestas($supid = null) {
+	public function supervisor_encuestas($supid = null, $fecha_ini = null, $fecha_fin = null) {
 		if ( is_numeric($supid) && ( $supid != 0 ) ) {
+			$fechas = array('desde' => strtotime($fecha_ini), 'hasta' => strtotime($fecha_fin));
 			$data['header'] = $this->load->view('admin/menu/header', array('active' => 'encuestas' ));
 			$data['supervisores'] = $this->msupervisores->supervisores_combo();
 		$data['tecnicos'] = $this->mtecnicos->tecnicos_combo();
@@ -130,7 +132,7 @@ $promedio=array();
 $contador=array();
 foreach ($data['data']['tecnicos'] as $key_tecnico => $value_tecnico) {
 	
-	$r=$this->mreportes->tecnico_getEncuestas($key_tecnico);	
+	$r=$this->mreportes->tecnico_getEncuestas($key_tecnico, $fechas);	
 	if (!empty($r['solicitudes'])){
 	foreach ($r['solicitudes'] as $key_soli => $solicitud) {	
 		foreach ($solicitud->encuestas as $key => $value) {
@@ -155,6 +157,7 @@ $promedio[$value_tecnico['id']]['promedio'][$key]=round((@$suma[$value_tecnico['
 
 	public function jefe_encuestas($jefeid = null, $fecha_ini = null, $fecha_fin = null) {
 		if ( is_numeric($jefeid) && ( $jefeid != 0 ) ) {
+			$fechas = array('desde' => strtotime($fecha_ini), 'hasta' => strtotime($fecha_fin));
 			$data['header'] = $this->load->view('admin/menu/header', array('active' => 'encuestas' ));
 			$data['jefes'] = $this->mjefes->jefes_combo();
 			$data['supervisores'] = $this->msupervisores->supervisores_combo();
@@ -171,7 +174,7 @@ foreach ($data['data']['supervisores'] as $key_sup => $value_sup) {
 
 		foreach ($value_sup['tecnicos'] as $key_tecnico => $value_tecnico) {
 			
-			$r=$this->mreportes->tecnico_getEncuestas($key_tecnico);	
+			$r=$this->mreportes->tecnico_getEncuestas($key_tecnico, $fechas);	
 			if (!empty($r['solicitudes'])){
 
 			foreach ($r['solicitudes'] as $key_soli => $solicitud) {	
