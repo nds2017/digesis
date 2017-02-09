@@ -169,7 +169,9 @@ $promedio[$value_tecnico['id']]['promedio'][$key]=round((@$suma[$value_tecnico['
 $suma=array();
 $promedio=array();
 $contador=array();
-foreach ($data['data']['supervisores'] as $key_sup => $value_sup) {
+
+	if ( @isset($data['data']['supervisores']) ) { 
+		foreach ($data['data']['supervisores'] as $key_sup => $value_sup) {
 
 
 		foreach ($value_sup['tecnicos'] as $key_tecnico => $value_tecnico) {
@@ -185,11 +187,12 @@ foreach ($data['data']['supervisores'] as $key_sup => $value_sup) {
 
 		$promedio[$key_sup]['promedio'][$key]=round((@$suma[$key_sup][$key])/@$contador[$key_sup][$key],2);
 
+					}
+
+					}	
 				}
 
-			}	
-		}
-
+			}
 		}
 	}
 		/*echo '<pre>';
