@@ -62,7 +62,7 @@
 					<td><strong>-</strong></td>
 					<td><strong>-</strong></td>
 					<td><strong><?=isset($data_j['promedio'])?$data_j['promedio']:'-'?></strong></td>
-					<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/jefe_encuestas/<?=$jefeid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
+					<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/jefe_encuestas/<?=$jefeid?>/<?=$desde?>/<?=$hasta?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 				</tr>
 					<?php if ( isset($data_j['supervisores']) && count($data_j['supervisores']) ) { ?>
 					<?php foreach ( $data_j['supervisores'] as $supid => $data_s ) { ?>
@@ -71,7 +71,7 @@
 						<td><strong><?=$data_s['nombres']?></strong></td>
 						<td><strong>-</strong></td>
 						<td><strong><?=isset($data_s['promedio'])?$data_s['promedio']:'-'?></strong></td>
-						<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/supervisor_encuestas/<?=$supid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
+						<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/supervisor_encuestas/<?=$supid?>/<?=$desde?>/<?=$hasta?>"><img src="<?=base_url()?>img/editar.png"></a></td>
 					</tr>
 					<?php } ?>
 						<?php if ( isset($data_s['tecnicos']) && count($data_s['tecnicos']) ) { ?>
@@ -81,7 +81,7 @@
 							<td><strong>-</strong></td>
 							<td><strong><?=$data_t['nombres']?></strong></td>
 							<td><strong><?=isset($data_t['promedio'])?$data_t['promedio']:'-'?></strong></td>
-							<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/tecnico_encuestas/<?=$tid?>"><img src="<?=base_url()?>img/editar.png"></a></td>
+							<td><a title="Ver Detalle" href="<?=base_url()?>index.php/reportes/tecnico_encuestas/<?=$tid?>">/<?=$desde?>/<?=$hasta?><img src="<?=base_url()?>img/editar.png"></a></td>
 						</tr>
 						<?php } ?>
 						<?php } ?>

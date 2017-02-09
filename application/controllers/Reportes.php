@@ -153,7 +153,7 @@ $promedio[$value_tecnico['id']]['promedio'][$key]=round((@$suma[$value_tecnico['
 			redirect('reportes');	
 	}
 
-	public function jefe_encuestas($jefeid = null) {
+	public function jefe_encuestas($jefeid = null, $fecha_ini = null, $fecha_fin = null) {
 		if ( is_numeric($jefeid) && ( $jefeid != 0 ) ) {
 			$data['header'] = $this->load->view('admin/menu/header', array('active' => 'encuestas' ));
 			$data['jefes'] = $this->mjefes->jefes_combo();
