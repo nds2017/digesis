@@ -29,7 +29,7 @@
 
 			<h1>Solicitudes Cargadas <?=date('d-m-Y')?></h1>
 			<?php
-				$this->db->query("DELETE FROM `usuarios` WHERE rolid <> 2 AND rolid <> 1");
+//				$this->db->query("DELETE FROM `penalidades`");
 
 			/*$fields = $this->db->list_fields('solicitudesprogramadas');
 foreach ($fields as $field)
