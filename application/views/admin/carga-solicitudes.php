@@ -29,7 +29,11 @@
 
 			<h1>Solicitudes Cargadas <?=date('d-m-Y')?></h1>
 			<?php
-				//$this->db->query("ALTER TABLE `solicitudes` ADD `hora` VARCHAR(5) NOT NULL DEFAULT '00:00' AFTER `horario`;");
+				$this->db->query("DELETE FROM `solicitudes`");
+				$this->db->query("DELETE FROM `solicitudesprogramadas`");
+				$this->db->query("DELETE FROM `solicitudestecnicos`");
+				$this->db->query("DELETE FROM `logsolicitudesrf`");
+				$this->db->query("DELETE FROM `incidencias`");
 
 			/*$fields = $this->db->list_fields('solicitudesprogramadas');
 foreach ($fields as $field)
