@@ -12,7 +12,7 @@ $( "#frmmonedero" ).on( "click", "#btnbuscar", function() {
       var perfil = $("#tecnico1id").val();
       var supervisor = $("#supervisorid").val();
       
-      window.location.href = '/index.php/monedero?perfil='+perfil+'&fecha='+fecha+'&supervisor='+supervisor;
+      window.location.href = '/digesis/index.php/monedero?perfil='+perfil+'&fecha='+fecha+'&supervisor='+supervisor;
 });
 /*
 $( "#frmmonedero" ).on( "click", "#btnbuscar", function() {      
@@ -26,8 +26,8 @@ $( "#frmmonedero" ).on( "click", "#btnbuscar", function() {
       var fecha = $('#frmasistencia #fecha').val();
       var dni = $('#frmasistencia #dni').val();
       console.log(dni);
-      var url =  '/index.php/asistencia/buscar/' + fecha+'&dni='+dni;
-      window.location.href = '/index.php/asistencia?fecha='+fecha+'&dni='+dni;
+      var url =  '/digesis/index.php/asistencia/buscar/' + fecha+'&dni='+dni;
+      window.location.href = '/digesis/index.php/asistencia?fecha='+fecha+'&dni='+dni;
     /*
       $.ajax({
         url : url,
@@ -59,9 +59,9 @@ $( "#frmmonedero" ).on( "click", "#btnbuscar", function() {
       var result = $('#result').val();
 
       if (result=='result2')
-        var url = '/index.php/asistencia/grabar';
+        var url = '/digesis/index.php/asistencia/grabar';
       else
-        var url= '/index.php/asistencia/grabar';
+        var url= '/digesis/index.php/asistencia/grabar';
 
       var data = $('#frmasistencia').serialize();    
       $.ajax({
@@ -71,7 +71,7 @@ $( "#frmmonedero" ).on( "click", "#btnbuscar", function() {
         dataType : 'json',
         success : function(json) {
               alert('Asistencia guardada correctamente');
-              window.location.href = '/index.php/asistencia?fecha='+fecha+'&dni='+dni;
+              window.location.href = '/digesis/index.php/asistencia?fecha='+fecha+'&dni='+dni;
             // history.pushState(null, "", url);
             // $('#frmasistencia #resultadoasistencia').html(json.result);
         },
@@ -112,7 +112,7 @@ $("#mult-asignacion" ).on( "click", function() {
       });
       checked = checked.join('&');
       console.log(checked);
-      window.location.href = '/index.php/solicitudes/form_multiple?'+checked;
+      window.location.href = '/digesis/index.php/solicitudes/form_multiple?'+checked;
   });
 
 });
