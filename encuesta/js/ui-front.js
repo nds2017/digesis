@@ -337,7 +337,7 @@ if($(".cont-login.thanks").length!==0){
 				if ( evento == 'rechazar') {
 					value = $("#rechazar .active").attr('value');
 					if ( value ) {
-						$.post( "../index.php/encuestas/rechazar",
+						$.post( "../digesis/index.php/encuestas/rechazar",
 							{
 								motivoid : value,
 								sid : $("#reject-sid").val()
@@ -355,7 +355,7 @@ if($(".cont-login.thanks").length!==0){
 				else if ( evento == 'pendiente' ) {
 					value = $("#pendientes .active").attr('value');
 					if ( value ) {
-						$.post( "../index.php/encuestas/pendiente",
+						$.post( "../digesis/index.php/encuestas/pendiente",
 							{
 								motivoid : value,
 								sid : $("#client-sid").val()
@@ -373,9 +373,9 @@ if($(".cont-login.thanks").length!==0){
 				else if ( evento == 'validar' ) {
 					value = $("#encuestar .active").attr('value');
 					if ( value == 'iniciar' )
-						location.href = "/index.php/encuestas/indicaciones/" + $("#test-sid").val() + '?dni=' + $_GET('dni');
+						location.href = "/digesis/index.php/encuestas/indicaciones/" + $("#test-sid").val() + '?dni=' + $_GET('dni');
 					else if ( value == 'denegar' ) {
-						$.post( "../index.php/encuestas/denegar",
+						$.post( "../digesis/index.php/encuestas/denegar",
 							{
 								sid : $("#test-sid").val()
 							},
@@ -394,7 +394,7 @@ if($(".cont-login.thanks").length!==0){
 					vtiempo = $("#reprogramar .active").attr('value');
 					vmotivo = $(".reason .active").attr('value');
 					if ( date && vtiempo && vmotivo ) {
-						$.post( "../index.php/encuestas/reprogramar",
+						$.post( "../digesis/index.php/encuestas/reprogramar",
 							{
 								motivoid : vmotivo,
 								tiempo : vtiempo,
@@ -412,7 +412,7 @@ if($(".cont-login.thanks").length!==0){
 						alert('Todos los formularios deben ser seleccionados');
 				}
 				else if ( evento == 'detalle' ) {					
-					location.href = "/index.php/encuestas/detalle/" +'?dni=' + $_GET('dni');
+					location.href = "/digesis/index.php/encuestas/detalle/" +'?dni=' + $_GET('dni');
 				}
 
 
